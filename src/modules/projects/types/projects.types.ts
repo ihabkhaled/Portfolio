@@ -1,6 +1,9 @@
 import type { Route } from 'next';
 import type { ReactNode } from 'react';
 
+import type { RepositorySnapshot } from '@/modules/github-profile';
+import type { AppLocale } from '@/packages/i18n';
+
 /** Filter facets shown on the projects index. `all` is the default facet. */
 export const PROJECT_CATEGORIES = [
   'all',
@@ -63,4 +66,11 @@ export interface ProjectRowProps {
   readonly metrics: ReactNode;
   readonly caseStudyHref: Route | null;
   readonly caseStudyLabel: string | null;
+}
+
+export interface ProjectListContainerProps {
+  readonly locale: AppLocale;
+  readonly projects: readonly Project[];
+  readonly snapshots: readonly RepositorySnapshot[];
+  readonly now: Date;
 }

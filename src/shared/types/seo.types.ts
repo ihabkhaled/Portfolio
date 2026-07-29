@@ -1,5 +1,7 @@
 import type { AppLocale } from '@/packages/i18n';
 
+import type { I18nNamespace } from '../i18n/i18n-namespaces.constants';
+
 export interface SeoMetadataInput {
   readonly locale: AppLocale;
   readonly path: string;
@@ -7,4 +9,15 @@ export interface SeoMetadataInput {
   readonly description: string;
   readonly keywords: readonly string[];
   readonly socialImageAlt: string;
+}
+
+export interface RouteMetadataInput {
+  readonly locale: AppLocale;
+  readonly path: string;
+  readonly namespace: I18nNamespace;
+  readonly titleKey: string;
+  readonly descriptionKey: string;
+  readonly keywords?: readonly string[];
+  /** Home already carries the full name; branding it again would repeat it. */
+  readonly brandTitle?: boolean;
 }

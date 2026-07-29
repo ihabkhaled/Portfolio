@@ -276,3 +276,5 @@ export const CURATED_REPOSITORY_NAMES: readonly string[] = PROJECTS.flatMap((pro
 
 /** Days within which a repository still counts as recently active. */
 export const RECENT_ACTIVITY_DAYS = 120;
+
+export const MILLISECONDS_PER_DAY = 86_400_000;

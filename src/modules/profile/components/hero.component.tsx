@@ -7,7 +7,7 @@ import type { HeroProps } from '../types/profile.types';
 export function Hero(props: HeroProps): ReactElement {
   return (
     <div className={heroClasses.wrapper}>
-      <div className={heroClasses.grid} aria-hidden="true" />
+      <div className={heroClasses.grid} aria-hidden />
       <div className={heroClasses.inner}>
         <div className={heroClasses.content}>
           <p className={heroClasses.eyebrow}>{props.eyebrow}</p>

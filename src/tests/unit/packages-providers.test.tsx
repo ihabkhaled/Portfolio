@@ -42,7 +42,7 @@ describe('AppIntlProvider', () => {
       </AppIntlProvider>,
     );
 
-    expect(screen.getByText('Strict Next Ranger')).toBeInTheDocument();
+    expect(screen.getByText('Ihab Khaled')).toBeInTheDocument();
   });
 });
 

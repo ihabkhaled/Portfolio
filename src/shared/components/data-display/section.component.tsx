@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 
 import type {
   ManifestPanelProps,
+  ManifestRowProps,
   PageIntroProps,
   SectionProps,
 } from '../types/shared-component.types';
@@ -35,18 +36,19 @@ export function PageIntro(props: PageIntroProps): ReactElement {
   );
 }
 
-/** Label/value metadata rows — the recurring manifest motif. */
-export function ManifestPanel(props: ManifestPanelProps): ReactElement {
+/** One label/value row — the recurring manifest motif. */
+export function ManifestRow(props: ManifestRowProps): ReactElement {
   return (
-    <dl className={manifestClasses.panel}>
-      {props.rows.map((row) => (
-        <div key={row.label} className={manifestClasses.row}>
-          <dt className={manifestClasses.label}>{row.label}</dt>
-          <dd className={row.mono === true ? manifestClasses.valueMono : manifestClasses.value}>
-            {row.value}
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <div className={manifestClasses.row}>
+      <dt className={manifestClasses.label}>{props.label}</dt>
+      <dd className={props.mono === true ? manifestClasses.valueMono : manifestClasses.value}>
+        {props.value}
+      </dd>
+    </div>
   );
+}
+
+/** Wraps pre-rendered `ManifestRow` elements. The caller owns the `.map()`. */
+export function ManifestPanel(props: ManifestPanelProps): ReactElement {
+  return <dl className={manifestClasses.panel}>{props.rows}</dl>;
 }

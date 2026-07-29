@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
-import { indexSnapshotsByName, type RepositorySnapshot } from '@/modules/github-profile';
-import { getServerTranslations, type AppLocale } from '@/packages/i18n';
+import { indexSnapshotsByName } from '@/modules/github-profile';
+import { getServerTranslations } from '@/packages/i18n';
 import { Badge } from '@/packages/ui-primitives';
 import { buildProjectPath } from '@/shared/constants/route-paths.constants';
 import { buildLocalizedPath } from '@/shared/helpers/localized-route.helper';
@@ -10,14 +10,7 @@ import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 import { ProjectRow } from '../components/project-row.component';
 import { projectRowClasses } from '../constants/projects-style.constants';
 import { isRecentlyActive } from '../helpers/project-filter.helper';
-import type { Project } from '../types/projects.types';
-
-interface ProjectListContainerProps {
-  readonly locale: AppLocale;
-  readonly projects: readonly Project[];
-  readonly snapshots: readonly RepositorySnapshot[];
-  readonly now: Date;
-}
+import type { ProjectListContainerProps } from '../types/projects.types';
 
 /**
  * Renders the editorial project rows. Live GitHub metadata is layered on top of

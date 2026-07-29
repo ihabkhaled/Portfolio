@@ -8,10 +8,14 @@ import {
   PROJECTS,
   selectFeaturedProjects,
 } from '@/modules/projects';
-import { getServerTranslations, type AppLocale } from '@/packages/i18n';
+import { getServerTranslations } from '@/packages/i18n';
 import { AppLink, ExternalLink } from '@/packages/link';
 import { buttonVariants } from '@/packages/ui-primitives';
-import { ManifestPanel, Section } from '@/shared/components/data-display/section.component';
+import {
+  ManifestPanel,
+  ManifestRow,
+  Section,
+} from '@/shared/components/data-display/section.component';
 import { sectionClasses } from '@/shared/components/data-display/section.variants';
 import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 import { buildLocalizedPath } from '@/shared/helpers/localized-route.helper';
@@ -19,23 +23,22 @@ import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 import { Hero } from '../components/hero.component';
 import {
+  HOME_APPROACH_STEPS,
+  HOME_CAPABILITIES,
+  HOME_FEATURED_LIMIT,
+  HOME_SECTION_IDS,
+} from '../constants/home.constants';
+import {
   approachClasses,
   capabilityClasses,
   contactCtaClasses,
   heroClasses,
   indicatorClasses,
 } from '../constants/profile-style.constants';
-import {
-  HOME_APPROACH_STEPS,
-  HOME_CAPABILITIES,
-  HOME_FEATURED_LIMIT,
-  HOME_SECTION_IDS,
-} from '../constants/home.constants';
 import { PUBLIC_PROFILE } from '../constants/profile.constants';
+import type { HomePageContainerProps } from '../types/profile.types';
 
-export async function HomePageContainer(props: {
-  readonly locale: AppLocale;
-}): Promise<ReactElement> {
+export async function HomePageContainer(props: HomePageContainerProps): Promise<ReactElement> {
   const { locale } = props;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.home });
   const tApp = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.app });
@@ -58,18 +61,21 @@ export async function HomePageContainer(props: {
     email: tContact('emailLabel'),
   };
 
+  const heroManifestData = [
+    { label: t('profileLabels.location'), value: tAbout('locationValue') },
+    { label: t('profileLabels.focus'), value: t('focusValue') },
+    {
+      label: t('profileLabels.stack'),
+      value: 'TypeScript · Node.js · NestJS · React · Next.js',
+      mono: true,
+    },
+    { label: t('profileLabels.languages'), value: tAbout('languagesValue') },
+  ];
   const heroAside = (
     <ManifestPanel
-      rows={[
-        { label: t('profileLabels.location'), value: tAbout('locationValue') },
-        { label: t('profileLabels.focus'), value: t('focusValue') },
-        {
-          label: t('profileLabels.stack'),
-          value: 'TypeScript · Node.js · NestJS · React · Next.js',
-          mono: true,
-        },
-        { label: t('profileLabels.languages'), value: tAbout('languagesValue') },
-      ]}
+      rows={heroManifestData.map((row) => (
+        <ManifestRow key={row.label} {...row} />
+      ))}
     />
   );
 
@@ -98,10 +104,13 @@ export async function HomePageContainer(props: {
     </li>
   ));
 
-  const experiencePreview = EXPERIENCE_ROLES.map((role) => ({
-    label: role.organisation,
-    value: `${role.title} · ${formatDateRange(role, locale, tExperience('present'))}`,
-  }));
+  const experienceRows = EXPERIENCE_ROLES.map((role) => (
+    <ManifestRow
+      key={role.id}
+      label={role.organisation}
+      value={`${role.title} · ${formatDateRange(role, locale, tExperience('present'))}`}
+    />
+  ));
 
   return (
     <>
@@ -187,7 +196,7 @@ export async function HomePageContainer(props: {
           title={t('experienceTitle')}
           lead={t('experienceLead')}
         >
-          <ManifestPanel rows={experiencePreview} />
+          <ManifestPanel rows={experienceRows} />
           <AppLink
             href={buildLocalizedPath(locale, ROUTE_PATHS.experience)}
             className={sectionClasses.moreLink}

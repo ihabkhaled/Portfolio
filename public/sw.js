@@ -1,5 +1,5 @@
 /* global self, caches, URL, fetch, Response */
-const CACHE_PREFIX = 'next-ranger-offline-';
+const CACHE_PREFIX = 'ihab-khaled-offline-';
 const CACHE_NAME = `${CACHE_PREFIX}v1`;
 const LOCALES = [
   'en',
@@ -16,8 +16,20 @@ const LOCALES = [
   'pt',
   'ko',
   'tr',
+  'ru',
+  'id',
+  'nl',
 ];
-const PUBLIC_PATHS = ['', '/about', '/features', '/faq', '/contact', '/offline'];
+const PUBLIC_PATHS = [
+  '',
+  '/experience',
+  '/projects',
+  '/skills',
+  '/about',
+  '/resume',
+  '/contact',
+  '/offline',
+];
 const OFFLINE_URLS = LOCALES.map((locale) => `/${locale}/offline`);
 const PRECACHE_URLS = [...OFFLINE_URLS, '/icons/icon-192.png', '/icons/icon-512.png'];
 
@@ -59,7 +71,9 @@ function isPublicNavigationPath(pathname) {
   const segments = pathname.split('/').filter(Boolean);
   const locale = segments.shift();
   if (!LOCALES.includes(locale)) return false;
-  return PUBLIC_PATHS.includes(segments.length === 0 ? '' : `/${segments.join('/')}`);
+  if (segments.length === 0) return PUBLIC_PATHS.includes('');
+  if (segments[0] === 'projects') return true;
+  return PUBLIC_PATHS.includes(`/${segments.join('/')}`);
 }
 
 self.addEventListener('fetch', (event) => {

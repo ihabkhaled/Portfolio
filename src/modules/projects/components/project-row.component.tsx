@@ -6,12 +6,9 @@ import { Badge } from '@/packages/ui-primitives';
 import { projectRowClasses } from '../constants/projects-style.constants';
 import type { ProjectRowProps } from '../types/projects.types';
 
-/**
- * One editorial row. The whole row is a single link to the case study when one
- * exists; external links sit outside it so they never nest inside an anchor.
- */
-export function ProjectRow(props: ProjectRowProps): ReactElement {
-  const body = (
+/** The row's metadata and copy. Rendered inside either a link or a plain div. */
+export function ProjectRowBody(props: ProjectRowProps): ReactElement {
+  return (
     <>
       <div className={projectRowClasses.head}>
         <div className={projectRowClasses.titleRow}>
@@ -19,7 +16,7 @@ export function ProjectRow(props: ProjectRowProps): ReactElement {
           <Badge tone={props.isOpenSource ? 'brand' : 'neutral'}>{props.kindLabel}</Badge>
           {props.isRecentlyActive ? (
             <Badge tone="success">
-              <span className={projectRowClasses.dot} aria-hidden="true" />
+              <span className={projectRowClasses.dot} aria-hidden />
               {props.recentlyActiveLabel}
             </Badge>
           ) : null}
@@ -36,15 +33,23 @@ export function ProjectRow(props: ProjectRowProps): ReactElement {
       </div>
     </>
   );
+}
 
+/**
+ * One editorial row. The whole row is a single link to the case study when one
+ * exists; external links sit outside it so they never nest inside an anchor.
+ */
+export function ProjectRow(props: ProjectRowProps): ReactElement {
   return (
     <li className={projectRowClasses.item}>
-      <span className={projectRowClasses.accent} aria-hidden="true" />
+      <span className={projectRowClasses.accent} aria-hidden />
       {props.caseStudyHref === null ? (
-        <div className={projectRowClasses.link}>{body}</div>
+        <div className={projectRowClasses.link}>
+          <ProjectRowBody {...props} />
+        </div>
       ) : (
         <AppLink href={props.caseStudyHref} className={projectRowClasses.link}>
-          {body}
+          <ProjectRowBody {...props} />
         </AppLink>
       )}
     </li>

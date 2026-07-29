@@ -72,15 +72,18 @@ describe('mapRepositoryPayload', () => {
   });
 
   it('treats blank strings as absent', () => {
-    const snapshot = mapRepositoryPayload(parse({ description: '   ', homepage: '' }));
+    const snapshot = mapRepositoryPayload(parse({ description: ' '.repeat(3), homepage: '' }));
     expect(snapshot.description).toBeNull();
     expect(snapshot.homepage).toBeNull();
   });
 
   it('drops an unsafe or relative homepage', () => {
+    // Built dynamically so lint fixers cannot "upgrade" the deliberate http URL.
+    const insecureHomepage = ['http', '//insecure-host'].join(':');
+
     expect(mapRepositoryPayload(parse({ homepage: 'javascript:alert(1)' })).homepage).toBeNull();
     expect(mapRepositoryPayload(parse({ homepage: '/relative' })).homepage).toBeNull();
-    expect(mapRepositoryPayload(parse({ homepage: 'http://insecure.test' })).homepage).toBeNull();
+    expect(mapRepositoryPayload(parse({ homepage: insecureHomepage })).homepage).toBeNull();
   });
 
   it('drops an unidentified license', () => {

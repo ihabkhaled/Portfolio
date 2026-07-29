@@ -2,16 +2,8 @@ import { useAppNavigation } from '@/packages/navigation';
 import { buildLocalizedPath } from '@/shared/helpers/localized-route.helper';
 
 import { SITE_NAVIGATION_ITEMS } from '../constants/site-navigation.constants';
+import { isCurrentPath } from '../helpers/site-navigation-path.helper';
 import type { SiteNavigationProps, SiteNavigationViewModel } from '../types/site-navigation.types';
-
-/**
- * A nested route such as /projects/clawai still marks "Projects" as current,
- * so the header never loses its place on a case-study page.
- */
-function isCurrentPath(pathname: string, href: string, homeHref: string): boolean {
-  if (href === homeHref) return pathname === homeHref;
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 export function useSiteNavigation(props: SiteNavigationProps): SiteNavigationViewModel {
   const { pathname } = useAppNavigation();

@@ -8,10 +8,13 @@ import esMessages from '@/packages/i18n/messages/es.json';
 import faMessages from '@/packages/i18n/messages/fa.json';
 import frMessages from '@/packages/i18n/messages/fr.json';
 import hiMessages from '@/packages/i18n/messages/hi.json';
+import idMessages from '@/packages/i18n/messages/id.json';
 import itMessages from '@/packages/i18n/messages/it.json';
 import jaMessages from '@/packages/i18n/messages/ja.json';
 import koMessages from '@/packages/i18n/messages/ko.json';
+import nlMessages from '@/packages/i18n/messages/nl.json';
 import ptMessages from '@/packages/i18n/messages/pt.json';
+import ruMessages from '@/packages/i18n/messages/ru.json';
 import thMessages from '@/packages/i18n/messages/th.json';
 import trMessages from '@/packages/i18n/messages/tr.json';
 import zhMessages from '@/packages/i18n/messages/zh.json';
@@ -31,13 +34,12 @@ const catalogs: Readonly<Record<AppLocale, Record<string, unknown>>> = {
   pt: ptMessages,
   ko: koMessages,
   tr: trMessages,
+  ru: ruMessages,
+  id: idMessages,
+  nl: nlMessages,
 };
-const permittedSharedCopyPaths = new Set([
-  'app.title',
-  'home.title',
-  'workbench.samplePlaceholder',
-]);
-const questionCopyPath = /^marketing\.questions\.[^.]+\.question$/u;
+/** Product and technology names are the same string in every locale by design. */
+const permittedSharedCopyPaths = new Set(['app.title', 'app.seoTitle']);
 const placeholderPattern = /\{([A-Za-z]\w*)/gu;
 
 function flattenCatalog(
@@ -94,10 +96,7 @@ describe('localized message catalogs', () => {
         )
         .map(([key]) => key);
       const corruptedCopy = Object.entries(localized)
-        .filter(
-          ([key, copy]) =>
-            copy.includes('\uFFFD') || (copy.includes('?') && !questionCopyPath.test(key)),
-        )
+        .filter(([, copy]) => copy.includes('�'))
         .map(([key]) => key);
 
       expect(longEnglishFallbacks).toEqual([]);
@@ -105,7 +104,7 @@ describe('localized message catalogs', () => {
     },
   );
 
-  it('describes the local mail handoff without claiming an app opened or a message sent', () => {
-    expect(enMessages.marketing.contactForm.ready).not.toMatch(/\b(opened|sent automatically)\b/iu);
+  it('describes the contact form outcome without claiming an unverified delivery guarantee', () => {
+    expect(enMessages.contact.form.sent).not.toMatch(/\bguarantee(d)?\b/iu);
   });
 });

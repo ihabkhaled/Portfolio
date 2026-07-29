@@ -39,10 +39,10 @@ describe('useAppNavigation', () => {
   it('exposes the current pathname', () => {
     const router = buildRouterStub();
     const { result } = renderHook(() => useAppNavigation(), {
-      wrapper: buildWrapper(router, '/articles'),
+      wrapper: buildWrapper(router, '/projects'),
     });
 
-    expect(result.current.pathname).toBe('/articles');
+    expect(result.current.pathname).toBe('/projects');
   });
 
   it('delegates push/replace/back/refresh to the router', () => {
@@ -52,12 +52,12 @@ describe('useAppNavigation', () => {
     });
 
     result.current.push(ROUTE_PATHS.home);
-    result.current.replace(ROUTE_PATHS.settings);
+    result.current.replace(ROUTE_PATHS.skills);
     result.current.back();
     result.current.refresh();
 
     expect(router.push).toHaveBeenCalledWith('/');
-    expect(router.replace).toHaveBeenCalledWith('/settings');
+    expect(router.replace).toHaveBeenCalledWith('/skills');
     expect(router.back).toHaveBeenCalledTimes(1);
     expect(router.refresh).toHaveBeenCalledTimes(1);
   });

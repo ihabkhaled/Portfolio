@@ -15,14 +15,12 @@ import { githubRepositorySchema } from '../schemas/github.schema';
 import type { RepositorySnapshot } from '../types/github.types';
 
 function buildHeaders(token: string | null): Record<string, string> {
-  const headers: Record<string, string> = {
+  const baseHeaders: Record<string, string> = {
     Accept: GITHUB_ACCEPT_HEADER,
     'X-GitHub-Api-Version': GITHUB_API_VERSION_HEADER,
   };
-  if (token !== null) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-  return headers;
+
+  return token === null ? baseHeaders : { ...baseHeaders, Authorization: `Bearer ${token}` };
 }
 
 /**

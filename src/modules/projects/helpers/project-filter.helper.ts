@@ -1,7 +1,5 @@
-import { RECENT_ACTIVITY_DAYS } from '../constants/projects.constants';
+import { MILLISECONDS_PER_DAY, RECENT_ACTIVITY_DAYS } from '../constants/projects.constants';
 import type { Project, ProjectCategory } from '../types/projects.types';
-
-const MILLISECONDS_PER_DAY = 86_400_000;
 
 /**
  * Filters by facet. `all` is the identity filter, so the index renders the

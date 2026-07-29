@@ -65,7 +65,7 @@ describe('buttonVariants', () => {
       buttonVariants({ variant: 'secondary' }),
     );
     expect(buttonVariants({ size: 'sm' })).toContain('h-9');
-    expect(buttonVariants({ size: 'lg' })).toContain('h-13');
+    expect(buttonVariants({ size: 'lg' })).toContain('h-12');
   });
 });
 

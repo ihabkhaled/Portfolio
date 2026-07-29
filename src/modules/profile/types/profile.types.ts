@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import type { AppLocale } from '@/packages/i18n';
+
 /** Stable identifier for a public professional link. */
 export type ProfileLinkId = 'github' | 'linkedin' | 'email';
 
@@ -32,6 +34,10 @@ export interface PublicProfile {
   readonly portraitPath: string | null;
   readonly availabilityEnabled: boolean;
   readonly indicators: readonly ExperienceIndicator[];
+}
+
+export interface HomePageContainerProps {
+  readonly locale: AppLocale;
 }
 
 export interface HeroProps {

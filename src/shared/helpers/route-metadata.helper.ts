@@ -1,21 +1,10 @@
 import type { Metadata } from 'next';
 
-import { getServerTranslations, setServerLocale, type AppLocale } from '@/packages/i18n';
-import type { I18nNamespace } from '@/shared/i18n/i18n-namespaces.constants';
+import { getServerTranslations, setServerLocale } from '@/packages/i18n';
+import type { RouteMetadataInput } from '@/shared/types/seo.types';
 
 import { buildPageTitle } from './page-title.helper';
 import { buildSeoMetadata } from './seo-metadata.helper';
-
-export interface RouteMetadataInput {
-  readonly locale: AppLocale;
-  readonly path: string;
-  readonly namespace: I18nNamespace;
-  readonly titleKey: string;
-  readonly descriptionKey: string;
-  readonly keywords?: readonly string[];
-  /** Home already carries the full name; branding it again would repeat it. */
-  readonly brandTitle?: boolean;
-}
 
 /**
  * Builds fully localized metadata for one route: branded title, translated

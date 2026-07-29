@@ -1,56 +1,22 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { AppLink } from '@/packages/link';
 import { PageHeader } from '@/shared/components/data-display/page-header.component';
-import { AppHeader } from '@/shared/components/layout/app-header.component';
 import { SkipLink } from '@/shared/components/primitives/skip-link.component';
 import { VisuallyHidden } from '@/shared/components/primitives/visually-hidden.component';
 
-describe('AppHeader', () => {
-  it('renders brand, labelled navigation, and optional actions', () => {
-    render(
-      <AppHeader
-        homeLabel="Strict Next Ranger"
-        navLandmarkLabel="Primary"
-        testId="app-header"
-        navItems={<AppLink href="/articles">Articles</AppLink>}
-        actions={<button type="button">Sign in</button>}
-      />,
-    );
-
-    expect(screen.getByTestId('app-header')).toBeInTheDocument();
-    expect(screen.getByText('Strict Next Ranger')).toBeInTheDocument();
-    expect(screen.getByRole('navigation', { name: 'Primary' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Articles' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Sign in' })).toBeInTheDocument();
-  });
-
-  it('omits the actions slot when not provided', () => {
-    render(
-      <AppHeader
-        homeLabel="Brand"
-        navLandmarkLabel="Primary"
-        navItems={<a href="#main">Home</a>}
-      />,
-    );
-
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
-  });
-});
-
 describe('PageHeader', () => {
   it('renders the h1 with an optional subtitle', () => {
-    render(<PageHeader title="Articles" subtitle="Reference module" />);
+    render(<PageHeader title="Projects" subtitle="Selected work" />);
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Articles' })).toBeInTheDocument();
-    expect(screen.getByText('Reference module')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: 'Projects' })).toBeInTheDocument();
+    expect(screen.getByText('Selected work')).toBeInTheDocument();
   });
 
   it('omits the subtitle when absent', () => {
-    render(<PageHeader title="Articles" />);
+    render(<PageHeader title="Projects" />);
 
-    expect(screen.queryByText('Reference module')).not.toBeInTheDocument();
+    expect(screen.queryByText('Selected work')).not.toBeInTheDocument();
   });
 });
 

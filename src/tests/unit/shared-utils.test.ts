@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildGatewayPath } from '@/shared/api/api-routes.constants';
 import { buildPageTitle } from '@/shared/helpers/page-title.helper';
 import { mapSchemaIssuesToFieldErrors } from '@/shared/mappers/schema-issues-to-field-errors.mapper';
 import { isSafeExternalUrl } from '@/shared/security/external-url.helper';
@@ -26,21 +25,15 @@ describe('assertNever', () => {
 
 describe('buildPageTitle', () => {
   it('joins section and app name', () => {
-    expect(buildPageTitle('Articles')).toBe('Articles · Strict Next Ranger');
+    expect(buildPageTitle('Projects')).toBe('Projects · Ihab Khaled');
   });
 
   it('returns just the app name for blank sections', () => {
-    expect(buildPageTitle(' '.repeat(3))).toBe('Strict Next Ranger');
-  });
-});
-
-describe('buildGatewayPath', () => {
-  it('prefixes the gateway route', () => {
-    expect(buildGatewayPath('articles')).toBe('/api/gateway/articles');
+    expect(buildPageTitle(' '.repeat(3))).toBe('Ihab Khaled');
   });
 
-  it('normalizes leading slashes', () => {
-    expect(buildGatewayPath('/auth/login')).toBe('/api/gateway/auth/login');
+  it('does not repeat the app name when the section title already is it', () => {
+    expect(buildPageTitle('Ihab Khaled')).toBe('Ihab Khaled');
   });
 });
 

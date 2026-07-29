@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import type { MouseEvent, ReactNode } from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { BreadcrumbContainer, SiteNavigationContainer } from '@/modules/site-navigation';
+import { SiteNavigationContainer } from '@/modules/site-navigation';
 import { ShellControlsContainer, useUiPreferencesStore } from '@/modules/ui-preferences';
 import { useAppNavigation } from '@/packages/navigation';
 import { AppDirection } from '@/shared/enums/app-direction.enum';
@@ -12,14 +12,12 @@ import { AppRouterStubProvider, buildRouterStub } from '@/tests/helpers/app-rout
 
 const labels = {
   home: 'Home',
+  experience: 'Experience',
+  projects: 'Projects',
+  skills: 'Skills',
   about: 'About',
-  features: 'Features',
-  faq: 'FAQ',
+  resume: 'Resume',
   contact: 'Contact',
-  articles: 'Articles',
-  settings: 'Settings',
-  workbench: 'Workbench',
-  login: 'Sign in',
 } as const;
 const MOBILE_MENU_TEST_ID = 'mobile-navigation-test';
 
@@ -35,19 +33,29 @@ describe('site navigation', () => {
   it('marks the current localized route semantically', () => {
     const router = buildRouterStub();
     const wrapper = ({ children }: Readonly<{ children: ReactNode }>) => (
-      <AppRouterStubProvider router={router} pathname="/en/features">
+      <AppRouterStubProvider router={router} pathname="/en/projects">
         {children}
       </AppRouterStubProvider>
     );
     const view = renderHook(() => useAppNavigation(), { wrapper });
-    expect(view.result.current.pathname).toBe('/en/features');
+    expect(view.result.current.pathname).toBe('/en/projects');
     render(
-      <AppRouterStubProvider router={router} pathname="/en/features">
-        <SiteNavigationContainer locale="en" labels={labels} scope="marketing" />
+      <AppRouterStubProvider router={router} pathname="/en/projects">
+        <SiteNavigationContainer locale="en" labels={labels} scope="primary" />
       </AppRouterStubProvider>,
     );
 
-    expect(screen.getByRole('link', { name: 'Features' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('marks a nested case-study route as current on its parent Projects link', () => {
+    render(
+      <AppRouterStubProvider router={buildRouterStub()} pathname="/en/projects/clawai">
+        <SiteNavigationContainer locale="en" labels={labels} scope="primary" />
+      </AppRouterStubProvider>,
+    );
+
+    expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('aria-current', 'page');
   });
 
   it('closes an open mobile navigation menu after selecting a route', async () => {
@@ -56,7 +64,7 @@ describe('site navigation', () => {
       <AppRouterStubProvider router={buildRouterStub()} pathname="/en">
         <details open data-testid={MOBILE_MENU_TEST_ID} onClickCapture={preventTestNavigation}>
           <summary>Menu</summary>
-          <SiteNavigationContainer locale="en" labels={labels} scope="marketing" />
+          <SiteNavigationContainer locale="en" labels={labels} scope="all" />
         </details>
       </AppRouterStubProvider>,
     );
@@ -72,7 +80,7 @@ describe('site navigation', () => {
     const user = userEvent.setup();
     const router = buildRouterStub();
     render(
-      <AppRouterStubProvider router={router} pathname="/en/features">
+      <AppRouterStubProvider router={router} pathname="/en/projects">
         <ShellControlsContainer
           locale="en"
           localeLabel="Change language"
@@ -87,31 +95,20 @@ describe('site navigation', () => {
 
     expect(themeButton).toBeInTheDocument();
     await user.selectOptions(localeSelect, 'ar');
-    expect(router.replace).toHaveBeenCalledWith('/ar/features');
+    expect(router.replace).toHaveBeenCalledWith('/ar/projects');
     expect(useUiPreferencesStore.getState().direction).toBe(AppDirection.Rtl);
     await user.click(themeButton);
     expect(useUiPreferencesStore.getState().theme).toBe(AppTheme.Dark);
   });
 
-  it('renders a localized current-page breadcrumb outside the home route', () => {
+  it('renders only the footer scope of navigation items', () => {
     render(
-      <AppRouterStubProvider router={buildRouterStub()} pathname="/en/features">
-        <BreadcrumbContainer locale="en" labels={labels} />
+      <AppRouterStubProvider router={buildRouterStub()} pathname="/en">
+        <SiteNavigationContainer locale="en" labels={labels} scope="footer" />
       </AppRouterStubProvider>,
     );
 
-    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/en');
-    expect(screen.getByText('Features')).toHaveAttribute('aria-current', 'page');
-  });
-
-  it('keeps the breadcrumb to home only for unknown routes', () => {
-    render(
-      <AppRouterStubProvider router={buildRouterStub()} pathname="/en/unknown">
-        <BreadcrumbContainer locale="en" labels={labels} />
-      </AppRouterStubProvider>,
-    );
-
-    expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument();
-    expect(screen.queryByText('Features')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Home' })).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Projects' })).toBeInTheDocument();
   });
 });

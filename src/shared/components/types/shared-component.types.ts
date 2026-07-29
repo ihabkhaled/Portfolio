@@ -28,14 +28,17 @@ export interface PageIntroProps {
   readonly lead: string;
 }
 
-export interface ManifestRow {
+export interface ManifestRowData {
   readonly label: string;
   readonly value: ReactNode;
   readonly mono?: boolean;
 }
 
+export type ManifestRowProps = ManifestRowData;
+
 export interface ManifestPanelProps {
-  readonly rows: readonly ManifestRow[];
+  /** Pre-rendered `ManifestRow` elements — the caller owns the `.map()`. */
+  readonly rows: ReactNode;
 }
 
 export interface LoadingStateProps {
@@ -60,14 +63,6 @@ export interface FormFieldProps {
   readonly label: string;
   readonly error?: string | undefined;
   readonly children: ReactNode;
-}
-
-export interface AppHeaderProps {
-  readonly homeLabel: string;
-  readonly navLandmarkLabel: string;
-  readonly navItems: ReactNode;
-  readonly actions?: ReactNode;
-  readonly testId?: string;
 }
 
 export interface SiteShellProps {

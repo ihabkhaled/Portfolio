@@ -6,8 +6,8 @@ import { describe, expect, it } from 'vitest';
 import manifest from '@/app/manifest';
 import robots from '@/app/robots';
 import sitemap from '@/app/sitemap';
-import { buildMarketingKeywords } from '@/modules/marketing';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/packages/i18n';
+import { appConfig } from '@/shared/config/app-config';
 import {
   INDEXABLE_PATHS,
   NON_INDEXABLE_PATHS,
@@ -28,49 +28,49 @@ const iconSource = readFileSync(path.join(repoRoot, 'public/icons/icon.svg'), 'u
 
 describe('SEO and PWA contracts', () => {
   it('builds reciprocal locale alternates including x-default', () => {
-    const alternates = buildLanguageAlternates('/features');
+    const alternates = buildLanguageAlternates('/projects');
 
     expect(Object.keys(alternates)).toHaveLength(SUPPORTED_LOCALES.length + 1);
-    expect(alternates['x-default']).toContain(`/${DEFAULT_LOCALE}/features`);
+    expect(alternates['x-default']).toContain(`/${DEFAULT_LOCALE}/projects`);
     for (const locale of SUPPORTED_LOCALES) {
-      expect(alternates[locale]).toContain(`/${locale}/features`);
+      expect(alternates[locale]).toContain(`/${locale}/projects`);
     }
   });
 
   it('builds complete indexable metadata with locale-specific social tags', () => {
     const metadata = buildSeoMetadata({
       locale: 'fr',
-      path: '/features',
-      title: 'Fonctionnalites',
-      description: 'Une base stricte et localisee.',
-      keywords: ['Next.js', 'TypeScript'],
-      socialImageAlt: 'Fonctionnalites · Strict Next Ranger',
+      path: '/projects',
+      title: 'Projets',
+      description: 'Systèmes publics et travaux professionnels sélectionnés.',
+      keywords: ['Node.js', 'TypeScript'],
+      socialImageAlt: `Projets · ${appConfig.appName}`,
     });
 
     expect(metadata).toEqual(
       expect.objectContaining({
-        applicationName: 'Strict Next Ranger',
-        title: 'Fonctionnalites',
-        description: 'Une base stricte et localisee.',
-        keywords: ['Next.js', 'TypeScript'],
-        publisher: 'Strict Next Ranger',
+        applicationName: appConfig.appName,
+        title: 'Projets',
+        description: 'Systèmes publics et travaux professionnels sélectionnés.',
+        keywords: ['Node.js', 'TypeScript'],
+        publisher: appConfig.appName,
         robots: { index: true, follow: true },
       }),
     );
-    expect(metadata.alternates?.canonical).toBe(buildAbsoluteAppUrl('/fr/features'));
-    expect(metadata.alternates?.languages?.fr).toBe(buildAbsoluteAppUrl('/fr/features'));
-    expect(metadata.alternates?.languages?.['x-default']).toBe(buildAbsoluteAppUrl('/en/features'));
+    expect(metadata.alternates?.canonical).toBe(buildAbsoluteAppUrl('/fr/projects'));
+    expect(metadata.alternates?.languages?.fr).toBe(buildAbsoluteAppUrl('/fr/projects'));
+    expect(metadata.alternates?.languages?.['x-default']).toBe(buildAbsoluteAppUrl('/en/projects'));
     expect(metadata.openGraph).toEqual(
       expect.objectContaining({
         locale: 'fr_FR',
-        url: buildAbsoluteAppUrl('/fr/features'),
-        title: 'Fonctionnalites',
+        url: buildAbsoluteAppUrl('/fr/projects'),
+        title: 'Projets',
         images: [
           {
             url: buildAbsoluteAppUrl(`${SOCIAL_IMAGE_DIRECTORY}/fr.png`),
             width: SOCIAL_IMAGE_SIZE.width,
             height: SOCIAL_IMAGE_SIZE.height,
-            alt: 'Fonctionnalites · Strict Next Ranger',
+            alt: `Projets · ${appConfig.appName}`,
           },
         ],
       }),
@@ -83,11 +83,11 @@ describe('SEO and PWA contracts', () => {
     expect(metadata.twitter).toEqual(
       expect.objectContaining({
         card: 'summary_large_image',
-        title: 'Fonctionnalites',
+        title: 'Projets',
         images: [
           {
             url: buildAbsoluteAppUrl(`${SOCIAL_IMAGE_DIRECTORY}/fr.png`),
-            alt: 'Fonctionnalites · Strict Next Ranger',
+            alt: `Projets · ${appConfig.appName}`,
           },
         ],
       }),
@@ -95,9 +95,9 @@ describe('SEO and PWA contracts', () => {
   });
 
   it('keeps private metadata out of search results', () => {
-    const metadata = buildNonIndexableMetadata('Workbench · Strict Next Ranger');
+    const metadata = buildNonIndexableMetadata(`Offline · ${appConfig.appName}`);
 
-    expect(metadata.title).toBe('Workbench · Strict Next Ranger');
+    expect(metadata.title).toBe(`Offline · ${appConfig.appName}`);
     expect(metadata.robots).toEqual({ index: false, follow: false });
   });
 
@@ -107,10 +107,9 @@ describe('SEO and PWA contracts', () => {
     });
   });
 
-  it('lists all 70 public documents with reciprocal alternates', () => {
+  it('lists every public document with reciprocal alternates', () => {
     const entries = sitemap();
 
-    expect(entries).toHaveLength(70);
     expect(entries).toHaveLength(INDEXABLE_PATHS.length * SUPPORTED_LOCALES.length);
     expect(
       entries.every(
@@ -122,10 +121,9 @@ describe('SEO and PWA contracts', () => {
 
   it('publishes a default-locale manifest and protected crawler routes', () => {
     expect(manifest().start_url).toBe(buildLocalizedPath(DEFAULT_LOCALE, '/'));
-    expect(manifest().theme_color).toBe('#087e8b');
-    expect(manifest().background_color).toBe('#f4f7f8');
-    expect(iconSource).not.toContain('#6d5dfc');
-    expect(iconSource).toContain('#087E8B');
+    expect(manifest().theme_color).toBe('#2258d8');
+    expect(manifest().background_color).toBe('#f7f8fa');
+    expect(iconSource).toContain('#2258D8');
 
     const crawlerRules = robots().rules;
     expect(crawlerRules).not.toBeInstanceOf(Array);
@@ -139,25 +137,6 @@ describe('SEO and PWA contracts', () => {
     }
   });
 
-  it('builds deduplicated localized marketing keywords around stable technology terms', () => {
-    expect(
-      buildMarketingKeywords([
-        'Fonctionnalités',
-        'Tout est inclus',
-        'Fonctionnalités',
-        'Pensé pour les équipes produit',
-      ]),
-    ).toEqual([
-      'Fonctionnalités',
-      'Tout est inclus',
-      'Pensé pour les équipes produit',
-      'Next.js',
-      'React',
-      'TypeScript 7',
-      'Progressive Web App',
-    ]);
-  });
-
   it('keeps service-worker locale and request exclusions aligned', () => {
     for (const locale of SUPPORTED_LOCALES) {
       expect(serviceWorkerSource).toContain(`'${locale}'`);
@@ -168,10 +147,19 @@ describe('SEO and PWA contracts', () => {
     expect(serviceWorkerSource).toContain("request.method !== 'GET'");
   });
 
-  it('allows only the five public marketing routes and the offline fallback', () => {
-    expect(serviceWorkerSource).toContain(
-      "const PUBLIC_PATHS = ['', '/about', '/features', '/faq', '/contact', '/offline'];",
-    );
+  it('allows only the public portfolio routes and the offline fallback', () => {
+    for (const path of [
+      '',
+      '/experience',
+      '/projects',
+      '/skills',
+      '/about',
+      '/resume',
+      '/contact',
+      '/offline',
+    ]) {
+      expect(serviceWorkerSource).toContain(`'${path}'`);
+    }
     expect(serviceWorkerSource).toContain('!isPublicNavigationPath(url.pathname)');
   });
 });

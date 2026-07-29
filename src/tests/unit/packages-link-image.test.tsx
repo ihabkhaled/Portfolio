@@ -7,11 +7,11 @@ import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 
 describe('AppLink', () => {
   it('renders an anchor with the typed route href', () => {
-    render(<AppLink href={ROUTE_PATHS.articles}>Articles</AppLink>);
+    render(<AppLink href={ROUTE_PATHS.projects}>Projects</AppLink>);
 
-    const anchor = screen.getByRole('link', { name: 'Articles' });
+    const anchor = screen.getByRole('link', { name: 'Projects' });
 
-    expect(anchor).toHaveAttribute('href', '/articles');
+    expect(anchor).toHaveAttribute('href', '/projects');
   });
 
   it('forwards className, aria-label, and data-testid', () => {

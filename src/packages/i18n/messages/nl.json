@@ -1,0 +1,346 @@
+{
+  "app": {
+    "title": "Ihab Khaled",
+    "seoTitle": "Ihab Khaled | Senior Software Engineer, Backend & Full-Stack",
+    "role": "Senior Software Engineer",
+    "description": "Senior Software Engineer working across backend, full-stack and integrations.",
+    "skipToContent": "Skip to main content",
+    "loading": "Loading…",
+    "localeSwitchLabel": "Change language",
+    "themeSwitchLabel": "Change colour theme",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "downloadCv": "Download CV",
+    "downloadCvHint": "PDF, opens in a new tab",
+    "externalLinkHint": "Opens in a new tab",
+    "footerNote": "Building scalable systems, secure APIs, microservices and production-ready web and mobile applications.",
+    "menu": "Menu"
+  },
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact",
+    "landmarkLabel": "Primary",
+    "menu": "Menu"
+  },
+  "home": {
+    "eyebrow": "Backend, Full-Stack & Integrations",
+    "tagline": "I architect, build, integrate, test and deploy production software.",
+    "valueProp": "Eight years across healthcare, AI, cybersecurity, smart manufacturing, B2B platforms and consumer applications — from requirements and architecture through to deployment and production support.",
+    "ctaProjects": "View projects",
+    "ctaContact": "Contact me",
+    "indicatorsTitle": "At a glance",
+    "indicators": {
+      "javascript": "{years}+ years JavaScript",
+      "node": "{years}+ years Node.js",
+      "typescript": "{years}+ years TypeScript",
+      "delivery": "End-to-end product delivery"
+    },
+    "profileLabels": {
+      "location": "Location",
+      "focus": "Focus",
+      "stack": "Core stack",
+      "languages": "Languages"
+    },
+    "focusValue": "Backend architecture, integrations, AI platforms",
+    "capabilitiesEyebrow": "Capabilities",
+    "capabilitiesTitle": "What I build and operate",
+    "capabilitiesLead": "The work spans system design, implementation and the production life that follows.",
+    "capabilities": {
+      "backend": "Backend architecture",
+      "fullstack": "Full-stack development",
+      "apis": "APIs and integrations",
+      "microservices": "Microservices",
+      "events": "Event-driven systems",
+      "ai": "AI and LLM integrations",
+      "data": "Databases and caching",
+      "cloud": "Cloud and DevOps",
+      "testing": "Testing and quality",
+      "security": "Security and production support"
+    },
+    "featuredEyebrow": "Selected work",
+    "featuredTitle": "Recent projects",
+    "featuredLead": "Publicly available systems I designed and built, with live repository activity where it exists.",
+    "featuredAll": "All projects",
+    "experienceEyebrow": "Experience",
+    "experienceTitle": "Where I have worked",
+    "experienceLead": "Employed roles and independent engineering work, kept separate so overlapping dates stay clear.",
+    "experienceAll": "Full experience",
+    "approachEyebrow": "How I work",
+    "approachTitle": "From requirement to running system",
+    "approachLead": "A sequence, not a slogan — each step produces something the next one depends on.",
+    "approach": {
+      "plan": {
+        "title": "Plan",
+        "description": "Turn requirements into scope, constraints and estimates."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Model the domain, the workflows and the failure cases."
+      },
+      "architect": {
+        "title": "Architect",
+        "description": "Set boundaries, contracts and data flow before code."
+      },
+      "implement": {
+        "title": "Implement",
+        "description": "Build backend and frontend against those contracts."
+      },
+      "test": {
+        "title": "Test",
+        "description": "Unit, integration and system tests as work proceeds."
+      },
+      "deploy": {
+        "title": "Deploy",
+        "description": "Containerised delivery through CI/CD pipelines."
+      },
+      "operate": {
+        "title": "Operate",
+        "description": "Monitor, troubleshoot, tune and harden what is live."
+      }
+    },
+    "contactEyebrow": "Contact",
+    "contactTitle": "Open to senior engineering conversations",
+    "contactLead": "The quickest route is email. I read every message and reply to those that fit."
+  },
+  "experience": {
+    "eyebrow": "Career",
+    "title": "Experience",
+    "description": "Roles, responsibilities and the systems behind them.",
+    "employmentTitle": "Employment",
+    "independentTitle": "Independent engineering",
+    "present": "Present",
+    "highlightsLabel": "Selected responsibilities",
+    "stackLabel": "Stack",
+    "roles": {
+      "oncare": {
+        "summary": "Backend and full-stack engineering on myoncare, a Class IIa medical device under EU MDR that lets patients share treatment plans, medication and activity data with their care teams.",
+        "highlights": {
+          "one": "Built backend services with Node.js, NestJS and Express across MySQL and MongoDB, covering secure storage, API integrations and performance work.",
+          "two": "Delivered web and mobile features in React, React Native and Capacitor, with platform-specific work in Kotlin and Swift.",
+          "three": "Integrated health and wearable data sources including FHIR and Withings.",
+          "four": "Upgraded backend services and dependencies to keep security and performance standards current.",
+          "five": "Reviewed code, fixed production defects and contributed to sprint planning and estimation."
+        }
+      },
+      "garment": {
+        "summary": "Smart-manufacturing platform helping garment factories digitise operations, track production and monitor performance from real-time shop-floor data.",
+        "highlights": {
+          "one": "Developed backend features in Node.js, PHP and Laravel for business logic, data management and integrations.",
+          "two": "Built React interfaces for operational dashboards and production tracking.",
+          "three": "Integrated third-party tools and devices to extend platform capability.",
+          "four": "Deployed releases and maintained tooling on CentOS servers.",
+          "five": "Worked directly with clients on feature planning, estimation and demos."
+        }
+      },
+      "eseed": {
+        "summary": "Web and mobile delivery for startups, NGOs and businesses, with a focus on maintainable, user-friendly solutions.",
+        "highlights": {
+          "one": "Built backend features with Node.js, MySQL and Spring Boot.",
+          "two": "Developed responsive interfaces with React, HTML5, CSS, Bootstrap and jQuery.",
+          "three": "Integrated third-party APIs and delivered WordPress-based content projects.",
+          "four": "Contributed across the full development lifecycle within Agile practices."
+        }
+      },
+      "freelance": {
+        "summary": "End-to-end delivery for clients across fintech, healthcare, SaaS, B2B procurement, security and consumer products — from requirements analysis through to production support.",
+        "highlights": {
+          "one": "Designed and shipped full-stack systems: backend services, REST APIs, frontend interfaces and mobile applications.",
+          "two": "Implemented authentication, role-based access control, payments, real-time synchronisation and multi-tenant isolation.",
+          "three": "Built event-driven workflows with background jobs, message queues and streaming.",
+          "four": "Led refactoring, legacy modernisation, performance optimisation and regression testing.",
+          "five": "Set up containerised deployments, CI/CD pipelines and production monitoring.",
+          "six": "Enforced engineering standards with strict TypeScript, linting, testing and pre-commit gates."
+        }
+      }
+    }
+  },
+  "projects": {
+    "eyebrow": "Work",
+    "title": "Projects",
+    "description": "Public systems and selected professional work.",
+    "filtersLabel": "Filter projects by category",
+    "filters": {
+      "all": "All",
+      "ai": "AI",
+      "backend": "Backend",
+      "fullstack": "Full-stack",
+      "mobile": "Mobile",
+      "security": "Security",
+      "healthcare": "Healthcare",
+      "platforms": "Platforms",
+      "integrations": "Integrations",
+      "opensource": "Open source"
+    },
+    "roleLabel": "Role",
+    "stackLabel": "Stack",
+    "categoryLabel": "Category",
+    "repositoryLabel": "Repository",
+    "liveLabel": "Live site",
+    "caseStudy": "View case study",
+    "backToProjects": "All projects",
+    "professionalLabel": "Selected professional work",
+    "openSourceLabel": "Open-source project",
+    "professionalNote": "Employer-owned system. The source is not public.",
+    "empty": "No projects match this filter.",
+    "overviewTitle": "Overview",
+    "architectureTitle": "Architecture",
+    "engineeringTitle": "Engineering",
+    "items": {
+      "clawai": {
+        "summary": "A local-first AI orchestration platform that runs open models on your own machine and routes each prompt to the most suitable one.",
+        "role": "Architected and built the platform end to end — microservices backend, orchestration layer and web workspace.",
+        "overview": "Claw gives a team one workspace to manage, route, compare and operate many AI models at once. It prioritises private local inference through Ollama and llama.cpp, while still reaching cloud providers when a task needs them, so sensitive prompts can stay on hardware the organisation controls.",
+        "architecture": "A NestJS microservices backend sits behind a Next.js workspace, with PostgreSQL for relational data, MongoDB for documents, Redis for caching and queues for background work. A provider abstraction puts local and cloud models behind one interface, which is what makes routing, fallback and comparison possible without special-casing each vendor.",
+        "engineering": "The interesting problems were routing and trust: choosing a model per prompt, falling back when a provider degrades, and running comparison, consensus and judge workflows over several answers. Around that sit memory and context packs, workspace grounding, file processing, permission-aware tool execution for connected business tools, provider credential handling and health aggregation."
+      },
+      "auraspear": {
+        "summary": "An AI-first, multi-tenant SOC platform unifying SIEM, SOAR and threat intelligence in one investigation workspace.",
+        "role": "Designed and implemented the platform: tenant isolation model, RBAC, investigation workflows and AI-assisted analysis.",
+        "overview": "AuraSpear brings alerts, cases, incidents, hunts, intelligence enrichment and detection engineering into a single governed workspace. It is built for teams that serve several tenants at once, where one customer's data must never be reachable from another's session.",
+        "architecture": "Next.js and NestJS over PostgreSQL with Prisma, Redis for caching, and OpenSearch for log search at volume. Wazuh and MISP feed detections and threat intelligence, and AWS Bedrock backs the AI reasoning. Tenant isolation is enforced in the data layer rather than the UI, and every connector credential is handled server-side.",
+        "engineering": "The core work was making multi-tenancy and RBAC unavoidable rather than optional — scoping every query, every job and every AI call to a tenant. On top of that sits alert triage, case management, threat hunting, intelligence enrichment, and AI assistance woven into the investigation rather than bolted on beside it."
+      },
+      "foodorder": {
+        "summary": "A mobile-first collaborative ordering app where a group shares one order and the cost splits fairly and transparently.",
+        "role": "Built the application end to end: architecture, data model, offline behaviour, bilingual UI and mobile packaging.",
+        "overview": "One person opens a shared bucket, invites others, and everyone adds their own items. When the order closes, each participant sees exactly what they owe, with delivery fees distributed fairly instead of guessed at. It runs as a web app and ships to Android and iOS from the same codebase.",
+        "architecture": "React, TypeScript and Vite, packaged with Capacitor for Android and iOS. Firebase Authentication handles identity and Cloud Firestore stores buckets, invitations and contributions, with its offline persistence letting people keep adding items on a weak connection and reconcile later.",
+        "engineering": "The demanding parts were correctness and fairness: role-scoped collaboration, per-member contributions, immutable order snapshots at closing time, and receipt and fee distribution that has to be right to the last unit. Full Arabic and English support including RTL was part of the design from the start, not retrofitted, and the flows are covered by cross-browser and mobile tests."
+      },
+      "twinzyai": {
+        "summary": "A privacy-focused AI style and vibe game that reads visible traits from a photo without ever identifying anyone.",
+        "role": "Built the full stack and designed the privacy pipeline that keeps image data out of storage entirely.",
+        "overview": "Players upload a photo and get a playful reading of their visible style and vibe, which they can share through a temporary link. The whole product is designed around a constraint: it must be fun without becoming a face-recognition tool.",
+        "architecture": "A Next.js front end with a NestJS and Fastify API, containerised with Docker, calling Gemini for analysis. The pipeline validates the image, extracts visible traits, discards the image buffer immediately, and every stage after that works on text only.",
+        "engineering": "The privacy properties are the feature: no facial recognition, no identity matching, no image persistence, and text-only processing once traits are extracted. Around that sit secure image validation, safety gates on generated content, expiring share links, bilingual Arabic and English support, and a mobile-first PWA build."
+      },
+      "nextranger": {
+        "summary": "A strict Next.js engineering base where architectural decisions are enforced by tooling instead of documented and forgotten.",
+        "role": "Author. Designed the architecture model, the custom ESLint rule set and the quality gates.",
+        "overview": "NextRanger is the starting point I use for serious frontend work. Its premise is that conventions a team agrees to but cannot enforce will erode, so every rule that matters is expressed as a lint rule, a type, or a failing test rather than a paragraph in a README.",
+        "architecture": "Next.js App Router with Server Components by default, strict TypeScript, and a module-first layout with one-way dependencies: routes depend on modules, modules on shared code, shared on vendor wrappers, and never the reverse. Each third-party package has exactly one owning wrapper, so upgrades and error handling live in a single reviewed file.",
+        "engineering": "A custom ESLint plugin enforces the layer policy, package ownership, TSX-only components and translation coverage. Vitest and Playwright cover unit, integration, end-to-end, accessibility and visual testing, alongside internationalisation with RTL, a nonce-based CSP, and CI gates that run the whole set before anything merges."
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "Capabilities",
+    "title": "Skills",
+    "description": "Grouped by depth of production experience, not by percentage.",
+    "note": "These tiers describe how much production work sits behind each technology. Nothing here is scored, because a score would not mean anything.",
+    "evidenceLabel": "Where it shows up",
+    "tiers": {
+      "primary": {
+        "name": "Primary expertise",
+        "definition": "Daily working tools. I design, build, debug and review these without reference material."
+      },
+      "strong": {
+        "name": "Strong production experience",
+        "definition": "Shipped and maintained in production systems, comfortably and repeatedly."
+      },
+      "working": {
+        "name": "Working experience",
+        "definition": "Used to deliver real features, with the depth the task required."
+      },
+      "foundational": {
+        "name": "Foundational knowledge",
+        "definition": "Understood at concept level from study or limited project use. Not claimed as expertise."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "About",
+    "description": "Background, approach and how I prefer to work.",
+    "paragraphs": {
+      "one": "I am a senior software engineer based in Egypt, working mainly in backend and integration engineering with Node.js, TypeScript and NestJS, and comfortable across the full stack with React and Next.js.",
+      "two": "Most of my work has been on systems that have to keep running: a Class IIa medical platform under EU MDR, a manufacturing platform fed by real-time shop-floor data, and multi-tenant platforms where isolation between customers is a correctness requirement rather than a feature.",
+      "three": "I like the parts of the job that happen before and after the code — turning a vague requirement into a concrete design, drawing the boundaries a system will live with for years, and then owning what happens when it is live at three in the morning.",
+      "four": "I value clean architecture, maintainability and continuous learning, and I try to balance strong engineering standards against what the business actually needs to ship."
+    },
+    "locationLabel": "Based in",
+    "locationValue": "Giza, Egypt",
+    "languagesLabel": "Languages",
+    "educationLabel": "Education",
+    "educationValue": "BSc Computer Science, Misr University for Science & Technology (2012–2016)",
+    "languagesValue": "Arabic (native), English (fluent), French (basic)"
+  },
+  "resume": {
+    "eyebrow": "Resume",
+    "title": "Resume",
+    "description": "A summary of experience, with the full CV available as a PDF.",
+    "downloadTitle": "Download the full CV",
+    "downloadNote": "The public PDF omits personal contact details that do not belong on a public page. Email me if you need anything further.",
+    "summaryTitle": "Summary",
+    "summary": "Senior Software Engineer with eight years of experience across backend, full-stack and integration work. Node.js, TypeScript, NestJS, React and Next.js, with production delivery in healthcare, AI, security, manufacturing and B2B platforms.",
+    "experienceTitle": "Experience",
+    "skillsTitle": "Core skills",
+    "educationTitle": "Education"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "description": "Email is the fastest way to reach me.",
+    "emailLabel": "Email",
+    "copyEmail": "Copy email address",
+    "copied": "Email address copied",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "cvLabel": "Curriculum vitae",
+    "availabilityTitle": "Availability",
+    "availabilityNote": "Open to selected senior engineering opportunities.",
+    "directTitle": "Direct",
+    "formTitle": "Send a message",
+    "formNote": "Goes straight to my inbox. Nothing is stored.",
+    "form": {
+      "emailLabel": "Your email address",
+      "subjectLabel": "Subject",
+      "messageLabel": "Message",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "sent": "Message sent. I will reply to the address you gave.",
+      "error": "The message could not be sent. Please email me directly instead.",
+      "unavailable": "The message form is not available right now. Please email me directly."
+    }
+  },
+  "github": {
+    "recentlyActive": "Recently active",
+    "stars": "{count, plural, one {# star} other {# stars}}",
+    "forks": "{count, plural, one {# fork} other {# forks}}",
+    "updated": "Updated {date}",
+    "licenseLabel": "Licence",
+    "languageLabel": "Language"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "You appear to be offline. Check your connection.",
+    "timeout": "The request took too long. Please try again.",
+    "notFound": "The requested resource was not found.",
+    "unauthorized": "You need to sign in to continue.",
+    "forbidden": "You do not have access to this resource.",
+    "server": "The server had a problem. Please try again later.",
+    "validation": "Some fields need attention."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred.",
+    "retry": "Try again"
+  },
+  "pwa": {
+    "offlineTitle": "You are offline",
+    "offlineDescription": "Reconnect to continue. Pages you have already visited remain available on this device."
+  }
+}

@@ -24,6 +24,9 @@ describe('locale constants', () => {
       'pt',
       'ko',
       'tr',
+      'ru',
+      'id',
+      'nl',
     ]);
     expect(DEFAULT_LOCALE).toBe('en');
   });
