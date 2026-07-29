@@ -1,0 +1,206 @@
+{
+  "app": {
+    "title": "Strict Next Ranger",
+    "description": "A strict Next.js frontend operating system.",
+    "skipToContent": "Skip to main content",
+    "loading": "Loading…",
+    "localeSwitchLabel": "Change language",
+    "localeNameEn": "English",
+    "localeNameAr": "Arabic",
+    "themeSwitchLabel": "Change color theme",
+    "footerNote": "A production-minded foundation for ambitious teams.",
+    "breadcrumbLabel": "Breadcrumb"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "features": "Features",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "menu": "Menu",
+    "articles": "Articles",
+    "settings": "Settings",
+    "login": "Sign in",
+    "workbench": "Workbench",
+    "landmarkLabel": "Primary"
+  },
+  "home": {
+    "title": "Strict Next Ranger",
+    "subtitle": "Module-first architecture, TSX-only component files, wrapped vendors, and every gate enforced by machines.",
+    "ctaArticles": "Browse articles",
+    "ctaLogin": "Sign in",
+    "principlesTitle": "Non-negotiables",
+    "principleComponents": "Components are TSX-only; behavior lives in hooks and containers.",
+    "principleBoundaries": "Every third-party package has exactly one owning wrapper.",
+    "principleServerFirst": "Server Components by default; client boundaries must justify themselves.",
+    "principleTesting": "TDD with unit, integration, e2e, accessibility, and visual gates."
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Reference module demonstrating the full layer anatomy.",
+    "empty": "No articles yet.",
+    "error": "We could not load the articles.",
+    "retry": "Try again",
+    "loading": "Loading articles…",
+    "readingTime": "{minutes, plural, one {# minute read} other {# minute read}}",
+    "publishedOn": "Published {date}",
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Access the dashboard with your work account.",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "success": "Signed in successfully.",
+      "genericError": "Sign-in failed. Check your credentials and try again.",
+      "validation": {
+        "emailRequired": "Enter your email address.",
+        "emailInvalid": "Enter a valid email address.",
+        "passwordRequired": "Enter your password.",
+        "passwordTooShort": "Password must be at least 8 characters."
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Client-side UI preferences stored in the ui-preferences module.",
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "direction": {
+      "label": "Text direction",
+      "ltr": "Left to right",
+      "rtl": "Right to left"
+    },
+    "sidebar": {
+      "label": "Sidebar",
+      "expanded": "Expanded",
+      "collapsed": "Collapsed"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "You appear to be offline. Check your connection.",
+    "timeout": "The request took too long. Please try again.",
+    "notFound": "The requested resource was not found.",
+    "unauthorized": "You need to sign in to continue.",
+    "forbidden": "You do not have access to this resource.",
+    "server": "The server had a problem. Please try again later.",
+    "validation": "Some fields need attention."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. The team has been notified.",
+    "retry": "Try again"
+  },
+  "workbench": {
+    "title": "Component workbench",
+    "subtitle": "Living showcase of the design-system primitives.",
+    "buttonsSection": "Buttons",
+    "feedbackSection": "Feedback",
+    "iconsSection": "Icons",
+    "formsSection": "Form primitives",
+    "sampleLabel": "Email address",
+    "samplePlaceholder": "you@example.com",
+    "sampleAlert": "This is an informational alert.",
+    "sampleButton": "Primary action",
+    "sampleSecondaryButton": "Secondary action",
+    "sampleDangerButton": "Destructive action"
+  },
+  "marketing": {
+    "home": {
+      "eyebrow": "Build with confidence",
+      "title": "The strict foundation your next product deserves",
+      "description": "A polished Next.js operating system with clear boundaries, reusable UI, measurable quality, and AI-ready guidance."
+    },
+    "about": {
+      "eyebrow": "Why it exists",
+      "title": "Made for teams that value clarity",
+      "description": "Next Ranger turns architecture decisions into enforceable conventions, so people and AI can contribute safely from day one."
+    },
+    "features": {
+      "eyebrow": "Everything included",
+      "title": "Production discipline without production drag",
+      "description": "Use the prepared modules, design primitives, quality gates, localization, and security defaults instead of rebuilding foundations."
+    },
+    "faq": {
+      "eyebrow": "Straight answers",
+      "title": "Questions before you start",
+      "description": "Understand the tradeoffs, workflow, and intended use of this intentionally opinionated foundation."
+    },
+    "contact": {
+      "eyebrow": "Start a conversation",
+      "title": "Tell us what you are building",
+      "description": "Share your goals and constraints. This starter prepares an email draft locally and never pretends to submit to a backend."
+    },
+    "primaryAction": "Explore features",
+    "secondaryAction": "Open workbench",
+    "trustLabel": "Designed for product, engineering, and platform teams",
+    "routeAtlasLabel": "Localized route atlas",
+    "highlights": {
+      "one": {
+        "title": "Strict by default",
+        "description": "TypeScript and ESLint turn architectural agreements into errors, never warnings."
+      },
+      "two": {
+        "title": "Reusable by design",
+        "description": "Accessible primitives and module boundaries prevent repeated UI and tangled behavior."
+      },
+      "three": {
+        "title": "AI-ready context",
+        "description": "Canonical rules and task cards give coding agents precise, low-token context."
+      }
+    },
+    "questions": {
+      "one": {
+        "question": "Is this suitable for an existing product?",
+        "answer": "Yes. Adopt the contracts incrementally, beginning with boundaries, quality gates, and shared primitives."
+      },
+      "two": {
+        "question": "Does strictness slow delivery?",
+        "answer": "The first decisions become explicit; later work accelerates because reviews and agents encounter fewer ambiguities."
+      },
+      "three": {
+        "question": "Is a backend included?",
+        "answer": "No false service is advertised. Mock owners and gateway contracts provide clear seams for your real backend."
+      }
+    },
+    "contactAction": "Create email draft",
+    "contactNote": "After validation, you choose whether to open your mail application. Nothing is uploaded or silently submitted by this demo.",
+    "contactForm": {
+      "nameLabel": "Name",
+      "emailLabel": "Email address",
+      "messageLabel": "Message",
+      "submit": "Prepare email draft",
+      "notConfigured": "Your message is valid. Configure NEXT_PUBLIC_CONTACT_EMAIL to address the draft.",
+      "ready": "Your message is ready. Review it in your mail application before sending.",
+      "subject": "Next Ranger project enquiry",
+      "validation": {
+        "nameRequired": "Enter your name.",
+        "emailRequired": "Enter your email address.",
+        "emailInvalid": "Enter a valid email address.",
+        "messageRequired": "Enter a message.",
+        "messageShort": "Write at least 20 characters."
+      }
+    }
+  },
+  "pwa": {
+    "offlineTitle": "You are offline",
+    "offlineDescription": "Reconnect to continue. Your current browser preferences remain on this device."
+  }
+}
