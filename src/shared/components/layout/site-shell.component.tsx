@@ -4,7 +4,11 @@ import type { SiteShellProps } from '../types/shared-component.types';
 
 import { siteShellClasses } from './site-shell.variants';
 
-/** Slot-only application shell. Route and feature owners build every slot. */
+/**
+ * Slot-only application shell: a hairline sticky header, the page body, and a
+ * quiet footer. Route and feature owners build every slot; the shell only
+ * positions them.
+ */
 export function SiteShell(props: SiteShellProps): ReactElement {
   return (
     <>
@@ -15,6 +19,7 @@ export function SiteShell(props: SiteShellProps): ReactElement {
             {props.desktopNavigation}
           </nav>
           <div className={siteShellClasses.controls}>
+            {props.headerAction}
             {props.controls}
             <details className={siteShellClasses.mobileMenu}>
               <summary className={siteShellClasses.mobileSummary}>{props.menuLabel}</summary>
@@ -25,25 +30,16 @@ export function SiteShell(props: SiteShellProps): ReactElement {
           </div>
         </div>
       </header>
-      <div className={siteShellClasses.frame}>
-        <aside className={siteShellClasses.sidebar}>
-          <nav className={siteShellClasses.sidebarNav} aria-label={props.navigationLabel}>
-            {props.utilityNavigation}
-          </nav>
-        </aside>
-        <div className={siteShellClasses.content}>
-          <nav className={siteShellClasses.breadcrumb} aria-label={props.breadcrumbLabel}>
-            {props.breadcrumb}
-          </nav>
-          {props.children}
-        </div>
-      </div>
+
+      {props.children}
+
       <footer className={siteShellClasses.footer}>
         <div className={siteShellClasses.footerInner}>
-          <span>{props.footerNote}</span>
+          <p className={siteShellClasses.footerNote}>{props.footerNote}</p>
           <nav className={siteShellClasses.footerLinks} aria-label={props.navigationLabel}>
             {props.footerNavigation}
           </nav>
+          <div className={siteShellClasses.footerSocial}>{props.footerSocial}</div>
         </div>
       </footer>
     </>

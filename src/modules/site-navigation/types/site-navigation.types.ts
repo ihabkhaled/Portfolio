@@ -3,32 +3,26 @@ import type { MouseEventHandler } from 'react';
 
 import type { AppLocale } from '@/packages/i18n';
 
-export type SiteNavigationScope = 'marketing' | 'utility' | 'all' | 'footer';
+/** `primary` is the header, `footer` the reduced set, `all` the mobile sheet. */
+export type SiteNavigationScope = 'primary' | 'footer' | 'all';
+
 export type SiteNavigationLabelKey =
-  | 'home'
-  | 'about'
-  | 'features'
-  | 'faq'
-  | 'contact'
-  | 'articles'
-  | 'settings'
-  | 'workbench'
-  | 'login';
+  'home' | 'experience' | 'projects' | 'skills' | 'about' | 'resume' | 'contact';
+
 export type SiteNavigationLabels = Readonly<Record<SiteNavigationLabelKey, string>>;
+
 export interface SiteNavigationProps {
   readonly locale: AppLocale;
   readonly labels: SiteNavigationLabels;
   readonly scope: SiteNavigationScope;
 }
-export interface BreadcrumbProps {
-  readonly locale: AppLocale;
-  readonly labels: SiteNavigationLabels;
-}
+
 export interface SiteNavigationItemViewModel {
   readonly href: Route;
   readonly label: string;
   readonly isCurrent: boolean;
 }
+
 export interface SiteNavigationViewModel {
   readonly items: readonly SiteNavigationItemViewModel[];
   readonly onSelect: MouseEventHandler<HTMLAnchorElement>;

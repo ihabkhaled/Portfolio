@@ -25,6 +25,9 @@ export const LOCALE_FONT_FAMILIES = {
   pt: 'Noto Sans',
   ko: 'Noto Sans KR',
   tr: 'Noto Sans',
+  ru: 'Noto Sans',
+  id: 'Noto Sans',
+  nl: 'Noto Sans',
 };
 
 export function digest(value) {

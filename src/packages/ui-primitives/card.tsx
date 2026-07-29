@@ -10,7 +10,7 @@ export function Card(props: Readonly<CardProps>): ReactElement {
   return (
     <div
       className={cn(
-        'rounded-2xl border border-border bg-surface-raised p-6 shadow-sm shadow-shadow/5 transition-[border-color,box-shadow,transform]',
+        'rounded-lg border border-border bg-surface-raised p-6 transition-[border-color,background-color]',
         className,
       )}
       {...rest}

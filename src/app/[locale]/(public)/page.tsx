@@ -1,16 +1,25 @@
 import type { Metadata } from 'next';
 import type { ReactElement } from 'react';
 
-import { MarketingPageContainer } from '@/modules/marketing';
+import { HomePageContainer } from '@/modules/profile';
 import { isSupportedLocale } from '@/packages/i18n';
 import { appNotFound } from '@/packages/navigation';
+import { buildRouteMetadata } from '@/shared/helpers/route-metadata.helper';
+import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
+import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 import type { LocaleRouteProps } from '@/shared/types/app-route.types';
-
-import { buildMarketingMetadata } from './marketing-metadata';
 
 export async function generateMetadata(props: LocaleRouteProps): Promise<Metadata> {
   const { locale } = await props.params;
-  return isSupportedLocale(locale) ? buildMarketingMetadata(locale, 'home') : {};
+  if (!isSupportedLocale(locale)) return {};
+  return buildRouteMetadata({
+    locale,
+    path: ROUTE_PATHS.home,
+    namespace: I18N_NAMESPACES.app,
+    titleKey: 'seoTitle',
+    descriptionKey: 'description',
+    brandTitle: false,
+  });
 }
 
 export default async function HomePage(props: LocaleRouteProps): Promise<ReactElement> {
@@ -18,5 +27,5 @@ export default async function HomePage(props: LocaleRouteProps): Promise<ReactEl
   if (!isSupportedLocale(locale)) {
     appNotFound();
   }
-  return <MarketingPageContainer locale={locale} kind="home" />;
+  return <HomePageContainer locale={locale} />;
 }

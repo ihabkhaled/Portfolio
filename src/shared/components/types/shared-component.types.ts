@@ -14,6 +14,30 @@ export interface PageHeaderProps {
   readonly subtitle?: string;
 }
 
+export interface SectionProps {
+  readonly headingId: string;
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly lead?: string;
+  readonly children: ReactNode;
+}
+
+export interface PageIntroProps {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly lead: string;
+}
+
+export interface ManifestRow {
+  readonly label: string;
+  readonly value: ReactNode;
+  readonly mono?: boolean;
+}
+
+export interface ManifestPanelProps {
+  readonly rows: readonly ManifestRow[];
+}
+
 export interface LoadingStateProps {
   readonly label: string;
   readonly testId?: string;
@@ -50,13 +74,12 @@ export interface SiteShellProps {
   readonly brandHomeLink: ReactNode;
   readonly desktopNavigation: ReactNode;
   readonly mobileNavigation: ReactNode;
-  readonly utilityNavigation: ReactNode;
   readonly controls: ReactNode;
-  readonly breadcrumb: ReactNode;
+  readonly headerAction: ReactNode;
   readonly footerNote: ReactNode;
   readonly footerNavigation: ReactNode;
+  readonly footerSocial: ReactNode;
   readonly children: ReactNode;
   readonly navigationLabel: string;
-  readonly breadcrumbLabel: string;
   readonly menuLabel: string;
 }

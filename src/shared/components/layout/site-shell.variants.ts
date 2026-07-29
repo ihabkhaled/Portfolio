@@ -1,32 +1,46 @@
+/**
+ * The shell's class bundles. Editorial-technology direction: hairline rules,
+ * layered neutral surfaces, one confident accent, and generous whitespace.
+ * Nothing here uses a raw palette value — only semantic tokens.
+ */
 export const siteShellClasses = {
   body: 'min-h-dvh bg-canvas font-sans text-foreground antialiased',
-  header: 'sticky top-0 z-50 border-b-2 border-foreground bg-canvas px-4 py-3 sm:px-6',
-  headerInner: 'mx-auto flex max-w-[90rem] items-center justify-between gap-4',
-  brand: 'inline-flex items-center gap-3 text-sm font-black tracking-tight text-foreground',
-  brandMark:
-    'grid size-9 place-items-center border-2 border-foreground bg-warning font-mono text-foreground shadow-[3px_3px_0_var(--role-foreground)]',
-  desktopNav: 'hidden items-center gap-1 lg:flex',
+
+  header:
+    'sticky top-0 z-50 border-b border-border bg-canvas/85 backdrop-blur-md supports-[backdrop-filter]:bg-canvas/70',
+  headerInner:
+    'mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8 lg:px-10',
+
+  brand: 'group inline-flex shrink-0 items-baseline gap-2.5 text-foreground',
+  brandName: 'font-display whitespace-nowrap text-[0.95rem] font-bold tracking-tight',
+  brandRole:
+    'hidden truncate font-mono text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-muted-foreground sm:inline',
+
+  desktopNav: 'hidden items-center gap-0.5 md:flex',
   navLink:
-    'rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+    'relative rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground',
   navLinkCurrent:
-    'font-black text-foreground after:mx-auto after:mt-1 after:block after:h-0.5 after:w-5 after:bg-primary after:content-[""]',
-  controls: 'flex items-center gap-2',
-  localeSelect: 'h-9 max-w-32 py-0',
-  mobileMenu: 'relative lg:hidden',
+    'text-foreground after:absolute after:inset-x-3 after:-bottom-px after:h-px after:bg-primary after:content-[""]',
+
+  controls: 'flex items-center gap-1.5',
+  headerAction: 'hidden lg:inline-flex',
+
+  mobileMenu: 'relative md:hidden',
   mobileSummary:
-    'cursor-pointer list-none rounded-lg border border-border bg-surface-raised px-3 py-2 text-sm font-bold',
+    'flex h-10 cursor-pointer list-none items-center gap-2 rounded-md border border-border bg-surface-raised px-3 text-sm font-medium text-foreground transition-colors hover:border-border-strong [&::-webkit-details-marker]:hidden',
   mobilePanel:
-    'absolute end-0 top-12 z-50 grid min-w-60 gap-1 border-2 border-foreground bg-surface-raised p-3 shadow-[6px_6px_0_var(--role-primary)]',
-  frame: 'mx-auto grid min-h-[calc(100dvh-4rem)] max-w-[90rem] lg:grid-cols-[15rem_minmax(0,1fr)]',
-  sidebar: 'hidden border-e border-border/70 bg-surface/55 p-5 lg:block',
-  sidebarNav: 'sticky top-24 grid gap-1',
-  content: 'min-w-0',
-  breadcrumb:
-    'mx-auto flex max-w-7xl items-center gap-2 px-4 pt-5 text-xs font-semibold text-muted-foreground sm:px-6 lg:px-8',
-  main: 'relative min-h-[60dvh] overflow-hidden',
-  footer: 'border-t border-border/70 bg-surface/70 px-4 py-8 sm:px-6',
+    'absolute end-0 top-12 z-50 grid min-w-56 gap-0.5 rounded-lg border border-border bg-surface-raised p-2 shadow-lg shadow-shadow/10',
+
+  main: 'relative min-h-[60dvh]',
+
+  footer: 'mt-24 border-t border-border bg-surface/40',
   footerInner:
-    'mx-auto flex max-w-[90rem] flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between',
-  footerLinks: 'flex flex-wrap gap-4',
-  themeButton: 'size-9 rounded-xl px-0',
+    'mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1.4fr)_auto_auto] lg:gap-16 lg:px-10',
+  footerNote: 'max-w-sm text-sm leading-relaxed text-muted-foreground',
+  footerLinks: 'grid content-start gap-2.5',
+  footerLink: 'text-sm text-muted-foreground transition-colors hover:text-foreground',
+  footerSocial: 'grid content-start gap-2.5',
+
+  themeButton: 'size-10 rounded-md px-0',
+  localeSelect: 'h-10 w-auto min-w-30 rounded-md py-0 text-sm',
 } as const;

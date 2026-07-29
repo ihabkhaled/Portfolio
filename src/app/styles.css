@@ -5,21 +5,27 @@
 
 /*
  * Semantic design tokens. Components never hardcode palette values — they use
- * these roles, which resolve per theme below.
+ * these roles, which resolve per theme below. The direction is
+ * editorial-technology: layered neutral surfaces, hairline borders, and a
+ * single confident accent used sparingly.
  */
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
+  --font-sans: var(--role-font-body);
+  --font-display: var(--role-font-display);
+  --font-mono: var(--role-font-mono);
   --color-canvas: var(--role-canvas);
   --color-primary: var(--role-primary);
   --color-primary-readable: var(--role-primary-readable);
   --color-primary-foreground: var(--role-primary-foreground);
+  --color-accent: var(--role-accent);
+  --color-accent-readable: var(--role-accent-readable);
   --color-surface: var(--role-surface);
   --color-surface-raised: var(--role-surface-raised);
   --color-foreground: var(--role-foreground);
   --color-muted: var(--role-muted);
   --color-muted-foreground: var(--role-muted-foreground);
   --color-border: var(--role-border);
+  --color-border-strong: var(--role-border-strong);
   --color-ring: var(--role-ring);
   --color-danger: var(--role-danger);
   --color-danger-foreground: var(--role-danger-foreground);
@@ -32,69 +38,136 @@
 
 :root {
   color-scheme: light;
-  --role-canvas: #f4f7f8;
-  --role-primary: #087e8b;
-  --role-primary-readable: #00636e;
-  --role-primary-foreground: #ffffff;
-  --role-surface: #edf3f4;
+
+  /* Latin/Cyrillic stacks come from next/font; script overrides follow below. */
+  --role-font-display: var(--font-display-latin), 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  --role-font-body: var(--font-body-latin), 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  --role-font-mono: var(--font-mono-latin), ui-monospace, 'Cascadia Mono', monospace;
+
+  --role-canvas: #f7f8fa;
+  --role-surface: #f1f3f7;
   --role-surface-raised: #ffffff;
-  --role-foreground: #07111f;
-  --role-muted: #e2ecee;
-  --role-muted-foreground: #526771;
-  --role-border: #b9cdd1;
-  --role-ring: #e09f3e;
-  --role-shadow: #07111f;
-  /* Brand/status fills retain the atlas palette; readable roles own tinted text. */
-  --role-danger: #b53d3d;
+  --role-foreground: #0e1420;
+  --role-muted: #eaedf2;
+  --role-muted-foreground: #57627a;
+  --role-border: #e3e7ee;
+  --role-border-strong: #cfd6e1;
+  --role-primary: #2258d8;
+  --role-primary-readable: #1b49b8;
+  --role-primary-foreground: #ffffff;
+  --role-accent: #6b4fd8;
+  --role-accent-readable: #5a3fc0;
+  --role-ring: #2258d8;
+  --role-shadow: #0e1420;
+  --role-danger: #b3261e;
   --role-danger-foreground: #ffffff;
-  --role-success: #2a9d6f;
-  --role-success-readable: #17663f;
-  --role-warning: #e09f3e;
-  --role-warning-readable: #704400;
+  --role-success: #2f7d5b;
+  --role-success-readable: #256349;
+  --role-warning: #8a5a00;
+  --role-warning-readable: #6d4700;
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --role-canvas: #07111f;
-  --role-primary: #45bac4;
-  --role-primary-readable: #69d1d9;
-  --role-primary-foreground: #07111f;
-  --role-surface: #0d1c2c;
-  --role-surface-raised: #132438;
-  --role-foreground: #f4f7f8;
-  --role-muted: #1a3041;
-  --role-muted-foreground: #b4c8cd;
-  --role-border: #315064;
-  --role-ring: #f1b953;
-  --role-shadow: #000712;
-  --role-danger: #f07878;
-  --role-danger-foreground: #07111f;
-  --role-success: #66c99a;
-  --role-success-readable: #7bd9ad;
-  --role-warning: #f1b953;
-  --role-warning-readable: #f5c873;
+
+  --role-canvas: #0d1117;
+  --role-surface: #121924;
+  --role-surface-raised: #151c26;
+  --role-foreground: #e8edf5;
+  --role-muted: #1b2432;
+  --role-muted-foreground: #9aa6ba;
+  --role-border: #26303d;
+  --role-border-strong: #35414f;
+  --role-primary: #7fa6ff;
+  --role-primary-readable: #9dbaff;
+  --role-primary-foreground: #0d1117;
+  --role-accent: #a996ff;
+  --role-accent-readable: #bcaeff;
+  --role-ring: #7fa6ff;
+  --role-shadow: #01040a;
+  --role-danger: #f2867d;
+  --role-danger-foreground: #0d1117;
+  --role-success: #5fbf92;
+  --role-success-readable: #7ed0a9;
+  --role-warning: #e0b062;
+  --role-warning-readable: #edc684;
+}
+
+/*
+ * Script-aware typography. Each locale only ever *uses* one display/body
+ * family, so a visitor downloads a single script's font files.
+ */
+:root:lang(ar),
+:root:lang(fa) {
+  --role-font-display: var(--font-arabic), 'Segoe UI', ui-sans-serif, sans-serif;
+  --role-font-body: var(--font-arabic), 'Segoe UI', ui-sans-serif, sans-serif;
+  --role-line-height-body: 1.9;
+}
+
+:root:lang(hi) {
+  --role-font-display: var(--font-devanagari), 'Nirmala UI', ui-sans-serif, sans-serif;
+  --role-font-body: var(--font-devanagari), 'Nirmala UI', ui-sans-serif, sans-serif;
+  --role-line-height-body: 1.85;
+}
+
+:root:lang(th) {
+  --role-font-display: var(--font-thai), 'Leelawadee UI', ui-sans-serif, sans-serif;
+  --role-font-body: var(--font-thai), 'Leelawadee UI', ui-sans-serif, sans-serif;
+  --role-line-height-body: 1.95;
+}
+
+:root:lang(ja) {
+  --role-font-display: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, ui-sans-serif, sans-serif;
+  --role-font-body: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, ui-sans-serif, sans-serif;
+}
+
+:root:lang(zh) {
+  --role-font-display: 'PingFang SC', 'Microsoft YaHei', ui-sans-serif, sans-serif;
+  --role-font-body: 'PingFang SC', 'Microsoft YaHei', ui-sans-serif, sans-serif;
+}
+
+:root:lang(ko) {
+  --role-font-display: 'Apple SD Gothic Neo', 'Malgun Gothic', ui-sans-serif, sans-serif;
+  --role-font-body: 'Apple SD Gothic Neo', 'Malgun Gothic', ui-sans-serif, sans-serif;
 }
 
 body {
   min-height: 100dvh;
-  background:
+  background-color: var(--role-canvas);
+  color: var(--role-foreground);
+  font-family: var(--role-font-body);
+  line-height: var(--role-line-height-body, 1.7);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * The measured grid: a barely-there column rhythm that signals structure
+ * without becoming decoration. It sits behind content, never above it.
+ */
+.surface-grid {
+  background-image:
     linear-gradient(
       to right,
-      color-mix(in oklch, var(--role-border) 24%, transparent) 1px,
+      color-mix(in oklab, var(--role-border) 55%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in oklch, var(--role-border) 24%, transparent) 1px,
+      color-mix(in oklab, var(--role-border) 55%, transparent) 1px,
       transparent 1px
-    ),
-    var(--role-canvas);
-  background-size: 3rem 3rem;
-  color: var(--role-foreground);
+    );
+  background-size: 4rem 4rem;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 78%);
 }
 
 ::selection {
-  background: color-mix(in oklch, var(--role-primary) 25%, transparent);
+  background: color-mix(in oklab, var(--role-primary) 22%, transparent);
+}
+
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 2px solid var(--role-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -13,6 +13,9 @@ export const SUPPORTED_LOCALES = [
   'pt',
   'ko',
   'tr',
+  'ru',
+  'id',
+  'nl',
 ] as const;
 
 export type AppLocale = (typeof SUPPORTED_LOCALES)[number];
@@ -38,6 +41,9 @@ export const LOCALE_NAMES: Readonly<Record<AppLocale, string>> = {
   pt: 'Português',
   ko: '한국어',
   tr: 'Türkçe',
+  ru: 'Русский',
+  id: 'Bahasa Indonesia',
+  nl: 'Nederlands',
 };
 
 export const OPEN_GRAPH_LOCALES: Readonly<Record<AppLocale, string>> = {
@@ -55,6 +61,9 @@ export const OPEN_GRAPH_LOCALES: Readonly<Record<AppLocale, string>> = {
   pt: 'pt_BR',
   ko: 'ko_KR',
   tr: 'tr_TR',
+  ru: 'ru_RU',
+  id: 'id_ID',
+  nl: 'nl_NL',
 };
 
 export type AppTextDirection = 'ltr' | 'rtl';

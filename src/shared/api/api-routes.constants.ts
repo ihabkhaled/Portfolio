@@ -1,14 +1,8 @@
 /**
- * BFF route constants. Client services call same-origin gateway paths built
- * here — never external hosts and never raw endpoint strings.
+ * Same-origin API route constants. Client code calls these paths — never
+ * external hosts and never raw endpoint strings.
  */
 export const API_ROUTES = {
   health: '/api/health',
-  gatewayPrefix: '/api/gateway',
+  contact: '/api/contact',
 } as const;
-
-export function buildGatewayPath(upstreamPath: string): string {
-  const normalized = upstreamPath.startsWith('/') ? upstreamPath.slice(1) : upstreamPath;
-
-  return `${API_ROUTES.gatewayPrefix}/${normalized}`;
-}

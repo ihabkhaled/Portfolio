@@ -10,7 +10,7 @@ export interface AppConfig {
 
 /** Derived, validated application configuration. */
 export const appConfig: AppConfig = {
-  appName: 'Strict Next Ranger',
+  appName: 'Ihab Khaled',
   appEnv: publicEnv.appEnv,
   appUrl: publicEnv.appUrl,
   contactEmail: publicEnv.contactEmail,

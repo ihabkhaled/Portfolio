@@ -1,20 +1,18 @@
 import { ROUTE_PATHS } from './route-paths.constants';
 
+/** Every public page is indexable; the portfolio has nothing to hide. */
 export const INDEXABLE_PATHS = [
   ROUTE_PATHS.home,
+  ROUTE_PATHS.experience,
+  ROUTE_PATHS.projects,
+  ROUTE_PATHS.skills,
   ROUTE_PATHS.about,
-  ROUTE_PATHS.features,
-  ROUTE_PATHS.faq,
+  ROUTE_PATHS.resume,
   ROUTE_PATHS.contact,
 ] as const;
 
-export const NON_INDEXABLE_PATHS = [
-  ROUTE_PATHS.login,
-  ROUTE_PATHS.articles,
-  ROUTE_PATHS.settings,
-  ROUTE_PATHS.workbench,
-  ROUTE_PATHS.offline,
-] as const;
+/** The offline shell is a PWA fallback, not a destination. */
+export const NON_INDEXABLE_PATHS = [ROUTE_PATHS.offline] as const;
 
 export const SOCIAL_IMAGE_DIRECTORY = '/social' as const;
 
