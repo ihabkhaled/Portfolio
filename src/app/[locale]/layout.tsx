@@ -6,6 +6,7 @@ import { PUBLIC_PROFILE } from '@/modules/profile';
 import { ServiceWorkerRegistrationContainer } from '@/modules/pwa';
 import { SiteNavigationContainer, type SiteNavigationLabels } from '@/modules/site-navigation';
 import { ShellControlsContainer } from '@/modules/ui-preferences';
+import { getRequestNonce } from '@/packages/headers';
 import {
   AppIntlProvider,
   getLocaleDirection,
@@ -65,6 +66,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
 
   const locale = candidate;
   setServerLocale(locale);
+  const nonce = await getRequestNonce();
   const direction = getLocaleDirection(locale);
   const messages = await getServerMessages({ locale });
   const tApp = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.app });
@@ -112,7 +114,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
   return (
     <html lang={locale} dir={direction} data-theme="light" className={appFontClassName}>
       <head>
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
+        <Script src="/theme-init.js" strategy="beforeInteractive" nonce={nonce} />
         <StructuredDataScript json={personJsonLd} />
         <StructuredDataScript json={websiteJsonLd} />
       </head>

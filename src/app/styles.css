@@ -170,6 +170,22 @@ body {
   border-radius: 2px;
 }
 
+/**
+ * Printing a page (e.g. the resume, for a "Download CV" PDF) shows the
+ * document only — no sticky nav, footer, or toast viewport.
+ */
+@media print {
+  header,
+  footer,
+  [data-sonner-toaster] {
+    display: none !important;
+  }
+
+  .surface-grid {
+    background-image: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
