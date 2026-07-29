@@ -21,3 +21,37 @@ export interface RouteMetadataInput {
   /** Home already carries the full name; branding it again would repeat it. */
   readonly brandTitle?: boolean;
 }
+
+export interface PersonStructuredDataInput {
+  readonly name: string;
+  readonly jobTitle: string;
+  readonly url: string;
+  readonly sameAs: readonly string[];
+  readonly addressLocality: string;
+  readonly addressCountry: string;
+}
+
+export interface WebsiteStructuredDataInput {
+  readonly name: string;
+  readonly url: string;
+  readonly locale: AppLocale;
+}
+
+export interface BreadcrumbListItemInput {
+  readonly name: string;
+  readonly url: string;
+}
+
+export interface BreadcrumbListInput {
+  readonly items: readonly BreadcrumbListItemInput[];
+}
+
+export interface SoftwareSourceCodeInput {
+  readonly name: string;
+  readonly description: string;
+  readonly url: string;
+  readonly codeRepository: string | null;
+  readonly keywords: readonly string[];
+  readonly authorName: string;
+  readonly authorUrl: string;
+}

@@ -11,6 +11,7 @@ import { FormField } from '@/shared/components/forms/form-field.component';
 import { SiteShell } from '@/shared/components/layout/site-shell.component';
 import { SkipLink } from '@/shared/components/primitives/skip-link.component';
 import { VisuallyHidden } from '@/shared/components/primitives/visually-hidden.component';
+import { StructuredDataScript } from '@/shared/components/seo/structured-data-script.component';
 import { TEST_IDS } from '@/shared/constants/test-ids.constants';
 
 describe('PageHeader', () => {
@@ -138,5 +139,15 @@ describe('SiteShell', () => {
 describe('TEST_IDS', () => {
   it('keeps the appHeader id stable for the Playwright home e2e spec', () => {
     expect(TEST_IDS.appHeader).toBe('app-header');
+  });
+});
+
+describe('StructuredDataScript', () => {
+  it('renders the pre-serialized JSON-LD as the script text content', () => {
+    render(<StructuredDataScript json='{"@type":"Person"}' />);
+
+    const script = screen.getByText('{"@type":"Person"}', { ignore: false });
+    expect(script.tagName).toBe('SCRIPT');
+    expect(script).toHaveAttribute('type', 'application/ld+json');
   });
 });

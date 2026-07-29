@@ -65,6 +65,10 @@ export interface FormFieldProps {
   readonly children: ReactNode;
 }
 
+export interface StructuredDataScriptProps {
+  readonly json: string;
+}
+
 export interface SiteShellProps {
   readonly brandHomeLink: ReactNode;
   readonly desktopNavigation: ReactNode;

@@ -24,11 +24,18 @@ import { LANDMARK_IDS } from '@/shared/accessibility/landmark-ids.constants';
 import { SiteShell } from '@/shared/components/layout/site-shell.component';
 import { siteShellClasses } from '@/shared/components/layout/site-shell.variants';
 import { SkipLink } from '@/shared/components/primitives/skip-link.component';
+import { StructuredDataScript } from '@/shared/components/seo/structured-data-script.component';
 import { appConfig } from '@/shared/config/app-config';
 import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 import { TEST_IDS } from '@/shared/constants/test-ids.constants';
 import { appFontClassName } from '@/shared/fonts/app-fonts';
 import { buildLocalizedPath } from '@/shared/helpers/localized-route.helper';
+import { buildAbsoluteAppUrl } from '@/shared/helpers/seo-metadata.helper';
+import {
+  buildPersonStructuredData,
+  buildWebsiteStructuredData,
+  serializeStructuredData,
+} from '@/shared/helpers/structured-data.helper';
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 import { AppProviders } from '../providers';
@@ -87,10 +94,27 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
       </ExternalLink>
     ));
 
+  const homeUrl = buildAbsoluteAppUrl(buildLocalizedPath(locale, ROUTE_PATHS.home));
+  const personJsonLd = serializeStructuredData(
+    buildPersonStructuredData({
+      name: PUBLIC_PROFILE.displayName,
+      jobTitle: tApp('role'),
+      url: homeUrl,
+      sameAs: PUBLIC_PROFILE.links.filter((link) => link.id !== 'email').map((link) => link.href),
+      addressLocality: 'Giza',
+      addressCountry: 'Egypt',
+    }),
+  );
+  const websiteJsonLd = serializeStructuredData(
+    buildWebsiteStructuredData({ name: PUBLIC_PROFILE.displayName, url: homeUrl, locale }),
+  );
+
   return (
     <html lang={locale} dir={direction} data-theme="light" className={appFontClassName}>
       <head>
         <Script src="/theme-init.js" strategy="beforeInteractive" />
+        <StructuredDataScript json={personJsonLd} />
+        <StructuredDataScript json={websiteJsonLd} />
       </head>
       <body className={layoutClasses.body}>
         <AppIntlProvider locale={locale} messages={messages}>
