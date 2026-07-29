@@ -1,206 +1,378 @@
 {
   "app": {
-    "title": "Strict Next Ranger",
-    "description": "Un systeme frontal Next.js strict.",
-    "skipToContent": "Aller au contenu",
+    "title": "Ihab Khaled",
+    "seoTitle": "Ihab Khaled | Ingénieur logiciel senior, Backend & Full-Stack",
+    "role": "Ingénieur logiciel senior",
+    "description": "Ingénieur logiciel senior travaillant sur le backend, le full-stack et les intégrations.",
+    "skipToContent": "Aller au contenu principal",
     "loading": "Chargement…",
-    "localeSwitchLabel": "Langue",
-    "localeNameEn": "English",
-    "localeNameAr": "العربية",
-    "themeSwitchLabel": "Thème de couleur",
-    "footerNote": "Une base rigoureuse pour les équipes web et natives.",
-    "breadcrumbLabel": "Fil d’Ariane"
-  },
-  "nav": {
-    "home": "Accueil",
-    "about": "À propos",
-    "features": "Fonctionnalités",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "menu": "Ouvrir la navigation",
-    "articles": "Articles",
-    "settings": "Paramètres",
-    "login": "Connexion",
-    "workbench": "Atelier UI",
-    "landmarkLabel": "Navigation principale"
-  },
-  "home": {
-    "title": "Strict Next Ranger",
-    "subtitle": "Les imports suivent un seul sens, chaque bibliothèque a un propriétaire et les modules exposent des surfaces publiques intentionnelles. Des contrôles indépendants imposent la même forme que les revues.",
-    "ctaArticles": "Explorer les fondations",
-    "ctaLogin": "Se connecter",
-    "principlesTitle": "Tout pour démarrer en confiance",
-    "principleComponents": "Navigation, fil d’Ariane, cartes, formulaires, états, thèmes, langues et mises en page adaptatives sont des primitives partagées, pas des copies locales.",
-    "principleBoundaries": "Les imports suivent un seul sens, chaque bibliothèque a un propriétaire et les modules exposent des surfaces publiques intentionnelles. Des contrôles indépendants imposent la même forme que les revues.",
-    "principleServerFirst": "Chaque règle stricte nomme sa raison, son mécanisme de contrôle et le modèle valide. L’équipe peut faire évoluer le système sans folklore.",
-    "principleTesting": "ESLint typé, double compilation, couverture par fichier, validation d’architecture, code mort, cycles et parité des textes échouent clairement avant la revue."
-  },
-  "articles": {
-    "title": "Articles",
-    "subtitle": "Les imports suivent un seul sens, chaque bibliothèque a un propriétaire et les modules exposent des surfaces publiques intentionnelles. Des contrôles indépendants imposent la même forme que les revues.",
-    "empty": "Aucun article pour le moment.",
-    "error": "Un problème est survenu de notre côté. Réessayez.",
-    "retry": "Réessayer",
-    "loading": "Chargement…",
-    "readingTime": "{minutes, plural, one {# minute de lecture} other {# minutes de lecture}}",
-    "publishedOn": "Publié le {date}",
-    "status": {
-      "draft": "Brouillon",
-      "published": "Publié",
-      "archived": "Archivé"
-    }
-  },
-  "auth": {
-    "login": {
-      "title": "Connexion",
-      "subtitle": "Un starter Ionic React et Capacitor pensé pour la production, avec architecture stricte, composants accessibles, routes multilingues et contrôles de livraison déjà configurés.",
-      "emailLabel": "E-mail",
-      "passwordLabel": "Mot de passe",
-      "submit": "Se connecter",
-      "submitting": "Connexion…",
-      "success": "Se connecter",
-      "genericError": "L’adresse e-mail ou le mot de passe est incorrect.",
-      "validation": {
-        "emailRequired": "L’e-mail est obligatoire.",
-        "emailInvalid": "Saisissez une adresse e-mail valide.",
-        "passwordRequired": "Le mot de passe est obligatoire.",
-        "passwordTooShort": "Le mot de passe doit comporter au moins 8 caractères."
-      }
-    }
-  },
-  "settings": {
-    "title": "Paramètres",
-    "subtitle": "Préférences d’apparence et d’interface.",
+    "localeSwitchLabel": "Changer de langue",
+    "themeSwitchLabel": "Changer le thème de couleur",
     "theme": {
-      "label": "Thème",
       "light": "Clair",
       "dark": "Sombre",
       "system": "Système"
     },
-    "direction": {
-      "label": "Sens du texte",
-      "ltr": "De gauche à droite",
-      "rtl": "De droite à gauche"
+    "downloadCv": "Télécharger le CV",
+    "downloadCvHint": "PDF, s'ouvre dans un nouvel onglet",
+    "externalLinkHint": "S'ouvre dans un nouvel onglet",
+    "footerNote": "Conception de systèmes évolutifs, d'API sécurisées, de microservices et d'applications web et mobiles prêtes pour la production.",
+    "menu": "Menu"
+  },
+  "nav": {
+    "home": "Accueil",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "about": "À propos",
+    "resume": "CV",
+    "contact": "Contact",
+    "landmarkLabel": "Principal",
+    "menu": "Menu"
+  },
+  "home": {
+    "eyebrow": "Backend, Full-Stack & Intégrations",
+    "tagline": "Je conçois, développe, intègre, teste et déploie des logiciels de production.",
+    "valueProp": "Huit ans d'expérience dans la santé, l'IA, la cybersécurité, la fabrication intelligente, les plateformes B2B et les applications grand public — de l'analyse des besoins et de l'architecture jusqu'au déploiement et au support en production.",
+    "ctaProjects": "Voir les projets",
+    "ctaContact": "Me contacter",
+    "indicatorsTitle": "En bref",
+    "indicators": {
+      "javascript": "{years}+ ans en JavaScript",
+      "node": "{years}+ ans en Node.js",
+      "typescript": "{years}+ ans en TypeScript",
+      "delivery": "Livraison de produits de bout en bout"
     },
-    "sidebar": {
-      "label": "Barre latérale",
-      "expanded": "Déployée",
-      "collapsed": "Réduite"
+    "profileLabels": {
+      "location": "Localisation",
+      "focus": "Spécialisation",
+      "stack": "Stack principale",
+      "languages": "Langues"
+    },
+    "focusValue": "Architecture backend, intégrations, plateformes IA",
+    "capabilitiesEyebrow": "Compétences",
+    "capabilitiesTitle": "Ce que je conçois et exploite",
+    "capabilitiesLead": "Le travail couvre la conception du système, l'implémentation et tout le cycle de vie en production qui suit.",
+    "capabilities": {
+      "backend": "Architecture backend",
+      "fullstack": "Développement full-stack",
+      "apis": "API et intégrations",
+      "microservices": "Microservices",
+      "events": "Systèmes événementiels",
+      "ai": "Intégrations IA et LLM",
+      "data": "Bases de données et mise en cache",
+      "cloud": "Cloud et DevOps",
+      "testing": "Tests et qualité",
+      "security": "Sécurité et support en production"
+    },
+    "featuredEyebrow": "Sélection",
+    "featuredTitle": "Projets récents",
+    "featuredLead": "Des systèmes accessibles au public que j'ai conçus et développés, avec l'activité réelle du dépôt lorsqu'elle existe.",
+    "featuredAll": "Tous les projets",
+    "experienceEyebrow": "Expérience",
+    "experienceTitle": "Où j'ai travaillé",
+    "experienceLead": "Postes salariés et travail d'ingénierie indépendant, clairement séparés pour que les périodes qui se chevauchent restent lisibles.",
+    "experienceAll": "Expérience complète",
+    "approachEyebrow": "Ma méthode",
+    "approachTitle": "Du besoin au système en production",
+    "approachLead": "Une séquence, pas un slogan — chaque étape produit ce dont dépend la suivante.",
+    "approach": {
+      "plan": {
+        "title": "Planifier",
+        "description": "Transformer les besoins en périmètre, contraintes et estimations."
+      },
+      "design": {
+        "title": "Concevoir",
+        "description": "Modéliser le domaine, les flux de travail et les cas d'échec."
+      },
+      "architect": {
+        "title": "Architecturer",
+        "description": "Définir les frontières, les contrats et le flux de données avant le code."
+      },
+      "implement": {
+        "title": "Implémenter",
+        "description": "Construire le backend et le frontend selon ces contrats."
+      },
+      "test": {
+        "title": "Tester",
+        "description": "Tests unitaires, d'intégration et système au fil du développement."
+      },
+      "deploy": {
+        "title": "Déployer",
+        "description": "Livraison conteneurisée via des pipelines CI/CD."
+      },
+      "operate": {
+        "title": "Exploiter",
+        "description": "Surveiller, diagnostiquer, ajuster et renforcer ce qui est en production."
+      }
+    },
+    "contactEyebrow": "Contact",
+    "contactTitle": "Ouvert aux échanges pour des postes d'ingénierie senior",
+    "contactLead": "Le plus rapide est l'e-mail. Je lis chaque message et réponds à ceux qui correspondent."
+  },
+  "experience": {
+    "eyebrow": "Parcours",
+    "title": "Expérience",
+    "description": "Les postes, les responsabilités et les systèmes qui les sous-tendent.",
+    "employmentTitle": "Emploi salarié",
+    "independentTitle": "Ingénierie indépendante",
+    "present": "Aujourd'hui",
+    "highlightsLabel": "Responsabilités principales",
+    "stackLabel": "Stack",
+    "roles": {
+      "oncare": {
+        "summary": "Ingénierie backend et full-stack sur myoncare, un dispositif médical de classe IIa selon le règlement européen MDR permettant aux patients de partager plans de traitement, médicaments et données d'activité avec leur équipe soignante.",
+        "highlights": {
+          "one": "Développement de services backend avec Node.js, NestJS et Express sur MySQL et MongoDB, couvrant le stockage sécurisé, les intégrations d'API et l'optimisation des performances.",
+          "two": "Livraison de fonctionnalités web et mobiles en React, React Native et Capacitor, avec du développement spécifique aux plateformes en Kotlin et Swift.",
+          "three": "Intégration de sources de données de santé et d'objets connectés, dont FHIR et Withings.",
+          "four": "Mise à niveau des services backend et des dépendances pour maintenir les standards de sécurité et de performance.",
+          "five": "Revue de code, correction d'anomalies en production et participation à la planification et à l'estimation des sprints."
+        }
+      },
+      "garment": {
+        "summary": "Plateforme de fabrication intelligente aidant les usines textiles à numériser leurs opérations, suivre la production et surveiller la performance à partir de données en temps réel issues de l'atelier.",
+        "highlights": {
+          "one": "Développement de fonctionnalités backend en Node.js, PHP et Laravel pour la logique métier, la gestion des données et les intégrations.",
+          "two": "Développement d'interfaces React pour des tableaux de bord opérationnels et le suivi de production.",
+          "three": "Intégration d'outils et d'appareils tiers pour étendre les capacités de la plateforme.",
+          "four": "Déploiement des versions et maintenance des outils sur des serveurs CentOS.",
+          "five": "Collaboration directe avec les clients pour la planification des fonctionnalités, l'estimation et les démonstrations."
+        }
+      },
+      "eseed": {
+        "summary": "Livraison de solutions web et mobiles pour des startups, des ONG et des entreprises, avec un accent sur des solutions maintenables et conviviales.",
+        "highlights": {
+          "one": "Développement de fonctionnalités backend avec Node.js, MySQL et Spring Boot.",
+          "two": "Développement d'interfaces responsives avec React, HTML5, CSS, Bootstrap et jQuery.",
+          "three": "Intégration d'API tierces et livraison de projets de contenu sous WordPress.",
+          "four": "Contribution sur l'ensemble du cycle de développement dans une démarche Agile."
+        }
+      },
+      "freelance": {
+        "summary": "Livraison de bout en bout pour des clients dans la fintech, la santé, le SaaS, les achats B2B, la sécurité et les produits grand public — de l'analyse des besoins jusqu'au support en production.",
+        "highlights": {
+          "one": "Conception et livraison de systèmes full-stack : services backend, API REST, interfaces frontend et applications mobiles.",
+          "two": "Implémentation de l'authentification, du contrôle d'accès basé sur les rôles, des paiements, de la synchronisation temps réel et de l'isolation multi-tenant.",
+          "three": "Développement de flux événementiels avec tâches d'arrière-plan, files de messages et streaming.",
+          "four": "Pilotage de la refactorisation, de la modernisation d'applications existantes, de l'optimisation des performances et des tests de non-régression.",
+          "five": "Mise en place de déploiements conteneurisés, de pipelines CI/CD et de la supervision en production.",
+          "six": "Application de standards d'ingénierie stricts avec TypeScript strict, linting, tests et hooks de pré-commit."
+        }
+      }
     }
   },
+  "projects": {
+    "eyebrow": "Travaux",
+    "title": "Projets",
+    "description": "Systèmes publics et travaux professionnels sélectionnés.",
+    "filtersLabel": "Filtrer les projets par catégorie",
+    "filters": {
+      "all": "Tous",
+      "ai": "IA",
+      "backend": "Backend",
+      "fullstack": "Full-stack",
+      "mobile": "Mobile",
+      "security": "Sécurité",
+      "healthcare": "Santé",
+      "platforms": "Plateformes",
+      "integrations": "Intégrations",
+      "opensource": "Open source"
+    },
+    "roleLabel": "Rôle",
+    "stackLabel": "Stack",
+    "categoryLabel": "Catégorie",
+    "repositoryLabel": "Dépôt",
+    "liveLabel": "Site en ligne",
+    "caseStudy": "Voir l'étude de cas",
+    "backToProjects": "Tous les projets",
+    "professionalLabel": "Travail professionnel sélectionné",
+    "openSourceLabel": "Projet open source",
+    "professionalNote": "Système appartenant à l'employeur. Le code source n'est pas public.",
+    "empty": "Aucun projet ne correspond à ce filtre.",
+    "overviewTitle": "Aperçu",
+    "architectureTitle": "Architecture",
+    "engineeringTitle": "Ingénierie",
+    "items": {
+      "clawai": {
+        "summary": "Une plateforme d'orchestration IA local-first qui exécute des modèles ouverts sur votre propre machine et route chaque requête vers le modèle le plus adapté.",
+        "role": "Architecture et développement de la plateforme de bout en bout — backend en microservices, couche d'orchestration et espace de travail web.",
+        "overview": "Claw offre à une équipe un espace unique pour gérer, router, comparer et exploiter de nombreux modèles d'IA à la fois. La priorité est donnée à l'inférence locale privée via Ollama et llama.cpp, tout en restant capable d'atteindre des fournisseurs cloud lorsqu'une tâche l'exige, afin que les requêtes sensibles puissent rester sur du matériel contrôlé par l'organisation.",
+        "architecture": "Un backend en microservices NestJS derrière un espace de travail Next.js, avec PostgreSQL pour les données relationnelles, MongoDB pour les documents, Redis pour la mise en cache et des files pour les tâches d'arrière-plan. Une abstraction de fournisseur place les modèles locaux et cloud derrière une interface unique, ce qui rend possibles le routage, le repli et la comparaison sans traitement particulier pour chaque fournisseur.",
+        "engineering": "Les problèmes les plus intéressants concernaient le routage et la confiance : choisir un modèle par requête, basculer en repli lorsqu'un fournisseur se dégrade, et exécuter des flux de comparaison, de consensus et de jugement sur plusieurs réponses. S'y ajoutent les packs de mémoire et de contexte, l'ancrage à l'espace de travail, le traitement des fichiers, l'exécution d'outils sensible aux permissions pour les outils métier connectés, la gestion des identifiants fournisseurs et l'agrégation de l'état de santé."
+      },
+      "auraspear": {
+        "summary": "Une plateforme SOC multi-tenant pilotée par l'IA unifiant SIEM, SOAR et renseignement sur les menaces dans un espace d'investigation unique.",
+        "role": "Conception et implémentation de la plateforme : modèle d'isolation des tenants, RBAC, flux d'investigation et analyse assistée par IA.",
+        "overview": "AuraSpear réunit alertes, dossiers, incidents, chasses aux menaces, enrichissement du renseignement et ingénierie de détection dans un espace de travail unique et gouverné. Conçue pour des équipes servant plusieurs tenants à la fois, où les données d'un client ne doivent jamais être accessibles depuis la session d'un autre.",
+        "architecture": "Next.js et NestJS au-dessus de PostgreSQL avec Prisma, Redis pour la mise en cache, et OpenSearch pour la recherche de logs à grande échelle. Wazuh et MISP alimentent les détections et le renseignement sur les menaces, et AWS Bedrock alimente le raisonnement IA. L'isolation des tenants est appliquée dans la couche de données plutôt que dans l'interface, et chaque identifiant de connecteur est traité côté serveur uniquement.",
+        "engineering": "Le travail principal a consisté à rendre le multi-tenant et le RBAC incontournables plutôt qu'optionnels — en associant chaque requête, chaque tâche et chaque appel IA à un tenant précis. S'y ajoutent le tri des alertes, la gestion des dossiers, la chasse aux menaces, l'enrichissement du renseignement, et une assistance IA intégrée au cœur de l'investigation plutôt qu'ajoutée en périphérie."
+      },
+      "foodorder": {
+        "summary": "Une application de commande de repas collaborative pensée d'abord pour le mobile, où un groupe partage une commande et le coût se répartit équitablement.",
+        "role": "Développement de l'application de bout en bout : architecture, modèle de données, comportement hors ligne, interface bilingue et packaging mobile.",
+        "overview": "Une personne ouvre un panier partagé, invite d'autres membres, et chacun ajoute ses propres articles. À la clôture de la commande, chaque participant voit exactement ce qu'il doit, avec des frais de livraison répartis équitablement plutôt qu'estimés au hasard. L'application fonctionne sur le web et est publiée sur Android et iOS depuis la même base de code.",
+        "architecture": "React, TypeScript et Vite, packagés avec Capacitor pour Android et iOS. Firebase Authentication gère l'identité et Cloud Firestore stocke les paniers, invitations et contributions, avec une persistance hors ligne permettant de continuer à ajouter des articles sur une connexion faible et de synchroniser plus tard.",
+        "engineering": "Les points les plus exigeants concernaient l'exactitude et l'équité : collaboration cadrée par rôle, contributions individuelles par membre, instantanés de commande immuables à la clôture, et répartition des reçus et des frais devant être exacte à l'unité près. Le support complet de l'arabe et de l'anglais, RTL inclus, faisait partie de la conception dès le départ et non ajouté après coup, et les parcours sont couverts par des tests multi-navigateurs et mobiles."
+      },
+      "twinzyai": {
+        "summary": "Un jeu IA centré sur la vie privée qui lit des traits de style visibles sur une photo sans jamais identifier qui que ce soit.",
+        "role": "Développement complet de la stack et conception du pipeline de confidentialité qui exclut totalement les données image du stockage.",
+        "overview": "Les joueurs téléversent une photo et obtiennent une lecture ludique de leur style et de leur ambiance visibles, qu'ils peuvent partager via un lien temporaire. Tout le produit est conçu autour d'une contrainte : rester amusant sans devenir un outil de reconnaissance faciale.",
+        "architecture": "Un frontend Next.js avec une API NestJS et Fastify, conteneurisée avec Docker, appelant Gemini pour l'analyse. Le pipeline valide l'image, extrait les traits visibles, supprime immédiatement le buffer image, et chaque étape suivante ne traite plus que du texte.",
+        "engineering": "Les propriétés de confidentialité sont la fonctionnalité centrale : pas de reconnaissance faciale, pas de correspondance d'identité, pas de persistance d'image, et un traitement uniquement textuel une fois les traits extraits. S'y ajoutent la validation sécurisée des images, des garde-fous de sécurité sur le contenu généré, des liens de partage expirants, un support bilingue arabe-anglais, et une PWA pensée d'abord pour le mobile."
+      },
+      "nextranger": {
+        "summary": "Une base d'ingénierie Next.js stricte où les décisions d'architecture sont imposées par l'outillage plutôt que documentées puis oubliées.",
+        "role": "Auteur. Conception du modèle d'architecture, du jeu de règles ESLint personnalisées et des portes de qualité.",
+        "overview": "NextRanger est le point de départ que j'utilise pour tout travail frontend sérieux. Son postulat est que les conventions qu'une équipe accepte sans pouvoir les imposer finissent par s'éroder, donc chaque règle importante s'exprime comme une règle de lint, un type, ou un test qui échoue plutôt que comme un paragraphe dans un README.",
+        "architecture": "Next.js App Router avec des Server Components par défaut, TypeScript strict, et une organisation module-first à dépendances à sens unique : les routes dépendent des modules, les modules du code partagé, le code partagé des wrappers de dépendances, jamais l'inverse. Chaque dépendance tierce a exactement un wrapper propriétaire, de sorte que les montées de version et la gestion des erreurs vivent dans un seul fichier revu.",
+        "engineering": "Un plugin ESLint personnalisé impose la politique des couches, la propriété des packages, des composants limités au TSX et la couverture de traduction. Vitest et Playwright couvrent les tests unitaires, d'intégration, de bout en bout, d'accessibilité et visuels, avec en plus l'internationalisation et le support RTL, une CSP basée sur un nonce, et des portes CI qui exécutent l'ensemble avant toute fusion."
+      },
+      "myoncare": {
+        "summary": "Un dispositif médical de classe IIa selon le règlement européen MDR permettant aux patients de partager plans de traitement, médicaments et données d'activité avec leur équipe soignante.",
+        "role": "Ingénieur backend et full-stack depuis 2022, sur la gestion des tâches de soin, le suivi des patients et les intégrations d'objets connectés."
+      },
+      "garment-io": {
+        "summary": "Une plateforme de fabrication intelligente aidant les usines textiles à numériser leurs opérations, suivre la production et surveiller la performance à partir de données en temps réel issues de l'atelier.",
+        "role": "Ingénieur backend et full-stack, développement de tableaux de bord opérationnels et d'intégrations d'objets connectés."
+      },
+      "tarsyaa": {
+        "summary": "Une plateforme d'achats et d'appels d'offres B2B connectant des entreprises à des fournisseurs certifiés en Arabie saoudite via des enchères transparentes et concurrentielles.",
+        "role": "Développement de services backend avec des standards TypeScript stricts, des tests unitaires et un contrôle d'accès basé sur les rôles pour l'intégration des fournisseurs et les enchères."
+      },
+      "ovarc": {
+        "summary": "Une plateforme d'expansion internationale simplifiant l'immatriculation, la paie, les avantages, la conformité et les opérations RH internationales.",
+        "role": "Contribution à des fonctionnalités full-stack sur les flux d'immatriculation et d'opérations RH."
+      },
+      "callrater": {
+        "summary": "Une plateforme d'analyse et de notation d'appels pour le suivi de performance et le reporting en entreprise.",
+        "role": "Développement du traitement de données backend et des tableaux de bord de reporting."
+      },
+      "vms": {
+        "summary": "Une plateforme de gestion du bénévolat pour un programme de la GIZ, prenant en charge l'inscription, les flux d'affectation et le reporting administratif.",
+        "role": "Développement des flux métier de la plateforme et du reporting sur Laravel."
+      },
+      "health-integrations": {
+        "summary": "Des intégrations reliant une plateforme de santé à des sources externes de données de santé et d'objets connectés.",
+        "role": "Implémentation des intégrations FHIR, Withings, Apple Health et Android Health Connect pour la synchronisation des données d'activité et de traitement."
+      },
+      "payment-integrations": {
+        "summary": "Des intégrations de paiement et de plateformes pour des applications en production.",
+        "role": "Implémentation des paiements Stripe et PayPal et d'une intégration à l'API Spotify."
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "Compétences",
+    "title": "Compétences",
+    "description": "Classées par profondeur d'expérience en production, pas en pourcentages.",
+    "note": "Ces niveaux décrivent la quantité de travail en production derrière chaque technologie. Rien n'est noté ici, car une note n'aurait aucun sens.",
+    "evidenceLabel": "Où cela se voit",
+    "tiers": {
+      "primary": {
+        "name": "Expertise principale",
+        "definition": "Les outils du quotidien. Je conçois, développe, débogue et revois ces technologies sans document de référence."
+      },
+      "strong": {
+        "name": "Forte expérience en production",
+        "definition": "Livrées et maintenues en production, de façon confortable et répétée."
+      },
+      "working": {
+        "name": "Expérience pratique",
+        "definition": "Utilisées pour livrer des fonctionnalités réelles, avec la profondeur exigée par la tâche."
+      },
+      "foundational": {
+        "name": "Connaissances de base",
+        "definition": "Comprises au niveau conceptuel, par l'étude ou un usage limité en projet. Non présentées comme une expertise."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "À propos",
+    "description": "Mon parcours, ma méthode et la façon dont j'aime travailler.",
+    "paragraphs": {
+      "one": "Je suis ingénieur logiciel senior basé en Égypte, travaillant principalement sur l'ingénierie backend et les intégrations avec Node.js, TypeScript et NestJS, et à l'aise sur l'ensemble de la stack avec React et Next.js.",
+      "two": "L'essentiel de mon travail a porté sur des systèmes qui doivent rester en fonctionnement : une plateforme médicale de classe IIa selon le règlement MDR européen, une plateforme de fabrication alimentée par des données temps réel d'atelier, et des plateformes multi-tenant où l'isolation entre clients est une exigence de correction, pas une fonctionnalité optionnelle.",
+      "three": "J'aime les aspects du métier qui précèdent et suivent le code — transformer un besoin flou en une conception concrète, tracer les frontières avec lesquelles un système devra vivre pendant des années, puis assumer ce qui se passe quand il tombe en panne à trois heures du matin.",
+      "four": "Je privilégie une architecture propre, la maintenabilité et l'apprentissage continu, et j'essaie d'équilibrer des standards d'ingénierie exigeants avec ce dont l'entreprise a réellement besoin pour livrer."
+    },
+    "locationLabel": "Basé à",
+    "locationValue": "Gizeh, Égypte",
+    "languagesLabel": "Langues",
+    "educationLabel": "Formation",
+    "educationValue": "Licence en informatique, Misr University for Science & Technology (2012–2016)",
+    "languagesValue": "Arabe (langue maternelle), anglais (courant), français (notions)"
+  },
+  "resume": {
+    "eyebrow": "CV",
+    "title": "CV",
+    "description": "Un résumé de mon expérience, avec le CV complet disponible en PDF.",
+    "downloadTitle": "Télécharger le CV complet",
+    "downloadNote": "Le PDF public omet les coordonnées personnelles qui n'ont pas leur place sur une page publique. Écrivez-moi si vous avez besoin de plus d'informations.",
+    "summaryTitle": "Résumé",
+    "summary": "Ingénieur logiciel senior avec huit ans d'expérience en backend, full-stack et intégrations. Node.js, TypeScript, NestJS, React et Next.js, avec des livraisons en production dans la santé, l'IA, la sécurité, la fabrication et les plateformes B2B.",
+    "experienceTitle": "Expérience",
+    "skillsTitle": "Compétences clés",
+    "educationTitle": "Formation"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "description": "L'e-mail est le moyen le plus rapide de me joindre.",
+    "emailLabel": "E-mail",
+    "copyEmail": "Copier l'adresse e-mail",
+    "copied": "Adresse e-mail copiée",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "cvLabel": "Curriculum vitae",
+    "availabilityTitle": "Disponibilité",
+    "availabilityNote": "Ouvert à des opportunités d'ingénierie senior sélectionnées.",
+    "directTitle": "Contact direct",
+    "formTitle": "Envoyer un message",
+    "formNote": "Arrive directement dans ma boîte mail. Rien n'est stocké.",
+    "form": {
+      "emailLabel": "Votre adresse e-mail",
+      "subjectLabel": "Sujet",
+      "messageLabel": "Message",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours…",
+      "sent": "Message envoyé. Je répondrai à l'adresse indiquée.",
+      "error": "Le message n'a pas pu être envoyé. Merci de m'écrire directement.",
+      "unavailable": "Le formulaire de message n'est pas disponible pour le moment. Merci de m'écrire directement."
+    }
+  },
+  "github": {
+    "recentlyActive": "Actif récemment",
+    "stars": "{count, plural, one {# étoile} other {# étoiles}}",
+    "forks": "{count, plural, one {# bifurcation} other {# bifurcations}}",
+    "updated": "Mis à jour {date}",
+    "licenseLabel": "Licence",
+    "languageLabel": "Langage"
+  },
   "errors": {
-    "generic": "Un événement inattendu s’est produit. Réessayez.",
-    "network": "Vous semblez hors ligne. Vérifiez votre connexion et réessayez.",
-    "timeout": "La requête a pris trop de temps. Réessayez.",
-    "notFound": "Nous n’avons pas trouvé ce que vous cherchez.",
-    "unauthorized": "Connectez-vous pour continuer.",
-    "forbidden": "Vous n’avez pas l’autorisation d’effectuer cette action.",
-    "server": "Un problème est survenu de notre côté. Réessayez.",
+    "generic": "Une erreur est survenue. Veuillez réessayer.",
+    "network": "Vous semblez hors ligne. Vérifiez votre connexion.",
+    "timeout": "La requête a mis trop de temps. Veuillez réessayer.",
+    "notFound": "La ressource demandée est introuvable.",
+    "unauthorized": "Vous devez vous connecter pour continuer.",
+    "forbidden": "Vous n'avez pas accès à cette ressource.",
+    "server": "Le serveur a rencontré un problème. Veuillez réessayer plus tard.",
     "validation": "Certains champs nécessitent votre attention."
   },
   "notFound": {
     "title": "Page introuvable",
-    "description": "La page demandée n’existe pas.",
-    "backHome": "Retour à l’accueil"
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
   },
   "errorPage": {
-    "title": "Un problème est survenu",
-    "description": "Un événement inattendu s’est produit. Réessayez.",
+    "title": "Une erreur est survenue",
+    "description": "Une erreur inattendue s'est produite.",
     "retry": "Réessayer"
-  },
-  "workbench": {
-    "title": "Atelier UI",
-    "subtitle": "Navigation, fil d’Ariane, cartes, formulaires, états, thèmes, langues et mises en page adaptatives sont des primitives partagées, pas des copies locales.",
-    "buttonsSection": "Boutons",
-    "feedbackSection": "États",
-    "iconsSection": "Icônes",
-    "formsSection": "Formulaire",
-    "sampleLabel": "E-mail",
-    "samplePlaceholder": "you@example.com",
-    "sampleAlert": "Aucun contenu à afficher actuellement.",
-    "sampleButton": "Action principale",
-    "sampleSecondaryButton": "Action secondaire",
-    "sampleDangerButton": "Action destructive"
-  },
-  "marketing": {
-    "home": {
-      "eyebrow": "Construisez sereinement",
-      "title": "La base stricte que mérite votre prochain produit",
-      "description": "Un socle Next.js soigné, avec frontières claires, interface réutilisable, qualité mesurable et repères adaptés à l’IA."
-    },
-    "about": {
-      "eyebrow": "Notre raison d’être",
-      "title": "Conçu pour les équipes qui privilégient la clarté",
-      "description": "Next Ranger transforme les choix d’architecture en conventions vérifiables pour contribuer sûrement dès le premier jour."
-    },
-    "features": {
-      "eyebrow": "Tout est inclus",
-      "title": "La rigueur de production sans lourdeur",
-      "description": "Réutilisez modules, composants, contrôles qualité, localisation et sécurité au lieu de reconstruire les fondations."
-    },
-    "faq": {
-      "eyebrow": "Réponses franches",
-      "title": "Vos questions avant de commencer",
-      "description": "Comprenez les compromis, le flux de travail et l’usage prévu de ce socle volontairement structuré."
-    },
-    "contact": {
-      "eyebrow": "Échangeons",
-      "title": "Parlez-nous de votre produit",
-      "description": "Partagez objectifs et contraintes. Le modèle prépare un brouillon local sans prétendre l’envoyer à un serveur."
-    },
-    "primaryAction": "Découvrir les fonctions",
-    "secondaryAction": "Ouvrir l’atelier",
-    "trustLabel": "Pensé pour les équipes produit, ingénierie et plateforme",
-    "routeAtlasLabel": "Atlas des routes localisées",
-    "highlights": {
-      "one": {
-        "title": "Strict par défaut",
-        "description": "TypeScript et ESLint transforment les accords d’architecture en erreurs, jamais en avertissements."
-      },
-      "two": {
-        "title": "Réutilisable par conception",
-        "description": "Des composants accessibles et des frontières nettes évitent répétitions et dépendances confuses."
-      },
-      "three": {
-        "title": "Prêt pour l’IA",
-        "description": "Règles canoniques et fiches de tâches offrent aux agents un contexte précis et compact."
-      }
-    },
-    "questions": {
-      "one": {
-        "question": "Convient-il à un produit existant ?",
-        "answer": "Oui. Adoptez les contrats progressivement, en commençant par les frontières, les contrôles et les composants partagés."
-      },
-      "two": {
-        "question": "La rigueur ralentit-elle ?",
-        "answer": "Elle explicite les premiers choix puis accélère la suite en réduisant les ambiguïtés."
-      },
-      "three": {
-        "question": "Un serveur est-il inclus ?",
-        "answer": "Aucun service fictif. Les contrats de passerelle préparent l’intégration de votre véritable backend."
-      }
-    },
-    "contactAction": "Créer un brouillon",
-    "contactNote": "Après validation, vous choisissez d’ouvrir votre messagerie. Rien n’est téléversé ni envoyé silencieusement.",
-    "contactForm": {
-      "nameLabel": "Nom",
-      "emailLabel": "Adresse e-mail",
-      "messageLabel": "Message",
-      "submit": "Preparer le brouillon",
-      "notConfigured": "Message valide. Configurez NEXT_PUBLIC_CONTACT_EMAIL pour definir le destinataire.",
-      "ready": "Votre message est prêt. Relisez-le dans votre messagerie avant l’envoi.",
-      "subject": "Demande de projet Next Ranger",
-      "validation": {
-        "nameRequired": "Saisissez votre nom.",
-        "emailRequired": "Saisissez votre e-mail.",
-        "emailInvalid": "Saisissez une adresse valide.",
-        "messageRequired": "Saisissez un message.",
-        "messageShort": "Ecrivez au moins 20 caracteres."
-      }
-    }
   },
   "pwa": {
     "offlineTitle": "Vous êtes hors ligne",
-    "offlineDescription": "Reconnectez-vous pour charger les dernières données."
+    "offlineDescription": "Reconnectez-vous pour continuer. Les pages déjà consultées restent disponibles sur cet appareil."
   }
 }

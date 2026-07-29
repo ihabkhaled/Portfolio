@@ -1,4 +1,4 @@
-import type { ReactNode, SubmitEvent } from 'react';
+import type { SubmitEvent } from 'react';
 
 export type ContactStatus = 'idle' | 'sending' | 'sent' | 'error' | 'unavailable';
 
@@ -39,9 +39,4 @@ export interface ContactStatusViewModel {
   readonly isSending: boolean;
   readonly submitLabel: string;
   readonly statusMessage: string | null;
-}
-
-export interface ContactPageManifestRow {
-  readonly label: string;
-  readonly value: ReactNode;
 }

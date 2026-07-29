@@ -228,6 +228,38 @@
         "overview": "NextRanger is the starting point I use for serious frontend work. Its premise is that conventions a team agrees to but cannot enforce will erode, so every rule that matters is expressed as a lint rule, a type, or a failing test rather than a paragraph in a README.",
         "architecture": "Next.js App Router with Server Components by default, strict TypeScript, and a module-first layout with one-way dependencies: routes depend on modules, modules on shared code, shared on vendor wrappers, and never the reverse. Each third-party package has exactly one owning wrapper, so upgrades and error handling live in a single reviewed file.",
         "engineering": "A custom ESLint plugin enforces the layer policy, package ownership, TSX-only components and translation coverage. Vitest and Playwright cover unit, integration, end-to-end, accessibility and visual testing, alongside internationalisation with RTL, a nonce-based CSP, and CI gates that run the whole set before anything merges."
+      },
+      "myoncare": {
+        "summary": "A Class IIa medical device under EU MDR that lets patients share treatment plans, medication and activity data with their healthcare teams.",
+        "role": "Backend and full-stack engineer since 2022, working across care task management, patient monitoring and wearable integrations."
+      },
+      "garment-io": {
+        "summary": "A smart-manufacturing platform helping garment factories digitise operations, track production and monitor performance from real-time shop-floor data.",
+        "role": "Backend and full-stack engineer, building operational dashboards and IoT device integrations."
+      },
+      "tarsyaa": {
+        "summary": "A B2B procurement and tender management platform connecting companies with certified suppliers across KSA through transparent, competitive bidding.",
+        "role": "Built backend services with strict TypeScript, unit testing and role-based access control for supplier onboarding and bidding workflows."
+      },
+      "ovarc": {
+        "summary": "A global business-expansion platform streamlining incorporation, payroll, benefits, compliance and international HR operations.",
+        "role": "Contributed full-stack features across the incorporation and HR-operations workflows."
+      },
+      "callrater": {
+        "summary": "A call analytics and rating platform for enterprise performance tracking and reporting.",
+        "role": "Developed backend data processing and reporting dashboards."
+      },
+      "vms": {
+        "summary": "A volunteering management platform for a GIZ programme, supporting registration, assignment workflows and administrative reporting.",
+        "role": "Built the platform's business workflows and reporting on Laravel."
+      },
+      "health-integrations": {
+        "summary": "Integrations connecting a healthcare platform to external health and wearable data sources.",
+        "role": "Implemented FHIR, Withings, Apple Health and Android Health Connect integrations for activity and treatment data synchronisation."
+      },
+      "payment-integrations": {
+        "summary": "Payment and platform integrations for production applications.",
+        "role": "Implemented Stripe and PayPal payment processing and a Spotify API integration."
       }
     }
   },

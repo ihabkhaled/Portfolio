@@ -67,6 +67,12 @@ The suppression site in code MUST reference its exception (a comment naming the 
   validated closed sets, and committed hash manifests fail the quality gate on drift. See
   [EXC-0006](./EXC-0006-social-asset-filesystem.md).
 
+### EXC-0007 — unreachable optional-chaining fallback in `resolveClientKey`
+
+- **Where**: `src/modules/contact/helpers/request-client-key.helper.ts` (`/* v8 ignore next */` on the `?.trim() ?? 'unknown'` fallback).
+- **Reason**: `noUncheckedIndexedAccess` types `split(',', 1)[0]` as possibly `undefined`, but a fixed-limit split on any string always returns at least one element — the fallback cannot execute.
+- **Mitigation**: both real branches (proxy chain present/absent) are covered by `src/modules/contact/test/request-client-key.helper.test.ts`. See [EXC-0007](./EXC-0007-rate-limit-key-fallback-branch.md).
+
 ## Lifecycle
 
 1. File the doc from the template with a new `EXC-NNNN` id, get architect approval in the same PR as the suppression.

@@ -1,13 +1,15 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import manifest from '@/app/manifest';
 import robots from '@/app/robots';
 import sitemap from '@/app/sitemap';
+import type * as PackagesI18n from '@/packages/i18n';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/packages/i18n';
 import { appConfig } from '@/shared/config/app-config';
+import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 import {
   INDEXABLE_PATHS,
   NON_INDEXABLE_PATHS,
@@ -21,6 +23,25 @@ import {
   buildNonIndexableMetadata,
   buildSeoMetadata,
 } from '@/shared/helpers/seo-metadata.helper';
+import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
+import { stubServerTranslations } from '@/tests/helpers/stub-server-translations';
+
+vi.mock('@/packages/i18n', async (importOriginal) => {
+  const actual = await importOriginal<typeof PackagesI18n>();
+  return {
+    ...actual,
+    setServerLocale: () => {},
+    getServerTranslations: ({
+      locale,
+      namespace,
+    }: {
+      locale: PackagesI18n.AppLocale;
+      namespace: string;
+    }) => stubServerTranslations(locale, namespace),
+  };
+});
+
+const { buildRouteMetadata } = await import('@/shared/helpers/route-metadata.helper');
 
 const repoRoot = path.resolve(import.meta.dirname, '../../..');
 const serviceWorkerSource = readFileSync(path.join(repoRoot, 'public/sw.js'), 'utf8');
@@ -161,5 +182,43 @@ describe('SEO and PWA contracts', () => {
       expect(serviceWorkerSource).toContain(`'${path}'`);
     }
     expect(serviceWorkerSource).toContain('!isPublicNavigationPath(url.pathname)');
+  });
+
+  it('brands a section title for a regular route', async () => {
+    const metadata = await buildRouteMetadata({
+      locale: 'en',
+      path: ROUTE_PATHS.projects,
+      namespace: I18N_NAMESPACES.projects,
+      titleKey: 'title',
+      descriptionKey: 'description',
+    });
+
+    expect(metadata.title).toBe(`Projects · ${appConfig.appName}`);
+  });
+
+  it('does not re-brand a title that already is the app name', async () => {
+    const metadata = await buildRouteMetadata({
+      locale: 'en',
+      path: ROUTE_PATHS.home,
+      namespace: I18N_NAMESPACES.app,
+      titleKey: 'seoTitle',
+      descriptionKey: 'description',
+      brandTitle: false,
+    });
+
+    expect(metadata.title).toContain(appConfig.appName);
+    expect(metadata.title).not.toContain(`${appConfig.appName} · ${appConfig.appName}`);
+  });
+
+  it('defaults keywords to an empty list when none are given', async () => {
+    const metadata = await buildRouteMetadata({
+      locale: 'en',
+      path: ROUTE_PATHS.about,
+      namespace: I18N_NAMESPACES.about,
+      titleKey: 'title',
+      descriptionKey: 'description',
+    });
+
+    expect(metadata.keywords).toEqual([]);
   });
 });

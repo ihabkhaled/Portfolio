@@ -2,345 +2,377 @@
   "app": {
     "title": "Ihab Khaled",
     "seoTitle": "Ihab Khaled | Senior Software Engineer, Backend & Full-Stack",
-    "role": "Senior Software Engineer",
-    "description": "Senior Software Engineer working across backend, full-stack and integrations.",
-    "skipToContent": "Skip to main content",
-    "loading": "Loading…",
-    "localeSwitchLabel": "Change language",
-    "themeSwitchLabel": "Change colour theme",
+    "role": "Insinyur Perangkat Lunak Senior",
+    "description": "Insinyur Perangkat Lunak Senior yang berfokus pada backend, full-stack, dan integrasi.",
+    "skipToContent": "Lompat ke konten utama",
+    "loading": "Memuat…",
+    "localeSwitchLabel": "Ganti bahasa",
+    "themeSwitchLabel": "Ganti tema warna",
     "theme": {
-      "light": "Light",
-      "dark": "Dark",
-      "system": "System"
+      "light": "Terang",
+      "dark": "Gelap",
+      "system": "Sistem"
     },
-    "downloadCv": "Download CV",
-    "downloadCvHint": "PDF, opens in a new tab",
-    "externalLinkHint": "Opens in a new tab",
-    "footerNote": "Building scalable systems, secure APIs, microservices and production-ready web and mobile applications.",
+    "downloadCv": "Unduh CV",
+    "downloadCvHint": "PDF, terbuka di tab baru",
+    "externalLinkHint": "Terbuka di tab baru",
+    "footerNote": "Membangun sistem yang skalabel, API yang aman, microservices, dan aplikasi web serta mobile yang siap produksi.",
     "menu": "Menu"
   },
   "nav": {
-    "home": "Home",
-    "experience": "Experience",
-    "projects": "Projects",
-    "skills": "Skills",
-    "about": "About",
+    "home": "Beranda",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "about": "Tentang",
     "resume": "Resume",
-    "contact": "Contact",
-    "landmarkLabel": "Primary",
+    "contact": "Kontak",
+    "landmarkLabel": "Navigasi utama",
     "menu": "Menu"
   },
   "home": {
-    "eyebrow": "Backend, Full-Stack & Integrations",
-    "tagline": "I architect, build, integrate, test and deploy production software.",
-    "valueProp": "Eight years across healthcare, AI, cybersecurity, smart manufacturing, B2B platforms and consumer applications — from requirements and architecture through to deployment and production support.",
-    "ctaProjects": "View projects",
-    "ctaContact": "Contact me",
-    "indicatorsTitle": "At a glance",
+    "eyebrow": "Backend, Full-Stack & Integrasi",
+    "tagline": "Saya merancang, mengembangkan, mengintegrasikan, menguji, dan mendeploy perangkat lunak produksi.",
+    "valueProp": "Delapan tahun pengalaman di bidang kesehatan, AI, keamanan siber, manufaktur pintar, platform B2B, dan aplikasi konsumen — mulai dari analisis kebutuhan dan arsitektur hingga deployment dan dukungan produksi.",
+    "ctaProjects": "Lihat proyek",
+    "ctaContact": "Hubungi saya",
+    "indicatorsTitle": "Sekilas info",
     "indicators": {
-      "javascript": "{years}+ years JavaScript",
-      "node": "{years}+ years Node.js",
-      "typescript": "{years}+ years TypeScript",
-      "delivery": "End-to-end product delivery"
+      "javascript": "Lebih dari {years} tahun JavaScript",
+      "node": "Lebih dari {years} tahun Node.js",
+      "typescript": "Lebih dari {years} tahun TypeScript",
+      "delivery": "Pengiriman produk end-to-end"
     },
     "profileLabels": {
-      "location": "Location",
-      "focus": "Focus",
-      "stack": "Core stack",
-      "languages": "Languages"
+      "location": "Lokasi",
+      "focus": "Fokus",
+      "stack": "Stack inti",
+      "languages": "Bahasa"
     },
-    "focusValue": "Backend architecture, integrations, AI platforms",
-    "capabilitiesEyebrow": "Capabilities",
-    "capabilitiesTitle": "What I build and operate",
-    "capabilitiesLead": "The work spans system design, implementation and the production life that follows.",
+    "focusValue": "Arsitektur backend, integrasi, platform AI",
+    "capabilitiesEyebrow": "Kemampuan",
+    "capabilitiesTitle": "Yang saya bangun dan operasikan",
+    "capabilitiesLead": "Pekerjaan ini mencakup desain sistem, implementasi, dan seluruh siklus hidup produksi setelahnya.",
     "capabilities": {
-      "backend": "Backend architecture",
-      "fullstack": "Full-stack development",
-      "apis": "APIs and integrations",
+      "backend": "Arsitektur backend",
+      "fullstack": "Pengembangan full-stack",
+      "apis": "API dan integrasi",
       "microservices": "Microservices",
-      "events": "Event-driven systems",
-      "ai": "AI and LLM integrations",
-      "data": "Databases and caching",
-      "cloud": "Cloud and DevOps",
-      "testing": "Testing and quality",
-      "security": "Security and production support"
+      "events": "Sistem berbasis event",
+      "ai": "Integrasi AI dan LLM",
+      "data": "Basis data dan caching",
+      "cloud": "Cloud dan DevOps",
+      "testing": "Pengujian dan kualitas",
+      "security": "Keamanan dan dukungan produksi"
     },
-    "featuredEyebrow": "Selected work",
-    "featuredTitle": "Recent projects",
-    "featuredLead": "Publicly available systems I designed and built, with live repository activity where it exists.",
-    "featuredAll": "All projects",
-    "experienceEyebrow": "Experience",
-    "experienceTitle": "Where I have worked",
-    "experienceLead": "Employed roles and independent engineering work, kept separate so overlapping dates stay clear.",
-    "experienceAll": "Full experience",
-    "approachEyebrow": "How I work",
-    "approachTitle": "From requirement to running system",
-    "approachLead": "A sequence, not a slogan — each step produces something the next one depends on.",
+    "featuredEyebrow": "Karya pilihan",
+    "featuredTitle": "Proyek terbaru",
+    "featuredLead": "Sistem yang dapat diakses publik, yang saya rancang dan bangun sendiri, dengan aktivitas repository sebenarnya jika tersedia.",
+    "featuredAll": "Semua proyek",
+    "experienceEyebrow": "Pengalaman",
+    "experienceTitle": "Tempat saya pernah bekerja",
+    "experienceLead": "Peran sebagai karyawan dan pekerjaan engineering independen dipisahkan agar rentang tanggal yang tumpang tindih tetap jelas.",
+    "experienceAll": "Pengalaman lengkap",
+    "approachEyebrow": "Cara saya bekerja",
+    "approachTitle": "Dari kebutuhan menuju sistem yang berjalan",
+    "approachLead": "Sebuah urutan nyata, bukan slogan — setiap tahap menghasilkan sesuatu yang menjadi dasar tahap berikutnya.",
     "approach": {
       "plan": {
-        "title": "Plan",
-        "description": "Turn requirements into scope, constraints and estimates."
+        "title": "Rencana",
+        "description": "Mengubah kebutuhan menjadi ruang lingkup, batasan, dan estimasi."
       },
       "design": {
-        "title": "Design",
-        "description": "Model the domain, the workflows and the failure cases."
+        "title": "Desain",
+        "description": "Memodelkan domain, alur kerja, dan skenario kegagalan."
       },
       "architect": {
-        "title": "Architect",
-        "description": "Set boundaries, contracts and data flow before code."
+        "title": "Arsitektur",
+        "description": "Menentukan batasan, kontrak, dan alur data sebelum menulis kode."
       },
       "implement": {
-        "title": "Implement",
-        "description": "Build backend and frontend against those contracts."
+        "title": "Implementasi",
+        "description": "Membangun backend dan frontend sesuai kontrak tersebut."
       },
       "test": {
-        "title": "Test",
-        "description": "Unit, integration and system tests as work proceeds."
+        "title": "Pengujian",
+        "description": "Pengujian unit, integrasi, dan sistem seiring berjalannya pekerjaan."
       },
       "deploy": {
-        "title": "Deploy",
-        "description": "Containerised delivery through CI/CD pipelines."
+        "title": "Deployment",
+        "description": "Pengiriman terkontainerisasi melalui pipeline CI/CD."
       },
       "operate": {
-        "title": "Operate",
-        "description": "Monitor, troubleshoot, tune and harden what is live."
+        "title": "Operasional",
+        "description": "Memantau, mendiagnosis masalah, menyetel, dan memperkuat sistem yang berjalan."
       }
     },
-    "contactEyebrow": "Contact",
-    "contactTitle": "Open to senior engineering conversations",
-    "contactLead": "The quickest route is email. I read every message and reply to those that fit."
+    "contactEyebrow": "Kontak",
+    "contactTitle": "Terbuka untuk diskusi peluang senior engineering",
+    "contactLead": "Cara tercepat menghubungi saya adalah email. Saya membaca setiap pesan dan membalas yang sesuai."
   },
   "experience": {
-    "eyebrow": "Career",
-    "title": "Experience",
-    "description": "Roles, responsibilities and the systems behind them.",
-    "employmentTitle": "Employment",
-    "independentTitle": "Independent engineering",
-    "present": "Present",
-    "highlightsLabel": "Selected responsibilities",
+    "eyebrow": "Karier",
+    "title": "Pengalaman",
+    "description": "Peran, tanggung jawab, dan sistem di baliknya.",
+    "employmentTitle": "Pekerjaan tetap",
+    "independentTitle": "Engineering independen",
+    "present": "Sekarang",
+    "highlightsLabel": "Tanggung jawab utama",
     "stackLabel": "Stack",
     "roles": {
       "oncare": {
-        "summary": "Backend and full-stack engineering on myoncare, a Class IIa medical device under EU MDR that lets patients share treatment plans, medication and activity data with their care teams.",
+        "summary": "Engineering backend dan full-stack pada myoncare, perangkat medis Kelas IIa berdasarkan regulasi MDR Uni Eropa yang memungkinkan pasien berbagi rencana perawatan, informasi obat, dan data aktivitas dengan tim medis mereka.",
         "highlights": {
-          "one": "Built backend services with Node.js, NestJS and Express across MySQL and MongoDB, covering secure storage, API integrations and performance work.",
-          "two": "Delivered web and mobile features in React, React Native and Capacitor, with platform-specific work in Kotlin and Swift.",
-          "three": "Integrated health and wearable data sources including FHIR and Withings.",
-          "four": "Upgraded backend services and dependencies to keep security and performance standards current.",
-          "five": "Reviewed code, fixed production defects and contributed to sprint planning and estimation."
+          "one": "Mengembangkan layanan backend dengan Node.js, NestJS, dan Express di atas MySQL dan MongoDB, mencakup penyimpanan data yang aman, integrasi API, dan optimisasi performa.",
+          "two": "Mengirimkan fitur web dan mobile dengan React, React Native, dan Capacitor, dengan pengembangan khusus platform menggunakan Kotlin dan Swift.",
+          "three": "Mengintegrasikan sumber data kesehatan dan perangkat wearable, termasuk FHIR dan Withings.",
+          "four": "Memutakhirkan layanan backend dan dependensi untuk menjaga standar keamanan dan performa.",
+          "five": "Melakukan review kode, memperbaiki cacat di produksi, dan berkontribusi pada perencanaan serta estimasi sprint."
         }
       },
       "garment": {
-        "summary": "Smart-manufacturing platform helping garment factories digitise operations, track production and monitor performance from real-time shop-floor data.",
+        "summary": "Platform manufaktur pintar yang membantu pabrik garmen mendigitalkan operasional, melacak produksi, dan memantau performa berdasarkan data real-time dari lantai produksi.",
         "highlights": {
-          "one": "Developed backend features in Node.js, PHP and Laravel for business logic, data management and integrations.",
-          "two": "Built React interfaces for operational dashboards and production tracking.",
-          "three": "Integrated third-party tools and devices to extend platform capability.",
-          "four": "Deployed releases and maintained tooling on CentOS servers.",
-          "five": "Worked directly with clients on feature planning, estimation and demos."
+          "one": "Mengembangkan fitur backend dengan Node.js, PHP, dan Laravel untuk logika bisnis, manajemen data, dan integrasi.",
+          "two": "Membangun antarmuka React untuk dashboard operasional dan pelacakan produksi.",
+          "three": "Mengintegrasikan alat dan perangkat pihak ketiga untuk memperluas kemampuan platform.",
+          "four": "Mendeploy rilis dan memelihara alat di server CentOS.",
+          "five": "Berkolaborasi langsung dengan klien dalam perencanaan fitur, estimasi, dan demo."
         }
       },
       "eseed": {
-        "summary": "Web and mobile delivery for startups, NGOs and businesses, with a focus on maintainable, user-friendly solutions.",
+        "summary": "Menyediakan solusi web dan mobile untuk startup, LSM, dan bisnis, dengan fokus pada solusi yang mudah dipelihara dan ramah pengguna.",
         "highlights": {
-          "one": "Built backend features with Node.js, MySQL and Spring Boot.",
-          "two": "Developed responsive interfaces with React, HTML5, CSS, Bootstrap and jQuery.",
-          "three": "Integrated third-party APIs and delivered WordPress-based content projects.",
-          "four": "Contributed across the full development lifecycle within Agile practices."
+          "one": "Mengembangkan fitur backend dengan Node.js, MySQL, dan Spring Boot.",
+          "two": "Mengembangkan antarmuka responsif dengan React, HTML5, CSS, Bootstrap, dan jQuery.",
+          "three": "Mengintegrasikan API pihak ketiga dan mengirimkan proyek konten berbasis WordPress.",
+          "four": "Berkontribusi di seluruh siklus pengembangan dalam praktik Agile."
         }
       },
       "freelance": {
-        "summary": "End-to-end delivery for clients across fintech, healthcare, SaaS, B2B procurement, security and consumer products — from requirements analysis through to production support.",
+        "summary": "Pengiriman end-to-end untuk klien di bidang fintech, kesehatan, SaaS, procurement B2B, keamanan, dan produk konsumen — mulai dari analisis kebutuhan hingga dukungan produksi.",
         "highlights": {
-          "one": "Designed and shipped full-stack systems: backend services, REST APIs, frontend interfaces and mobile applications.",
-          "two": "Implemented authentication, role-based access control, payments, real-time synchronisation and multi-tenant isolation.",
-          "three": "Built event-driven workflows with background jobs, message queues and streaming.",
-          "four": "Led refactoring, legacy modernisation, performance optimisation and regression testing.",
-          "five": "Set up containerised deployments, CI/CD pipelines and production monitoring.",
-          "six": "Enforced engineering standards with strict TypeScript, linting, testing and pre-commit gates."
+          "one": "Merancang dan mengirimkan sistem full-stack: layanan backend, REST API, antarmuka frontend, dan aplikasi mobile.",
+          "two": "Mengimplementasikan autentikasi, kontrol akses berbasis peran, pembayaran, sinkronisasi real-time, dan isolasi multi-tenant.",
+          "three": "Mengembangkan alur kerja berbasis event dengan background job, message queue, dan streaming.",
+          "four": "Memimpin refactoring, modernisasi sistem lama, optimisasi performa, dan pengujian regresi.",
+          "five": "Menyiapkan deployment terkontainerisasi, pipeline CI/CD, dan pemantauan produksi.",
+          "six": "Menerapkan standar engineering yang ketat dengan TypeScript strict, linting, pengujian, dan pemeriksaan pre-commit."
         }
       }
     }
   },
   "projects": {
-    "eyebrow": "Work",
-    "title": "Projects",
-    "description": "Public systems and selected professional work.",
-    "filtersLabel": "Filter projects by category",
+    "eyebrow": "Karya",
+    "title": "Proyek",
+    "description": "Sistem publik dan karya profesional pilihan.",
+    "filtersLabel": "Filter proyek berdasarkan kategori",
     "filters": {
-      "all": "All",
+      "all": "Semua",
       "ai": "AI",
       "backend": "Backend",
       "fullstack": "Full-stack",
       "mobile": "Mobile",
-      "security": "Security",
-      "healthcare": "Healthcare",
-      "platforms": "Platforms",
-      "integrations": "Integrations",
+      "security": "Keamanan",
+      "healthcare": "Kesehatan",
+      "platforms": "Platform",
+      "integrations": "Integrasi",
       "opensource": "Open source"
     },
-    "roleLabel": "Role",
+    "roleLabel": "Peran",
     "stackLabel": "Stack",
-    "categoryLabel": "Category",
+    "categoryLabel": "Kategori",
     "repositoryLabel": "Repository",
-    "liveLabel": "Live site",
-    "caseStudy": "View case study",
-    "backToProjects": "All projects",
-    "professionalLabel": "Selected professional work",
-    "openSourceLabel": "Open-source project",
-    "professionalNote": "Employer-owned system. The source is not public.",
-    "empty": "No projects match this filter.",
-    "overviewTitle": "Overview",
-    "architectureTitle": "Architecture",
+    "liveLabel": "Situs langsung",
+    "caseStudy": "Lihat studi kasus",
+    "backToProjects": "Semua proyek",
+    "professionalLabel": "Karya profesional pilihan",
+    "openSourceLabel": "Proyek open source",
+    "professionalNote": "Sistem milik perusahaan. Kode sumber tidak dipublikasikan.",
+    "empty": "Tidak ada proyek yang cocok dengan filter ini.",
+    "overviewTitle": "Ikhtisar",
+    "architectureTitle": "Arsitektur",
     "engineeringTitle": "Engineering",
     "items": {
       "clawai": {
-        "summary": "A local-first AI orchestration platform that runs open models on your own machine and routes each prompt to the most suitable one.",
-        "role": "Architected and built the platform end to end — microservices backend, orchestration layer and web workspace.",
-        "overview": "Claw gives a team one workspace to manage, route, compare and operate many AI models at once. It prioritises private local inference through Ollama and llama.cpp, while still reaching cloud providers when a task needs them, so sensitive prompts can stay on hardware the organisation controls.",
-        "architecture": "A NestJS microservices backend sits behind a Next.js workspace, with PostgreSQL for relational data, MongoDB for documents, Redis for caching and queues for background work. A provider abstraction puts local and cloud models behind one interface, which is what makes routing, fallback and comparison possible without special-casing each vendor.",
-        "engineering": "The interesting problems were routing and trust: choosing a model per prompt, falling back when a provider degrades, and running comparison, consensus and judge workflows over several answers. Around that sit memory and context packs, workspace grounding, file processing, permission-aware tool execution for connected business tools, provider credential handling and health aggregation."
+        "summary": "Platform orkestrasi AI local-first yang menjalankan model open source di perangkat Anda sendiri dan mengarahkan setiap prompt ke model yang paling sesuai.",
+        "role": "Merancang dan membangun platform secara end-to-end — backend microservices, lapisan orkestrasi, dan workspace web.",
+        "overview": "Claw memberikan tim satu workspace untuk mengelola, mengarahkan, membandingkan, dan mengoperasikan banyak model AI sekaligus. Prioritasnya adalah inferensi lokal privat melalui Ollama dan llama.cpp, sambil tetap dapat menjangkau penyedia cloud saat dibutuhkan, sehingga prompt yang sensitif dapat tetap berada pada perangkat keras yang dikendalikan organisasi.",
+        "architecture": "Backend microservices NestJS di belakang workspace Next.js, dengan PostgreSQL untuk data relasional, MongoDB untuk dokumen, Redis untuk caching, dan queue untuk pekerjaan latar belakang. Abstraksi penyedia menempatkan model lokal dan cloud di balik satu antarmuka, yang memungkinkan routing, fallback, dan perbandingan tanpa penanganan khusus untuk setiap vendor.",
+        "engineering": "Masalah paling menarik terkait routing dan kepercayaan: memilih model untuk setiap prompt, melakukan fallback saat kualitas penyedia menurun, dan menjalankan alur perbandingan, konsensus, serta penilaian atas beberapa jawaban. Selain itu ada paket memori dan konteks, grounding workspace, pemrosesan file, eksekusi tool yang sadar izin akses untuk tool bisnis yang terhubung, manajemen kredensial penyedia, dan agregasi status kesehatan."
       },
       "auraspear": {
-        "summary": "An AI-first, multi-tenant SOC platform unifying SIEM, SOAR and threat intelligence in one investigation workspace.",
-        "role": "Designed and implemented the platform: tenant isolation model, RBAC, investigation workflows and AI-assisted analysis.",
-        "overview": "AuraSpear brings alerts, cases, incidents, hunts, intelligence enrichment and detection engineering into a single governed workspace. It is built for teams that serve several tenants at once, where one customer's data must never be reachable from another's session.",
-        "architecture": "Next.js and NestJS over PostgreSQL with Prisma, Redis for caching, and OpenSearch for log search at volume. Wazuh and MISP feed detections and threat intelligence, and AWS Bedrock backs the AI reasoning. Tenant isolation is enforced in the data layer rather than the UI, and every connector credential is handled server-side.",
-        "engineering": "The core work was making multi-tenancy and RBAC unavoidable rather than optional — scoping every query, every job and every AI call to a tenant. On top of that sits alert triage, case management, threat hunting, intelligence enrichment, and AI assistance woven into the investigation rather than bolted on beside it."
+        "summary": "Platform SOC multi-tenant berbasis AI yang menyatukan SIEM, SOAR, dan threat intelligence dalam satu workspace investigasi.",
+        "role": "Merancang dan mengimplementasikan platform: model isolasi tenant, RBAC, alur investigasi, dan analisis berbantuan AI.",
+        "overview": "AuraSpear menyatukan alert, kasus, insiden, threat hunting, pengayaan intelijen, dan detection engineering dalam satu workspace yang terkelola. Dirancang untuk tim yang melayani banyak tenant sekaligus, di mana data satu klien tidak boleh pernah dapat diakses dari sesi klien lain.",
+        "architecture": "Next.js dan NestJS di atas PostgreSQL dengan Prisma, Redis untuk caching, dan OpenSearch untuk pencarian log dalam volume besar. Wazuh dan MISP memasok data deteksi dan threat intelligence, sementara AWS Bedrock mendukung penalaran AI. Isolasi tenant diterapkan pada lapisan data, bukan pada antarmuka, dan setiap kredensial connector ditangani hanya di sisi server.",
+        "engineering": "Pekerjaan utamanya adalah menjadikan multi-tenancy dan RBAC sebagai kewajiban, bukan opsional — dengan mengaitkan setiap query, setiap job, dan setiap panggilan AI ke tenant tertentu. Selain itu ada triase alert, manajemen kasus, threat hunting, pengayaan intelijen, dan bantuan AI yang menyatu ke dalam investigasi, bukan ditambahkan belakangan."
       },
       "foodorder": {
-        "summary": "A mobile-first collaborative ordering app where a group shares one order and the cost splits fairly and transparently.",
-        "role": "Built the application end to end: architecture, data model, offline behaviour, bilingual UI and mobile packaging.",
-        "overview": "One person opens a shared bucket, invites others, and everyone adds their own items. When the order closes, each participant sees exactly what they owe, with delivery fees distributed fairly instead of guessed at. It runs as a web app and ships to Android and iOS from the same codebase.",
-        "architecture": "React, TypeScript and Vite, packaged with Capacitor for Android and iOS. Firebase Authentication handles identity and Cloud Firestore stores buckets, invitations and contributions, with its offline persistence letting people keep adding items on a weak connection and reconcile later.",
-        "engineering": "The demanding parts were correctness and fairness: role-scoped collaboration, per-member contributions, immutable order snapshots at closing time, and receipt and fee distribution that has to be right to the last unit. Full Arabic and English support including RTL was part of the design from the start, not retrofitted, and the flows are covered by cross-browser and mobile tests."
+        "summary": "Aplikasi pemesanan makanan kolaboratif dengan pendekatan mobile-first, di mana satu grup berbagi satu pesanan dan biayanya dibagi secara adil dan transparan.",
+        "role": "Mengembangkan aplikasi secara end-to-end: arsitektur, model data, perilaku offline, antarmuka dwibahasa, dan pengemasan mobile.",
+        "overview": "Satu orang membuka keranjang bersama, mengundang orang lain, dan setiap orang menambahkan item mereka sendiri. Saat pesanan ditutup, setiap peserta melihat dengan tepat jumlah yang harus dibayar, dengan biaya pengiriman dibagi secara adil, bukan diperkirakan. Aplikasi ini berjalan sebagai aplikasi web dan dirilis ke Android serta iOS dari basis kode yang sama.",
+        "architecture": "React, TypeScript, dan Vite, dikemas dengan Capacitor untuk Android dan iOS. Firebase Authentication menangani identitas, dan Cloud Firestore menyimpan keranjang, undangan, dan kontribusi, dengan persistensi offline yang memungkinkan orang terus menambahkan item pada koneksi lemah dan menyinkronkannya kemudian.",
+        "engineering": "Bagian yang paling menuntut adalah akurasi dan keadilan: kolaborasi yang dibatasi peran, kontribusi individual per anggota, snapshot pesanan yang tidak berubah saat ditutup, serta distribusi struk dan biaya yang harus akurat hingga unit terakhir. Dukungan penuh bahasa Arab dan Inggris termasuk RTL menjadi bagian dari desain sejak awal, bukan ditambahkan kemudian, dan alurnya dicakup oleh pengujian lintas browser dan mobile."
       },
       "twinzyai": {
-        "summary": "A privacy-focused AI style and vibe game that reads visible traits from a photo without ever identifying anyone.",
-        "role": "Built the full stack and designed the privacy pipeline that keeps image data out of storage entirely.",
-        "overview": "Players upload a photo and get a playful reading of their visible style and vibe, which they can share through a temporary link. The whole product is designed around a constraint: it must be fun without becoming a face-recognition tool.",
-        "architecture": "A Next.js front end with a NestJS and Fastify API, containerised with Docker, calling Gemini for analysis. The pipeline validates the image, extracts visible traits, discards the image buffer immediately, and every stage after that works on text only.",
-        "engineering": "The privacy properties are the feature: no facial recognition, no identity matching, no image persistence, and text-only processing once traits are extracted. Around that sit secure image validation, safety gates on generated content, expiring share links, bilingual Arabic and English support, and a mobile-first PWA build."
+        "summary": "Game AI yang berfokus pada privasi, membaca ciri gaya yang terlihat dari sebuah foto tanpa pernah mengidentifikasi siapa pun.",
+        "role": "Mengembangkan seluruh stack dan merancang pipeline privasi yang sepenuhnya mengecualikan data gambar dari penyimpanan apa pun.",
+        "overview": "Pemain mengunggah foto dan mendapatkan interpretasi menyenangkan tentang gaya dan vibe yang terlihat, yang dapat dibagikan melalui tautan sementara. Seluruh produk dirancang di sekitar satu batasan: tetap menyenangkan tanpa berubah menjadi alat pengenalan wajah.",
+        "architecture": "Frontend Next.js dengan API NestJS dan Fastify, dikontainerisasi dengan Docker, memanggil Gemini untuk analisis. Pipeline memvalidasi gambar, mengekstrak ciri yang terlihat, segera membuang buffer gambar, dan setiap tahap selanjutnya hanya bekerja dengan teks.",
+        "engineering": "Sifat privasi adalah fitur utamanya: tanpa pengenalan wajah, tanpa pencocokan identitas, tanpa penyimpanan gambar, dan pemrosesan hanya berbasis teks setelah ciri diekstrak. Selain itu ada validasi gambar yang aman, pembatasan keamanan pada konten yang dihasilkan, tautan berbagi yang kedaluwarsa, dukungan dwibahasa Arab-Inggris, dan PWA dengan pendekatan mobile-first."
       },
       "nextranger": {
-        "summary": "A strict Next.js engineering base where architectural decisions are enforced by tooling instead of documented and forgotten.",
-        "role": "Author. Designed the architecture model, the custom ESLint rule set and the quality gates.",
-        "overview": "NextRanger is the starting point I use for serious frontend work. Its premise is that conventions a team agrees to but cannot enforce will erode, so every rule that matters is expressed as a lint rule, a type, or a failing test rather than a paragraph in a README.",
-        "architecture": "Next.js App Router with Server Components by default, strict TypeScript, and a module-first layout with one-way dependencies: routes depend on modules, modules on shared code, shared on vendor wrappers, and never the reverse. Each third-party package has exactly one owning wrapper, so upgrades and error handling live in a single reviewed file.",
-        "engineering": "A custom ESLint plugin enforces the layer policy, package ownership, TSX-only components and translation coverage. Vitest and Playwright cover unit, integration, end-to-end, accessibility and visual testing, alongside internationalisation with RTL, a nonce-based CSP, and CI gates that run the whole set before anything merges."
+        "summary": "Fondasi engineering Next.js yang ketat, di mana keputusan arsitektur dipaksakan oleh tooling, bukan sekadar didokumentasikan lalu dilupakan.",
+        "role": "Penulis. Merancang model arsitektur, kumpulan aturan ESLint kustom, dan gate kualitas.",
+        "overview": "NextRanger adalah titik awal yang saya gunakan untuk pekerjaan frontend yang serius. Premisnya adalah bahwa konvensi yang disepakati tim tetapi tidak dapat dipaksakan akan tergerus seiring waktu, sehingga setiap aturan penting diekspresikan sebagai aturan lint, sebuah tipe, atau pengujian yang gagal, bukan sebagai paragraf di README.",
+        "architecture": "Next.js App Router dengan Server Components sebagai default, TypeScript strict, dan struktur module-first dengan dependensi satu arah: rute bergantung pada modul, modul bergantung pada kode bersama, kode bersama bergantung pada wrapper vendor, dan tidak pernah sebaliknya. Setiap paket pihak ketiga memiliki tepat satu wrapper penanggung jawab, sehingga upgrade dan penanganan error berada dalam satu file yang telah direview.",
+        "engineering": "Plugin ESLint kustom memaksakan kebijakan layer, kepemilikan paket, komponen yang dibatasi hanya TSX, dan cakupan terjemahan. Vitest dan Playwright mencakup pengujian unit, integrasi, end-to-end, aksesibilitas, dan visual, bersama internasionalisasi dengan dukungan RTL, CSP berbasis nonce, dan gate CI yang menjalankan seluruh rangkaian sebelum setiap merge."
+      },
+      "myoncare": {
+        "summary": "Perangkat medis Kelas IIa berdasarkan regulasi MDR Uni Eropa yang memungkinkan pasien berbagi rencana perawatan, informasi obat, dan data aktivitas dengan tim medis mereka.",
+        "role": "Engineer backend dan full-stack sejak 2022, mengerjakan manajemen tugas perawatan, pemantauan pasien, dan integrasi perangkat wearable."
+      },
+      "garment-io": {
+        "summary": "Platform manufaktur pintar yang membantu pabrik garmen mendigitalkan operasional, melacak produksi, dan memantau performa berdasarkan data real-time dari lantai produksi.",
+        "role": "Engineer backend dan full-stack, mengembangkan dashboard operasional dan integrasi perangkat IoT."
+      },
+      "tarsyaa": {
+        "summary": "Platform procurement dan tender B2B yang menghubungkan perusahaan dengan pemasok tersertifikasi di Arab Saudi melalui proses lelang yang transparan dan kompetitif.",
+        "role": "Mengembangkan layanan backend dengan standar TypeScript yang ketat, pengujian unit, dan kontrol akses berbasis peran untuk onboarding pemasok dan proses lelang."
+      },
+      "ovarc": {
+        "summary": "Platform ekspansi bisnis global yang menyederhanakan pendirian badan usaha, penggajian, tunjangan, kepatuhan, dan operasional HR internasional.",
+        "role": "Berkontribusi pada fitur full-stack dalam alur kerja pendirian badan usaha dan operasional HR."
+      },
+      "callrater": {
+        "summary": "Platform analitik dan penilaian panggilan untuk pelacakan performa perusahaan dan pelaporan.",
+        "role": "Mengembangkan pemrosesan data backend dan dashboard pelaporan."
+      },
+      "vms": {
+        "summary": "Platform manajemen relawan untuk program GIZ, mendukung pendaftaran, alur penugasan, dan pelaporan administratif.",
+        "role": "Mengembangkan alur kerja bisnis platform dan pelaporan di Laravel."
+      },
+      "health-integrations": {
+        "summary": "Integrasi yang menghubungkan platform kesehatan dengan sumber data kesehatan dan wearable eksternal.",
+        "role": "Mengimplementasikan integrasi FHIR, Withings, Apple Health, dan Android Health Connect untuk sinkronisasi data aktivitas dan perawatan."
+      },
+      "payment-integrations": {
+        "summary": "Integrasi pembayaran dan platform untuk aplikasi produksi.",
+        "role": "Mengimplementasikan pemrosesan pembayaran Stripe dan PayPal, serta integrasi API Spotify."
       }
     }
   },
   "skills": {
-    "eyebrow": "Capabilities",
-    "title": "Skills",
-    "description": "Grouped by depth of production experience, not by percentage.",
-    "note": "These tiers describe how much production work sits behind each technology. Nothing here is scored, because a score would not mean anything.",
-    "evidenceLabel": "Where it shows up",
+    "eyebrow": "Kemampuan",
+    "title": "Keahlian",
+    "description": "Dikelompokkan berdasarkan kedalaman pengalaman produksi, bukan persentase.",
+    "note": "Tingkatan ini menggambarkan seberapa banyak pekerjaan produksi nyata di balik setiap teknologi. Tidak ada yang diberi skor di sini, karena skor tidak akan memiliki makna sebenarnya.",
+    "evidenceLabel": "Tempat kemampuan ini terlihat",
     "tiers": {
       "primary": {
-        "name": "Primary expertise",
-        "definition": "Daily working tools. I design, build, debug and review these without reference material."
+        "name": "Keahlian utama",
+        "definition": "Alat kerja sehari-hari. Saya merancang, membangun, melakukan debug, dan mereview ini tanpa materi referensi."
       },
       "strong": {
-        "name": "Strong production experience",
-        "definition": "Shipped and maintained in production systems, comfortably and repeatedly."
+        "name": "Pengalaman produksi yang kuat",
+        "definition": "Dikirimkan dan dipelihara dalam sistem produksi secara nyaman dan berulang."
       },
       "working": {
-        "name": "Working experience",
-        "definition": "Used to deliver real features, with the depth the task required."
+        "name": "Pengalaman kerja",
+        "definition": "Digunakan untuk mengirimkan fitur nyata, dengan kedalaman yang dibutuhkan tugas tersebut."
       },
       "foundational": {
-        "name": "Foundational knowledge",
-        "definition": "Understood at concept level from study or limited project use. Not claimed as expertise."
+        "name": "Pengetahuan dasar",
+        "definition": "Dipahami pada level konseptual melalui studi atau penggunaan proyek yang terbatas. Tidak disajikan sebagai keahlian."
       }
     }
   },
   "about": {
-    "eyebrow": "About",
-    "title": "About",
-    "description": "Background, approach and how I prefer to work.",
+    "eyebrow": "Tentang",
+    "title": "Tentang saya",
+    "description": "Latar belakang, pendekatan, dan cara saya lebih suka bekerja.",
     "paragraphs": {
-      "one": "I am a senior software engineer based in Egypt, working mainly in backend and integration engineering with Node.js, TypeScript and NestJS, and comfortable across the full stack with React and Next.js.",
-      "two": "Most of my work has been on systems that have to keep running: a Class IIa medical platform under EU MDR, a manufacturing platform fed by real-time shop-floor data, and multi-tenant platforms where isolation between customers is a correctness requirement rather than a feature.",
-      "three": "I like the parts of the job that happen before and after the code — turning a vague requirement into a concrete design, drawing the boundaries a system will live with for years, and then owning what happens when it is live at three in the morning.",
-      "four": "I value clean architecture, maintainability and continuous learning, and I try to balance strong engineering standards against what the business actually needs to ship."
+      "one": "Saya adalah Insinyur Perangkat Lunak Senior yang berbasis di Mesir, bekerja utamanya di bidang engineering backend dan integrasi dengan Node.js, TypeScript, dan NestJS, serta terbiasa bekerja di seluruh stack dengan React dan Next.js.",
+      "two": "Sebagian besar pekerjaan saya berkaitan dengan sistem yang harus terus berjalan: platform medis Kelas IIa berdasarkan regulasi MDR Uni Eropa, platform manufaktur yang ditenagai data real-time dari lantai produksi, dan platform multi-tenant di mana isolasi antar klien merupakan persyaratan korektnya sistem, bukan sekadar fitur.",
+      "three": "Saya menyukai bagian pekerjaan yang terjadi sebelum dan sesudah penulisan kode — mengubah kebutuhan yang samar menjadi desain yang konkret, menggambar batasan yang akan digunakan sistem selama bertahun-tahun, lalu bertanggung jawab atas apa yang terjadi ketika sistem berjalan pada pukul tiga pagi.",
+      "four": "Saya menghargai arsitektur yang bersih, kemudahan pemeliharaan, dan pembelajaran berkelanjutan, serta berusaha menyeimbangkan standar engineering yang ketat dengan kebutuhan bisnis yang sesungguhnya."
     },
-    "locationLabel": "Based in",
-    "locationValue": "Giza, Egypt",
-    "languagesLabel": "Languages",
-    "educationLabel": "Education",
-    "educationValue": "BSc Computer Science, Misr University for Science & Technology (2012–2016)",
-    "languagesValue": "Arabic (native), English (fluent), French (basic)"
+    "locationLabel": "Berbasis di",
+    "locationValue": "Giza, Mesir",
+    "languagesLabel": "Bahasa",
+    "educationLabel": "Pendidikan",
+    "educationValue": "Sarjana Ilmu Komputer, Misr University for Science & Technology (2012–2016)",
+    "languagesValue": "Bahasa Arab (asli), bahasa Inggris (fasih), bahasa Prancis (dasar)"
   },
   "resume": {
     "eyebrow": "Resume",
     "title": "Resume",
-    "description": "A summary of experience, with the full CV available as a PDF.",
-    "downloadTitle": "Download the full CV",
-    "downloadNote": "The public PDF omits personal contact details that do not belong on a public page. Email me if you need anything further.",
-    "summaryTitle": "Summary",
-    "summary": "Senior Software Engineer with eight years of experience across backend, full-stack and integration work. Node.js, TypeScript, NestJS, React and Next.js, with production delivery in healthcare, AI, security, manufacturing and B2B platforms.",
-    "experienceTitle": "Experience",
-    "skillsTitle": "Core skills",
-    "educationTitle": "Education"
+    "description": "Ringkasan pengalaman, dengan CV lengkap tersedia dalam format PDF.",
+    "downloadTitle": "Unduh CV lengkap",
+    "downloadNote": "PDF publik ini tidak menyertakan detail kontak pribadi yang tidak sesuai untuk halaman publik. Silakan email saya jika Anda membutuhkan informasi lebih lanjut.",
+    "summaryTitle": "Ringkasan",
+    "summary": "Insinyur Perangkat Lunak Senior dengan delapan tahun pengalaman di bidang backend, full-stack, dan integrasi. Node.js, TypeScript, NestJS, React, dan Next.js, dengan pengiriman produksi di bidang kesehatan, AI, keamanan, manufaktur, dan platform B2B.",
+    "experienceTitle": "Pengalaman",
+    "skillsTitle": "Keahlian utama",
+    "educationTitle": "Pendidikan"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Contact",
-    "description": "Email is the fastest way to reach me.",
+    "eyebrow": "Kontak",
+    "title": "Kontak",
+    "description": "Email adalah cara tercepat untuk menghubungi saya.",
     "emailLabel": "Email",
-    "copyEmail": "Copy email address",
-    "copied": "Email address copied",
+    "copyEmail": "Salin alamat email",
+    "copied": "Alamat email disalin",
     "linkedinLabel": "LinkedIn",
     "githubLabel": "GitHub",
-    "cvLabel": "Curriculum vitae",
-    "availabilityTitle": "Availability",
-    "availabilityNote": "Open to selected senior engineering opportunities.",
-    "directTitle": "Direct",
-    "formTitle": "Send a message",
-    "formNote": "Goes straight to my inbox. Nothing is stored.",
+    "cvLabel": "Resume",
+    "availabilityTitle": "Ketersediaan",
+    "availabilityNote": "Terbuka untuk peluang senior engineering pilihan.",
+    "directTitle": "Kontak langsung",
+    "formTitle": "Kirim pesan",
+    "formNote": "Pesan langsung masuk ke kotak masuk saya. Tidak ada data yang disimpan.",
     "form": {
-      "emailLabel": "Your email address",
-      "subjectLabel": "Subject",
-      "messageLabel": "Message",
-      "submit": "Send message",
-      "sending": "Sending…",
-      "sent": "Message sent. I will reply to the address you gave.",
-      "error": "The message could not be sent. Please email me directly instead.",
-      "unavailable": "The message form is not available right now. Please email me directly."
+      "emailLabel": "Alamat email Anda",
+      "subjectLabel": "Subjek",
+      "messageLabel": "Pesan",
+      "submit": "Kirim pesan",
+      "sending": "Mengirim…",
+      "sent": "Pesan terkirim. Saya akan membalas ke alamat yang Anda berikan.",
+      "error": "Pesan tidak dapat dikirim. Silakan email saya langsung.",
+      "unavailable": "Formulir pesan saat ini tidak tersedia. Silakan email saya langsung."
     }
   },
   "github": {
-    "recentlyActive": "Recently active",
-    "stars": "{count, plural, one {# star} other {# stars}}",
-    "forks": "{count, plural, one {# fork} other {# forks}}",
-    "updated": "Updated {date}",
-    "licenseLabel": "Licence",
-    "languageLabel": "Language"
+    "recentlyActive": "Baru-baru ini aktif",
+    "stars": "{count, plural, other {# bintang}}",
+    "forks": "{count, plural, other {# fork}}",
+    "updated": "Diperbarui {date}",
+    "licenseLabel": "Lisensi",
+    "languageLabel": "Bahasa"
   },
   "errors": {
-    "generic": "Something went wrong. Please try again.",
-    "network": "You appear to be offline. Check your connection.",
-    "timeout": "The request took too long. Please try again.",
-    "notFound": "The requested resource was not found.",
-    "unauthorized": "You need to sign in to continue.",
-    "forbidden": "You do not have access to this resource.",
-    "server": "The server had a problem. Please try again later.",
-    "validation": "Some fields need attention."
+    "generic": "Terjadi kesalahan. Silakan coba lagi.",
+    "network": "Sepertinya Anda sedang offline. Periksa koneksi Anda.",
+    "timeout": "Permintaan memakan waktu terlalu lama. Silakan coba lagi.",
+    "notFound": "Sumber daya yang diminta tidak ditemukan.",
+    "unauthorized": "Anda perlu masuk untuk melanjutkan.",
+    "forbidden": "Anda tidak memiliki akses ke sumber daya ini.",
+    "server": "Server mengalami masalah. Silakan coba lagi nanti.",
+    "validation": "Beberapa kolom perlu diperiksa."
   },
   "notFound": {
-    "title": "Page not found",
-    "description": "The page you are looking for does not exist or has moved.",
-    "backHome": "Back to home"
+    "title": "Halaman tidak ditemukan",
+    "description": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "backHome": "Kembali ke beranda"
   },
   "errorPage": {
-    "title": "Something went wrong",
-    "description": "An unexpected error occurred.",
-    "retry": "Try again"
+    "title": "Terjadi kesalahan",
+    "description": "Terjadi kesalahan yang tidak terduga.",
+    "retry": "Coba lagi"
   },
   "pwa": {
-    "offlineTitle": "You are offline",
-    "offlineDescription": "Reconnect to continue. Pages you have already visited remain available on this device."
+    "offlineTitle": "Anda sedang offline",
+    "offlineDescription": "Sambungkan kembali untuk melanjutkan. Halaman yang sudah Anda kunjungi tetap tersedia di perangkat ini."
   }
 }

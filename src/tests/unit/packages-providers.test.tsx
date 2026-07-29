@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import type { ReactElement } from 'react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { AppIntlProvider, DEFAULT_LOCALE, useAppTranslation } from '@/packages/i18n';
 import enMessages from '@/packages/i18n/messages/en.json';
@@ -13,6 +13,11 @@ function TranslatedAppTitle(): ReactElement {
 }
 
 describe('AppQueryProvider', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.resetModules();
+  });
+
   it('provides the query cache to children (devtools included in local env)', () => {
     render(
       <AppQueryProvider>
@@ -21,6 +26,21 @@ describe('AppQueryProvider', () => {
     );
 
     expect(screen.getByText('query-child')).toBeInTheDocument();
+  });
+
+  it('omits devtools outside the local environment', async () => {
+    vi.stubEnv('NEXT_PUBLIC_APP_ENV', 'production');
+    vi.stubEnv('NEXT_PUBLIC_APP_URL', 'https://ihabkhaled.com');
+    vi.resetModules();
+
+    const { AppQueryProvider: ProductionAppQueryProvider } = await import('@/packages/query');
+    render(
+      <ProductionAppQueryProvider>
+        <span>prod-query-child</span>
+      </ProductionAppQueryProvider>,
+    );
+
+    expect(screen.getByText('prod-query-child')).toBeInTheDocument();
   });
 });
 

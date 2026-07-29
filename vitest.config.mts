@@ -42,6 +42,14 @@ export default defineConfig({
         '**/types/**',
         '**/*.types.ts',
         '**/index.ts',
+        // next/font/google calls require the Next.js SWC font transform; called
+        // directly under Vitest/Node they are not even functions, so this file
+        // cannot be exercised outside a real Next.js build. Verified instead by
+        // E2E/visual tests that actually render a page.
+        'src/shared/fonts/app-fonts.ts',
+        // Generated font-manifest data for the social-image build script
+        // (support/social-*.mjs), not application logic.
+        'src/shared/fonts/social/**',
       ],
       thresholds: {
         lines: 95,

@@ -1,206 +1,378 @@
 {
   "app": {
-    "title": "Strict Next Ranger",
-    "description": "Kati bir Next.js on yuz sistemi.",
-    "skipToContent": "Ana icerige gec",
+    "title": "Ihab Khaled",
+    "seoTitle": "Ihab Khaled | Kıdemli Yazılım Mühendisi, Backend & Full-Stack",
+    "role": "Kıdemli Yazılım Mühendisi",
+    "description": "Backend, full-stack ve entegrasyonlar alanında çalışan Kıdemli Yazılım Mühendisi.",
+    "skipToContent": "Ana içeriğe geç",
     "loading": "Yükleniyor…",
-    "localeSwitchLabel": "Dil",
-    "localeNameEn": "English",
-    "localeNameAr": "العربية",
-    "themeSwitchLabel": "Renk teması",
-    "footerNote": "Web ve yerel ürün ekipleri için disiplinli bir temel.",
-    "breadcrumbLabel": "Sayfa yolu"
-  },
-  "nav": {
-    "home": "Karşılama",
-    "about": "Hakkında",
-    "features": "Özellikler",
-    "faq": "SSS",
-    "contact": "İletişim",
-    "menu": "Gezinmeyi aç",
-    "articles": "Makaleler",
-    "settings": "Ayarlar",
-    "login": "Oturum aç",
-    "workbench": "UI atölyesi",
-    "landmarkLabel": "Ana gezinme"
-  },
-  "home": {
-    "title": "Strict Next Ranger",
-    "subtitle": "İçe aktarımlar tek yönde akar, her kütüphanenin bir sahibi vardır ve modüller bilinçli genel yüzeyler sunar. Bağımsız kontroller incelemenin beklediği yapıyı uygular.",
-    "ctaArticles": "Temeli keşfet",
-    "ctaLogin": "Oturum aç",
-    "principlesTitle": "Güvenle başlamak için gereken her şey",
-    "principleComponents": "Gezinme, sayfa yolu, kartlar, formlar, durumlar, tema ve dil kontrolleri ile duyarlı düzenler paylaşılan yapı taşlarıdır.",
-    "principleBoundaries": "İçe aktarımlar tek yönde akar, her kütüphanenin bir sahibi vardır ve modüller bilinçli genel yüzeyler sunar. Bağımsız kontroller incelemenin beklediği yapıyı uygular.",
-    "principleServerFirst": "Her kural nedenini, uygulama mekanizmasını ve geçerli örneği belirtir. Ekip sistemi söylenceye dönüştürmeden geliştirebilir.",
-    "principleTesting": "Tip duyarlı ESLint, çift derleyici, dosya kapsamı, mimari, ölü kod, döngü ve metin eşliği incelemeden önce açıkça başarısız olur."
-  },
-  "articles": {
-    "title": "Makaleler",
-    "subtitle": "İçe aktarımlar tek yönde akar, her kütüphanenin bir sahibi vardır ve modüller bilinçli genel yüzeyler sunar. Bağımsız kontroller incelemenin beklediği yapıyı uygular.",
-    "empty": "Henüz makale yok.",
-    "error": "Bizim tarafımızda bir sorun oluştu. Tekrar deneyin.",
-    "retry": "Tekrar dene",
-    "loading": "Yükleniyor…",
-    "readingTime": "{minutes, plural, one {# dakikalık okuma} other {# dakikalık okuma}}",
-    "publishedOn": "{date} tarihinde yayımlandı",
-    "status": {
-      "draft": "Taslak",
-      "published": "Yayımlandı",
-      "archived": "Arşivlendi"
-    }
-  },
-  "auth": {
-    "login": {
-      "title": "Oturum aç",
-      "subtitle": "Katı mimari, erişilebilir bileşenler, çok dilli rotalar ve hazır yayın kontrolleri içeren üretim odaklı Ionic React ve Capacitor başlangıcı.",
-      "emailLabel": "E-posta",
-      "passwordLabel": "Parola",
-      "submit": "Oturum aç",
-      "submitting": "Oturum açılıyor…",
-      "success": "Oturum aç",
-      "genericError": "E-posta veya parola yanlış.",
-      "validation": {
-        "emailRequired": "E-posta gerekli.",
-        "emailInvalid": "Geçerli bir e-posta girin.",
-        "passwordRequired": "Parola gerekli.",
-        "passwordTooShort": "Parola en az 8 karakter olmalı."
-      }
-    }
-  },
-  "settings": {
-    "title": "Ayarlar",
-    "subtitle": "Görünüm ve arayüz tercihleri.",
+    "localeSwitchLabel": "Dili değiştir",
+    "themeSwitchLabel": "Renk temasını değiştir",
     "theme": {
-      "label": "Tema",
       "light": "Açık",
       "dark": "Koyu",
       "system": "Sistem"
     },
-    "direction": {
-      "label": "Metin yönü",
-      "ltr": "Soldan sağa",
-      "rtl": "Sağdan sola"
+    "downloadCv": "Özgeçmişi indir",
+    "downloadCvHint": "PDF, yeni sekmede açılır",
+    "externalLinkHint": "Yeni sekmede açılır",
+    "footerNote": "Ölçeklenebilir sistemler, güvenli API'ler, mikroservisler ve üretime hazır web ile mobil uygulamalar geliştiriyorum.",
+    "menu": "Menü"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "experience": "Deneyim",
+    "projects": "Projeler",
+    "skills": "Yetenekler",
+    "about": "Hakkımda",
+    "resume": "Özgeçmiş",
+    "contact": "İletişim",
+    "landmarkLabel": "Ana gezinme",
+    "menu": "Menü"
+  },
+  "home": {
+    "eyebrow": "Backend, Full-Stack & Entegrasyonlar",
+    "tagline": "Üretim yazılımlarını tasarlıyor, geliştiriyor, entegre ediyor, test ediyor ve dağıtıyorum.",
+    "valueProp": "Sağlık, yapay zekâ, siber güvenlik, akıllı üretim, B2B platformları ve tüketici uygulamalarında sekiz yıllık deneyim — gereksinim analizi ve mimariden dağıtım ve üretim desteğine kadar.",
+    "ctaProjects": "Projeleri görüntüle",
+    "ctaContact": "Benimle iletişime geç",
+    "indicatorsTitle": "Genel bakış",
+    "indicators": {
+      "javascript": "{years}+ yıl JavaScript deneyimi",
+      "node": "{years}+ yıl Node.js deneyimi",
+      "typescript": "{years}+ yıl TypeScript deneyimi",
+      "delivery": "Uçtan uca ürün teslimi"
     },
-    "sidebar": {
-      "label": "Kenar çubuğu",
-      "expanded": "Genişletilmiş",
-      "collapsed": "Daraltılmış"
+    "profileLabels": {
+      "location": "Konum",
+      "focus": "Odak alanı",
+      "stack": "Temel teknoloji yığını",
+      "languages": "Diller"
+    },
+    "focusValue": "Backend mimarisi, entegrasyonlar, yapay zekâ platformları",
+    "capabilitiesEyebrow": "Yetkinlikler",
+    "capabilitiesTitle": "Neler inşa ediyor ve işletiyorum",
+    "capabilitiesLead": "Çalışmalarım sistem tasarımı, uygulama ve ardından gelen tüm üretim yaşam döngüsünü kapsar.",
+    "capabilities": {
+      "backend": "Backend mimarisi",
+      "fullstack": "Full-stack geliştirme",
+      "apis": "API'ler ve entegrasyonlar",
+      "microservices": "Mikroservisler",
+      "events": "Olay tabanlı sistemler",
+      "ai": "Yapay zekâ ve LLM entegrasyonları",
+      "data": "Veritabanları ve önbellekleme",
+      "cloud": "Bulut ve DevOps",
+      "testing": "Test ve kalite",
+      "security": "Güvenlik ve üretim desteği"
+    },
+    "featuredEyebrow": "Seçilmiş çalışmalar",
+    "featuredTitle": "Son projeler",
+    "featuredLead": "Tasarladığım ve geliştirdiğim, herkese açık sistemler; mevcut olduğunda gerçek repository etkinliğiyle birlikte.",
+    "featuredAll": "Tüm projeler",
+    "experienceEyebrow": "Deneyim",
+    "experienceTitle": "Nerelerde çalıştım",
+    "experienceLead": "Örtüşen tarihlerin karışmaması için maaşlı çalışma dönemleri ile bağımsız mühendislik işleri ayrı tutulmuştur.",
+    "experienceAll": "Tüm deneyim",
+    "approachEyebrow": "Çalışma şeklim",
+    "approachTitle": "Gereksinimden çalışan sisteme",
+    "approachLead": "Bir slogan değil, gerçek bir sıra — her adım bir sonrakinin dayandığı sonucu üretir.",
+    "approach": {
+      "plan": {
+        "title": "Planla",
+        "description": "Gereksinimleri kapsam, kısıt ve tahminlere dönüştür."
+      },
+      "design": {
+        "title": "Tasarla",
+        "description": "Alanı, iş akışlarını ve hata senaryolarını modelle."
+      },
+      "architect": {
+        "title": "Mimariyi kur",
+        "description": "Koddan önce sınırları, sözleşmeleri ve veri akışını belirle."
+      },
+      "implement": {
+        "title": "Uygula",
+        "description": "Backend ve frontend'i bu sözleşmelere göre inşa et."
+      },
+      "test": {
+        "title": "Test et",
+        "description": "Geliştirme ilerledikçe birim, entegrasyon ve sistem testleri yap."
+      },
+      "deploy": {
+        "title": "Dağıt",
+        "description": "CI/CD hatları üzerinden konteynerleştirilmiş teslimat yap."
+      },
+      "operate": {
+        "title": "İşlet",
+        "description": "Canlıdaki sistemi izle, sorunları çöz, ayarla ve güçlendir."
+      }
+    },
+    "contactEyebrow": "İletişim",
+    "contactTitle": "Kıdemli mühendislik görüşmelerine açığım",
+    "contactLead": "En hızlı yol e-posta. Her mesajı okuyorum ve uygun olanlara yanıt veriyorum."
+  },
+  "experience": {
+    "eyebrow": "Kariyer",
+    "title": "Deneyim",
+    "description": "Roller, sorumluluklar ve bunların arkasındaki sistemler.",
+    "employmentTitle": "Çalışma geçmişi",
+    "independentTitle": "Bağımsız mühendislik",
+    "present": "Hâlâ devam ediyor",
+    "highlightsLabel": "Öne çıkan sorumluluklar",
+    "stackLabel": "Teknoloji yığını",
+    "roles": {
+      "oncare": {
+        "summary": "Hastaların tedavi planlarını, ilaç bilgilerini ve aktivite verilerini bakım ekipleriyle paylaşmasına olanak tanıyan, AB MDR yönetmeliğine göre Sınıf IIa tıbbi cihaz olan myoncare üzerinde backend ve full-stack mühendisliği.",
+        "highlights": {
+          "one": "MySQL ve MongoDB üzerinde Node.js, NestJS ve Express ile backend servisleri geliştirdim; güvenli veri depolama, API entegrasyonları ve performans çalışmalarını kapsadı.",
+          "two": "React, React Native ve Capacitor ile web ve mobil özellikler sundum; Kotlin ve Swift ile platforma özgü geliştirmeler yaptım.",
+          "three": "FHIR ve Withings dahil olmak üzere sağlık ve giyilebilir cihaz veri kaynaklarını entegre ettim.",
+          "four": "Güvenlik ve performans standartlarını güncel tutmak için backend servislerini ve bağımlılıkları yükselttim.",
+          "five": "Kod incelemeleri yaptım, üretim hatalarını düzelttim ve sprint planlama ile tahminlemeye katkıda bulundum."
+        }
+      },
+      "garment": {
+        "summary": "Konfeksiyon fabrikalarının operasyonlarını dijitalleştirmesine, üretimi izlemesine ve atölye sahasından gelen gerçek zamanlı verilerle performansı izlemesine yardımcı olan akıllı üretim platformu.",
+        "highlights": {
+          "one": "İş mantığı, veri yönetimi ve entegrasyonlar için Node.js, PHP ve Laravel ile backend özellikleri geliştirdim.",
+          "two": "Operasyonel panolar ve üretim takibi için React arayüzleri oluşturdum.",
+          "three": "Platform yeteneklerini genişletmek için üçüncü taraf araçları ve cihazları entegre ettim.",
+          "four": "Sürümleri dağıttım ve CentOS sunucularında araçları bakımını yaptım.",
+          "five": "Özellik planlama, tahminleme ve demolarda müşterilerle doğrudan çalıştım."
+        }
+      },
+      "eseed": {
+        "summary": "Startuplar, STK'lar ve işletmeler için, sürdürülebilir ve kullanıcı dostu çözümlere odaklanarak web ve mobil çözümler sundum.",
+        "highlights": {
+          "one": "Node.js, MySQL ve Spring Boot ile backend özellikleri geliştirdim.",
+          "two": "React, HTML5, CSS, Bootstrap ve jQuery ile duyarlı arayüzler geliştirdim.",
+          "three": "Üçüncü taraf API'leri entegre ettim ve WordPress tabanlı içerik projeleri sundum.",
+          "four": "Çevik uygulamalar çerçevesinde tüm geliştirme yaşam döngüsüne katkıda bulundum."
+        }
+      },
+      "freelance": {
+        "summary": "Fintech, sağlık, SaaS, B2B satın alma, güvenlik ve tüketici ürünlerinde müşteriler için gereksinim analizinden üretim desteğine kadar uçtan uca teslimat.",
+        "highlights": {
+          "one": "Backend servisleri, REST API'leri, frontend arayüzleri ve mobil uygulamalar dahil full-stack sistemler tasarladım ve teslim ettim.",
+          "two": "Kimlik doğrulama, role dayalı erişim kontrolü, ödemeler, gerçek zamanlı senkronizasyon ve çoklu kiracı izolasyonu uyguladım.",
+          "three": "Arka plan işleri, mesaj kuyrukları ve akış ile olay tabanlı iş akışları geliştirdim.",
+          "four": "Yeniden yapılandırma, eski sistemlerin modernizasyonu, performans optimizasyonu ve regresyon testlerine öncülük ettim.",
+          "five": "Konteynerleştirilmiş dağıtımlar, CI/CD hatları ve üretim izlemesi kurdum.",
+          "six": "Katı TypeScript, linting, test ve commit öncesi kontrollerle sıkı mühendislik standartları uyguladım."
+        }
+      }
     }
   },
+  "projects": {
+    "eyebrow": "Çalışmalar",
+    "title": "Projeler",
+    "description": "Herkese açık sistemler ve seçilmiş profesyonel çalışmalar.",
+    "filtersLabel": "Projeleri kategoriye göre filtrele",
+    "filters": {
+      "all": "Tümü",
+      "ai": "Yapay Zekâ",
+      "backend": "Backend",
+      "fullstack": "Full-stack",
+      "mobile": "Mobil",
+      "security": "Güvenlik",
+      "healthcare": "Sağlık",
+      "platforms": "Platformlar",
+      "integrations": "Entegrasyonlar",
+      "opensource": "Açık kaynak"
+    },
+    "roleLabel": "Rol",
+    "stackLabel": "Teknoloji yığını",
+    "categoryLabel": "Kategori",
+    "repositoryLabel": "Repository",
+    "liveLabel": "Canlı site",
+    "caseStudy": "Vaka çalışmasını görüntüle",
+    "backToProjects": "Tüm projeler",
+    "professionalLabel": "Seçilmiş profesyonel çalışma",
+    "openSourceLabel": "Açık kaynak projesi",
+    "professionalNote": "İşverene ait sistem. Kaynak kodu herkese açık değildir.",
+    "empty": "Bu filtreyle eşleşen proje yok.",
+    "overviewTitle": "Genel bakış",
+    "architectureTitle": "Mimari",
+    "engineeringTitle": "Mühendislik",
+    "items": {
+      "clawai": {
+        "summary": "Kendi bilgisayarınızda açık modelleri çalıştıran ve her istemi en uygun modele yönlendiren yerel öncelikli bir yapay zekâ orkestrasyon platformu.",
+        "role": "Platformu uçtan uca tasarladım ve geliştirdim — mikroservis backend, orkestrasyon katmanı ve web çalışma alanı.",
+        "overview": "Claw, bir ekibe aynı anda birçok yapay zekâ modelini yönetmek, yönlendirmek, karşılaştırmak ve çalıştırmak için tek bir çalışma alanı sunar. Ollama ve llama.cpp üzerinden özel yerel çıkarımı önceliklendirirken, bir görev gerektirdiğinde bulut sağlayıcılarına da erişebilir; böylece hassas istemler kuruluşun kontrol ettiği donanımda kalabilir.",
+        "architecture": "Bir Next.js çalışma alanının arkasında NestJS mikroservis backend'i; ilişkisel veriler için PostgreSQL, dokümanlar için MongoDB, önbellekleme için Redis ve arka plan işleri için kuyruklar. Bir sağlayıcı soyutlaması, yerel ve bulut modellerini tek bir arayüzün arkasına yerleştirir; bu da her satıcıyı özel olarak ele almadan yönlendirme, yedekleme ve karşılaştırmayı mümkün kılar.",
+        "engineering": "En ilginç sorunlar yönlendirme ve güvenle ilgiliydi: her istem için bir model seçmek, bir sağlayıcının kalitesi düştüğünde yedeğe geçmek ve birden çok yanıt üzerinde karşılaştırma, uzlaşma ve değerlendirme iş akışları çalıştırmak. Buna ek olarak bellek ve bağlam paketleri, çalışma alanı bağlamı, dosya işleme, bağlı iş araçları için izin farkındalıklı araç yürütme, sağlayıcı kimlik bilgisi yönetimi ve sağlık durumu toplama da vardı."
+      },
+      "auraspear": {
+        "summary": "SIEM, SOAR ve tehdit istihbaratını tek bir soruşturma çalışma alanında birleştiren yapay zekâ öncelikli, çoklu kiracılı bir SOC platformu.",
+        "role": "Platformu tasarladım ve uyguladım: kiracı izolasyon modeli, RBAC, soruşturma iş akışları ve yapay zekâ destekli analiz.",
+        "overview": "AuraSpear; uyarıları, vakaları, olayları, tehdit avlarını, istihbarat zenginleştirmeyi ve tespit mühendisliğini tek bir yönetilen çalışma alanında bir araya getirir. Birden çok kiracıya aynı anda hizmet veren ekipler için tasarlanmıştır ve bir müşterinin verisi hiçbir zaman başka bir müşterinin oturumundan erişilebilir olmamalıdır.",
+        "architecture": "Prisma ile PostgreSQL üzerinde Next.js ve NestJS, önbellekleme için Redis ve büyük hacimli log aramaları için OpenSearch. Wazuh ve MISP tespitleri ve tehdit istihbaratını besler, AWS Bedrock ise yapay zekâ akıl yürütmesini destekler. Kiracı izolasyonu arayüzde değil veri katmanında uygulanır ve her bağlayıcı kimlik bilgisi yalnızca sunucu tarafında işlenir.",
+        "engineering": "Asıl iş, çoklu kiracılığı ve RBAC'ı isteğe bağlı değil zorunlu hale getirmekti — her sorguyu, işi ve yapay zekâ çağrısını belirli bir kiracıya bağlayarak. Buna ek olarak uyarı önceliklendirme, vaka yönetimi, tehdit avcılığı, istihbarat zenginleştirme ve soruşturmaya sonradan eklenmek yerine onun içine işlenmiş yapay zekâ desteği de vardı."
+      },
+      "foodorder": {
+        "summary": "Bir grubun tek bir siparişi paylaştığı ve maliyetin adil ve şeffaf şekilde bölündüğü, öncelikle mobil için tasarlanmış işbirlikçi bir sipariş uygulaması.",
+        "role": "Uygulamayı uçtan uca geliştirdim: mimari, veri modeli, çevrimdışı davranış, iki dilli arayüz ve mobil paketleme.",
+        "overview": "Bir kişi paylaşılan bir sepet açar, diğerlerini davet eder ve herkes kendi ürünlerini ekler. Sipariş kapandığında her katılımcı tam olarak ne ödemesi gerektiğini görür; teslimat ücretleri tahmin edilmek yerine adil şekilde dağıtılır. Uygulama web uygulaması olarak çalışır ve aynı kod tabanından Android ile iOS'a yayınlanır.",
+        "architecture": "React, TypeScript ve Vite; Android ve iOS için Capacitor ile paketlenmiştir. Firebase Authentication kimlik doğrulamayı yönetir ve Cloud Firestore sepetleri, davetleri ve katkıları saklar; çevrimdışı kalıcılığı sayesinde kullanıcılar zayıf bağlantıda bile ürün eklemeye devam edebilir ve daha sonra senkronize edebilir.",
+        "engineering": "En zorlu kısımlar doğruluk ve adaletti: role göre sınırlandırılmış işbirliği, üye başına bireysel katkılar, kapanışta değişmez sipariş anlık görüntüleri ve son birime kadar doğru olması gereken makbuz ile ücret dağıtımı. RTL dahil tam Arapça ve İngilizce desteği sonradan eklenmedi, başından itibaren tasarımın bir parçasıydı ve akışlar tarayıcılar arası ve mobil testlerle kapsanmıştır."
+      },
+      "twinzyai": {
+        "summary": "Bir fotoğraftan görünür stil özelliklerini okuyan, ancak hiç kimseyi asla tanımlamayan gizlilik odaklı bir yapay zekâ stil ve vibe oyunu.",
+        "role": "Tüm teknoloji yığınını geliştirdim ve görüntü verilerini tamamen depolama dışında tutan gizlilik hattını tasarladım.",
+        "overview": "Oyuncular bir fotoğraf yükler ve görünür stil ile vibe'larına dair eğlenceli bir yorum alır; bunu geçici bir bağlantı üzerinden paylaşabilirler. Tüm ürün tek bir kısıt etrafında tasarlanmıştır: yüz tanıma aracına dönüşmeden eğlenceli olmak.",
+        "architecture": "Docker ile konteynerleştirilmiş, analiz için Gemini'yi çağıran bir NestJS ve Fastify API'sine sahip Next.js frontend. Hat, görüntüyü doğrular, görünür özellikleri çıkarır, görüntü tamponunu anında atar ve sonraki her aşama yalnızca metinle çalışır.",
+        "engineering": "Gizlilik özellikleri asıl özelliktir: yüz tanıma yok, kimlik eşleştirme yok, görüntü kalıcılığı yok ve özellikler çıkarıldıktan sonra yalnızca metin tabanlı işleme. Buna ek olarak güvenli görüntü doğrulama, üretilen içerik üzerinde güvenlik kontrolleri, süresi dolan paylaşım bağlantıları, iki dilli Arapça-İngilizce desteği ve öncelikle mobil için tasarlanmış bir PWA da vardı."
+      },
+      "nextranger": {
+        "summary": "Mimari kararların belgelenip unutulmak yerine araçlarla zorunlu kılındığı katı bir Next.js mühendislik temeli.",
+        "role": "Yazar. Mimari modeli, özel ESLint kural setini ve kalite kapılarını tasarladım.",
+        "overview": "NextRanger, ciddi frontend işleri için kullandığım başlangıç noktasıdır. Öncülü şudur: bir ekibin üzerinde anlaştığı ama zorunlu kılamadığı kurallar zamanla aşınır, bu yüzden önemli her kural README'deki bir paragraf yerine bir lint kuralı, bir tip veya başarısız olan bir test olarak ifade edilir.",
+        "architecture": "Varsayılan olarak Server Components kullanan Next.js App Router, katı TypeScript ve tek yönlü bağımlılıklara sahip modül öncelikli bir yapı: rotalar modüllere, modüller paylaşılan koda, paylaşılan kod satıcı sarmalayıcılarına bağımlıdır, asla tersi değil. Her üçüncü taraf paketin tam olarak bir sorumlu sarmalayıcısı vardır; böylece yükseltmeler ve hata yönetimi tek bir incelenmiş dosyada yaşar.",
+        "engineering": "Özel bir ESLint eklentisi katman politikasını, paket sahipliğini, yalnızca TSX bileşenlerini ve çeviri kapsamını zorunlu kılar. Vitest ve Playwright birim, entegrasyon, uçtan uca, erişilebilirlik ve görsel testleri kapsar; buna RTL destekli uluslararasılaştırma, nonce tabanlı bir CSP ve her birleştirmeden önce tüm seti çalıştıran CI kapıları eşlik eder."
+      },
+      "myoncare": {
+        "summary": "Hastaların tedavi planlarını, ilaç bilgilerini ve aktivite verilerini bakım ekipleriyle paylaşmasına olanak tanıyan, AB MDR yönetmeliğine göre Sınıf IIa tıbbi cihaz.",
+        "role": "2022'den beri bakım görevi yönetimi, hasta izleme ve giyilebilir cihaz entegrasyonları üzerinde çalışan backend ve full-stack mühendisi."
+      },
+      "garment-io": {
+        "summary": "Konfeksiyon fabrikalarının operasyonlarını dijitalleştirmesine, üretimi izlemesine ve atölye sahasından gelen gerçek zamanlı verilerle performansı izlemesine yardımcı olan akıllı üretim platformu.",
+        "role": "Operasyonel panolar ve IoT cihaz entegrasyonları geliştiren backend ve full-stack mühendisi."
+      },
+      "tarsyaa": {
+        "summary": "Şeffaf, rekabetçi ihaleler yoluyla şirketleri Suudi Arabistan'daki onaylı tedarikçilerle buluşturan bir B2B satın alma ve ihale yönetim platformu.",
+        "role": "Tedarikçi katılımı ve ihaleler için katı TypeScript standartları, birim testleri ve role dayalı erişim kontrolüyle backend servisleri geliştirdim."
+      },
+      "ovarc": {
+        "summary": "Şirket kuruluşu, bordro, yan haklar, uyumluluk ve uluslararası İK operasyonlarını basitleştiren küresel bir iş genişletme platformu.",
+        "role": "Şirket kuruluşu ve İK operasyonları iş akışlarında full-stack özelliklere katkıda bulundum."
+      },
+      "callrater": {
+        "summary": "Kurumsal performans takibi ve raporlama için bir çağrı analitiği ve derecelendirme platformu.",
+        "role": "Backend veri işleme ve raporlama panoları geliştirdim."
+      },
+      "vms": {
+        "summary": "Bir GIZ programı için kayıt, görevlendirme iş akışları ve idari raporlamayı destekleyen bir gönüllülük yönetim platformu.",
+        "role": "Platformun iş akışlarını ve raporlamasını Laravel üzerinde geliştirdim."
+      },
+      "health-integrations": {
+        "summary": "Bir sağlık platformunu harici sağlık ve giyilebilir cihaz veri kaynaklarına bağlayan entegrasyonlar.",
+        "role": "Aktivite ve tedavi verisi senkronizasyonu için FHIR, Withings, Apple Health ve Android Health Connect entegrasyonlarını uyguladım."
+      },
+      "payment-integrations": {
+        "summary": "Üretim uygulamaları için ödeme ve platform entegrasyonları.",
+        "role": "Stripe ve PayPal ödeme işlemlerini ve bir Spotify API entegrasyonunu uyguladım."
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "Yetkinlikler",
+    "title": "Yetenekler",
+    "description": "Yüzdeye göre değil, üretim deneyiminin derinliğine göre gruplandırılmıştır.",
+    "note": "Bu seviyeler, her teknolojinin arkasında ne kadar üretim çalışması olduğunu tanımlar. Burada hiçbir şey puanlanmamıştır, çünkü bir puanın gerçek bir anlamı olmaz.",
+    "evidenceLabel": "Nerede görüldüğü",
+    "tiers": {
+      "primary": {
+        "name": "Temel uzmanlık",
+        "definition": "Günlük çalışma araçları. Bunları referans materyal olmadan tasarlıyor, geliştiriyor, hata ayıklıyor ve inceliyorum."
+      },
+      "strong": {
+        "name": "Güçlü üretim deneyimi",
+        "definition": "Üretim sistemlerinde rahatça ve tekrar tekrar teslim edildi ve bakımı yapıldı."
+      },
+      "working": {
+        "name": "Çalışma deneyimi",
+        "definition": "Görevin gerektirdiği derinlikte, gerçek özellikler sunmak için kullanıldı."
+      },
+      "foundational": {
+        "name": "Temel bilgi",
+        "definition": "Çalışma veya sınırlı proje kullanımından kavramsal düzeyde anlaşılmıştır. Uzmanlık olarak sunulmaz."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "Hakkımda",
+    "title": "Hakkımda",
+    "description": "Geçmişim, yaklaşımım ve tercih ettiğim çalışma şeklim.",
+    "paragraphs": {
+      "one": "Mısır merkezli bir Kıdemli Yazılım Mühendisiyim; ağırlıklı olarak Node.js, TypeScript ve NestJS ile backend ve entegrasyon mühendisliği yapıyorum, React ve Next.js ile de tüm teknoloji yığınında rahatım.",
+      "two": "İşimin çoğu, sürekli çalışır durumda kalması gereken sistemlerle ilgiliydi: AB MDR yönetmeliğine göre Sınıf IIa bir tıbbi platform, atölye sahasından gelen gerçek zamanlı verilerle beslenen bir üretim platformu ve müşteriler arasındaki izolasyonun bir özellik değil doğruluk gereksinimi olduğu çoklu kiracılı platformlar.",
+      "three": "İşin koddan önce ve sonra gelen kısımlarını seviyorum — belirsiz bir gereksinimi somut bir tasarıma dönüştürmek, bir sistemin yıllarca birlikte yaşayacağı sınırları çizmek ve sabah üçte canlıyken ne olduğuna dair sorumluluk almak.",
+      "four": "Temiz mimariye, sürdürülebilirliğe ve sürekli öğrenmeye önem veriyorum ve sıkı mühendislik standartlarıyla işin gerçekten teslim etmesi gerekenler arasında denge kurmaya çalışıyorum."
+    },
+    "locationLabel": "Yaşadığı yer",
+    "locationValue": "Giza, Mısır",
+    "languagesLabel": "Diller",
+    "educationLabel": "Eğitim",
+    "educationValue": "Bilgisayar Bilimleri Lisans, Misr University for Science & Technology (2012–2016)",
+    "languagesValue": "Arapça (anadil), İngilizce (akıcı), Fransızca (temel)"
+  },
+  "resume": {
+    "eyebrow": "Özgeçmiş",
+    "title": "Özgeçmiş",
+    "description": "Deneyimin bir özeti; tam özgeçmiş PDF olarak mevcuttur.",
+    "downloadTitle": "Tam özgeçmişi indir",
+    "downloadNote": "Herkese açık PDF, herkese açık bir sayfaya uygun olmayan kişisel iletişim bilgilerini içermez. Daha fazla bilgiye ihtiyacınız varsa bana e-posta gönderin.",
+    "summaryTitle": "Özet",
+    "summary": "Backend, full-stack ve entegrasyon çalışmalarında sekiz yıllık deneyime sahip Kıdemli Yazılım Mühendisi. Node.js, TypeScript, NestJS, React ve Next.js; sağlık, yapay zekâ, güvenlik, üretim ve B2B platformlarında üretim teslimatlarıyla.",
+    "experienceTitle": "Deneyim",
+    "skillsTitle": "Temel yetenekler",
+    "educationTitle": "Eğitim"
+  },
+  "contact": {
+    "eyebrow": "İletişim",
+    "title": "İletişim",
+    "description": "Bana ulaşmanın en hızlı yolu e-posta.",
+    "emailLabel": "E-posta",
+    "copyEmail": "E-posta adresini kopyala",
+    "copied": "E-posta adresi kopyalandı",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "cvLabel": "Özgeçmiş",
+    "availabilityTitle": "Müsaitlik",
+    "availabilityNote": "Seçilmiş kıdemli mühendislik fırsatlarına açığım.",
+    "directTitle": "Doğrudan iletişim",
+    "formTitle": "Mesaj gönder",
+    "formNote": "Doğrudan gelen kutuma ulaşır. Hiçbir şey saklanmaz.",
+    "form": {
+      "emailLabel": "E-posta adresiniz",
+      "subjectLabel": "Konu",
+      "messageLabel": "Mesaj",
+      "submit": "Mesaj gönder",
+      "sending": "Gönderiliyor…",
+      "sent": "Mesaj gönderildi. Belirttiğiniz adrese yanıt vereceğim.",
+      "error": "Mesaj gönderilemedi. Lütfen doğrudan bana e-posta gönderin.",
+      "unavailable": "Mesaj formu şu anda kullanılamıyor. Lütfen doğrudan bana e-posta gönderin."
+    }
+  },
+  "github": {
+    "recentlyActive": "Yakın zamanda aktif",
+    "stars": "{count, plural, one {# yıldız} other {# yıldız}}",
+    "forks": "{count, plural, one {# fork} other {# fork}}",
+    "updated": "Güncellendi: {date}",
+    "licenseLabel": "Lisans",
+    "languageLabel": "Dil"
+  },
   "errors": {
-    "generic": "Beklenmeyen bir durum oluştu. Tekrar deneyin.",
-    "network": "Çevrimdışı görünüyorsunuz. Bağlantınızı kontrol edip tekrar deneyin.",
-    "timeout": "İstek çok uzun sürdü. Tekrar deneyin.",
-    "notFound": "Aradığınızı bulamadık.",
-    "unauthorized": "Devam etmek için oturum açmalısınız.",
-    "forbidden": "Bu işlem için izniniz yok.",
-    "server": "Bizim tarafımızda bir sorun oluştu. Tekrar deneyin.",
-    "validation": "Bazı alanların düzeltilmesi gerekiyor."
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "network": "Çevrimdışı görünüyorsunuz. Bağlantınızı kontrol edin.",
+    "timeout": "İstek çok uzun sürdü. Lütfen tekrar deneyin.",
+    "notFound": "İstenen kaynak bulunamadı.",
+    "unauthorized": "Devam etmek için oturum açmanız gerekiyor.",
+    "forbidden": "Bu kaynağa erişiminiz yok.",
+    "server": "Sunucuda bir sorun oluştu. Lütfen daha sonra tekrar deneyin.",
+    "validation": "Bazı alanlar dikkat gerektiriyor."
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
-    "description": "Aradığınız sayfa mevcut değil.",
-    "backHome": "Ana sayfaya git"
+    "description": "Aradığınız sayfa mevcut değil veya taşınmış.",
+    "backHome": "Ana sayfaya dön"
   },
   "errorPage": {
-    "title": "Bir sorun oluştu",
-    "description": "Beklenmeyen bir durum oluştu. Tekrar deneyin.",
+    "title": "Bir şeyler ters gitti",
+    "description": "Beklenmeyen bir hata oluştu.",
     "retry": "Tekrar dene"
-  },
-  "workbench": {
-    "title": "UI atölyesi",
-    "subtitle": "Gezinme, sayfa yolu, kartlar, formlar, durumlar, tema ve dil kontrolleri ile duyarlı düzenler paylaşılan yapı taşlarıdır.",
-    "buttonsSection": "Düğmeler",
-    "feedbackSection": "Durumlar",
-    "iconsSection": "Simgeler",
-    "formsSection": "Form",
-    "sampleLabel": "E-posta",
-    "samplePlaceholder": "you@example.com",
-    "sampleAlert": "Şu anda gösterilecek içerik yok.",
-    "sampleButton": "Birincil eylem",
-    "sampleSecondaryButton": "İkincil eylem",
-    "sampleDangerButton": "Yıkıcı eylem"
-  },
-  "marketing": {
-    "home": {
-      "eyebrow": "Güvenle geliştirin",
-      "title": "Sıradaki ürününüzün hak ettiği katı temel",
-      "description": "Net sınırlar, yeniden kullanılabilir arayüz, ölçülebilir kalite ve yapay zekâya uygun rehberlik sunan özenli bir Next.js sistemi."
-    },
-    "about": {
-      "eyebrow": "Neden var",
-      "title": "Açıklığa değer veren ekipler için",
-      "description": "Next Ranger mimari kararları doğrulanabilir kurallara dönüştürerek insanların ve yapay zekânın ilk günden güvenle katkı vermesini sağlar."
-    },
-    "features": {
-      "eyebrow": "Her şey dâhil",
-      "title": "Yük olmadan üretim disiplini",
-      "description": "Temeli yeniden kurmak yerine hazır modülleri, arayüz parçalarını, kalite kapılarını, yerelleştirmeyi ve güvenlik varsayılanlarını kullanın."
-    },
-    "faq": {
-      "eyebrow": "Açık yanıtlar",
-      "title": "Başlamadan önce sorular",
-      "description": "Bilinçli biçimde yönlendirilmiş bu temelin ödünlerini, iş akışını ve amaçlanan kullanımını anlayın."
-    },
-    "contact": {
-      "eyebrow": "Konuşmaya başlayın",
-      "title": "Ne geliştirdiğinizi anlatın",
-      "description": "Hedefleri ve kısıtları paylaşın. Şablon yerel e-posta taslağı hazırlar, sunucuya gönderilmiş gibi davranmaz."
-    },
-    "primaryAction": "Özellikleri keşfet",
-    "secondaryAction": "Çalışma alanını aç",
-    "trustLabel": "Ürün, mühendislik ve platform ekipleri için tasarlandı",
-    "routeAtlasLabel": "Yerelleştirilmiş rota atlası",
-    "highlights": {
-      "one": {
-        "title": "Varsayılan olarak katı",
-        "description": "TypeScript ve ESLint mimari anlaşmaları uyarı değil hata hâline getirir."
-      },
-      "two": {
-        "title": "Yeniden kullanım odaklı",
-        "description": "Erişilebilir parçalar ve modül sınırları tekrarları ve dolaşık davranışı önler."
-      },
-      "three": {
-        "title": "Yapay zekâya hazır",
-        "description": "Standart kurallar ve görev kartları aracılara doğru ve küçük bağlam sunar."
-      }
-    },
-    "questions": {
-      "one": {
-        "question": "Mevcut bir ürüne uygun mu?",
-        "answer": "Evet. Sınırlar, kalite kapıları ve ortak parçalarla başlayarak kuralları aşamalı uygulayın."
-      },
-      "two": {
-        "question": "Katılık teslimatı yavaşlatır mı?",
-        "answer": "İlk kararları netleştirir; sonrasında belirsizlik azaldığı için işi hızlandırır."
-      },
-      "three": {
-        "question": "Bir backend içeriyor mu?",
-        "answer": "Sahte bir hizmet vaat edilmez; ağ geçidi sözleşmeleri gerçek backend için net bağlantılar sağlar."
-      }
-    },
-    "contactAction": "E-posta taslağı oluştur",
-    "contactNote": "Doğrulamadan sonra posta uygulamasını açmayı siz seçersiniz. Hiçbir şey yüklenmez veya sessizce gönderilmez.",
-    "contactForm": {
-      "nameLabel": "Ad",
-      "emailLabel": "E-posta adresi",
-      "messageLabel": "Mesaj",
-      "submit": "E-posta taslagi hazirla",
-      "notConfigured": "Mesaj gecerli. Aliciyi belirlemek icin NEXT_PUBLIC_CONTACT_EMAIL degerini ayarlayin.",
-      "ready": "Mesajınız hazır. Göndermeden önce posta uygulamanızda inceleyin.",
-      "subject": "Next Ranger proje talebi",
-      "validation": {
-        "nameRequired": "Adinizi girin.",
-        "emailRequired": "E-posta adresinizi girin.",
-        "emailInvalid": "Gecerli bir adres girin.",
-        "messageRequired": "Bir mesaj girin.",
-        "messageShort": "En az 20 karakter yazin."
-      }
-    }
   },
   "pwa": {
     "offlineTitle": "Çevrimdışısınız",
-    "offlineDescription": "Güncel verileri yüklemek için yeniden bağlanın."
+    "offlineDescription": "Devam etmek için yeniden bağlanın. Daha önce ziyaret ettiğiniz sayfalar bu cihazda kullanılabilir olmaya devam eder."
   }
 }
