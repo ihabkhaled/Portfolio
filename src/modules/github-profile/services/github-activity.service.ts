@@ -1,5 +1,6 @@
 import 'server-only';
 
+import { GITHUB_OWNER } from '../constants/github.constants';
 import { fetchRepositorySnapshot } from '../gateway/github.gateway';
 import type { RepositoryActivityReport, RepositorySnapshot } from '../types/github.types';
 
@@ -13,11 +14,10 @@ import type { RepositoryActivityReport, RepositorySnapshot } from '../types/gith
  * the whole panel.
  */
 export async function buildRepositoryActivityReport(
-  owner: string,
   repositoryNames: readonly string[],
 ): Promise<RepositoryActivityReport> {
   const results = await Promise.all(
-    repositoryNames.map((name) => fetchRepositorySnapshot(owner, name)),
+    repositoryNames.map((name) => fetchRepositorySnapshot(GITHUB_OWNER, name)),
   );
 
   const repositories = results.filter(

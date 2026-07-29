@@ -1,3 +1,7 @@
+import type { ReactNode } from 'react';
+
+import type { AppLocale } from '@/packages/i18n';
+
 /**
  * Employment is a role at a company; independent work is Ihab's own practice.
  * They are modelled separately so overlapping date ranges never read as two
@@ -22,4 +26,23 @@ export interface ExperienceRole {
   readonly stack: readonly string[];
   /** Message keys under `experience.roles.<id>.highlights`. */
   readonly highlightKeys: readonly string[];
+}
+
+export interface ExperienceRoleCardProps {
+  readonly organisation: string;
+  readonly title: string;
+  readonly dateRange: string;
+  readonly summary: string;
+  readonly highlights: ReactNode;
+  readonly stack: ReactNode;
+  readonly websiteLink: ReactNode;
+}
+
+export interface ExperienceRoleGroupProps {
+  readonly title: string;
+  readonly roles: ReactNode;
+}
+
+export interface ExperiencePageContainerProps {
+  readonly locale: AppLocale;
 }

@@ -31,6 +31,7 @@ const packageBoundaries = [
   { package: 'next/navigation', matchSubpaths: false, owners: ['src/packages/navigation/'] },
   { package: 'next/font/google', matchSubpaths: false, owners: ['src/shared/fonts/'] },
   { package: 'next/font/local', matchSubpaths: false, owners: ['src/shared/fonts/'] },
+  { package: 'nodemailer', owners: ['src/packages/mailer/'], allowInTests: true },
 ];
 
 export default [

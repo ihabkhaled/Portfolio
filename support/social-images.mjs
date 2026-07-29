@@ -25,15 +25,13 @@ const PAGE_MARKUP = `<!doctype html>
         <section class="copy">
           <p id="eyebrow"></p>
           <h1 id="title"></h1>
+          <p id="role"></p>
           <p id="description"></p>
         </section>
-        <div class="mark" aria-hidden="true">N</div>
+        <div class="mark" aria-hidden="true">IK</div>
       </header>
       <footer>
-        <div class="route-line"></div>
-        <ol>
-          <li>01</li><li>02</li><li>03</li><li>04</li><li class="final">05</li>
-        </ol>
+        <div class="rule"></div>
         <code id="locale"></code>
       </footer>
     </main>
@@ -42,86 +40,71 @@ const PAGE_MARKUP = `<!doctype html>
 const PAGE_STYLES = `
   * { box-sizing: border-box; }
   html, body { height: 630px; margin: 0; width: 1200px; }
-  body { background: #07111f; }
+  body { background: #0e1420; }
   main {
-    background: #f4f7f8;
-    border: 24px solid #07111f;
-    color: #07111f;
+    background: #f7f8fa;
+    border: 1px solid #e3e7ee;
+    color: #0e1420;
     display: flex;
     flex-direction: column;
     height: 630px;
     justify-content: space-between;
-    padding: 48px 56px;
+    padding: 56px 64px;
     width: 1200px;
   }
-  header { align-items: flex-start; display: flex; justify-content: space-between; }
-  .copy { max-width: 860px; }
+  header { align-items: flex-start; display: flex; justify-content: space-between; gap: 48px; }
+  .copy { max-width: 820px; }
   [dir="rtl"] .copy { text-align: right; }
   p, h1 { margin: 0; }
   #eyebrow {
-    color: #087e8b;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: .18em;
+    color: #1b49b8;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .16em;
     text-transform: uppercase;
   }
   h1 {
-    font-size: 66px;
-    font-weight: 900;
-    letter-spacing: -.045em;
+    font-size: 68px;
+    font-weight: 800;
+    letter-spacing: -.03em;
     line-height: .98;
-    margin-top: 26px;
+    margin-top: 22px;
+  }
+  #role {
+    color: #57627a;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 14px;
   }
   #description {
-    color: #465f6b;
-    font-size: 26px;
-    line-height: 1.35;
-    margin-top: 24px;
-    max-width: 820px;
+    color: #57627a;
+    font-size: 24px;
+    line-height: 1.4;
+    margin-top: 22px;
+    max-width: 760px;
   }
   .mark {
     align-items: center;
-    background: #e09f3e;
-    border: 6px solid #07111f;
-    box-shadow: 10px 10px 0 #087e8b;
+    background: #2258d8;
+    border: 1px solid #0e1420;
+    border-radius: 20px;
+    color: #ffffff;
     display: flex;
     flex: 0 0 auto;
-    font-size: 54px;
-    font-weight: 900;
-    height: 116px;
+    font-size: 42px;
+    font-weight: 700;
+    height: 108px;
     justify-content: center;
-    width: 116px;
+    width: 108px;
   }
-  footer { align-items: center; display: flex; min-height: 58px; position: relative; }
-  .route-line { background: #07111f; height: 8px; inset-inline: 0; position: absolute; }
-  ol {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 820px;
-  }
-  li {
-    align-items: center;
-    background: #e09f3e;
-    border: 5px solid #07111f;
-    display: flex;
-    font-size: 18px;
-    font-weight: 900;
-    height: 54px;
-    justify-content: center;
-    position: relative;
-    width: 54px;
-  }
-  li.final { background: #d95d5d; }
+  footer { align-items: center; display: flex; min-height: 40px; position: relative; }
+  .rule { background: #2258d8; height: 3px; inset-inline: 0; position: absolute; }
   code {
-    color: #087e8b;
+    color: #57627a;
     direction: ltr;
     font-family: inherit;
-    font-size: 24px;
-    font-weight: 900;
+    font-size: 22px;
+    font-weight: 700;
     margin-inline-start: auto;
     position: relative;
     unicode-bidi: isolate;
@@ -159,6 +142,7 @@ async function writeImages(records, generatorHash) {
         globalThis.document.documentElement.lang = value.locale;
         globalThis.document.querySelector('#eyebrow').textContent = value.copy.eyebrow;
         globalThis.document.querySelector('#title').textContent = value.copy.title;
+        globalThis.document.querySelector('#role').textContent = value.copy.role;
         globalThis.document.querySelector('#description').textContent = value.copy.description;
         globalThis.document.querySelector('#locale').textContent = `/${value.locale}`;
       }, record);

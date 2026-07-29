@@ -1,4 +1,5 @@
 export { EXPERIENCE_ROLES } from './constants/experience.constants';
+export { ExperiencePageContainer } from './containers/experience-page.container';
 export {
   formatDateRange,
   formatMonthYear,

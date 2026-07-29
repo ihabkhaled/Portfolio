@@ -1,4 +1,5 @@
 import { MILLISECONDS_PER_DAY, RECENT_ACTIVITY_DAYS } from '../constants/projects.constants';
+import type { ProjectListEntry } from '../types/project-filter.types';
 import type { Project, ProjectCategory } from '../types/projects.types';
 
 /**
@@ -11,6 +12,15 @@ export function filterProjectsByCategory(
 ): readonly Project[] {
   if (category === 'all') return projects;
   return projects.filter((project) => project.categories.includes(category));
+}
+
+/** Same facet rule as {@link filterProjectsByCategory}, applied to rendered entries. */
+export function filterEntriesByCategory(
+  entries: readonly ProjectListEntry[],
+  category: ProjectCategory,
+): readonly ProjectListEntry[] {
+  if (category === 'all') return entries;
+  return entries.filter((entry) => entry.categories.includes(category));
 }
 
 /** Editorial priority wins; star counts never influence ordering. */

@@ -1,3 +1,6 @@
+/** The account whose public repositories this portfolio displays. */
+export const GITHUB_OWNER = 'ihabkhaled';
+
 /** Public GitHub REST base. Only unauthenticated-safe endpoints are used. */
 export const GITHUB_API_ORIGIN = 'https://api.github.com';
 

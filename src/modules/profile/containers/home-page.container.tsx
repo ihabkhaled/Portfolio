@@ -50,10 +50,7 @@ export async function HomePageContainer(props: HomePageContainerProps): Promise<
   });
 
   const featured = selectFeaturedProjects(PROJECTS, HOME_FEATURED_LIMIT);
-  const activity = await buildRepositoryActivityReport(
-    PUBLIC_PROFILE.githubLogin,
-    CURATED_REPOSITORY_NAMES,
-  );
+  const activity = await buildRepositoryActivityReport(CURATED_REPOSITORY_NAMES);
 
   const socialLabels: Readonly<Record<string, string>> = {
     github: tContact('githubLabel'),

@@ -38,20 +38,17 @@ export async function readLocaleRecord(locale) {
   const source = await readFile(path.join(MESSAGE_DIRECTORY, `${locale}.json`), 'utf8');
   const messages = JSON.parse(source);
   const copy = {
-    description: messages.marketing.home.description,
-    eyebrow: messages.marketing.routeAtlasLabel,
-    title: messages.marketing.home.title,
+    description: messages.home.tagline,
+    eyebrow: messages.home.eyebrow,
+    role: messages.app.role,
+    title: messages.app.title,
   };
   const sourceText = [
     copy.eyebrow,
     copy.title,
+    copy.role,
     copy.description,
-    'N',
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
+    'IK',
     `/${locale}`,
   ].join(' ');
 
