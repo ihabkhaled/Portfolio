@@ -2,9 +2,9 @@
 
 Repo-specific vocabulary. Reviews, rules, and skills use these terms with exactly these meanings.
 
-**Module** — A feature directory under `src/modules/<feature>` (articles, auth, health,
-ui-preferences) containing the full layer anatomy (api, gateway, services, queries, store,
-containers, components, hooks, utils, helpers, mappers, schemas, types, enums, constants, test)
+**Module** — A feature directory under `src/modules/<feature>` (projects, contact, github-profile,
+ui-preferences, …) containing the full layer anatomy (gateway, services, queries, store,
+containers, components, hooks, mappers, helpers, schemas, types, constants, test)
 plus a public surface. Modules are the unit of ownership and of cross-team isolation.
 
 **Layer** — A named sub-directory of a module (or the top-level `app` / `shared` / `packages`
@@ -25,32 +25,36 @@ reaching past it violates `no-cross-module-deep-imports`.
 is an implementation detail that can be swapped inside the wrapper.
 
 **View model** — The fully-computed, fully-translated object a hook returns for a container to
-render, e.g. `ArticlesListViewModel` from
-[src/modules/articles/hooks/use-articles-list.hook.ts](../src/modules/articles/hooks/use-articles-list.hook.ts).
+render, e.g. `UseContactFormResult` from
+[src/modules/contact/hooks/use-contact-form.hook.ts](../src/modules/contact/hooks/use-contact-form.hook.ts).
 Components receive view models as props and add nothing.
 
-**Wire type** — The snake_case shape of an API payload as it crosses HTTP, declared in
-`src/modules/<f>/api/*.api.types.ts` and validated by a Zod schema in the gateway. Mappers convert
-wire types to domain types; nothing above the service layer ever sees snake_case.
+**Wire type** — The snake_case shape of an API payload as it crosses HTTP, inferred from the
+Zod schema in the module's `schemas/` directory (e.g. `GithubRepositoryPayload` in
+[src/modules/github-profile/schemas/github.schema.ts](../src/modules/github-profile/schemas/github.schema.ts)).
+Mappers convert wire types to domain types; nothing above the service layer ever sees snake_case.
 
-**BFF gateway** — The `/api/gateway/[...path]` route handler
-(`src/app/api/gateway/[...path]/`, delegating to `gateway-handler.ts`). With
-`SERVER_API_MOCKING=enabled` (default) it serves module mock fixtures; otherwise it proxies to
-`SERVER_API_BASE_URL`. Client code only ever calls same-origin paths built with
-`buildGatewayPath` from [src/shared/api/api-routes.constants.ts](../src/shared/api/api-routes.constants.ts).
+**Same-origin API route** — This app has no BFF/proxy layer. Client code calls same-origin paths
+from `API_ROUTES` in
+[src/shared/api/api-routes.constants.ts](../src/shared/api/api-routes.constants.ts) through
+`httpClient`; the only one today is `/api/contact`. Calls to third-party origins (GitHub) go
+through `fetch` directly from a server-only gateway instead — see
+[context/reference-patterns.md](./reference-patterns.md) §3.
 
 **Client boundary** — A file starting with `'use client'`. In this repo every client boundary MUST
 carry a `// client-boundary-reason: …` comment (enforced by `require-client-component-reason`),
 and boundaries are pushed down to containers, never hoisted to layouts.
 
-**Message key** — A dot-path identifier for user-visible copy (e.g. `AUTH_MESSAGE_KEYS.success`)
-resolved against the catalogs in `src/packages/i18n/messages/{en,ar}.json`. Raw literal copy in
-JSX or schemas violates `no-raw-i18n-text`; the sole exception is `FALLBACK_ERROR_COPY` used by
-`src/app/global-error.tsx`.
+**Message key** — A dot-path identifier for user-visible copy (e.g. `contact.form.sent`)
+resolved against the 17 catalogs in `src/packages/i18n/messages/{en,ar,fr,it,de,hi,fa,th,ja,zh,
+es,pt,ko,tr,ru,id,nl}.json`, one JSON tree per `SUPPORTED_LOCALES` entry, key-for-key identical
+in shape. Raw literal copy in JSX or schemas violates `no-raw-i18n-text`; the sole exception is
+`FALLBACK_ERROR_COPY` used by `src/app/global-error.tsx`.
 
-**Query key builder** — The one file per module allowed to construct TanStack Query cache keys,
-e.g. [src/modules/articles/queries/article-query-keys.ts](../src/modules/articles/queries/article-query-keys.ts).
-Inline key arrays anywhere else violate `no-inline-query-keys`.
+**Query key builder** — The one file per module allowed to construct TanStack Query cache keys.
+`no-inline-query-keys` still applies the moment a module needs one; today the app has no client
+query cache to speak of (`src/modules/contact/queries/contact.mutations.ts` is the only
+TanStack usage, a mutation with nothing to invalidate), so there is no live example to link.
 
 **Enum-like object** — An `as const` object plus derived union type (e.g. `AppTheme`,
 `AppDirection` in `src/shared/enums/`) used instead of TypeScript `enum`, keeping erasable syntax
@@ -69,7 +73,3 @@ undocumented disables fail review.
 **Container** — A `*.container.tsx` client component that connects hooks to TSX-only components
 and performs the `.map()` over child elements. See
 [rules/02-components-and-containers.md](../rules/02-components-and-containers.md).
-
-**Workbench** — The `/<locale>/workbench` route (`src/app/[locale]/(workbench)/workbench/page.tsx`), the living
-showcase of design-system primitives adopted instead of Storybook —
-[architecture/adrs/0002-component-workbench-over-storybook.md](../architecture/adrs/0002-component-workbench-over-storybook.md).

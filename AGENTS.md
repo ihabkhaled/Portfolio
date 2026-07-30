@@ -1,9 +1,9 @@
 # AGENTS.md — Universal Agent Entrypoint
 
-This repo is **strict-next-ranger**: a strict Next.js frontend operating system — a
-production-grade starter that teams clone for enterprise frontend work. Every architectural
-decision is enforced by a custom ESLint plugin (`eslint/architecture-plugin.mjs`), typed
-strictly, and gated by tests. Your job as an agent is never to fight the guardrails: when a
+This repo is Ihab Khaled's personal portfolio and CV site, built on the strict Next.js frontend
+engineering OS it started from ([NextRanger](https://github.com/ihabkhaled/NextRanger)). Every
+architectural decision is enforced by a custom ESLint plugin (`eslint/architecture-plugin.mjs`),
+typed strictly, and gated by tests. Your job as an agent is never to fight the guardrails: when a
 rule blocks you, the code is in the wrong layer — move it, do not disable the rule.
 
 ## Read first, in this order
@@ -27,15 +27,17 @@ rule blocks you, the code is in the wrong layer — move it, do not disable the 
   `// client-boundary-reason: …` comment, connect hooks to components, and own the `.map()`.
 - No `process.env` outside `src/packages/env`; server env only via `@/packages/env/server`
   (guarded by `server-only`). No browser globals outside `src/packages/browser` / `src/packages/storage`.
-- Query keys come only from builder files (e.g. `src/modules/articles/queries/article-query-keys.ts`).
-  Use `useAppQuery` / `useAppMutation` from `@/packages/query`, never raw `@tanstack/react-query`.
+- Query keys come only from builder files, never inlined at the call site. Use `useAppQuery` /
+  `useAppMutation` from `@/packages/query`, never raw `@tanstack/react-query`
+  (see `src/modules/contact/queries/contact.mutations.ts` for the mutation pattern this app
+  currently uses — most data here is server-rendered and never reaches the client cache).
 - Every user-visible string is a next-intl message key present in every catalog named by
   `SUPPORTED_LOCALES`.
   The only exception is `FALLBACK_ERROR_COPY` in the global error boundary.
 - Page routes live in `src/app/[locale]` and APIs in `src/app/api`; navigate via locale-free `ROUTE_PATHS` plus
   `buildLocalizedPath` / `buildLocalizedLocation`
-  (`src/shared/constants/route-paths.constants.ts`); API calls go through `httpClient` +
-  `buildGatewayPath` to the same-origin BFF gateway.
+  (`src/shared/constants/route-paths.constants.ts`); client-side API calls (currently just the
+  contact form) go through `httpClient` to same-origin `/api/*` routes — never a raw `fetch`.
 - Lint runs with `--max-warnings=0`. Any `eslint-disable` requires a documented exception
   in [docs/exceptions/](docs/exceptions/README.md).
 - TDD. Coverage: 95% global, 100% for utils/helpers/mappers/schemas/query-key builders.

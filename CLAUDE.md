@@ -11,7 +11,7 @@ Compact entrypoint for Claude Code. Canonical sources — read before non-trivia
 ## Stack
 
 Next.js 16 App Router (Turbopack, typedRoutes) · React 19 · TypeScript 7 strict ·
-Tailwind v4 (CSS-first tokens) · TanStack Query v5 · Zustand v5 · Zod v4 · next-intl (14 URL locales, RTL) ·
+Tailwind v4 (CSS-first tokens) · TanStack Query v5 · Zustand v5 · Zod v4 · next-intl (17 URL locales, RTL) ·
 Vitest 4 + RTL · Playwright · MSW v2 · npm 12.0.1 · Node 24.18.0.
 
 ## Commands
@@ -31,14 +31,14 @@ Vitest 4 + RTL · Playwright · MSW v2 · npm 12.0.1 · Node 24.18.0.
 ## Architecture digest
 
 - `src/app` — routes/layouts/route handlers only. `src/proxy.ts` — per-request nonce CSP.
-- `src/modules/<feature>` — layers: api/ gateway/ services/ queries/ store/ containers/
-  components/ hooks/ utils/ helpers/ mappers/ schemas/ types/ enums/ constants/ test/,
-  public surface `index.ts`. Reference module: `src/modules/articles`.
+- `src/modules/<feature>` — layers: gateway/ services/ queries/ store/ containers/
+  components/ hooks/ mappers/ helpers/ schemas/ types/ constants/ test/,
+  public surface `index.ts`. Reference module: `src/modules/projects`.
 - `src/shared` — generic building blocks (components, config, constants, errors, i18n, testing).
 - `src/packages/<vendor>` — one owning wrapper per third-party package
   (axios → `httpClient`, query → `useAppQuery`, zod → `z`/`parseSchema`, i18n → `useAppTranslation`).
-- BFF: clients call same-origin `/api/gateway/*` via `httpClient` + `buildGatewayPath`;
-  `SERVER_API_MOCKING=enabled` (default) serves module mock fixtures — zero backend needed.
+- APIs: `src/app/api/{contact,health}` only. Client calls (just the contact form) go through
+  `httpClient` to same-origin `/api/*` routes — no BFF gateway or mock-fixture layer exists.
 
 ## Hard rules digest
 
