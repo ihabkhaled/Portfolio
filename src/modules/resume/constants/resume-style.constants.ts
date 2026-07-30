@@ -1,6 +1,6 @@
 export const resumeClasses = {
   downloadPanel:
-    'flex flex-wrap items-center justify-between gap-4 rounded-lg border border-border bg-surface-raised px-6 py-6',
+    'flex flex-wrap items-center justify-between gap-4 rounded-lg border border-border bg-surface-raised px-6 py-6 print:hidden',
   downloadText: 'grid gap-1',
   downloadTitle: 'font-display text-base font-semibold tracking-tight text-foreground',
   downloadNote: 'max-w-xl text-sm leading-relaxed text-muted-foreground',
