@@ -91,4 +91,22 @@ describe('fetchRepositorySnapshot', () => {
 
     expect(await fetchRepositorySnapshot('ihabkhaled', 'ClawAI')).toBeNull();
   });
+
+  it('skips the network call entirely when apiMocking is enabled', async () => {
+    vi.stubEnv('SERVER_API_MOCKING', 'enabled');
+    resetServerEnvCache();
+    let requestReceived = false;
+    mswServer.use(
+      http.get(`${GITHUB_API_ORIGIN}/repos/:owner/:repository`, () => {
+        requestReceived = true;
+        return HttpResponse.json({
+          name: 'ClawAI',
+          html_url: 'https://github.com/ihabkhaled/ClawAI',
+        });
+      }),
+    );
+
+    expect(await fetchRepositorySnapshot('ihabkhaled', 'ClawAI')).toBeNull();
+    expect(requestReceived).toBe(false);
+  });
 });

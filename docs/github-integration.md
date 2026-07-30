@@ -55,10 +55,17 @@ than mocking `fetchRepositorySnapshot` itself — see
 here (a gateway-level mock passed in an earlier version of this suite while silently never being
 invoked, and the tests still passed by coincidence against the real network path).
 
-In Playwright's e2e/visual suites, `SERVER_API_MOCKING`/`GITHUB_TOKEN` are unset, so the app
-talks to the real GitHub API and usually gets rate-limited — this is fine, because every
-assertion in those suites is written against content that's present either way (static fallback
-or live data), never against a specific star count or a specific "recently active" state.
+In Playwright's e2e/visual suites there's no MSW (it only intercepts inside the Vitest process,
+not a separately-spawned `next start` server), so `playwright.config.ts`'s `webServer.env` sets
+`SERVER_API_MOCKING=enabled` instead. `fetchRepositorySnapshot` checks `apiMocking` first and
+returns `null` immediately when it's `'enabled'`, before attempting any network call — every
+Playwright run therefore renders 100% static fallback data, deterministically, regardless of
+GitHub's actual rate-limit state at that moment. This was a real bug once: the first version of
+the visual suite let real (rate-limited-or-not) GitHub responses through, and the "recently
+active" badge's presence — which depends on live timestamps — silently shifted page height by a
+few pixels between runs, failing `toHaveScreenshot` intermittently for reasons that had nothing
+to do with the UI. `SERVER_API_MOCKING` must stay `disabled` everywhere else (it's the schema
+default — see `src/packages/env/server.ts`) or the live GitHub feature silently stops working.
 
 ## Changing what's displayed
 

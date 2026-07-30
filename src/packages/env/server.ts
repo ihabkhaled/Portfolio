@@ -11,7 +11,13 @@ const booleanFromString = z
 const serverEnvSchema = z
   .object({
     SERVER_API_BASE_URL: z.url().default('http://localhost:4000'),
-    SERVER_API_MOCKING: z.enum(['enabled', 'disabled']).default('enabled'),
+    /**
+     * Gates the GitHub gateway's live network call (see github.gateway.ts).
+     * Defaults to "disabled" so production always attempts real data; only
+     * Playwright's webServer sets this to "enabled", trading live GitHub data
+     * for deterministic, always-static-fallback rendering in e2e/visual runs.
+     */
+    SERVER_API_MOCKING: z.enum(['enabled', 'disabled']).default('disabled'),
 
     /** Optional, server-only. Raises the GitHub rate limit; never sent to the browser. */
     GITHUB_TOKEN: z.string().default(''),

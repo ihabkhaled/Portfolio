@@ -20,7 +20,7 @@ describe('getServerEnv', () => {
     const first = getServerEnv();
 
     expect(first.apiBaseUrl).toBe('http://localhost:4000');
-    expect(first.apiMocking).toBe('enabled');
+    expect(first.apiMocking).toBe('disabled');
     expect(getServerEnv()).toBe(first);
   });
 
