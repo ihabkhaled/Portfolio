@@ -68,6 +68,8 @@ describe('toolchain contract', () => {
     expect(packageManifest.allowScripts).toEqual({
       '@parcel/watcher@2.5.6': true,
       '@swc/core@1.15.43': true,
+      'fsevents@2.3.2': true,
+      'fsevents@2.3.3': true,
       msw: false,
       'unrs-resolver@1.12.2': true,
     });
