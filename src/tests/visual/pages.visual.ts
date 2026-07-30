@@ -1,44 +1,75 @@
-import { expect, test } from '@playwright/test';
-
-import { TEST_IDS } from '@/shared/constants/test-ids.constants';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 const VIEWPORTS = {
-  desktop: { width: 1280, height: 800 },
-  tablet: { width: 820, height: 1180 },
-  mobile: { width: 390, height: 844 },
+  desktop: { width: 1440, height: 900 },
+  tablet: { width: 768, height: 1024 },
+  mobile: { width: 375, height: 812 },
 } as const;
+
+async function goToReady(page: Page, path: string, ready: Locator): Promise<void> {
+  await page.goto(path);
+  await expect(ready).toBeVisible();
+}
 
 test.describe('visual baselines', () => {
   for (const [name, viewport] of Object.entries(VIEWPORTS)) {
-    test(`home LTR ${name}`, async ({ page }) => {
+    test(`home ${name}`, async ({ page }) => {
       await page.setViewportSize(viewport);
-      await page.goto('/en');
+      await goToReady(page, '/en', page.getByRole('heading', { level: 1, name: 'Ihab Khaled' }));
 
-      await expect(page).toHaveScreenshot(`home-ltr-${name}.png`, { fullPage: true });
+      await expect(page).toHaveScreenshot(`home-${name}.png`, { fullPage: true });
     });
   }
 
-  test('home RTL desktop', async ({ page }) => {
+  test('home desktop RTL', async ({ page }) => {
     await page.setViewportSize(VIEWPORTS.desktop);
-    await page.goto('/ar');
+    await goToReady(page, '/ar', page.getByRole('heading', { level: 1 }));
 
-    await expect(page).toHaveScreenshot('home-rtl-desktop.png', { fullPage: true });
+    await expect(page).toHaveScreenshot('home-desktop-ar.png', { fullPage: true });
   });
 
-  test('articles desktop', async ({ page }) => {
+  test('home desktop dark theme', async ({ page }) => {
     await page.setViewportSize(VIEWPORTS.desktop);
-    await page.goto('/en/articles');
-    await expect(page.getByTestId(TEST_IDS.articlesList)).toBeVisible();
+    await goToReady(page, '/en', page.getByRole('heading', { level: 1, name: 'Ihab Khaled' }));
 
-    await expect(page).toHaveScreenshot('articles-desktop.png', { fullPage: true });
+    const html = page.locator('html');
+    const themeBefore = await html.getAttribute('data-theme');
+    await page.getByRole('button', { name: /Change colour theme/u }).click();
+    await expect(html).not.toHaveAttribute('data-theme', themeBefore ?? '');
+    await expect(html).toHaveAttribute('data-theme', 'dark');
+
+    await expect(page).toHaveScreenshot('home-desktop-dark.png', { fullPage: true });
   });
 
-  test('settings dark theme desktop', async ({ page }) => {
+  test('about desktop', async ({ page }) => {
     await page.setViewportSize(VIEWPORTS.desktop);
-    await page.goto('/en/settings');
-    await page.getByTestId('settings-theme-dark').click();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await goToReady(page, '/en/about', page.getByRole('heading', { level: 1, name: 'About' }));
 
-    await expect(page).toHaveScreenshot('settings-dark-desktop.png', { fullPage: true });
+    await expect(page).toHaveScreenshot('about-desktop.png', { fullPage: true });
+  });
+
+  test('projects desktop', async ({ page }) => {
+    await page.setViewportSize(VIEWPORTS.desktop);
+    await goToReady(
+      page,
+      '/en/projects',
+      page.getByRole('heading', { level: 1, name: 'Projects' }),
+    );
+
+    await expect(page).toHaveScreenshot('projects-desktop.png', { fullPage: true });
+  });
+
+  test('resume desktop', async ({ page }) => {
+    await page.setViewportSize(VIEWPORTS.desktop);
+    await goToReady(page, '/en/resume', page.getByRole('heading', { level: 1, name: 'Resume' }));
+
+    await expect(page).toHaveScreenshot('resume-desktop.png', { fullPage: true });
+  });
+
+  test('contact desktop', async ({ page }) => {
+    await page.setViewportSize(VIEWPORTS.desktop);
+    await goToReady(page, '/en/contact', page.getByRole('heading', { level: 1, name: 'Contact' }));
+
+    await expect(page).toHaveScreenshot('contact-desktop.png', { fullPage: true });
   });
 });

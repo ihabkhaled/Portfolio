@@ -6,7 +6,6 @@ import { LANDMARK_IDS } from '@/shared/accessibility/landmark-ids.constants';
 import { PageHeader } from '@/shared/components/data-display/page-header.component';
 import { EmptyState } from '@/shared/components/feedback/empty-state.component';
 import { ErrorState } from '@/shared/components/feedback/error-state.component';
-import { LoadingState } from '@/shared/components/feedback/loading-state.component';
 import { FormField } from '@/shared/components/forms/form-field.component';
 import { SiteShell } from '@/shared/components/layout/site-shell.component';
 import { SkipLink } from '@/shared/components/primitives/skip-link.component';
@@ -44,15 +43,6 @@ describe('VisuallyHidden', () => {
     render(<VisuallyHidden>Screen reader only</VisuallyHidden>);
 
     expect(screen.getByText('Screen reader only')).toBeInTheDocument();
-  });
-});
-
-describe('LoadingState', () => {
-  it('shows the translated label with a status testid', () => {
-    render(<LoadingState label="Loading…" testId="loading" />);
-
-    expect(screen.getByRole('status', { name: 'Loading…' })).toBeInTheDocument();
-    expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 });
 

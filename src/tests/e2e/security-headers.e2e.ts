@@ -34,7 +34,9 @@ test.describe('security headers', () => {
     expect(extractNonce(firstCsp)).not.toBe(extractNonce(secondCsp));
   });
 
-  test('localized pages hydrate without CSP violations', async ({ page }) => {
+  test('localized pages hydrate without CSP violations, and the theme control actually works', async ({
+    page,
+  }) => {
     const cspErrors: string[] = [];
     page.on('console', (message) => {
       if (message.type() === 'error' && message.text().includes('Content Security Policy')) {
@@ -43,9 +45,12 @@ test.describe('security headers', () => {
     });
 
     await page.goto('/en');
-    await page.getByRole('button', { name: /Change color theme/u }).click();
 
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    const html = page.locator('html');
+    const themeBefore = await html.getAttribute('data-theme');
+    await page.getByRole('button', { name: /Change colour theme/u }).click();
+
+    await expect(html).not.toHaveAttribute('data-theme', themeBefore ?? '');
     expect(cspErrors).toEqual([]);
   });
 });

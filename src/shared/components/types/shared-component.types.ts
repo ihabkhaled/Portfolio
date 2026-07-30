@@ -41,11 +41,6 @@ export interface ManifestPanelProps {
   readonly rows: ReactNode;
 }
 
-export interface LoadingStateProps {
-  readonly label: string;
-  readonly testId?: string;
-}
-
 export interface EmptyStateProps {
   readonly message: string;
   readonly testId?: string;

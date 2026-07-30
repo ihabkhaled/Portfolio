@@ -52,7 +52,7 @@ export default async function CaseStudyPage(props: CaseStudyRouteProps): Promise
   }
   const project = PROJECTS.find((candidate) => candidate.slug === slug && candidate.hasCaseStudy);
   if (project === undefined) {
-    return <CaseStudyPageContainer locale={locale} slug={slug} />;
+    appNotFound();
   }
 
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.projects });

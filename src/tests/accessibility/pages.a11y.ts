@@ -1,14 +1,18 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
-import { TEST_IDS } from '@/shared/constants/test-ids.constants';
-
 const BLOCKING_IMPACTS = new Set(['serious', 'critical']);
-const PUBLIC_MARKETING_ROUTES = [
+
+const PUBLIC_ROUTES = [
+  { name: 'Home', path: '/en' },
+  { name: 'Experience', path: '/en/experience' },
+  { name: 'Projects', path: '/en/projects' },
+  { name: 'Skills', path: '/en/skills' },
   { name: 'About', path: '/en/about' },
-  { name: 'Features', path: '/en/features' },
-  { name: 'FAQ', path: '/en/faq' },
+  { name: 'Resume', path: '/en/resume' },
   { name: 'Contact', path: '/en/contact' },
+  { name: 'Case study', path: '/en/projects/clawai' },
+  { name: 'Offline fallback', path: '/en/offline' },
 ] as const;
 
 async function expectNoBlockingViolations(page: Page): Promise<void> {
@@ -28,45 +32,36 @@ async function expectNoBlockingViolations(page: Page): Promise<void> {
 }
 
 test.describe('axe scans', () => {
-  test('home page has no serious or critical violations', async ({ page }) => {
-    await page.goto('/en');
-    await expectNoBlockingViolations(page);
-  });
-
-  for (const route of PUBLIC_MARKETING_ROUTES) {
+  for (const route of PUBLIC_ROUTES) {
     test(`${route.name} page has no serious or critical violations`, async ({ page }) => {
       await page.goto(route.path);
       await expectNoBlockingViolations(page);
     });
   }
 
-  test('articles page (loaded state) has no serious or critical violations', async ({ page }) => {
-    await page.goto('/en/articles');
-    await expect(page.getByTestId(TEST_IDS.articlesList)).toBeVisible();
+  test('the Arabic home page has no serious or critical violations in RTL', async ({ page }) => {
+    await page.goto('/ar');
     await expectNoBlockingViolations(page);
   });
 
-  test('login page has no serious or critical violations', async ({ page }) => {
-    await page.goto('/en/login');
-    await expectNoBlockingViolations(page);
-  });
-
-  test('login page with validation errors has no serious or critical violations', async ({
+  test('the mobile navigation menu has no serious or critical violations when open', async ({
     page,
   }) => {
-    await page.goto('/en/login');
-    await page.getByTestId(TEST_IDS.loginSubmit).click();
-    await expect(page.getByText('Enter your email address.')).toBeVisible();
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/en');
+
+    await page.locator('header details summary').click();
+
     await expectNoBlockingViolations(page);
   });
 
-  test('settings page has no serious or critical violations', async ({ page }) => {
-    await page.goto('/en/settings');
-    await expectNoBlockingViolations(page);
-  });
+  test('the contact form in its validation-error state has no serious or critical violations', async ({
+    page,
+  }) => {
+    await page.goto('/en/contact');
 
-  test('workbench page has no serious or critical violations', async ({ page }) => {
-    await page.goto('/en/workbench');
+    await page.getByRole('button', { name: 'Send message' }).click();
+
     await expectNoBlockingViolations(page);
   });
 });

@@ -15,18 +15,25 @@ test.describe('localized URL and RTL contracts', () => {
     await expect(page).toHaveURL('/ar');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-    await expect(page.getByRole('link', { name: 'About' })).toHaveCount(0);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /\/ar$/u);
   });
 
-  test('the language switcher preserves the route, query, and fragment', async ({ page }) => {
-    await page.goto('/en/faq?source=e2e#question');
+  test('the Persian URL also renders as an independently crawlable RTL page', async ({ page }) => {
+    await page.goto('/fa');
+
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fa');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  });
+
+  test('the language switcher preserves the current route and hash', async ({ page }) => {
+    await page.goto('/en/about#top');
 
     await page.getByRole('combobox', { name: 'Change language' }).selectOption('ar');
 
-    await expect(page).toHaveURL('/ar/faq?source=e2e#question');
+    await expect(page).toHaveURL('/ar/about#top');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('unsupported locale segments return a real not-found response', async ({ page }) => {
