@@ -18,6 +18,7 @@ describe('buildPersonStructuredData', () => {
         sameAs: ['https://github.com/ihabkhaled', 'https://www.linkedin.com/in/ihabkhaled94/'],
         addressLocality: 'Giza',
         addressCountry: 'Egypt',
+        telephone: '+20 100 156 8256',
       }),
     ).toEqual({
       '@context': 'https://schema.org',
@@ -26,6 +27,7 @@ describe('buildPersonStructuredData', () => {
       jobTitle: 'Senior Software Engineer',
       url: 'https://ihabkhaled.com/en',
       sameAs: ['https://github.com/ihabkhaled', 'https://www.linkedin.com/in/ihabkhaled94/'],
+      telephone: '+20 100 156 8256',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Giza',

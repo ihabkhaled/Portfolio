@@ -157,7 +157,9 @@
           "three": "使用后台任务、消息队列与流式处理构建事件驱动的工作流。",
           "four": "主导代码重构、遗留系统现代化改造、性能优化与回归测试。",
           "five": "建立容器化部署、CI/CD 流水线与生产环境监控体系。",
-          "six": "通过严格的 TypeScript、代码规范检查、测试与提交前检查，执行严格的工程标准。"
+          "six": "通过严格的 TypeScript、代码规范检查、测试与提交前检查，执行严格的工程标准。",
+          "seven": "使用 FFmpeg、Nginx 和 OBS 构建并运维直播媒体流水线。",
+          "eight": "对遗留代码库进行全面现代化改造——框架大版本升级（Laravel、Ember.js）及其底层 Node.js 运行时，并集成 Spotify、Google Cloud 等第三方平台。"
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "基础了解",
         "definition": "通过学习或有限的项目经验，在概念层面有所理解，不作为专长呈现。"
+      },
+      "aiTools": {
+        "name": "AI 辅助开发",
+        "definition": "日常工程工作中使用的 AI 编程助手和模型。"
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "联系方式",
     "description": "邮件是联系我最快的方式。",
     "emailLabel": "邮箱",
+    "phoneLabel": "电话",
     "copyEmail": "复制邮箱地址",
     "copied": "邮箱地址已复制",
     "linkedinLabel": "LinkedIn",

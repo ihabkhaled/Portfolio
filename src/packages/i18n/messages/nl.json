@@ -157,7 +157,9 @@
           "three": "Event-gedreven workflows ontwikkeld met achtergrondtaken, message queues en streaming.",
           "four": "Refactoring, modernisering van legacysystemen, performanceoptimalisatie en regressietesten geleid.",
           "five": "Gecontaineriseerde implementaties, CI/CD-pipelines en productiemonitoring opgezet.",
-          "six": "Strikte engineeringnormen toegepast met strict TypeScript, linting, testen en pre-commitcontroles."
+          "six": "Strikte engineeringnormen toegepast met strict TypeScript, linting, testen en pre-commitcontroles.",
+          "seven": "Live-streaming mediapijplijnen gebouwd en beheerd met FFmpeg, Nginx en OBS.",
+          "eight": "Verouderde codebases volledig gemoderniseerd — major-versie-upgrades van frameworks (Laravel, Ember.js) samen met de onderliggende Node.js-runtimes — en integratie van externe platforms zoals Spotify en Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Basiskennis",
         "definition": "Begrepen op conceptueel niveau via studie of beperkt projectgebruik. Niet gepresenteerd als vaardigheid."
+      },
+      "aiTools": {
+        "name": "AI-ondersteunde ontwikkeling",
+        "definition": "AI-codeerassistenten en -modellen die worden gebruikt in het dagelijkse engineeringwerk."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Contact",
     "description": "E-mail is de snelste manier om mij te bereiken.",
     "emailLabel": "E-mail",
+    "phoneLabel": "Telefoon",
     "copyEmail": "E-mailadres kopiëren",
     "copied": "E-mailadres gekopieerd",
     "linkedinLabel": "LinkedIn",

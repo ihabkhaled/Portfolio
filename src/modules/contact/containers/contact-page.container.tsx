@@ -26,9 +26,13 @@ export async function ContactPageContainer(
 
   const linkedin = PUBLIC_PROFILE.links.find((link) => link.id === 'linkedin');
   const github = PUBLIC_PROFILE.links.find((link) => link.id === 'github');
+  const phone = PUBLIC_PROFILE.links.find((link) => link.id === 'phone');
 
   const manifestRows = [
     { label: t('emailLabel'), value: PUBLIC_PROFILE.email, mono: true },
+    ...(phone === undefined
+      ? []
+      : [{ label: t('phoneLabel'), value: PUBLIC_PROFILE.phone, mono: true }]),
     ...(github === undefined ? [] : [{ label: t('githubLabel'), value: github.href, mono: true }]),
     ...(linkedin === undefined
       ? []
@@ -56,6 +60,14 @@ export async function ContactPageContainer(
                 email={PUBLIC_PROFILE.email}
                 labels={{ copyLabel: t('copyEmail'), copiedLabel: t('copied') }}
               />
+              {phone === undefined ? null : (
+                <ExternalLink
+                  href={phone.href}
+                  className={buttonVariants({ variant: 'secondary', size: 'sm' })}
+                >
+                  {PUBLIC_PROFILE.phone}
+                </ExternalLink>
+              )}
               <ExternalLink
                 href={PUBLIC_PROFILE.curriculumVitaePath}
                 className={buttonVariants({ variant: 'secondary', size: 'sm' })}

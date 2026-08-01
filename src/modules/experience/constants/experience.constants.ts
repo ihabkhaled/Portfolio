@@ -104,6 +104,6 @@ export const EXPERIENCE_ROLES: readonly ExperienceRole[] = [
       'GCP',
       'CI/CD',
     ],
-    highlightKeys: ['one', 'two', 'three', 'four', 'five', 'six'],
+    highlightKeys: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'],
   },
 ] as const;

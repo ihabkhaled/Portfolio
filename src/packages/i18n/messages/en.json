@@ -157,7 +157,9 @@
           "three": "Built event-driven workflows with background jobs, message queues and streaming.",
           "four": "Led refactoring, legacy modernisation, performance optimisation and regression testing.",
           "five": "Set up containerised deployments, CI/CD pipelines and production monitoring.",
-          "six": "Enforced engineering standards with strict TypeScript, linting, testing and pre-commit gates."
+          "six": "Enforced engineering standards with strict TypeScript, linting, testing and pre-commit gates.",
+          "seven": "Built and operated live-streaming media pipelines with FFmpeg, Nginx and OBS.",
+          "eight": "Modernised legacy codebases end to end — major-version framework upgrades (Laravel, Ember.js) alongside the Node.js runtimes underneath them — and integrated third-party platforms including Spotify and Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Foundational knowledge",
         "definition": "Understood at concept level from study or limited project use. Not claimed as expertise."
+      },
+      "aiTools": {
+        "name": "AI-assisted development",
+        "definition": "AI coding assistants and models used in day-to-day engineering work."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Contact",
     "description": "Email is the fastest way to reach me.",
     "emailLabel": "Email",
+    "phoneLabel": "Phone",
     "copyEmail": "Copy email address",
     "copied": "Email address copied",
     "linkedinLabel": "LinkedIn",

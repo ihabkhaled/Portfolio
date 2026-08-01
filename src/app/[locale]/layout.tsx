@@ -47,6 +47,14 @@ import '../styles.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(appConfig.appUrl),
+  icons: {
+    icon: [
+      { url: '/icons/icon.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
 };
 
 interface LocaleLayoutProps {
@@ -89,7 +97,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
   };
 
   const socialLinks = PUBLIC_PROFILE.links
-    .filter((link) => link.id !== 'email')
+    .filter((link) => link.id !== 'email' && link.id !== 'phone')
     .map((link) => (
       <ExternalLink key={link.id} href={link.href} className={siteShellClasses.footerLink}>
         {socialLabels[link.id] ?? link.id}
@@ -102,9 +110,12 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
       name: PUBLIC_PROFILE.displayName,
       jobTitle: tApp('role'),
       url: homeUrl,
-      sameAs: PUBLIC_PROFILE.links.filter((link) => link.id !== 'email').map((link) => link.href),
+      sameAs: PUBLIC_PROFILE.links
+        .filter((link) => link.id !== 'email' && link.id !== 'phone')
+        .map((link) => link.href),
       addressLocality: 'Giza',
       addressCountry: 'Egypt',
+      telephone: PUBLIC_PROFILE.phone,
     }),
   );
   const websiteJsonLd = serializeStructuredData(

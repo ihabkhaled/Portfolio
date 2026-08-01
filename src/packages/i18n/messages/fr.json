@@ -157,7 +157,9 @@
           "three": "Développement de flux événementiels avec tâches d'arrière-plan, files de messages et streaming.",
           "four": "Pilotage de la refactorisation, de la modernisation d'applications existantes, de l'optimisation des performances et des tests de non-régression.",
           "five": "Mise en place de déploiements conteneurisés, de pipelines CI/CD et de la supervision en production.",
-          "six": "Application de standards d'ingénierie stricts avec TypeScript strict, linting, tests et hooks de pré-commit."
+          "six": "Application de standards d'ingénierie stricts avec TypeScript strict, linting, tests et hooks de pré-commit.",
+          "seven": "Conception et exploitation de pipelines de diffusion en direct avec FFmpeg, Nginx et OBS.",
+          "eight": "Modernisation complète de bases de code existantes — montées de version majeures des frameworks (Laravel, Ember.js) et des environnements Node.js sous-jacents — et intégration de plateformes tierces telles que Spotify et Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Connaissances de base",
         "definition": "Comprises au niveau conceptuel, par l'étude ou un usage limité en projet. Non présentées comme une expertise."
+      },
+      "aiTools": {
+        "name": "Développement assisté par IA",
+        "definition": "Assistants et modèles d'IA utilisés au quotidien dans le travail d'ingénierie."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Contact",
     "description": "L'e-mail est le moyen le plus rapide de me joindre.",
     "emailLabel": "E-mail",
+    "phoneLabel": "Téléphone",
     "copyEmail": "Copier l'adresse e-mail",
     "copied": "Adresse e-mail copiée",
     "linkedinLabel": "LinkedIn",

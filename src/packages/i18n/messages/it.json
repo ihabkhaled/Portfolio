@@ -157,7 +157,9 @@
           "three": "Sviluppo di flussi event-driven con job in background, code di messaggi e streaming.",
           "four": "Guida di refactoring, modernizzazione di codice legacy, ottimizzazione delle prestazioni e test di regressione.",
           "five": "Configurazione di deployment containerizzati, pipeline CI/CD e monitoraggio in produzione.",
-          "six": "Applicazione di standard ingegneristici rigorosi con TypeScript strict, linting, testing e controlli pre-commit."
+          "six": "Applicazione di standard ingegneristici rigorosi con TypeScript strict, linting, testing e controlli pre-commit.",
+          "seven": "Progettazione e gestione di pipeline di live streaming con FFmpeg, Nginx e OBS.",
+          "eight": "Modernizzazione completa di codebase legacy — aggiornamenti di versione maggiore dei framework (Laravel, Ember.js) e dei runtime Node.js sottostanti — e integrazione di piattaforme di terze parti come Spotify e Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Conoscenza di base",
         "definition": "Compresa a livello concettuale tramite studio o uso limitato in progetti. Non presentata come competenza."
+      },
+      "aiTools": {
+        "name": "Sviluppo assistito da IA",
+        "definition": "Assistenti e modelli di IA utilizzati nel lavoro ingegneristico quotidiano."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Contatti",
     "description": "L'email è il modo più veloce per contattarmi.",
     "emailLabel": "Email",
+    "phoneLabel": "Telefono",
     "copyEmail": "Copia indirizzo email",
     "copied": "Indirizzo email copiato",
     "linkedinLabel": "LinkedIn",

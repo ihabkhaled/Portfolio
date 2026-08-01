@@ -157,7 +157,9 @@
           "three": "Desenvolvimento de fluxos orientados a eventos com jobs em segundo plano, filas de mensagens e streaming.",
           "four": "Liderança de refatoração, modernização de sistemas legados, otimização de desempenho e testes de regressão.",
           "five": "Configuração de implantações em contêineres, pipelines de CI/CD e monitoramento em produção.",
-          "six": "Aplicação de padrões rigorosos de engenharia com TypeScript estrito, linting, testes e verificações de pré-commit."
+          "six": "Aplicação de padrões rigorosos de engenharia com TypeScript estrito, linting, testes e verificações de pré-commit.",
+          "seven": "Criação e operação de pipelines de streaming ao vivo com FFmpeg, Nginx e OBS.",
+          "eight": "Modernização completa de bases de código legadas — atualizações de versão principal de frameworks (Laravel, Ember.js) junto com os runtimes Node.js subjacentes — e integração de plataformas de terceiros como Spotify e Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Conhecimento fundamental",
         "definition": "Compreendido em nível conceitual por estudo ou uso limitado em projetos. Não apresentado como especialização."
+      },
+      "aiTools": {
+        "name": "Desenvolvimento assistido por IA",
+        "definition": "Assistentes e modelos de IA usados no trabalho de engenharia do dia a dia."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Contato",
     "description": "O e-mail é a forma mais rápida de falar comigo.",
     "emailLabel": "E-mail",
+    "phoneLabel": "Telefone",
     "copyEmail": "Copiar endereço de e-mail",
     "copied": "Endereço de e-mail copiado",
     "linkedinLabel": "LinkedIn",

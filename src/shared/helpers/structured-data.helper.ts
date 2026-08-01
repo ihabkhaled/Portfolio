@@ -25,6 +25,7 @@ export function buildPersonStructuredData(
     jobTitle: input.jobTitle,
     url: input.url,
     sameAs: [...input.sameAs],
+    telephone: input.telephone,
     address: {
       '@type': 'PostalAddress',
       addressLocality: input.addressLocality,

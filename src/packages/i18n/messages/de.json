@@ -157,7 +157,9 @@
           "three": "Entwicklung ereignisgesteuerter Abläufe mit Hintergrundjobs, Message Queues und Streaming.",
           "four": "Leitung von Refactoring, Modernisierung von Altsystemen, Performance-Optimierung und Regressionstests.",
           "five": "Einrichtung containerisierter Deployments, CI/CD-Pipelines und Produktionsüberwachung.",
-          "six": "Durchsetzung strenger Engineering-Standards mit striktem TypeScript, Linting, Testing und Pre-Commit-Prüfungen."
+          "six": "Durchsetzung strenger Engineering-Standards mit striktem TypeScript, Linting, Testing und Pre-Commit-Prüfungen.",
+          "seven": "Aufbau und Betrieb von Live-Streaming-Medienpipelines mit FFmpeg, Nginx und OBS.",
+          "eight": "Vollständige Modernisierung bestehender Codebasen — Framework-Hauptversions-Upgrades (Laravel, Ember.js) samt der zugrunde liegenden Node.js-Laufzeiten — sowie Integration von Drittplattformen wie Spotify und Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Grundlagenwissen",
         "definition": "Auf konzeptioneller Ebene verstanden, aus Studium oder begrenztem Projekteinsatz. Nicht als Expertise dargestellt."
+      },
+      "aiTools": {
+        "name": "KI-unterstützte Entwicklung",
+        "definition": "KI-Programmierassistenten und -Modelle für die tägliche Entwicklungsarbeit."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Kontakt",
     "description": "E-Mail ist der schnellste Weg, mich zu erreichen.",
     "emailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
     "copyEmail": "E-Mail-Adresse kopieren",
     "copied": "E-Mail-Adresse kopiert",
     "linkedinLabel": "LinkedIn",

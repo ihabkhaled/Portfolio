@@ -74,10 +74,15 @@ number anywhere.
   (`home.indicators.<id>`, interpolating `{years}` — or `years: null` for a non-numeric
   indicator like "End-to-end product delivery"). Every figure here should be one you can defend
   in an interview; there is no "round it up" tolerance built into this codebase's philosophy.
-- `email`, `links` (GitHub/LinkedIn/mailto), `locationId` (general area only — this repo's
-  standing convention is city-and-country, never a street or precise coordinates),
+- `email`, `phone`, `links` (GitHub/LinkedIn/mailto/tel), `locationId` (general area only — this
+  repo's standing convention is city-and-country, never a street or precise coordinates),
   `availabilityEnabled` (flip to `true` only when actually open to offers — it's `false` by
   default and nothing implies availability when it's off).
+- Publishing a phone number is a personal spam-risk tradeoff, not a default this codebase
+  encourages — it's on the site because Ihab explicitly asked for it. If you ever want to remove
+  it: drop the `'phone'` link and the `phone` field from `PUBLIC_PROFILE`, and TypeScript will
+  point at every place that still expects it (the phone-labelled `PersonStructuredDataInput`
+  field, the contact page's manifest row and call button, the home hero's social row).
 - `curriculumVitaePath`: must point at a file that actually exists in `public/` — see "Update
   the CV PDF" below before changing this.
 

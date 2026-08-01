@@ -12,10 +12,13 @@ export const PUBLIC_PROFILE: PublicProfile = {
   githubLogin: GITHUB_LOGIN,
   locationId: 'giza',
   email: 'ihab.khaled94@gmail.com',
+  // Displayed in international format; the tel: href strips the spaces.
+  phone: '+20 100 156 8256',
   links: [
     { id: 'github', href: `https://github.com/${GITHUB_LOGIN}` },
     { id: 'linkedin', href: 'https://www.linkedin.com/in/ihabkhaled94/' },
     { id: 'email', href: 'mailto:ihab.khaled94@gmail.com' },
+    { id: 'phone', href: 'tel:+201001568256' },
   ],
   curriculumVitaePath: '/ihab-khaled-cv.pdf',
   // Set to a local asset path once an approved portrait is added to /public.

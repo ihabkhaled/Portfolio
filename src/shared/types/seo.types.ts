@@ -29,6 +29,7 @@ export interface PersonStructuredDataInput {
   readonly sameAs: readonly string[];
   readonly addressLocality: string;
   readonly addressCountry: string;
+  readonly telephone: string;
 }
 
 export interface WebsiteStructuredDataInput {

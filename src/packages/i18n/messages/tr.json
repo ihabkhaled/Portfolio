@@ -157,7 +157,9 @@
           "three": "Arka plan işleri, mesaj kuyrukları ve akış ile olay tabanlı iş akışları geliştirdim.",
           "four": "Yeniden yapılandırma, eski sistemlerin modernizasyonu, performans optimizasyonu ve regresyon testlerine öncülük ettim.",
           "five": "Konteynerleştirilmiş dağıtımlar, CI/CD hatları ve üretim izlemesi kurdum.",
-          "six": "Katı TypeScript, linting, test ve commit öncesi kontrollerle sıkı mühendislik standartları uyguladım."
+          "six": "Katı TypeScript, linting, test ve commit öncesi kontrollerle sıkı mühendislik standartları uyguladım.",
+          "seven": "FFmpeg, Nginx ve OBS ile canlı yayın medya hatları kurdum ve işlettim.",
+          "eight": "Eski kod tabanlarını uçtan uca modernize ettim — framework büyük sürüm yükseltmeleri (Laravel, Ember.js) ve altlarındaki Node.js çalışma zamanları dahil — ve Spotify, Google Cloud gibi üçüncü taraf platformları entegre ettim."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Temel bilgi",
         "definition": "Çalışma veya sınırlı proje kullanımından kavramsal düzeyde anlaşılmıştır. Uzmanlık olarak sunulmaz."
+      },
+      "aiTools": {
+        "name": "Yapay zeka destekli geliştirme",
+        "definition": "Günlük mühendislik çalışmalarında kullanılan yapay zeka kodlama asistanları ve modelleri."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "İletişim",
     "description": "Bana ulaşmanın en hızlı yolu e-posta.",
     "emailLabel": "E-posta",
+    "phoneLabel": "Telefon",
     "copyEmail": "E-posta adresini kopyala",
     "copied": "E-posta adresi kopyalandı",
     "linkedinLabel": "LinkedIn",

@@ -157,7 +157,9 @@
           "three": "Mengembangkan alur kerja berbasis event dengan background job, message queue, dan streaming.",
           "four": "Memimpin refactoring, modernisasi sistem lama, optimisasi performa, dan pengujian regresi.",
           "five": "Menyiapkan deployment terkontainerisasi, pipeline CI/CD, dan pemantauan produksi.",
-          "six": "Menerapkan standar engineering yang ketat dengan TypeScript strict, linting, pengujian, dan pemeriksaan pre-commit."
+          "six": "Menerapkan standar engineering yang ketat dengan TypeScript strict, linting, pengujian, dan pemeriksaan pre-commit.",
+          "seven": "Membangun dan mengoperasikan pipeline media live streaming dengan FFmpeg, Nginx, dan OBS.",
+          "eight": "Memodernisasi basis kode lama secara menyeluruh — peningkatan versi mayor framework (Laravel, Ember.js) beserta runtime Node.js yang mendasarinya — serta mengintegrasikan platform pihak ketiga seperti Spotify dan Google Cloud."
         }
       }
     }
@@ -285,6 +287,10 @@
       "foundational": {
         "name": "Pengetahuan dasar",
         "definition": "Dipahami pada level konseptual melalui studi atau penggunaan proyek yang terbatas. Tidak disajikan sebagai keahlian."
+      },
+      "aiTools": {
+        "name": "Pengembangan berbantuan AI",
+        "definition": "Asisten dan model coding AI yang digunakan dalam pekerjaan rekayasa sehari-hari."
       }
     }
   },
@@ -322,6 +328,7 @@
     "title": "Kontak",
     "description": "Email adalah cara tercepat untuk menghubungi saya.",
     "emailLabel": "Email",
+    "phoneLabel": "Telepon",
     "copyEmail": "Salin alamat email",
     "copied": "Alamat email disalin",
     "linkedinLabel": "LinkedIn",

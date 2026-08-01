@@ -56,6 +56,7 @@ export async function HomePageContainer(props: HomePageContainerProps): Promise<
     github: tContact('githubLabel'),
     linkedin: tContact('linkedinLabel'),
     email: tContact('emailLabel'),
+    phone: tContact('phoneLabel'),
   };
 
   const heroManifestData = [
