@@ -6,6 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 import manifest from '@/app/manifest';
 import robots from '@/app/robots';
 import sitemap from '@/app/sitemap';
+import { PROJECTS } from '@/modules/projects';
 import type * as PackagesI18n from '@/packages/i18n';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/packages/i18n';
 import { appConfig } from '@/shared/config/app-config';
@@ -130,8 +131,11 @@ describe('SEO and PWA contracts', () => {
 
   it('lists every public document with reciprocal alternates', () => {
     const entries = sitemap();
+    const caseStudyCount = PROJECTS.filter((project) => project.hasCaseStudy).length;
 
-    expect(entries).toHaveLength(INDEXABLE_PATHS.length * SUPPORTED_LOCALES.length);
+    expect(entries).toHaveLength(
+      (INDEXABLE_PATHS.length + caseStudyCount) * SUPPORTED_LOCALES.length,
+    );
     expect(
       entries.every(
         (entry) =>

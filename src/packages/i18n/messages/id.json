@@ -233,35 +233,59 @@
       },
       "myoncare": {
         "summary": "Perangkat medis Kelas IIa berdasarkan regulasi MDR Uni Eropa yang memungkinkan pasien berbagi rencana perawatan, informasi obat, dan data aktivitas dengan tim medis mereka.",
-        "role": "Engineer backend dan full-stack sejak 2022, mengerjakan manajemen tugas perawatan, pemantauan pasien, dan integrasi perangkat wearable."
+        "role": "Engineer backend dan full-stack sejak 2022, mengerjakan manajemen tugas perawatan, pemantauan pasien, dan integrasi perangkat wearable.",
+        "overview": "myoncare menghubungkan pasien dan tim perawatan di sekitar rencana perawatan bersama: jadwal pengobatan, tugas perawatan, dan data aktivitas mengalir ke satu arah, panduan klinis mengalir kembali, dan kedua belah pihak melihat gambaran terkini yang sama. Sebagai perangkat medis Kelas IIa berdasarkan EU MDR, setiap perubahan alur kerja harus memenuhi persyaratan ketertelusuran, bukan sekadar berfungsi dengan benar.",
+        "architecture": "Backend NestJS melayani aplikasi web React serta aplikasi mobile React Native dan Capacitor dari satu basis kode TypeScript bersama. MySQL menyimpan catatan klinis dan tugas perawatan yang terstruktur; MongoDB menyimpan data aktivitas dan wearable yang volumenya lebih besar dan kurang terstruktur. RabbitMQ memindahkan pekerjaan latar belakang — sinkronisasi wearable, distribusi notifikasi — keluar dari jalur permintaan, dengan Redis di depan endpoint yang banyak dibaca. FHIR memberi platform format standar untuk bertukar data dengan sistem kesehatan eksternal, alih-alih integrasi khusus untuk setiap mitra.",
+        "engineering": "Membangun dan memelihara manajemen tugas perawatan, dasbor pemantauan pasien, dan pipeline integrasi wearable yang menjaga data aktivitas tetap terkini. Mengontainerisasi setiap layanan dengan Docker sehingga image yang sama berjalan identik di staging dan produksi, yang lebih penting dari biasanya di bawah kontrol perubahan MDR."
       },
       "garment-io": {
         "summary": "Platform manufaktur pintar yang membantu pabrik garmen mendigitalkan operasional, melacak produksi, dan memantau performa berdasarkan data real-time dari lantai produksi.",
-        "role": "Engineer backend dan full-stack, mengembangkan dashboard operasional dan integrasi perangkat IoT."
+        "role": "Engineer backend dan full-stack, mengembangkan dashboard operasional dan integrasi perangkat IoT.",
+        "overview": "Garment IO menggantikan pelacakan lantai produksi berbasis kertas dengan gambaran produksi secara real-time: apa yang sedang dibuat, di lini mana, dengan kecepatan berapa, dan di mana bottleneck sebenarnya berada — diambil langsung dari perangkat lantai produksi, bukan entri manual di akhir shift.",
+        "architecture": "API Node.js dan sekumpulan layanan PHP/Laravel membagi tanggung jawab per domain, dengan Python dan Flask menangani pemrosesan data yang diuntungkan oleh ekosistem Python. MongoDB menyimpan aliran event perangkat berfrekuensi tinggi; MySQL menyimpan data operasional dan pelaporan yang terstruktur. Redis meng-cache query dasbor yang banyak dibaca, dan Nginx melayani di depan seluruh stack.",
+        "engineering": "Membangun dasbor operasional yang digunakan manajer pabrik untuk melacak produksi secara real-time, dan integrasi perangkat IoT yang memasoknya — mengubah sinyal mentah lantai produksi menjadi metrik yang benar-benar menjadi dasar tindakan pabrik."
       },
       "tarsyaa": {
         "summary": "Platform procurement dan tender B2B yang menghubungkan perusahaan dengan pemasok tersertifikasi di Arab Saudi melalui proses lelang yang transparan dan kompetitif.",
-        "role": "Mengembangkan layanan backend dengan standar TypeScript yang ketat, pengujian unit, dan kontrol akses berbasis peran untuk onboarding pemasok dan proses lelang."
+        "role": "Mengembangkan layanan backend dengan standar TypeScript yang ketat, pengujian unit, dan kontrol akses berbasis peran untuk onboarding pemasok dan proses lelang.",
+        "overview": "Tarsyaa menjalankan proses pengadaan itu sendiri sebagai sebuah produk: perusahaan menerbitkan tender, pemasok bersertifikat mengajukan penawaran, dan seluruh siklus — pendaftaran, kelayakan, penawaran, pemenang — transparan dan dapat diaudit, bukan berlangsung lewat email dan spreadsheet.",
+        "architecture": "Backend NestJS dengan TypeORM di atas PostgreSQL, Redis untuk caching dan status mirip sesi, serta frontend React yang dibangun dengan Vite. Seluruh stack dikontainerisasi dengan Docker untuk lingkungan yang konsisten dari pengembangan lokal hingga produksi.",
+        "engineering": "Mengirimkan alur kerja onboarding pemasok dan penawaran di bawah TypeScript yang ketat serta kontrol akses berbasis peran, dengan unit test yang mencakup logika kelayakan dan pemenang — bagian dari platform tender di mana bug yang diam-diam adalah masalah bisnis nyata, bukan sekadar cacat antarmuka."
       },
       "ovarc": {
         "summary": "Platform ekspansi bisnis global yang menyederhanakan pendirian badan usaha, penggajian, tunjangan, kepatuhan, dan operasional HR internasional.",
-        "role": "Berkontribusi pada fitur full-stack dalam alur kerja pendirian badan usaha dan operasional HR."
+        "role": "Berkontribusi pada fitur full-stack dalam alur kerja pendirian badan usaha dan operasional HR.",
+        "overview": "Ovarc memungkinkan perusahaan berekspansi ke negara baru tanpa merekrut tim HR dan legal lokal untuk setiap pasar: pendirian badan usaha, penggajian, tunjangan, dan kepatuhan semuanya berjalan melalui satu platform, bukan vendor dan proses berbeda per negara.",
+        "architecture": "Backend Node.js dengan frontend React, menggunakan Sequelize dan Prisma di layanan yang berbeda tergantung kapan masing-masing dibangun — pembagian yang pragmatis, bukan desain dua-ORM yang direncanakan, mencerminkan platform yang tumbuh layanan demi layanan. MySQL tetap menjadi system of record di mana-mana, dan seluruh stack berjalan di Docker.",
+        "engineering": "Mengirimkan fitur full-stack di seluruh alur kerja pendirian badan usaha dan operasi HR, bekerja dalam batas layanan dan model data yang sudah ada, bukan membangun dari nol."
       },
       "callrater": {
         "summary": "Platform analitik dan penilaian panggilan untuk pelacakan performa perusahaan dan pelaporan.",
-        "role": "Mengembangkan pemrosesan data backend dan dashboard pelaporan."
+        "role": "Mengembangkan pemrosesan data backend dan dashboard pelaporan.",
+        "overview": "CallRater mengubah aktivitas call center mentah menjadi metrik yang benar-benar dikelola oleh dealer atau tim enterprise: volume panggilan, kinerja agen, dan penilaian kualitas, dirangkum menjadi laporan alih-alih dibiarkan sebagai log panggilan mentah.",
+        "architecture": "Backend PHP di atas Apache dengan MySQL untuk penyimpanan, dan frontend Angular untuk dasbor pelaporan.",
+        "engineering": "Membangun pipeline pemrosesan data backend yang mengubah catatan panggilan menjadi metrik kinerja, dan dasbor pelaporan yang menyajikannya kepada tim enterprise."
       },
       "vms": {
         "summary": "Platform manajemen relawan untuk program GIZ, mendukung pendaftaran, alur penugasan, dan pelaporan administratif.",
-        "role": "Mengembangkan alur kerja bisnis platform dan pelaporan di Laravel."
+        "role": "Mengembangkan alur kerja bisnis platform dan pelaporan di Laravel.",
+        "overview": "Dibangun untuk program yang dijalankan oleh GIZ, platform ini mengelola seluruh siklus hidup kerelawanan: pendaftaran, pencocokan relawan dengan penugasan, dan pelaporan administratif yang dibutuhkan program yang didanai donor untuk menunjukkan jangkauannya sendiri.",
+        "architecture": "Aplikasi Laravel yang menggunakan Eloquent di atas MySQL, dilayani dari Apache, dengan JavaScript untuk bagian interaktif dari layar admin dan relawan.",
+        "engineering": "Mengimplementasikan alur kerja pendaftaran dan penugasan secara end-to-end, ditambah tampilan pelaporan administratif yang digunakan staf program untuk melacak partisipasi dan hasil."
       },
       "health-integrations": {
         "summary": "Integrasi yang menghubungkan platform kesehatan dengan sumber data kesehatan dan wearable eksternal.",
-        "role": "Mengimplementasikan integrasi FHIR, Withings, Apple Health, dan Android Health Connect untuk sinkronisasi data aktivitas dan perawatan."
+        "role": "Mengimplementasikan integrasi FHIR, Withings, Apple Health, dan Android Health Connect untuk sinkronisasi data aktivitas dan perawatan.",
+        "overview": "Platform kesehatan hanya seberguna data yang sampai padanya. Pekerjaan ini membangun lapisan integrasi yang menarik data aktivitas dan perawatan dari API kesehatan wearable dan platform yang benar-benar digunakan pasien, alih-alih bergantung pada entri manual.",
+        "architecture": "Lapisan integrasi Node.js menormalkan setiap sumber menjadi catatan berbentuk FHIR sebelum mencapai bagian platform lainnya, dengan hook native Swift dan Kotlin di sisi mobile untuk API kesehatan khusus platform yang tidak memiliki padanan di sisi server.",
+        "engineering": "Mengimplementasikan pertukaran data berbasis FHIR bersama integrasi langsung dengan Withings, Apple Health, dan Android Health Connect, sehingga data aktivitas dan perawatan tetap sinkron apa pun perangkat atau platform yang digunakan pasien."
       },
       "payment-integrations": {
         "summary": "Integrasi pembayaran dan platform untuk aplikasi produksi.",
-        "role": "Mengimplementasikan pemrosesan pembayaran Stripe dan PayPal, serta integrasi API Spotify."
+        "role": "Mengimplementasikan pemrosesan pembayaran Stripe dan PayPal, serta integrasi API Spotify.",
+        "overview": "Pekerjaan integrasi pembayaran dan platform pihak ketiga lintas proyek: menghubungkan aplikasi produksi ke pemroses pembayaran dan API eksternal yang mereka andalkan, menangani dengan benar kasus kegagalan dan kasus tepi yang tidak boleh salah dalam integrasi pembayaran.",
+        "architecture": "Layanan NestJS dan Node.js di sisi TypeScript, layanan PHP di tempat basis kode yang sudah ada memerlukannya, mengintegrasikan Stripe dan PayPal untuk pemrosesan pembayaran serta Spotify API untuk fitur berbasis data musik.",
+        "engineering": "Mengimplementasikan pemrosesan pembayaran Stripe dan PayPal secara end-to-end — termasuk jalur webhook dan rekonsiliasi yang sama pentingnya dengan alur checkout itu sendiri — serta integrasi Spotify API untuk mengambil dan memproses metadata musik."
       }
     }
   },

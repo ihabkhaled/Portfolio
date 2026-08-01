@@ -233,35 +233,59 @@
       },
       "myoncare": {
         "summary": "Un dispositivo medico di Classe IIa secondo il regolamento europeo MDR che consente ai pazienti di condividere piani di cura, farmaci e dati di attività con il proprio team sanitario.",
-        "role": "Ingegnere backend e full-stack dal 2022, su gestione dei task di cura, monitoraggio dei pazienti e integrazioni con dispositivi wearable."
+        "role": "Ingegnere backend e full-stack dal 2022, su gestione dei task di cura, monitoraggio dei pazienti e integrazioni con dispositivi wearable.",
+        "overview": "myoncare collega pazienti e team di cura attorno a un piano di trattamento condiviso: orari dei farmaci, attività di cura e dati di attività scorrono in una direzione, le indicazioni cliniche tornano nell'altra, ed entrambe le parti vedono la stessa immagine aggiornata. Trattandosi di un dispositivo medico di Classe IIa secondo l'MDR europeo, ogni modifica del flusso di lavoro deve reggere ai requisiti di tracciabilità, non solo funzionare correttamente.",
+        "architecture": "Un backend NestJS serve una web app React e un'app mobile React Native e Capacitor da un'unica base di codice TypeScript condivisa. MySQL conserva i record clinici e di cura strutturati; MongoDB conserva i dati di attività e dei dispositivi indossabili a maggior volume e meno strutturati. RabbitMQ instrada il lavoro in background — sincronizzazione dei dispositivi indossabili, distribuzione delle notifiche — fuori dal percorso della richiesta, con Redis davanti agli endpoint a lettura intensiva. FHIR offre alla piattaforma un formato standard per scambiare dati con sistemi sanitari esterni invece di un'integrazione su misura per ogni partner.",
+        "engineering": "Costruzione e manutenzione della gestione delle attività di cura, delle dashboard di monitoraggio dei pazienti e delle pipeline di integrazione dei dispositivi indossabili che mantengono aggiornati i dati di attività. Containerizzazione di ogni servizio con Docker in modo che la stessa immagine funzioni identicamente in staging e produzione, un aspetto ancora più importante sotto il controllo delle modifiche richiesto dall'MDR."
       },
       "garment-io": {
         "summary": "Una piattaforma di manifattura intelligente che aiuta le fabbriche tessili a digitalizzare le operazioni, tracciare la produzione e monitorare le prestazioni con dati in tempo reale dal reparto produttivo.",
-        "role": "Ingegnere backend e full-stack, realizzazione di dashboard operative e integrazioni con dispositivi IoT."
+        "role": "Ingegnere backend e full-stack, realizzazione di dashboard operative e integrazioni con dispositivi IoT.",
+        "overview": "Garment IO sostituisce il tracciamento cartaceo in fabbrica con un quadro in tempo reale della produzione: cosa viene prodotto, su quale linea, a quale ritmo, e dove si trovano davvero i colli di bottiglia — ricavati direttamente dai dispositivi di fabbrica invece che dall'inserimento manuale a fine turno.",
+        "architecture": "Un'API Node.js e un insieme di servizi PHP/Laravel dividono le responsabilità per dominio, con Python e Flask per l'elaborazione dati che beneficiava dell'ecosistema Python. MongoDB memorizza il flusso di eventi dei dispositivi ad alta frequenza; MySQL conserva i dati operativi e di reportistica strutturati. Redis mette in cache le query delle dashboard a lettura intensiva, e Nginx serve l'intero stack.",
+        "engineering": "Costruzione delle dashboard operative usate dai responsabili di fabbrica per monitorare la produzione in tempo reale, e delle integrazioni IoT che le alimentano — trasformando i segnali grezzi di fabbrica nelle metriche su cui un reparto produttivo agisce davvero."
       },
       "tarsyaa": {
         "summary": "Una piattaforma di procurement e gare d'appalto B2B che collega aziende a fornitori certificati in Arabia Saudita tramite gare trasparenti e competitive.",
-        "role": "Sviluppo di servizi backend con standard TypeScript rigorosi, test unitari e controllo degli accessi basato sui ruoli per l'onboarding dei fornitori e le gare."
+        "role": "Sviluppo di servizi backend con standard TypeScript rigorosi, test unitari e controllo degli accessi basato sui ruoli per l'onboarding dei fornitori e le gare.",
+        "overview": "Tarsyaa gestisce il processo di approvvigionamento stesso come un prodotto: le aziende pubblicano bandi, i fornitori certificati presentano offerte, e l'intero ciclo — iscrizione, idoneità, offerta, aggiudicazione — è trasparente e verificabile invece di avvenire via email e fogli di calcolo.",
+        "architecture": "Un backend NestJS con TypeORM su PostgreSQL, Redis per la cache e lo stato prossimo alla sessione, e un frontend React costruito con Vite. L'intero stack è containerizzato con Docker per ambienti coerenti dallo sviluppo locale fino alla produzione.",
+        "engineering": "Realizzazione dei flussi di iscrizione dei fornitori e di offerta dietro TypeScript rigoroso e controllo degli accessi basato sui ruoli, con test unitari che coprono la logica di idoneità e aggiudicazione — le parti di una piattaforma di gare in cui un bug silenzioso è un vero problema di business, non solo un difetto dell'interfaccia."
       },
       "ovarc": {
         "summary": "Una piattaforma di espansione aziendale globale che semplifica costituzione societaria, buste paga, benefit, conformità e operazioni HR internazionali.",
-        "role": "Contributo a funzionalità full-stack sui flussi di costituzione societaria e operazioni HR."
+        "role": "Contributo a funzionalità full-stack sui flussi di costituzione societaria e operazioni HR.",
+        "overview": "Ovarc permette a un'azienda di espandersi in un nuovo paese senza assumere un team HR e legale locale per ogni mercato: costituzione societaria, buste paga, benefit e conformità passano tutti attraverso un'unica piattaforma invece di un fornitore e un processo diversi per ogni paese.",
+        "architecture": "Un backend Node.js con un frontend React, che utilizza Sequelize e Prisma in servizi diversi a seconda di quando ciascuno è stato costruito — una suddivisione pragmatica piuttosto che un design a doppio ORM pianificato, che riflette una piattaforma cresciuta servizio per servizio. MySQL rimane il sistema di riferimento ovunque, e l'intero stack gira in Docker.",
+        "engineering": "Realizzazione di funzionalità full-stack nei flussi di costituzione societaria e operazioni HR, lavorando entro i confini di un servizio e un modello dati esistenti anziché costruire da zero."
       },
       "callrater": {
         "summary": "Una piattaforma di analisi e valutazione delle chiamate per il monitoraggio delle prestazioni aziendali e il reporting.",
-        "role": "Sviluppo dell'elaborazione dati backend e delle dashboard di reporting."
+        "role": "Sviluppo dell'elaborazione dati backend e delle dashboard di reporting.",
+        "overview": "CallRater trasforma l'attività grezza di un call center nelle metriche che un concessionario o un team aziendale gestisce davvero: volume delle chiamate, prestazioni degli agenti e valutazioni di qualità, aggregate in report invece di rimanere log di chiamata grezzi.",
+        "architecture": "Un backend PHP su Apache con MySQL per l'archiviazione, e un frontend Angular per le dashboard di reportistica.",
+        "engineering": "Costruzione della pipeline di elaborazione dati backend che trasforma i record delle chiamate in metriche di prestazione, e delle dashboard di reportistica che le presentano ai team aziendali."
       },
       "vms": {
         "summary": "Una piattaforma di gestione del volontariato per un programma GIZ, a supporto di registrazione, flussi di assegnazione e reportistica amministrativa.",
-        "role": "Sviluppo dei flussi di business della piattaforma e della reportistica su Laravel."
+        "role": "Sviluppo dei flussi di business della piattaforma e della reportistica su Laravel.",
+        "overview": "Costruita per un programma gestito da GIZ, questa piattaforma gestisce l'intero ciclo di vita del volontariato: iscrizione, abbinamento dei volontari agli incarichi, e la reportistica amministrativa di cui un programma finanziato da un donatore ha bisogno per dimostrare la propria portata.",
+        "architecture": "Un'applicazione Laravel che usa Eloquent su MySQL, servita da Apache, con JavaScript per le parti interattive delle schermate di amministrazione e dei volontari.",
+        "engineering": "Implementazione end-to-end dei flussi di iscrizione e assegnazione, oltre alle viste di reportistica amministrativa usate dallo staff del programma per monitorare partecipazione e risultati."
       },
       "health-integrations": {
         "summary": "Integrazioni che collegano una piattaforma sanitaria a fonti esterne di dati sanitari e wearable.",
-        "role": "Implementazione delle integrazioni FHIR, Withings, Apple Health e Android Health Connect per la sincronizzazione dei dati di attività e cura."
+        "role": "Implementazione delle integrazioni FHIR, Withings, Apple Health e Android Health Connect per la sincronizzazione dei dati di attività e cura.",
+        "overview": "Una piattaforma sanitaria è utile solo quanto i dati che la raggiungono. Questo lavoro ha costruito il livello di integrazione che raccoglie dati di attività e trattamento dalle API sanitarie dei dispositivi indossabili e delle piattaforme che i pazienti usano davvero, invece di affidarsi all'inserimento manuale.",
+        "architecture": "Un livello di integrazione Node.js normalizza ogni fonte in un record in formato FHIR prima che raggiunga il resto della piattaforma, con hook nativi Swift e Kotlin lato mobile per le API sanitarie specifiche di piattaforma che non hanno un equivalente lato server.",
+        "engineering": "Implementazione dello scambio dati basato su FHIR insieme a integrazioni dirette con Withings, Apple Health e Android Health Connect, in modo che i dati di attività e trattamento restino sincronizzati indipendentemente dal dispositivo o dalla piattaforma usati da un paziente."
       },
       "payment-integrations": {
         "summary": "Integrazioni di pagamento e piattaforma per applicazioni in produzione.",
-        "role": "Implementazione dei pagamenti Stripe e PayPal e di un'integrazione con l'API Spotify."
+        "role": "Implementazione dei pagamenti Stripe e PayPal e di un'integrazione con l'API Spotify.",
+        "overview": "Lavoro trasversale di integrazione di pagamenti e piattaforme di terze parti: collegamento di applicazioni di produzione ai processori di pagamento e alle API esterne da cui dipendono, gestendo correttamente i casi di errore e limite che un'integrazione di pagamento non può permettersi di sbagliare.",
+        "architecture": "Servizi NestJS e Node.js sul lato TypeScript, servizi PHP dove una base di codice esistente lo richiedeva, integrando Stripe e PayPal per l'elaborazione dei pagamenti e l'API di Spotify per una funzionalità basata su dati musicali.",
+        "engineering": "Implementazione end-to-end dell'elaborazione dei pagamenti Stripe e PayPal — inclusi i percorsi di webhook e riconciliazione, importanti quanto il flusso di checkout stesso — e di un'integrazione con l'API Spotify per recuperare ed elaborare metadati musicali."
       }
     }
   },

@@ -34,16 +34,16 @@ test.describe('projects page', () => {
     await expect(page).toHaveURL('/en/projects');
   });
 
-  test('a professional project without a public case study is listed but not linked', async ({
+  test('a professional project case study renders without a public repository link', async ({
     page,
   }) => {
     await page.goto('/en/projects');
 
-    await expect(page.getByRole('heading', { level: 3, name: 'myoncare' })).toBeVisible();
-    await expect(page.getByRole('link', { name: /myoncare/iu })).toHaveCount(0);
+    await page.getByRole('link', { name: /myoncare/iu }).click();
 
-    const response = await page.goto('/en/projects/myoncare');
-    expect(response?.status()).toBe(404);
+    await expect(page).toHaveURL('/en/projects/myoncare');
+    await expect(page.getByRole('heading', { level: 1, name: 'myoncare' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Repository' })).toHaveCount(0);
   });
 
   test('an open-source project without a live URL only offers a repository link', async ({

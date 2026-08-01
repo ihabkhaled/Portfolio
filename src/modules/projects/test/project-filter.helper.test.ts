@@ -135,6 +135,14 @@ describe('listCaseStudySlugs', () => {
       'foodorder',
       'twinzyai',
       'nextranger',
+      'myoncare',
+      'garment-io',
+      'tarsyaa',
+      'ovarc',
+      'callrater',
+      'vms',
+      'health-integrations',
+      'payment-integrations',
     ]);
   });
 });

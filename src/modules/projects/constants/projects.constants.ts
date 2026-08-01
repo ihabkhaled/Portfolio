@@ -144,7 +144,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 6,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -168,7 +168,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 7,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -191,7 +191,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 8,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -204,7 +204,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 9,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -217,7 +217,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 10,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -230,7 +230,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 11,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -251,7 +251,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 12,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
   {
@@ -264,7 +264,7 @@ export const PROJECTS: readonly Project[] = [
     repositoryName: null,
     priority: 13,
     featured: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     fallbackUpdatedAt: null,
   },
 ] as const;

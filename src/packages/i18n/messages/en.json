@@ -233,35 +233,59 @@
       },
       "myoncare": {
         "summary": "A Class IIa medical device under EU MDR that lets patients share treatment plans, medication and activity data with their healthcare teams.",
-        "role": "Backend and full-stack engineer since 2022, working across care task management, patient monitoring and wearable integrations."
+        "role": "Backend and full-stack engineer since 2022, working across care task management, patient monitoring and wearable integrations.",
+        "overview": "myoncare connects patients and care teams around a shared treatment plan: medication schedules, care tasks and activity data flow in one direction, clinical guidance flows back, and both sides see the same up-to-date picture. As a regulated Class IIa medical device, every workflow change has to hold up to EU MDR traceability requirements, not just work correctly.",
+        "architecture": "A NestJS backend fronts a React web app and a React Native and Capacitor mobile app from one shared TypeScript codebase. MySQL holds structured clinical and care-task records; MongoDB holds higher-volume, less structured activity and wearable data. RabbitMQ carries background work — wearable sync jobs, notification fan-out — off the request path, with Redis in front of the read-heavy endpoints. FHIR gives the platform a standard shape for exchanging data with external health systems instead of a bespoke integration per partner.",
+        "engineering": "Built and maintained care task management, patient monitoring dashboards and the wearable integration pipelines that keep activity data current. Containerised every service with Docker so the same image runs identically in staging and production, which matters more than usual under EU MDR change control."
       },
       "garment-io": {
         "summary": "A smart-manufacturing platform helping garment factories digitise operations, track production and monitor performance from real-time shop-floor data.",
-        "role": "Backend and full-stack engineer, building operational dashboards and IoT device integrations."
+        "role": "Backend and full-stack engineer, building operational dashboards and IoT device integrations.",
+        "overview": "Garment IO replaces paper-based shop-floor tracking with a live picture of production: what's being made, on which line, at what rate, and where the bottlenecks actually are — sourced directly from shop-floor devices rather than end-of-shift manual entry.",
+        "architecture": "A Node.js API and a set of PHP/Laravel services split responsibilities by domain, with Python and Flask handling data-processing work that benefited from Python's ecosystem. MongoDB stores the high-frequency device event stream; MySQL holds the structured operational and reporting data. Redis caches the dashboards' read-heavy queries, and Nginx fronts the whole stack.",
+        "engineering": "Built the operational dashboards factory managers use to track production in real time, and the IoT device integrations that feed them — turning raw shop-floor signals into the metrics a factory floor actually acts on."
       },
       "tarsyaa": {
         "summary": "A B2B procurement and tender management platform connecting companies with certified suppliers across KSA through transparent, competitive bidding.",
-        "role": "Built backend services with strict TypeScript, unit testing and role-based access control for supplier onboarding and bidding workflows."
+        "role": "Built backend services with strict TypeScript, unit testing and role-based access control for supplier onboarding and bidding workflows.",
+        "overview": "Tarsyaa runs the procurement process itself as a product: companies publish tenders, certified suppliers bid, and the whole cycle — onboarding, eligibility, bidding, award — is transparent and auditable instead of happening over email and spreadsheets.",
+        "architecture": "A NestJS backend with TypeORM against PostgreSQL, Redis for caching and session-adjacent state, and a Vite-built React frontend. The whole stack is containerised with Docker for consistent environments from local development through to production.",
+        "engineering": "Delivered supplier onboarding and bidding workflows behind strict TypeScript and role-based access control, with unit tests covering the eligibility and award logic — the parts of a bidding platform where a quiet bug is a real business problem, not just a UI glitch."
       },
       "ovarc": {
         "summary": "A global business-expansion platform streamlining incorporation, payroll, benefits, compliance and international HR operations.",
-        "role": "Contributed full-stack features across the incorporation and HR-operations workflows."
+        "role": "Contributed full-stack features across the incorporation and HR-operations workflows.",
+        "overview": "Ovarc lets a company expand into a new country without hiring a local HR and legal team for every market: incorporation, payroll, benefits and compliance all run through one platform instead of a different vendor and process per country.",
+        "architecture": "A Node.js backend with a React frontend, using Sequelize and Prisma across different services depending on when each was built — a pragmatic split rather than a planned dual-ORM design, reflecting a platform that grew service by service. MySQL is the system of record throughout, and the whole stack runs in Docker.",
+        "engineering": "Shipped full-stack features across the incorporation and HR-operations workflows, working inside an existing service boundary and data model rather than a greenfield build."
       },
       "callrater": {
         "summary": "A call analytics and rating platform for enterprise performance tracking and reporting.",
-        "role": "Developed backend data processing and reporting dashboards."
+        "role": "Developed backend data processing and reporting dashboards.",
+        "overview": "CallRater turns raw call-centre activity into the metrics a dealership or enterprise team actually manages against: call volume, agent performance and quality ratings, rolled up into reporting rather than left as raw call logs.",
+        "architecture": "A PHP backend on Apache with MySQL for storage, and an Angular frontend for the reporting dashboards.",
+        "engineering": "Built the backend data-processing pipeline that turns call records into performance metrics, and the reporting dashboards that present them to enterprise teams."
       },
       "vms": {
         "summary": "A volunteering management platform for a GIZ programme, supporting registration, assignment workflows and administrative reporting.",
-        "role": "Built the platform's business workflows and reporting on Laravel."
+        "role": "Built the platform's business workflows and reporting on Laravel.",
+        "overview": "Built for a GIZ-run programme, this platform manages the full volunteering lifecycle: registration, matching volunteers to assignments, and the administrative reporting a donor-funded programme needs to demonstrate its own reach.",
+        "architecture": "A Laravel application using Eloquent against MySQL, served from Apache, with JavaScript handling the interactive parts of the admin and volunteer-facing screens.",
+        "engineering": "Implemented the registration and assignment workflows end to end, plus the administrative reporting views programme staff use to track participation and outcomes."
       },
       "health-integrations": {
         "summary": "Integrations connecting a healthcare platform to external health and wearable data sources.",
-        "role": "Implemented FHIR, Withings, Apple Health and Android Health Connect integrations for activity and treatment data synchronisation."
+        "role": "Implemented FHIR, Withings, Apple Health and Android Health Connect integrations for activity and treatment data synchronisation.",
+        "overview": "A healthcare platform is only as useful as the data reaching it. This work built the integration layer that pulls activity and treatment data in from the wearable and platform health APIs patients actually use, instead of relying on manual entry.",
+        "architecture": "A Node.js integration layer normalises each source into a FHIR-shaped record before it reaches the rest of the platform, with native Swift and Kotlin hooks on the mobile side for the platform-specific health APIs that have no server-side equivalent.",
+        "engineering": "Implemented FHIR-based data exchange alongside direct integrations with Withings, Apple Health and Android Health Connect, so activity and treatment data stays in sync regardless of which device or platform a patient uses."
       },
       "payment-integrations": {
         "summary": "Payment and platform integrations for production applications.",
-        "role": "Implemented Stripe and PayPal payment processing and a Spotify API integration."
+        "role": "Implemented Stripe and PayPal payment processing and a Spotify API integration.",
+        "overview": "Cross-project payment and third-party platform integration work: wiring production applications to the payment processors and external APIs they depend on, correctly handling the failure and edge cases a payment integration can't afford to get wrong.",
+        "architecture": "NestJS and Node.js services on the TypeScript side, PHP services where an existing codebase called for it, integrating Stripe and PayPal for payment processing and the Spotify API for a music-data feature.",
+        "engineering": "Implemented Stripe and PayPal payment processing end to end — including the webhook and reconciliation paths that matter as much as the checkout flow itself — and a Spotify API integration for retrieving and processing music metadata."
       }
     }
   },

@@ -71,10 +71,6 @@ describe('CaseStudyPageContainer', () => {
     expect(screen.queryByText(enMessages.github.licenseLabel)).toBeNull();
   });
 
-  it('renders a 404 for a project that has no case study', async () => {
-    await expect(CaseStudyPageContainer({ locale: 'en', slug: 'myoncare' })).rejects.toThrow();
-  });
-
   it('renders a 404 for an unknown slug', async () => {
     await expect(
       CaseStudyPageContainer({ locale: 'en', slug: 'not-a-real-project' }),

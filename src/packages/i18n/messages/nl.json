@@ -233,35 +233,59 @@
       },
       "myoncare": {
         "summary": "Medisch hulpmiddel klasse IIa onder de EU MDR-regelgeving waarmee patiënten zorgplannen, medicatiegegevens en activiteitsdata delen met hun zorgteam.",
-        "role": "Backend- en full-stack engineer sinds 2022, werkend aan zorgtaakbeheer, patiëntmonitoring en integratie van wearables."
+        "role": "Backend- en full-stack engineer sinds 2022, werkend aan zorgtaakbeheer, patiëntmonitoring en integratie van wearables.",
+        "overview": "myoncare verbindt patiënten en zorgteams rond een gedeeld behandelplan: medicatieschema's, zorgtaken en activiteitsgegevens stromen in één richting, klinische begeleiding stroomt terug, en beide kanten zien hetzelfde actuele beeld. Als medisch hulpmiddel klasse IIa onder de Europese MDR moet elke wijziging in de workflow voldoen aan traceerbaarheidseisen, niet alleen correct functioneren.",
+        "architecture": "Een NestJS-backend bedient een React-webapp en een React Native- en Capacitor-mobiele app vanuit één gedeelde TypeScript-codebase. MySQL bevat gestructureerde klinische en zorgtaakgegevens; MongoDB bevat activiteits- en wearablegegevens met een hoger volume en minder structuur. RabbitMQ verplaatst achtergrondwerk — wearable-synchronisatie, notificatiedistributie — buiten het requestpad, met Redis vóór de leesintensieve endpoints. FHIR geeft het platform een standaardformaat om gegevens uit te wisselen met externe zorgsystemen in plaats van een op maat gemaakte integratie per partner.",
+        "engineering": "Zorgtaakbeheer, patiëntmonitoringdashboards en de wearable-integratiepijplijnen die activiteitsgegevens actueel houden, gebouwd en onderhouden. Elke service gecontaineriseerd met Docker zodat dezelfde image identiek draait in staging en productie, wat extra belangrijk is onder MDR-wijzigingsbeheer."
       },
       "garment-io": {
         "summary": "Smart-manufacturingplatform dat kledingfabrieken helpt hun bedrijfsvoering te digitaliseren, productie te volgen en prestaties te monitoren op basis van realtime data van de productievloer.",
-        "role": "Backend- en full-stack engineer, ontwikkelde operationele dashboards en IoT-apparaatintegraties."
+        "role": "Backend- en full-stack engineer, ontwikkelde operationele dashboards en IoT-apparaatintegraties.",
+        "overview": "Garment IO vervangt papieren registratie op de werkvloer door een live beeld van de productie: wat er wordt gemaakt, op welke lijn, in welk tempo, en waar de knelpunten daadwerkelijk zitten — rechtstreeks afkomstig van apparatuur op de werkvloer in plaats van handmatige invoer aan het einde van een shift.",
+        "architecture": "Een Node.js-API en een reeks PHP/Laravel-services verdelen verantwoordelijkheden per domein, met Python en Flask voor gegevensverwerking die baat had bij het Python-ecosysteem. MongoDB slaat de hoogfrequente stroom van apparaatgebeurtenissen op; MySQL bevat de gestructureerde operationele en rapportagegegevens. Redis cachet de leesintensieve dashboardqueries, en Nginx bedient de gehele stack.",
+        "engineering": "De operationele dashboards gebouwd die fabrieksmanagers gebruiken om productie in real time te volgen, en de IoT-apparaatintegraties die ze voeden — ruwe signalen van de werkvloer omgezet in statistieken waarop de fabriek daadwerkelijk handelt."
       },
       "tarsyaa": {
         "summary": "B2B-inkoop- en aanbestedingsplatform dat bedrijven verbindt met gecertificeerde leveranciers in Saudi-Arabië via een transparant, competitief biedingsproces.",
-        "role": "Ontwikkelde backendservices met strikte TypeScript-normen, unit-tests en rolgebaseerde toegangscontrole voor leveranciersonboarding en biedingsflows."
+        "role": "Ontwikkelde backendservices met strikte TypeScript-normen, unit-tests en rolgebaseerde toegangscontrole voor leveranciersonboarding en biedingsflows.",
+        "overview": "Tarsyaa runt het inkoopproces zelf als een product: bedrijven publiceren aanbestedingen, gecertificeerde leveranciers bieden, en de hele cyclus — registratie, geschiktheid, bieden, gunning — is transparant en controleerbaar in plaats van via e-mail en spreadsheets te verlopen.",
+        "architecture": "Een NestJS-backend met TypeORM bovenop PostgreSQL, Redis voor caching en sessiegerelateerde status, en een met Vite gebouwde React-frontend. De hele stack is gecontaineriseerd met Docker voor consistente omgevingen van lokale ontwikkeling tot productie.",
+        "engineering": "Leverancierstoetreding en biedworkflows opgeleverd onder strikte TypeScript en rolgebaseerde toegangscontrole, met unittests die de geschiktheids- en gunningslogica dekken — de onderdelen van een aanbestedingsplatform waar een stille bug een echt bedrijfsprobleem is, geen interfacefoutje."
       },
       "ovarc": {
         "summary": "Platform voor wereldwijde bedrijfsexpansie dat entiteitsoprichting, salarisadministratie, secundaire arbeidsvoorwaarden, compliance en internationaal hr-beheer vereenvoudigt.",
-        "role": "Droeg bij aan full-stack functionaliteit binnen entiteitsoprichtings- en hr-beheerworkflows."
+        "role": "Droeg bij aan full-stack functionaliteit binnen entiteitsoprichtings- en hr-beheerworkflows.",
+        "overview": "Ovarc laat een bedrijf uitbreiden naar een nieuw land zonder voor elke markt een lokaal HR- en juridisch team aan te nemen: oprichting, salarisadministratie, secundaire arbeidsvoorwaarden en compliance lopen allemaal via één platform in plaats van per land een andere leverancier en proces.",
+        "architecture": "Een Node.js-backend met een React-frontend, waarbij Sequelize en Prisma in verschillende services worden gebruikt afhankelijk van wanneer elk is gebouwd — een pragmatische verdeling in plaats van een geplande dubbele-ORM-opzet, als weerspiegeling van een platform dat service voor service is gegroeid. MySQL blijft overal het systeem van vastlegging, en de hele stack draait in Docker.",
+        "engineering": "Full-stack functionaliteit opgeleverd binnen de workflows voor bedrijfsoprichting en HR-operaties, werkend binnen een bestaande servicegrens en gegevensmodel in plaats van vanaf nul te bouwen."
       },
       "callrater": {
         "summary": "Analyse- en beoordelingsplatform voor telefoongesprekken ten behoeve van prestatiemonitoring en rapportage voor bedrijven.",
-        "role": "Ontwikkelde backend-dataverwerking en rapportagedashboards."
+        "role": "Ontwikkelde backend-dataverwerking en rapportagedashboards.",
+        "overview": "CallRater zet ruwe callcenteractiviteit om in de statistieken waarop een dealer of enterprise-team daadwerkelijk stuurt: gespreksvolume, agentprestaties en kwaliteitsbeoordelingen, samengevoegd tot rapportages in plaats van achtergelaten als ruwe gesprekslogs.",
+        "architecture": "Een PHP-backend op Apache met MySQL voor opslag, en een Angular-frontend voor de rapportagedashboards.",
+        "engineering": "De backend-dataverwerkingspijplijn gebouwd die gespreksgegevens omzet in prestatiestatistieken, en de rapportagedashboards die deze aan enterprise-teams presenteren."
       },
       "vms": {
         "summary": "Vrijwilligersbeheerplatform voor GIZ-programma's, ter ondersteuning van registratie, toewijzingsworkflows en administratieve rapportage.",
-        "role": "Ontwikkelde bedrijfsworkflows en rapportage van het platform in Laravel."
+        "role": "Ontwikkelde bedrijfsworkflows en rapportage van het platform in Laravel.",
+        "overview": "Gebouwd voor een door GIZ uitgevoerd programma, beheert dit platform de volledige levenscyclus van vrijwilligerswerk: registratie, het koppelen van vrijwilligers aan opdrachten, en de administratieve rapportage die een door donoren gefinancierd programma nodig heeft om zijn eigen bereik aan te tonen.",
+        "architecture": "Een Laravel-applicatie die Eloquent gebruikt bovenop MySQL, geserveerd vanuit Apache, met JavaScript voor de interactieve onderdelen van de admin- en vrijwilligersschermen.",
+        "engineering": "De registratie- en toewijzingsworkflows end-to-end geïmplementeerd, plus de administratieve rapportageschermen die programmamedewerkers gebruiken om deelname en resultaten te volgen."
       },
       "health-integrations": {
         "summary": "Integraties die gezondheidsplatformen verbinden met externe gezondheidsdatabronnen en wearables.",
-        "role": "Implementeerde integraties met FHIR, Withings, Apple Health en Android Health Connect voor synchronisatie van activiteits- en zorgdata."
+        "role": "Implementeerde integraties met FHIR, Withings, Apple Health en Android Health Connect voor synchronisatie van activiteits- en zorgdata.",
+        "overview": "Een zorgplatform is maar zo nuttig als de gegevens die het bereiken. Dit werk bouwde de integratielaag die activiteits- en behandelgegevens ophaalt uit de wearable- en platform-gezondheids-API's die patiënten daadwerkelijk gebruiken, in plaats van te vertrouwen op handmatige invoer.",
+        "architecture": "Een Node.js-integratielaag normaliseert elke bron naar een FHIR-vormig record voordat het de rest van het platform bereikt, met native Swift- en Kotlin-hooks aan de mobiele kant voor platformspecifieke gezondheids-API's zonder server-side equivalent.",
+        "engineering": "FHIR-gebaseerde gegevensuitwisseling geïmplementeerd naast directe integraties met Withings, Apple Health en Android Health Connect, zodat activiteits- en behandelgegevens gesynchroniseerd blijven ongeacht welk apparaat of platform een patiënt gebruikt."
       },
       "payment-integrations": {
         "summary": "Betalings- en platformintegraties voor productieapplicaties.",
-        "role": "Implementeerde betalingsverwerking via Stripe en PayPal, en Spotify API-integratie."
+        "role": "Implementeerde betalingsverwerking via Stripe en PayPal, en Spotify API-integratie.",
+        "overview": "Projectoverstijgend werk aan betalings- en platformintegraties van derden: productieapplicaties koppelen aan de betalingsverwerkers en externe API's waarvan ze afhankelijk zijn, met correcte afhandeling van de faal- en randgevallen die een betalingsintegratie zich niet kan veroorloven fout te doen.",
+        "architecture": "NestJS- en Node.js-services aan de TypeScript-kant, PHP-services waar een bestaande codebase daarom vroeg, met integratie van Stripe en PayPal voor betalingsverwerking en de Spotify API voor een muziekdatafunctie.",
+        "engineering": "Stripe- en PayPal-betalingsverwerking end-to-end geïmplementeerd — inclusief de webhook- en reconciliatiepaden die net zo belangrijk zijn als de checkoutflow zelf — en een Spotify API-integratie voor het ophalen en verwerken van muziekmetadata."
       }
     }
   },

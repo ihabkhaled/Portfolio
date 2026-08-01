@@ -233,35 +233,59 @@
       },
       "myoncare": {
         "summary": "Hastaların tedavi planlarını, ilaç bilgilerini ve aktivite verilerini bakım ekipleriyle paylaşmasına olanak tanıyan, AB MDR yönetmeliğine göre Sınıf IIa tıbbi cihaz.",
-        "role": "2022'den beri bakım görevi yönetimi, hasta izleme ve giyilebilir cihaz entegrasyonları üzerinde çalışan backend ve full-stack mühendisi."
+        "role": "2022'den beri bakım görevi yönetimi, hasta izleme ve giyilebilir cihaz entegrasyonları üzerinde çalışan backend ve full-stack mühendisi.",
+        "overview": "myoncare, hastaları ve bakım ekiplerini ortak bir tedavi planı etrafında birleştirir: ilaç programları, bakım görevleri ve aktivite verileri bir yönde akarken, klinik rehberlik geri döner ve her iki taraf da aynı güncel tabloyu görür. AB MDR kapsamında Sınıf IIa tıbbi cihaz olduğundan, her iş akışı değişikliği sadece doğru çalışmakla kalmayıp izlenebilirlik gereksinimlerini de karşılamalıdır.",
+        "architecture": "Tek bir paylaşılan TypeScript kod tabanından bir NestJS backend, bir React web uygulamasına ve bir React Native/Capacitor mobil uygulamasına hizmet verir. MySQL yapılandırılmış klinik ve bakım görevi kayıtlarını tutar; MongoDB ise daha yüksek hacimli, daha az yapılandırılmış aktivite ve giyilebilir cihaz verilerini tutar. RabbitMQ, giyilebilir cihaz senkronizasyonu ve bildirim dağıtımı gibi arka plan işlerini istek yolundan uzaklaştırır; okuma yoğun uç noktaların önünde Redis vardır. FHIR, her ortak için özel bir entegrasyon yerine dış sağlık sistemleriyle veri alışverişi için platforma standart bir biçim kazandırır.",
+        "engineering": "Bakım görevi yönetimi, hasta izleme panelleri ve aktivite verilerini güncel tutan giyilebilir cihaz entegrasyon hatlarını kurdum ve sürdürdüm. Aynı imajın staging ve üretimde birebir aynı şekilde çalışması için her servisi Docker ile konteynerleştirdim; bu, MDR değişiklik kontrolü altında her zamankinden daha önemlidir."
       },
       "garment-io": {
         "summary": "Konfeksiyon fabrikalarının operasyonlarını dijitalleştirmesine, üretimi izlemesine ve atölye sahasından gelen gerçek zamanlı verilerle performansı izlemesine yardımcı olan akıllı üretim platformu.",
-        "role": "Operasyonel panolar ve IoT cihaz entegrasyonları geliştiren backend ve full-stack mühendisi."
+        "role": "Operasyonel panolar ve IoT cihaz entegrasyonları geliştiren backend ve full-stack mühendisi.",
+        "overview": "Garment IO, kağıt tabanlı atölye takibinin yerine üretimin gerçek zamanlı görüntüsünü koyar: ne üretiliyor, hangi hatta, hangi hızda ve darboğazlar gerçekte nerede — bunlar vardiya sonu manuel girişten değil, doğrudan atölye cihazlarından alınır.",
+        "architecture": "Bir Node.js API ve bir dizi PHP/Laravel servisi sorumlulukları alan bazında paylaşır; Python ekosisteminden fayda sağlayan veri işleme için Python ve Flask kullanılır. MongoDB yüksek frekanslı cihaz olay akışını saklar; MySQL yapılandırılmış operasyonel ve raporlama verilerini tutar. Redis, okuma yoğun pano sorgularını önbelleğe alır ve Nginx tüm yığının önünde yer alır.",
+        "engineering": "Fabrika yöneticilerinin üretimi gerçek zamanlı izlemek için kullandığı operasyonel panoları ve bunları besleyen IoT cihaz entegrasyonlarını kurdum — ham atölye sinyallerini fabrikanın gerçekten harekete geçtiği metriklere dönüştürdüm."
       },
       "tarsyaa": {
         "summary": "Şeffaf, rekabetçi ihaleler yoluyla şirketleri Suudi Arabistan'daki onaylı tedarikçilerle buluşturan bir B2B satın alma ve ihale yönetim platformu.",
-        "role": "Tedarikçi katılımı ve ihaleler için katı TypeScript standartları, birim testleri ve role dayalı erişim kontrolüyle backend servisleri geliştirdim."
+        "role": "Tedarikçi katılımı ve ihaleler için katı TypeScript standartları, birim testleri ve role dayalı erişim kontrolüyle backend servisleri geliştirdim.",
+        "overview": "Tarsyaa, tedarik sürecinin kendisini bir ürün olarak işletir: şirketler ihale açar, sertifikalı tedarikçiler teklif verir ve tüm döngü — kayıt, uygunluk, teklif, ihale — e-posta ve elektronik tablolar yerine şeffaf ve denetlenebilir şekilde yürütülür.",
+        "architecture": "PostgreSQL üzerinde TypeORM kullanan bir NestJS backend, önbellekleme ve oturuma yakın durum için Redis, ve Vite ile oluşturulmuş bir React frontend. Tüm yığın, yerel geliştirmeden üretime kadar tutarlı ortamlar için Docker ile konteynerleştirilmiştir.",
+        "engineering": "Katı TypeScript ve rol tabanlı erişim kontrolü altında tedarikçi katılımı ve teklif iş akışlarını, uygunluk ve ihale mantığını kapsayan birim testleriyle birlikte teslim ettim — bir ihale platformunda sessiz bir hatanın sadece bir arayüz kusuru değil gerçek bir iş sorunu olduğu kısımlar."
       },
       "ovarc": {
         "summary": "Şirket kuruluşu, bordro, yan haklar, uyumluluk ve uluslararası İK operasyonlarını basitleştiren küresel bir iş genişletme platformu.",
-        "role": "Şirket kuruluşu ve İK operasyonları iş akışlarında full-stack özelliklere katkıda bulundum."
+        "role": "Şirket kuruluşu ve İK operasyonları iş akışlarında full-stack özelliklere katkıda bulundum.",
+        "overview": "Ovarc, bir şirketin her pazar için yerel bir İK ve hukuk ekibi işe almadan yeni bir ülkeye açılmasını sağlar: şirket kuruluşu, bordro, yan haklar ve uyumluluk, ülke başına farklı bir tedarikçi ve süreç yerine tek bir platform üzerinden yürütülür.",
+        "architecture": "React frontend'e sahip bir Node.js backend, her servisin ne zaman inşa edildiğine bağlı olarak farklı servislerde Sequelize ve Prisma kullanır — bu, planlanmış bir çift ORM tasarımından çok, servis servis büyüyen bir platformu yansıtan pragmatik bir ayrımdır. MySQL her yerde sistem kaydı olmaya devam eder ve tüm yığın Docker üzerinde çalışır.",
+        "engineering": "Sıfırdan bir inşadan ziyade mevcut bir servis sınırı ve veri modeli içinde çalışarak, şirket kuruluşu ve İK operasyonları iş akışları genelinde uçtan uca özellikler teslim ettim."
       },
       "callrater": {
         "summary": "Kurumsal performans takibi ve raporlama için bir çağrı analitiği ve derecelendirme platformu.",
-        "role": "Backend veri işleme ve raporlama panoları geliştirdim."
+        "role": "Backend veri işleme ve raporlama panoları geliştirdim.",
+        "overview": "CallRater, ham çağrı merkezi etkinliğini bir bayi veya kurumsal ekibin gerçekten yönettiği metriklere dönüştürür: çağrı hacmi, temsilci performansı ve kalite değerlendirmeleri, ham çağrı kayıtları olarak bırakılmak yerine raporlara toplanır.",
+        "architecture": "Apache üzerinde depolama için MySQL kullanan bir PHP backend ve raporlama panoları için bir Angular frontend.",
+        "engineering": "Çağrı kayıtlarını performans metriklerine dönüştüren backend veri işleme hattını ve bunları kurumsal ekiplere sunan raporlama panolarını kurdum."
       },
       "vms": {
         "summary": "Bir GIZ programı için kayıt, görevlendirme iş akışları ve idari raporlamayı destekleyen bir gönüllülük yönetim platformu.",
-        "role": "Platformun iş akışlarını ve raporlamasını Laravel üzerinde geliştirdim."
+        "role": "Platformun iş akışlarını ve raporlamasını Laravel üzerinde geliştirdim.",
+        "overview": "GIZ tarafından yürütülen bir program için inşa edilen bu platform, kayıt, gönüllülerin görevlerle eşleştirilmesi ve bağışçı destekli bir programın kendi kapsamını göstermek için ihtiyaç duyduğu idari raporlama dahil olmak üzere gönüllülük yaşam döngüsünün tamamını yönetir.",
+        "architecture": "MySQL üzerinde Eloquent kullanan, Apache'den sunulan bir Laravel uygulaması; yönetici ve gönüllü ekranlarının etkileşimli kısımları için JavaScript kullanılır.",
+        "engineering": "Kayıt ve atama iş akışlarını uçtan uca uyguladım, ayrıca program personelinin katılımı ve sonuçları izlemek için kullandığı idari raporlama görünümlerini geliştirdim."
       },
       "health-integrations": {
         "summary": "Bir sağlık platformunu harici sağlık ve giyilebilir cihaz veri kaynaklarına bağlayan entegrasyonlar.",
-        "role": "Aktivite ve tedavi verisi senkronizasyonu için FHIR, Withings, Apple Health ve Android Health Connect entegrasyonlarını uyguladım."
+        "role": "Aktivite ve tedavi verisi senkronizasyonu için FHIR, Withings, Apple Health ve Android Health Connect entegrasyonlarını uyguladım.",
+        "overview": "Bir sağlık platformu, kendisine ulaşan veriler kadar faydalıdır. Bu çalışma, manuel girişe güvenmek yerine hastaların gerçekten kullandığı giyilebilir cihaz ve platform sağlık API'lerinden aktivite ve tedavi verilerini çeken entegrasyon katmanını kurdu.",
+        "architecture": "Bir Node.js entegrasyon katmanı, her kaynağı platformun geri kalanına ulaşmadan önce FHIR biçimli bir kayda dönüştürür; mobil tarafta, sunucu tarafı karşılığı olmayan platforma özgü sağlık API'leri için yerel Swift ve Kotlin bağlantıları kullanılır.",
+        "engineering": "FHIR tabanlı veri alışverişini, Withings, Apple Health ve Android Health Connect ile doğrudan entegrasyonlarla birlikte uyguladım; böylece bir hastanın hangi cihazı veya platformu kullandığına bakılmaksızın aktivite ve tedavi verileri senkronize kalır."
       },
       "payment-integrations": {
         "summary": "Üretim uygulamaları için ödeme ve platform entegrasyonları.",
-        "role": "Stripe ve PayPal ödeme işlemlerini ve bir Spotify API entegrasyonunu uyguladım."
+        "role": "Stripe ve PayPal ödeme işlemlerini ve bir Spotify API entegrasyonunu uyguladım.",
+        "overview": "Birden çok proje genelinde ödeme ve üçüncü taraf platform entegrasyon çalışması: üretim uygulamalarını bağımlı oldukları ödeme işlemcilerine ve dış API'lere bağlamak, bir ödeme entegrasyonunun göze alamayacağı hata ve uç durumları doğru şekilde ele almak.",
+        "architecture": "TypeScript tarafında NestJS ve Node.js servisleri, mevcut bir kod tabanının gerektirdiği yerlerde PHP servisleri; ödeme işleme için Stripe ve PayPal, bir müzik verisi özelliği için Spotify API entegre edildi.",
+        "engineering": "Ödeme işlemi kadar önemli olan webhook ve mutabakat yollarını da içeren Stripe ve PayPal ödeme işlemlerini uçtan uca uyguladım; ayrıca müzik meta verilerini almak ve işlemek için bir Spotify API entegrasyonu geliştirdim."
       }
     }
   },

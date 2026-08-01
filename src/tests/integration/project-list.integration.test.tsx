@@ -75,6 +75,9 @@ describe('ProjectListContainer', () => {
 
     expect(screen.getByRole('heading', { name: 'myoncare' })).toBeInTheDocument();
     expect(screen.queryByText(enMessages.github.recentlyActive)).not.toBeInTheDocument();
-    expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /myoncare/iu })).toHaveAttribute(
+      'href',
+      '/en/projects/myoncare',
+    );
   });
 });
