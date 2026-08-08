@@ -10,7 +10,7 @@ import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 import { ProjectRow } from '../components/project-row.component';
 import { projectRowClasses } from '../constants/projects-style.constants';
 import { isRecentlyActive } from '../helpers/project-filter.helper';
-import type { ProjectListContainerProps } from '../types/projects.types';
+import type { ProjectListContainerProperties } from '../types/projects.types';
 
 /**
  * Renders the editorial project rows. Live GitHub metadata is layered on top of
@@ -18,19 +18,19 @@ import type { ProjectListContainerProps } from '../types/projects.types';
  * never a placeholder or a zero.
  */
 export async function ProjectListContainer(
-  props: ProjectListContainerProps,
+  properties: ProjectListContainerProperties,
 ): Promise<ReactElement> {
   const t = await getServerTranslations({
-    locale: props.locale,
+    locale: properties.locale,
     namespace: I18N_NAMESPACES.projects,
   });
   const tGithub = await getServerTranslations({
-    locale: props.locale,
+    locale: properties.locale,
     namespace: I18N_NAMESPACES.github,
   });
-  const byName = indexSnapshotsByName(props.snapshots);
+  const byName = indexSnapshotsByName(properties.snapshots);
 
-  const rows = props.projects.map((project) => {
+  const rows = properties.projects.map((project) => {
     const snapshot =
       project.repositoryName === null ? undefined : byName.get(project.repositoryName);
     const lastActivity = snapshot?.lastActivityAt ?? project.fallbackUpdatedAt;
@@ -59,9 +59,9 @@ export async function ProjectListContainer(
         name={project.name}
         summary={t(`items.${project.slug}.summary`)}
         role={t(`items.${project.slug}.role`)}
-        kindLabel={project.kind === 'open-source' ? t('openSourceLabel') : t('professionalLabel')}
+        kindLabel={t(project.kind === 'open-source' ? 'openSourceLabel' : 'professionalLabel')}
         isOpenSource={project.kind === 'open-source'}
-        isRecentlyActive={isRecentlyActive(lastActivity, props.now)}
+        isRecentlyActive={isRecentlyActive(lastActivity, properties.now)}
         recentlyActiveLabel={tGithub('recentlyActive')}
         stack={stack}
         metrics={metrics.map((entry) => (
@@ -71,7 +71,7 @@ export async function ProjectListContainer(
         ))}
         caseStudyHref={
           project.hasCaseStudy
-            ? buildLocalizedPath(props.locale, buildProjectPath(project.slug))
+            ? buildLocalizedPath(properties.locale, buildProjectPath(project.slug))
             : null
         }
         caseStudyLabel={project.hasCaseStudy ? t('caseStudy') : null}

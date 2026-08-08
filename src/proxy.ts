@@ -7,13 +7,13 @@ import { NextResponse, type NextRequest } from 'next/server';
  */
 function buildContentSecurityPolicy(nonce: string): string {
   const isDevelopment = process.env.NODE_ENV !== 'production';
-  const scriptSrc = isDevelopment
+  const scriptSource = isDevelopment
     ? `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval'`
     : `'self' 'nonce-${nonce}' 'strict-dynamic'`;
 
   return [
     `default-src 'self'`,
-    `script-src ${scriptSrc}`,
+    `script-src ${scriptSource}`,
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' blob: data: https://*.googlesyndication.com https://*.google.com`,
     `font-src 'self'`,
@@ -50,7 +50,9 @@ export default function proxy(request: NextRequest): NextResponse {
 export const config = {
   matcher: [
     {
-      /* Static assets and prefetches keep default headers. */
+      /*
+      Static assets and prefetches keep default headers.
+      */
       source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },

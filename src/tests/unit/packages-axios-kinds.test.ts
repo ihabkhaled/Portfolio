@@ -14,9 +14,12 @@ describe('HttpError kind classification', () => {
   it('classifies network failures end to end', async () => {
     mswServer.use(http.get('*/kind-network', () => HttpResponse.error()));
 
-    const failure = await createHttpClient()
-      .get('/kind-network')
-      .catch((error: unknown) => error);
+    let failure: unknown;
+    try {
+      await createHttpClient().get('/kind-network');
+    } catch (error) {
+      failure = error;
+    }
 
     expect(isHttpError(failure)).toBe(true);
 

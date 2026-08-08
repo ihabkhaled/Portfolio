@@ -1,12 +1,12 @@
 import type { HTMLAttributes, ReactElement } from 'react';
 
-import { badgeVariants, type BadgeVariantProps } from './badge.variants';
+import { badgeVariants, type BadgeVariantProperties } from './badge.variants';
 import { cn } from './cn';
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement>, BadgeVariantProps {}
+export interface BadgeProperties extends HTMLAttributes<HTMLSpanElement>, BadgeVariantProperties {}
 
-export function Badge(props: Readonly<BadgeProps>): ReactElement {
-  const { className, tone, ...rest } = props;
+export function Badge(properties: Readonly<BadgeProperties>): ReactElement {
+  const { className, tone, ...rest } = properties;
 
   return <span className={cn(badgeVariants({ tone }), className)} {...rest} />;
 }

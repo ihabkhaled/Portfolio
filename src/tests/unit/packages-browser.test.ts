@@ -5,8 +5,8 @@ import {
   getSafeDocument,
   getSafeWindow,
   isBrowser,
-  matchesMediaQuery,
-  prefersReducedMotion,
+  isMediaQueryMatched,
+  isReducedMotionPreferred,
   setRootAttribute,
 } from '@/packages/browser';
 
@@ -18,8 +18,8 @@ describe('browser environment facade (jsdom)', () => {
   });
 
   it('evaluates media queries through the stubbed matchMedia', () => {
-    expect(matchesMediaQuery('(prefers-color-scheme: dark)')).toBe(false);
-    expect(prefersReducedMotion()).toBe(false);
+    expect(isMediaQueryMatched('(prefers-color-scheme: dark)')).toBe(false);
+    expect(isReducedMotionPreferred()).toBe(false);
   });
 
   it('sets and reads root attributes', () => {

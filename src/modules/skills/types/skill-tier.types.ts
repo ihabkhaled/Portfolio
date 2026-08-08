@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export interface SkillTierProps {
+export interface SkillTierProperties {
   readonly headingId: string;
   readonly name: string;
   readonly definition: string;

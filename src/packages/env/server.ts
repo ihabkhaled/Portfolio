@@ -2,13 +2,15 @@ import 'server-only';
 
 import { parseSchema, z } from '@/packages/zod';
 
-/** "true"/"false" strings are the only honest booleans an env file can carry. */
+/**
+"true"/"false" strings are the only honest booleans an env file can carry.
+*/
 const booleanFromString = z
   .enum(['true', 'false'])
   .default('false')
   .transform((value) => value === 'true');
 
-const serverEnvSchema = z
+const serverEnvironmentSchema = z
   .object({
     SERVER_API_BASE_URL: z.url().default('http://localhost:4000'),
     /**
@@ -19,7 +21,9 @@ const serverEnvSchema = z
      */
     SERVER_API_MOCKING: z.enum(['enabled', 'disabled']).default('disabled'),
 
-    /** Optional, server-only. Raises the GitHub rate limit; never sent to the browser. */
+    /**
+    Optional, server-only. Raises the GitHub rate limit; never sent to the browser.
+    */
     GITHUB_TOKEN: z.string().default(''),
 
     CONTACT_EMAIL_ENABLED: booleanFromString,
@@ -39,7 +43,7 @@ const serverEnvSchema = z
     CONTACT_SMTP_USER: z.string().default(''),
     CONTACT_SMTP_PASS: z.string().default(''),
   })
-  .superRefine((value, ctx) => {
+  .superRefine((value, context) => {
     if (!value.CONTACT_EMAIL_ENABLED) return;
     const required = [
       value.CONTACT_EMAIL_FROM,
@@ -49,7 +53,7 @@ const serverEnvSchema = z
       value.CONTACT_SMTP_PASS,
     ];
     if (required.some((field) => field.trim() === '')) {
-      ctx.addIssue({
+      context.addIssue({
         code: 'custom',
         message: 'Enabled contact email requires complete SMTP configuration',
       });
@@ -69,27 +73,45 @@ export interface ContactEmailConfig {
   readonly pass: string;
 }
 
-export interface ServerEnv {
+export interface ServerEnvironment {
   readonly apiBaseUrl: string;
   readonly apiMocking: 'enabled' | 'disabled';
   readonly githubToken: string | null;
   readonly contactEmail: ContactEmailConfig;
 }
 
-let cachedServerEnv: ServerEnv | null = null;
+function createServerEnvironmentCache(): {
+  get: () => ServerEnvironment | null;
+  set: (value: ServerEnvironment) => void;
+  reset: () => void;
+} {
+  let cached: ServerEnvironment | null = null;
+  return {
+    get: () => cached,
+    set: (value) => {
+      cached = value;
+    },
+    reset: () => {
+      cached = null;
+    },
+  };
+}
+
+const serverEnvironmentCache = createServerEnvironmentCache();
 
 /**
  * Validated server-only environment. Guarded by the `server-only` marker so any
  * accidental client import fails at build time. Misconfiguration fails loudly
  * here rather than silently at send time.
  */
-export function getServerEnv(): ServerEnv {
-  if (cachedServerEnv) {
-    return cachedServerEnv;
+export function getServerEnvironment(): ServerEnvironment {
+  const cached = serverEnvironmentCache.get();
+  if (cached) {
+    return cached;
   }
 
   const parsed = parseSchema(
-    serverEnvSchema,
+    serverEnvironmentSchema,
     {
       SERVER_API_BASE_URL: process.env.SERVER_API_BASE_URL,
       SERVER_API_MOCKING: process.env.SERVER_API_MOCKING,
@@ -109,7 +131,7 @@ export function getServerEnv(): ServerEnv {
     'server environment',
   );
 
-  cachedServerEnv = {
+  const environment: ServerEnvironment = {
     apiBaseUrl: parsed.SERVER_API_BASE_URL,
     apiMocking: parsed.SERVER_API_MOCKING,
     githubToken: parsed.GITHUB_TOKEN.trim() === '' ? null : parsed.GITHUB_TOKEN,
@@ -127,10 +149,13 @@ export function getServerEnv(): ServerEnv {
     },
   };
 
-  return cachedServerEnv;
+  serverEnvironmentCache.set(environment);
+  return environment;
 }
 
-/** Test-only seam so suites can re-read a mutated environment. */
-export function resetServerEnvCache(): void {
-  cachedServerEnv = null;
+/**
+Test-only seam so suites can re-read a mutated environment.
+*/
+export function resetServerEnvironmentCache(): void {
+  serverEnvironmentCache.reset();
 }

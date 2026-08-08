@@ -1,5 +1,5 @@
 /**
- * Rule: frontend-architecture/no-process-env-outside-config
+ * Rule: frontend-architecture/no-process-environment-outside-config
  *
  * Raw `process.env` access is only allowed inside the validated env facade
  * (`src/packages/env/`), shared config, and build/test configuration files.
@@ -8,7 +8,7 @@
  * `undefined` deep inside a feature.
  */
 
-import { getSourcePath, isUnderAny, toPosixPath } from '../shared/source-utils.mjs';
+import { getSourcePath, isUnderAny, toPosixPath } from '../shared/source-utilities.mjs';
 
 const DEFAULT_ALLOWED_PREFIXES = [
   'src/packages/env/',

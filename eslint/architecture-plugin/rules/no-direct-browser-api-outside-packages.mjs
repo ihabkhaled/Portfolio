@@ -11,7 +11,7 @@
  * reported, so local variables named `document` etc. do not false-positive.
  */
 
-import { getSourcePath, isTestFile, isUnderAny, toPosixPath } from '../shared/source-utils.mjs';
+import { getSourcePath, isTestFile, isUnderAny, toPosixPath } from '../shared/source-utilities.mjs';
 
 const BROWSER_GLOBALS = new Set([
   'window',

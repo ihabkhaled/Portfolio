@@ -1,12 +1,13 @@
 import type { ButtonHTMLAttributes, ReactElement } from 'react';
 
-import { buttonVariants, type ButtonVariantProps } from './button.variants';
+import { buttonVariants, type ButtonVariantProperties } from './button.variants';
 import { cn } from './cn';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProps {}
+export interface ButtonProperties
+  extends ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProperties {}
 
-export function Button(props: Readonly<ButtonProps>): ReactElement {
-  const { className, variant, size, type, ...rest } = props;
+export function Button(properties: Readonly<ButtonProperties>): ReactElement {
+  const { className, variant, size, type, ...rest } = properties;
 
   return (
     <button

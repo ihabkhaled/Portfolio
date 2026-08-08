@@ -14,7 +14,9 @@ export function filterProjectsByCategory(
   return projects.filter((project) => project.categories.includes(category));
 }
 
-/** Same facet rule as {@link filterProjectsByCategory}, applied to rendered entries. */
+/**
+Same facet rule as {@link filterProjectsByCategory}, applied to rendered entries.
+*/
 export function filterEntriesByCategory(
   entries: readonly ProjectListEntry[],
   category: ProjectCategory,
@@ -23,12 +25,16 @@ export function filterEntriesByCategory(
   return entries.filter((entry) => entry.categories.includes(category));
 }
 
-/** Editorial priority wins; star counts never influence ordering. */
+/**
+Editorial priority wins; star counts never influence ordering.
+*/
 export function sortProjectsByPriority(projects: readonly Project[]): readonly Project[] {
   return [...projects].toSorted((left, right) => left.priority - right.priority);
 }
 
-/** The home page shows a bounded set of featured work. */
+/**
+The home page shows a bounded set of featured work.
+*/
 export function selectFeaturedProjects(
   projects: readonly Project[],
   limit: number,
@@ -36,7 +42,9 @@ export function selectFeaturedProjects(
   return sortProjectsByPriority(projects.filter((project) => project.featured)).slice(0, limit);
 }
 
-/** Only facets that actually match a project are offered as filters. */
+/**
+Only facets that actually match a project are offered as filters.
+*/
 export function listAvailableCategories(
   projects: readonly Project[],
   candidates: readonly ProjectCategory[],
@@ -64,12 +72,16 @@ export function isRecentlyActive(
   return elapsed <= windowDays * MILLISECONDS_PER_DAY;
 }
 
-/** Finds one project by its stable slug. */
+/**
+Finds one project by its stable slug.
+*/
 export function findProjectBySlug(projects: readonly Project[], slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
 }
 
-/** Slugs that get a generated case-study route. */
+/**
+Slugs that get a generated case-study route.
+*/
 export function listCaseStudySlugs(projects: readonly Project[]): readonly string[] {
   return sortProjectsByPriority(projects.filter((project) => project.hasCaseStudy)).map(
     (project) => project.slug,

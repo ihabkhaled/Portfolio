@@ -2,12 +2,14 @@ import type { AppLocale } from '@/packages/i18n';
 
 import type { EngagementKind, ExperienceRole } from '../types/experience.types';
 
-/** Formats an ISO year-month as a locale-aware "month year" label. */
+/**
+Formats an ISO year-month as a locale-aware "month year" label.
+*/
 export function formatMonthYear(isoMonth: string, locale: AppLocale): string {
-  const [year, month] = isoMonth.split('-');
+  const [year, month] = isoMonth.split('-', 2);
   const parsedYear = Number(year);
   const parsedMonth = Number(month);
-  if (!Number.isInteger(parsedYear) || !Number.isInteger(parsedMonth)) {
+  if (!Number.isSafeInteger(parsedYear) || !Number.isSafeInteger(parsedMonth)) {
     return isoMonth;
   }
   const date = new Date(Date.UTC(parsedYear, parsedMonth - 1, 1));
@@ -18,7 +20,9 @@ export function formatMonthYear(isoMonth: string, locale: AppLocale): string {
   }).format(date);
 }
 
-/** "Jun 2022 – Present" with the localized present label. */
+/**
+"Jun 2022 – Present" with the localized present label.
+*/
 export function formatDateRange(
   role: ExperienceRole,
   locale: AppLocale,
@@ -29,7 +33,9 @@ export function formatDateRange(
   return `${start} – ${end}`;
 }
 
-/** Roles of one engagement kind, most recent first. */
+/**
+Roles of one engagement kind, most recent first.
+*/
 export function selectRolesByKind(
   roles: readonly ExperienceRole[],
   kind: EngagementKind,

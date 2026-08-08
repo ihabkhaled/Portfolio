@@ -1,21 +1,21 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { resetServerEnvCache } from '@/packages/env/server';
+import { resetServerEnvironmentCache } from '@/packages/env/server';
 import { http, HttpResponse } from '@/tests/msw/handler-tools';
 import { mswServer } from '@/tests/msw/server';
 
 import { GITHUB_API_ORIGIN } from '../constants/github.constants';
-import { fetchRepositorySnapshot } from '../gateway/github.gateway';
+import { fetchRepoSnapshot } from '../gateway/github.gateway';
 
 afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllEnvs();
-  resetServerEnvCache();
+  resetServerEnvironmentCache();
 });
 
-describe('fetchRepositorySnapshot', () => {
+describe('fetchRepoSnapshot', () => {
   it('returns a normalized snapshot for a successful response', async () => {
-    const snapshot = await fetchRepositorySnapshot('ihabkhaled', 'ClawAI');
+    const snapshot = await fetchRepoSnapshot('ihabkhaled', 'ClawAI');
 
     expect(snapshot).not.toBeNull();
     expect(snapshot?.name).toBe('ClawAI');
@@ -31,7 +31,7 @@ describe('fetchRepositorySnapshot', () => {
 
     vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    expect(await fetchRepositorySnapshot('ihabkhaled', 'missing-repo')).toBeNull();
+    expect(await fetchRepoSnapshot('ihabkhaled', 'missing-repo')).toBeNull();
   });
 
   it('returns null when the payload does not match the schema', async () => {
@@ -43,12 +43,12 @@ describe('fetchRepositorySnapshot', () => {
 
     vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    expect(await fetchRepositorySnapshot('ihabkhaled', 'ClawAI')).toBeNull();
+    expect(await fetchRepoSnapshot('ihabkhaled', 'ClawAI')).toBeNull();
   });
 
   it('sends an Authorization header when a GitHub token is configured', async () => {
     vi.stubEnv('GITHUB_TOKEN', 'ghp_example');
-    resetServerEnvCache();
+    resetServerEnvironmentCache();
     let receivedAuthorization: string | null = null;
     mswServer.use(
       http.get(`${GITHUB_API_ORIGIN}/repos/:owner/:repository`, ({ request, params }) => {
@@ -60,7 +60,7 @@ describe('fetchRepositorySnapshot', () => {
       }),
     );
 
-    await fetchRepositorySnapshot('ihabkhaled', 'ClawAI');
+    await fetchRepoSnapshot('ihabkhaled', 'ClawAI');
 
     expect(receivedAuthorization).toBe('Bearer ghp_example');
   });
@@ -77,7 +77,7 @@ describe('fetchRepositorySnapshot', () => {
       }),
     );
 
-    await fetchRepositorySnapshot('ihabkhaled', 'ClawAI');
+    await fetchRepoSnapshot('ihabkhaled', 'ClawAI');
 
     expect(receivedAuthorization).toBeNull();
   });
@@ -89,16 +89,16 @@ describe('fetchRepositorySnapshot', () => {
 
     vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    expect(await fetchRepositorySnapshot('ihabkhaled', 'ClawAI')).toBeNull();
+    expect(await fetchRepoSnapshot('ihabkhaled', 'ClawAI')).toBeNull();
   });
 
   it('skips the network call entirely when apiMocking is enabled', async () => {
     vi.stubEnv('SERVER_API_MOCKING', 'enabled');
-    resetServerEnvCache();
-    let requestReceived = false;
+    resetServerEnvironmentCache();
+    let isRequestReceived = false;
     mswServer.use(
       http.get(`${GITHUB_API_ORIGIN}/repos/:owner/:repository`, () => {
-        requestReceived = true;
+        isRequestReceived = true;
         return HttpResponse.json({
           name: 'ClawAI',
           html_url: 'https://github.com/ihabkhaled/ClawAI',
@@ -106,7 +106,7 @@ describe('fetchRepositorySnapshot', () => {
       }),
     );
 
-    expect(await fetchRepositorySnapshot('ihabkhaled', 'ClawAI')).toBeNull();
-    expect(requestReceived).toBe(false);
+    expect(await fetchRepoSnapshot('ihabkhaled', 'ClawAI')).toBeNull();
+    expect(isRequestReceived).toBe(false);
   });
 });

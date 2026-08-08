@@ -5,7 +5,9 @@ import type {
   UseQueryOptions,
 } from '@tanstack/react-query';
 
-/** App-owned aliases so query layers never name vendor types directly. */
+/**
+App-owned aliases so query layers never name vendor types directly.
+*/
 export type AppQueryKey = QueryKey;
 export type QueryClientLike = QueryClient;
 

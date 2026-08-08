@@ -2,12 +2,16 @@
  * AST helpers shared by the frontend-architecture rules.
  */
 
-/** True when an identifier name follows the React hook naming convention. */
+/**
+True when an identifier name follows the React hook naming convention.
+*/
 export function isHookName(name) {
   return /^use[A-Z0-9]/.test(String(name));
 }
 
-/** React built-in hooks that must never appear in presentational components. */
+/**
+React built-in hooks that must never appear in presentational components.
+*/
 export const REACT_BUILTIN_HOOKS = new Set([
   'useState',
   'useEffect',
@@ -28,7 +32,9 @@ export const REACT_BUILTIN_HOOKS = new Set([
   'use',
 ]);
 
-/** True when the value node is a function expression of any kind. */
+/**
+True when the value node is a function expression of any kind.
+*/
 export function isFunctionValue(node) {
   return (
     node !== null &&
@@ -37,7 +43,9 @@ export function isFunctionValue(node) {
   );
 }
 
-/** Node.js built-in module prefixes that must never reach client bundles. */
+/**
+Node.js built-in module prefixes that must never reach client bundles.
+*/
 const NODE_BUILTIN_MODULES = new Set([
   'assert',
   'buffer',
@@ -70,7 +78,9 @@ const NODE_BUILTIN_MODULES = new Set([
   'zlib',
 ]);
 
-/** True when an import specifier targets a Node.js built-in. */
+/**
+True when an import specifier targets a Node.js built-in.
+*/
 export function isNodeBuiltinImport(importPath) {
   const specifier = String(importPath);
 
@@ -78,7 +88,7 @@ export function isNodeBuiltinImport(importPath) {
     return true;
   }
 
-  const [head] = specifier.split('/');
+  const [head] = specifier.split('/', 1);
 
   return NODE_BUILTIN_MODULES.has(head ?? '');
 }

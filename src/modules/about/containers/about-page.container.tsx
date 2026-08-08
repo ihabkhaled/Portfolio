@@ -11,10 +11,12 @@ import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 import { aboutClasses } from '../constants/about-style.constants';
 import { ABOUT_PARAGRAPH_KEYS } from '../constants/about.constants';
-import type { AboutPageContainerProps } from '../types/about.types';
+import type { AboutPageContainerProperties } from '../types/about.types';
 
-export async function AboutPageContainer(props: AboutPageContainerProps): Promise<ReactElement> {
-  const { locale } = props;
+export async function AboutPageContainer(
+  properties: AboutPageContainerProperties,
+): Promise<ReactElement> {
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.about });
 
   const paragraphs = ABOUT_PARAGRAPH_KEYS.map((key) => (

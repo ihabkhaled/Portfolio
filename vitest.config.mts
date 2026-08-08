@@ -3,7 +3,7 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
-const srcDir = path.resolve(import.meta.dirname, 'src');
+const sourceDirectory = path.resolve(import.meta.dirname, 'src');
 
 export default defineConfig({
   plugins: [react()],
@@ -12,17 +12,20 @@ export default defineConfig({
     // Explicit aliases (in addition to tsconfig paths) so vi.mock specifiers
     // using @/ resolve identically to source imports.
     alias: {
-      '@app': path.join(srcDir, 'app'),
-      '@modules': path.join(srcDir, 'modules'),
-      '@shared': path.join(srcDir, 'shared'),
-      '@packages': path.join(srcDir, 'packages'),
-      '@tests': path.join(srcDir, 'tests'),
-      '@': srcDir,
+      '@app': path.join(sourceDirectory, 'app'),
+      '@modules': path.join(sourceDirectory, 'modules'),
+      '@shared': path.join(sourceDirectory, 'shared'),
+      '@packages': path.join(sourceDirectory, 'packages'),
+      '@tests': path.join(sourceDirectory, 'tests'),
+      '@': sourceDirectory,
     },
   },
   test: {
     environment: 'jsdom',
     globals: false,
+    // Keep interaction-heavy jsdom tests responsive on high-core hosts where
+    // unconstrained workers otherwise compete until individual tests time out.
+    maxWorkers: 4,
     setupFiles: ['./src/tests/setup/vitest.setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     exclude: [

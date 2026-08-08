@@ -5,7 +5,9 @@ import type {
   ContactStatusViewModel,
 } from '../types/contact-form.types';
 
-/** Maps submission status to what the form displays — one place, one truth. */
+/**
+Maps submission status to what the form displays — one place, one truth.
+*/
 export function buildContactStatusViewModel(
   status: ContactStatus,
   labels: ContactFormLabels,

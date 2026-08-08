@@ -1,4 +1,6 @@
-/** Capability keys, in the order they appear under `home.capabilities`. */
+/**
+Capability keys, in the order they appear under `home.capabilities`.
+*/
 export const HOME_CAPABILITIES = [
   'backend',
   'fullstack',
@@ -26,7 +28,9 @@ export const HOME_APPROACH_STEPS = [
   'operate',
 ] as const;
 
-/** Stable ids so each section heading can label its own region. */
+/**
+Stable ids so each section heading can label its own region.
+*/
 export const HOME_SECTION_IDS = {
   indicators: 'home-indicators',
   capabilities: 'home-capabilities',
@@ -36,5 +40,7 @@ export const HOME_SECTION_IDS = {
   contact: 'home-contact',
 } as const;
 
-/** The home page shows a bounded set of featured projects. */
+/**
+The home page shows a bounded set of featured projects.
+*/
 export const HOME_FEATURED_LIMIT = 5;

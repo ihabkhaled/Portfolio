@@ -5,7 +5,7 @@ import type { AppThemeValue } from '@/shared/enums/app-theme.enum';
 
 export type ThemeLabels = Readonly<Record<AppThemeValue, string>>;
 
-export interface ShellControlsProps {
+export interface ShellControlsProperties {
   readonly locale: AppLocale;
   readonly localeLabel: string;
   readonly themeActionLabel: string;
@@ -22,7 +22,7 @@ export interface ShellControlsViewModel {
   readonly onThemeChange: () => void;
 }
 
-export interface ShellControlsContainerProps {
+export interface ShellControlsContainerProperties {
   readonly locale: AppLocale;
   readonly localeLabel: string;
   readonly themeLabel: string;

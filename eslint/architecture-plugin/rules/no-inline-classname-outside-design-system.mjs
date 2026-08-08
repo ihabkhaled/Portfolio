@@ -7,7 +7,7 @@
  * consistent and reviewable in one place.
  */
 
-import { getSourcePath, isTestFile, isUnderAny, toPosixPath } from '../shared/source-utils.mjs';
+import { getSourcePath, isTestFile, isUnderAny, toPosixPath } from '../shared/source-utilities.mjs';
 
 const DEFAULT_ALLOWED_PREFIXES = [
   'src/shared/components/primitives/',

@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { buildRepositoryActivityReport } from '@/modules/github-profile';
+import { buildRepoActivityReport } from '@/modules/github-profile';
 import { getServerTranslations } from '@/packages/i18n';
 import { AppLink, ExternalLink } from '@/packages/link';
 import { appNotFound } from '@/packages/navigation';
@@ -14,12 +14,12 @@ import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 import { caseStudyClasses, projectRowClasses } from '../constants/projects-style.constants';
 import { PROJECTS } from '../constants/projects.constants';
 import { findProjectBySlug } from '../helpers/project-filter.helper';
-import type { CaseStudyPageContainerProps } from '../types/case-study.types';
+import type { CaseStudyPageContainerProperties } from '../types/case-study.types';
 
 export async function CaseStudyPageContainer(
-  props: CaseStudyPageContainerProps,
+  properties: CaseStudyPageContainerProperties,
 ): Promise<ReactElement> {
-  const { locale, slug } = props;
+  const { locale, slug } = properties;
   const project = findProjectBySlug(PROJECTS, slug);
 
   if (project?.hasCaseStudy !== true) {
@@ -29,7 +29,7 @@ export async function CaseStudyPageContainer(
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.projects });
   const tGithub = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.github });
 
-  const activity = await buildRepositoryActivityReport(
+  const activity = await buildRepoActivityReport(
     project.repositoryName === null ? [] : [project.repositoryName],
   );
   const snapshot = activity.repositories[0];
@@ -70,7 +70,7 @@ export async function CaseStudyPageContainer(
           {t('backToProjects')}
         </AppLink>
         <p className={sectionClasses.eyebrow}>
-          {project.kind === 'open-source' ? t('openSourceLabel') : t('professionalLabel')}
+          {t(project.kind === 'open-source' ? 'openSourceLabel' : 'professionalLabel')}
         </p>
         <h1 className={sectionClasses.pageTitle}>{project.name}</h1>
         <p className={sectionClasses.pageLead}>{t(`items.${project.slug}.summary`)}</p>

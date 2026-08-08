@@ -12,7 +12,7 @@ import {
   getSourcePath,
   resolveImportToSourcePath,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
 export default {
   meta: {

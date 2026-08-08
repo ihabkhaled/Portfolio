@@ -8,10 +8,10 @@ import { cn } from '@/packages/ui-primitives';
 import { siteShellClasses } from '@/shared/components/layout/site-shell.variants';
 
 import { useSiteNavigation } from '../hooks/use-site-navigation.hook';
-import type { SiteNavigationProps } from '../types/site-navigation.types';
+import type { SiteNavigationProperties } from '../types/site-navigation.types';
 
-export function SiteNavigationContainer(props: SiteNavigationProps): ReactElement {
-  const navigation = useSiteNavigation(props);
+export function SiteNavigationContainer(properties: SiteNavigationProperties): ReactElement {
+  const navigation = useSiteNavigation(properties);
 
   return (
     <>

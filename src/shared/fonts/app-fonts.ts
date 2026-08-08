@@ -14,21 +14,27 @@ import {
  * visitor only downloads files for the script actually rendered.
  */
 
-/** Display face: an engineered grotesque, headings only. */
+/**
+Display face: an engineered grotesque, headings only.
+*/
 const displayFont = Space_Grotesk({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-display-latin',
   display: 'swap',
 });
 
-/** Body face: high legibility across Latin, Latin-ext and Cyrillic. */
+/**
+Body face: high legibility across Latin, Latin-ext and Cyrillic.
+*/
 const bodyFont = Inter({
   subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-body-latin',
   display: 'swap',
 });
 
-/** Utility face: metadata rows and technical labels, never prose. */
+/**
+Utility face: metadata rows and technical labels, never prose.
+*/
 const monoFont = IBM_Plex_Mono({
   subsets: ['latin', 'latin-ext'],
   weight: ['400', '500', '600'],
@@ -36,7 +42,9 @@ const monoFont = IBM_Plex_Mono({
   display: 'swap',
 });
 
-/** Arabic and Persian get a real typeface, never a broken fallback. */
+/**
+Arabic and Persian get a real typeface, never a broken fallback.
+*/
 const arabicFont = Noto_Sans_Arabic({
   subsets: ['arabic'],
   variable: '--font-arabic',

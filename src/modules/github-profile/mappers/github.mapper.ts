@@ -4,10 +4,10 @@ import {
   toPositiveCount,
   toVerifiedHomepage,
 } from '../helpers/github-normalize.helper';
-import type { GithubRepositoryPayload } from '../schemas/github.schema';
-import type { RepositorySnapshot } from '../types/github.types';
+import type { GithubRepoPayload } from '../schemas/github.schema';
+import type { RepoSnapshot } from '../types/github.types';
 
-export function mapRepositoryPayload(payload: GithubRepositoryPayload): RepositorySnapshot {
+export function mapRepoPayload(payload: GithubRepoPayload): RepoSnapshot {
   return {
     name: payload.name,
     description: toNullableText(payload.description),

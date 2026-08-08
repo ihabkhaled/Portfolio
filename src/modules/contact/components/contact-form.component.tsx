@@ -8,18 +8,18 @@ import {
   CONTACT_SUBJECT_MAX_LENGTH,
   CONTACT_SUBJECT_MIN_LENGTH,
 } from '../constants/contact.constants';
-import type { ContactFormProps } from '../types/contact-form.types';
+import type { ContactFormProperties } from '../types/contact-form.types';
 
 /**
  * Uncontrolled form: no per-keystroke state, bounds mirror the server schema.
  * `role="status"` alone gives the status line an implicit polite live region.
  */
-export function ContactForm(props: ContactFormProps): ReactElement {
+export function ContactForm(properties: ContactFormProperties): ReactElement {
   return (
-    <form className={contactFormClasses.form} onSubmit={props.onSubmit}>
+    <form className={contactFormClasses.form} onSubmit={properties.onSubmit}>
       <div className={contactFormClasses.field}>
         <label className={contactFormClasses.label} htmlFor="contact-email">
-          {props.emailLabel}
+          {properties.emailLabel}
         </label>
         <input
           id="contact-email"
@@ -32,7 +32,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
       </div>
       <div className={contactFormClasses.field}>
         <label className={contactFormClasses.label} htmlFor="contact-subject">
-          {props.subjectLabel}
+          {properties.subjectLabel}
         </label>
         <input
           id="contact-subject"
@@ -46,7 +46,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
       </div>
       <div className={contactFormClasses.field}>
         <label className={contactFormClasses.label} htmlFor="contact-message">
-          {props.messageLabel}
+          {properties.messageLabel}
         </label>
         <textarea
           id="contact-message"
@@ -57,11 +57,15 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           className={contactFormClasses.textarea}
         />
       </div>
-      <button type="submit" disabled={props.isSending} className={contactFormClasses.submitButton}>
-        {props.submitLabel}
+      <button
+        type="submit"
+        disabled={properties.isSending}
+        className={contactFormClasses.submitButton}
+      >
+        {properties.submitLabel}
       </button>
       <p role="status" className={contactFormClasses.status}>
-        {props.statusMessage}
+        {properties.statusMessage}
       </p>
     </form>
   );

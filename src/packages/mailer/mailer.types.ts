@@ -4,7 +4,9 @@ export interface ContactEmailInput {
   readonly message: string;
 }
 
-/** Thrown when the contact channel is not configured for sending. */
+/**
+Thrown when the contact channel is not configured for sending.
+*/
 export class ContactEmailUnavailableError extends Error {
   constructor() {
     super('Contact email is unavailable');

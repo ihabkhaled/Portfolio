@@ -3,12 +3,12 @@ export interface CopyEmailButtonLabels {
   readonly copiedLabel: string;
 }
 
-export interface CopyEmailButtonContainerProps {
+export interface CopyEmailButtonContainerProperties {
   readonly email: string;
   readonly labels: CopyEmailButtonLabels;
 }
 
-export interface CopyEmailButtonProps {
+export interface CopyEmailButtonProperties {
   readonly label: string;
   readonly onClick: () => void;
 }

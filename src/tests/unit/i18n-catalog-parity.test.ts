@@ -38,7 +38,9 @@ const catalogs: Readonly<Record<AppLocale, Record<string, unknown>>> = {
   id: idMessages,
   nl: nlMessages,
 };
-/** Product and technology names are the same string in every locale by design. */
+/**
+Product and technology names are the same string in every locale by design.
+*/
 const permittedSharedCopyPaths = new Set(['app.title', 'app.seoTitle']);
 const placeholderPattern = /\{([A-Za-z]\w*)/gu;
 
@@ -61,8 +63,10 @@ function flattenCatalog(
 }
 
 function extractPlaceholders(value: string): string[] {
-  return [...value.matchAll(placeholderPattern)]
+  return value
+    .matchAll(placeholderPattern)
     .map((match) => match[1] ?? '')
+    .toArray()
     .toSorted((left, right) => left.localeCompare(right));
 }
 

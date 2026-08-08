@@ -11,13 +11,19 @@ export type ToastTypeValue = (typeof ToastType)[keyof typeof ToastType];
 
 export interface ShowToastOptions {
   readonly type: ToastTypeValue;
-  /** Already-translated message text (translation happens in the hook layer). */
+  /**
+  Already-translated message text (translation happens in the hook layer).
+  */
   readonly message: string;
-  /** Stable id to deduplicate repeated toasts. */
+  /**
+  Stable id to deduplicate repeated toasts.
+  */
   readonly id?: string;
 }
 
-/** The only toast entry point. Vendor API never leaks past this facade. */
+/**
+The only toast entry point. Vendor API never leaks past this facade.
+*/
 export function showToast(options: ShowToastOptions): void {
   const toastOptions = options.id === undefined ? {} : { id: options.id };
 

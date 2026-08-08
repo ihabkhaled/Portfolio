@@ -1,27 +1,27 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { publicEnv } from '@/packages/env';
+import { publicEnvironment } from '@/packages/env';
 
-describe('publicEnv', () => {
+describe('publicEnvironment', () => {
   it('provides validated defaults in the test environment', () => {
-    expect(publicEnv.appEnv).toBe('local');
-    expect(publicEnv.appUrl).toBe('http://localhost:3000');
+    expect(publicEnvironment.appEnv).toBe('local');
+    expect(publicEnvironment.appUrl).toBe('http://localhost:3000');
   });
 });
 
-describe('getServerEnv', () => {
+describe('getServerEnvironment', () => {
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.resetModules();
   });
 
   it('parses and caches the server environment with defaults', async () => {
-    const { getServerEnv } = await import('@/packages/env/server');
-    const first = getServerEnv();
+    const { getServerEnvironment } = await import('@/packages/env/server');
+    const first = getServerEnvironment();
 
     expect(first.apiBaseUrl).toBe('http://localhost:4000');
     expect(first.apiMocking).toBe('disabled');
-    expect(getServerEnv()).toBe(first);
+    expect(getServerEnvironment()).toBe(first);
   });
 
   it('honors provided values', async () => {
@@ -29,49 +29,49 @@ describe('getServerEnv', () => {
     vi.stubEnv('SERVER_API_MOCKING', 'disabled');
     vi.resetModules();
 
-    const { getServerEnv } = await import('@/packages/env/server');
-    const env = getServerEnv();
+    const { getServerEnvironment } = await import('@/packages/env/server');
+    const environment = getServerEnvironment();
 
-    expect(env.apiBaseUrl).toBe('https://api.internal.example.com');
-    expect(env.apiMocking).toBe('disabled');
+    expect(environment.apiBaseUrl).toBe('https://api.internal.example.com');
+    expect(environment.apiMocking).toBe('disabled');
   });
 
   it('rejects malformed values instead of propagating them', async () => {
     vi.stubEnv('SERVER_API_BASE_URL', 'not-a-url');
     vi.resetModules();
 
-    const { getServerEnv } = await import('@/packages/env/server');
+    const { getServerEnvironment } = await import('@/packages/env/server');
 
-    expect(() => getServerEnv()).toThrow(/server environment/);
+    expect(() => getServerEnvironment()).toThrow(/server environment/);
   });
 
   it('trims a blank GitHub token down to null', async () => {
-    const { getServerEnv } = await import('@/packages/env/server');
+    const { getServerEnvironment } = await import('@/packages/env/server');
 
-    expect(getServerEnv().githubToken).toBeNull();
+    expect(getServerEnvironment().githubToken).toBeNull();
   });
 
   it('keeps a real GitHub token', async () => {
     vi.stubEnv('GITHUB_TOKEN', 'ghp_example');
     vi.resetModules();
 
-    const { getServerEnv } = await import('@/packages/env/server');
+    const { getServerEnvironment } = await import('@/packages/env/server');
 
-    expect(getServerEnv().githubToken).toBe('ghp_example');
+    expect(getServerEnvironment().githubToken).toBe('ghp_example');
   });
 
   it('rejects an enabled contact channel with incomplete SMTP configuration', async () => {
     vi.stubEnv('CONTACT_EMAIL_ENABLED', 'true');
     vi.resetModules();
 
-    const { getServerEnv } = await import('@/packages/env/server');
+    const { getServerEnvironment } = await import('@/packages/env/server');
     const { SchemaParseError } = await import('@/packages/zod');
 
-    expect(() => getServerEnv()).toThrow(SchemaParseError);
+    expect(() => getServerEnvironment()).toThrow(SchemaParseError);
 
     let caughtError: unknown;
     try {
-      getServerEnv();
+      getServerEnvironment();
     } catch (error) {
       caughtError = error;
     }
@@ -93,20 +93,21 @@ describe('getServerEnv', () => {
     vi.stubEnv('CONTACT_SMTP_PASS', 'smtp-pass');
     vi.resetModules();
 
-    const { getServerEnv } = await import('@/packages/env/server');
-    const env = getServerEnv();
+    const { getServerEnvironment } = await import('@/packages/env/server');
+    const environment = getServerEnvironment();
 
-    expect(env.contactEmail.enabled).toBe(true);
-    expect(env.contactEmail.host).toBe('smtp.example.com');
+    expect(environment.contactEmail.enabled).toBe(true);
+    expect(environment.contactEmail.host).toBe('smtp.example.com');
   });
 
-  it('resetServerEnvCache forces the next call to re-parse the environment', async () => {
-    const { getServerEnv, resetServerEnvCache } = await import('@/packages/env/server');
-    const first = getServerEnv();
+  it('resetServerEnvironmentCache forces the next call to re-parse the environment', async () => {
+    const { getServerEnvironment, resetServerEnvironmentCache } =
+      await import('@/packages/env/server');
+    const first = getServerEnvironment();
 
-    resetServerEnvCache();
+    resetServerEnvironmentCache();
     vi.stubEnv('SERVER_API_MOCKING', 'disabled');
-    const second = getServerEnv();
+    const second = getServerEnvironment();
 
     expect(second).not.toBe(first);
     expect(second.apiMocking).toBe('disabled');

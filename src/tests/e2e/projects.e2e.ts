@@ -26,9 +26,9 @@ test.describe('projects page', () => {
     await expect(page).toHaveURL('/en/projects/clawai');
     await expect(page.getByRole('heading', { level: 1, name: 'ClawAI' })).toBeVisible();
 
-    const repositoryLink = page.getByRole('link', { name: 'Repository' });
-    await expect(repositoryLink).toHaveAttribute('target', '_blank');
-    await expect(repositoryLink).toHaveAttribute('rel', 'noopener noreferrer');
+    const repoLink = page.getByRole('link', { name: 'Repository' });
+    await expect(repoLink).toHaveAttribute('target', '_blank');
+    await expect(repoLink).toHaveAttribute('rel', 'noopener noreferrer');
 
     await page.getByRole('link', { name: 'All projects' }).click();
     await expect(page).toHaveURL('/en/projects');

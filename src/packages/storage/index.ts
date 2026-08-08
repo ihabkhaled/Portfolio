@@ -4,4 +4,4 @@
  * throwing. Direct storage access elsewhere is an ESLint violation.
  */
 
-export { readStorageJson, removeStorageItem, writeStorageJson } from './web-storage';
+export { readStorageJson, removeStorageItem, didWriteStorageJson } from './web-storage';

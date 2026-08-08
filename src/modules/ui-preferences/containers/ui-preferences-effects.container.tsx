@@ -3,7 +3,9 @@
 
 import { useUiPreferencesEffects } from '../hooks/use-ui-preferences-effects.hook';
 
-/** Renders nothing; mounts the preference side effects once in the providers. */
+/**
+Renders nothing; mounts the preference side effects once in the providers.
+*/
 export function UiPreferencesEffects(): null {
   useUiPreferencesEffects();
 

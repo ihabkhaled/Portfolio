@@ -29,22 +29,22 @@ function isUnsetOrLocalhost(value: string | undefined): boolean {
   }
 }
 
-function resolveNextPublicAppEnv(): string | undefined {
-  const vercelEnv = process.env['VERCEL_ENV'];
-  if (vercelEnv === undefined) return undefined;
-  const currentAppEnv = process.env['NEXT_PUBLIC_APP_ENV'];
-  if (currentAppEnv && currentAppEnv !== 'local') return undefined;
-  if (vercelEnv === 'production') return 'production';
-  if (vercelEnv === 'preview') return 'staging';
+function resolveNextPublicAppEnvironment(): string | undefined {
+  const vercelEnvironment = process.env['VERCEL_ENV'];
+  if (vercelEnvironment === undefined) return undefined;
+  const currentAppEnvironment = process.env['NEXT_PUBLIC_APP_ENV'];
+  if (currentAppEnvironment && currentAppEnvironment !== 'local') return undefined;
+  if (vercelEnvironment === 'production') return 'production';
+  if (vercelEnvironment === 'preview') return 'staging';
   return undefined;
 }
 
 function resolveNextPublicAppUrl(): string | undefined {
-  const vercelEnv = process.env['VERCEL_ENV'];
-  if (vercelEnv === undefined) return undefined;
+  const vercelEnvironment = process.env['VERCEL_ENV'];
+  if (vercelEnvironment === undefined) return undefined;
   if (!isUnsetOrLocalhost(process.env['NEXT_PUBLIC_APP_URL'])) return undefined;
   const productionUrl = process.env['VERCEL_PROJECT_PRODUCTION_URL'];
-  if (vercelEnv === 'production' && productionUrl) {
+  if (vercelEnvironment === 'production' && productionUrl) {
     return `https://${productionUrl}`;
   }
   const previewUrl = process.env['VERCEL_URL'];
@@ -66,7 +66,7 @@ const securityHeaders = [
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
 ];
 
-const resolvedAppEnv = resolveNextPublicAppEnv();
+const resolvedAppEnvironment = resolveNextPublicAppEnvironment();
 const resolvedAppUrl = resolveNextPublicAppUrl();
 
 const nextConfig: NextConfig = {
@@ -75,8 +75,8 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
   turbopack: {},
   env: {
-    ...(resolvedAppEnv === undefined ? {} : { NEXT_PUBLIC_APP_ENV: resolvedAppEnv }),
-    ...(resolvedAppUrl === undefined ? {} : { NEXT_PUBLIC_APP_URL: resolvedAppUrl }),
+    ...(resolvedAppEnvironment !== undefined && { NEXT_PUBLIC_APP_ENV: resolvedAppEnvironment }),
+    ...(resolvedAppUrl !== undefined && { NEXT_PUBLIC_APP_URL: resolvedAppUrl }),
   },
   images: {
     remotePatterns: [
@@ -93,6 +93,13 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
     ]);
+  },
+  rewrites() {
+    return Promise.resolve({
+      beforeFiles: [{ source: '/', destination: '/en' }],
+      afterFiles: [],
+      fallback: [],
+    });
   },
 };
 

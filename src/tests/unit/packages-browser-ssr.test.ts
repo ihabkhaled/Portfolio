@@ -6,12 +6,12 @@ import {
   getSafeDocument,
   getSafeWindow,
   isBrowser,
-  matchesMediaQuery,
-  openEmailDraft,
+  isMediaQueryMatched,
+  didOpenEmailDraft,
   registerAppServiceWorker,
   setRootAttribute,
 } from '@/packages/browser';
-import { readStorageJson, removeStorageItem, writeStorageJson } from '@/packages/storage';
+import { readStorageJson, removeStorageItem, didWriteStorageJson } from '@/packages/storage';
 import { z } from '@/packages/zod';
 
 const schema = z.object({ ok: z.boolean() });
@@ -33,7 +33,7 @@ describe('browser/storage facades without a browser environment', () => {
     expect(getSafeWindow()).toBeNull();
     expect(getSafeDocument()).toBeNull();
     expect(getBrowserLocationSuffix()).toBe('');
-    expect(matchesMediaQuery('(prefers-color-scheme: dark)')).toBe(false);
+    expect(isMediaQueryMatched('(prefers-color-scheme: dark)')).toBe(false);
     expect(getRootAttribute('data-theme')).toBeNull();
     expect(() => {
       setRootAttribute('data-theme', 'dark');
@@ -48,14 +48,14 @@ describe('browser/storage facades without a browser environment', () => {
   it('returns false instead of opening a mail draft during SSR', () => {
     vi.stubGlobal('window', undefined);
 
-    expect(openEmailDraft('team@example.com', 'Subject', 'Body')).toBe(false);
+    expect(didOpenEmailDraft('team@example.com', 'Subject', 'Body')).toBe(false);
   });
 
   it('opens an encoded local mail draft when a browser exists', () => {
     const location = { href: '', search: '', hash: '' };
     vi.stubGlobal('window', { location });
 
-    expect(openEmailDraft('team@example.com', 'Hello world', 'A&B')).toBe(true);
+    expect(didOpenEmailDraft('team@example.com', 'Hello world', 'A&B')).toBe(true);
     expect(location.href).toBe('mailto:team@example.com?subject=Hello%20world&body=A%26B');
   });
 
@@ -78,7 +78,7 @@ describe('browser/storage facades without a browser environment', () => {
     vi.stubGlobal('window', undefined);
 
     expect(readStorageJson('local', 'k', schema)).toBeNull();
-    expect(writeStorageJson('local', 'k', { ok: true })).toBe(false);
+    expect(didWriteStorageJson('local', 'k', { ok: true })).toBe(false);
     expect(() => {
       removeStorageItem('local', 'k');
     }).not.toThrow();
@@ -95,7 +95,7 @@ describe('browser/storage facades without a browser environment', () => {
     });
 
     expect(readStorageJson('local', 'k', schema)).toBeNull();
-    expect(writeStorageJson('session', 'k', { ok: true })).toBe(false);
+    expect(didWriteStorageJson('session', 'k', { ok: true })).toBe(false);
   });
 
   it('storage facade degrades when setItem throws (quota exceeded)', () => {
@@ -109,6 +109,6 @@ describe('browser/storage facades without a browser environment', () => {
       },
     });
 
-    expect(writeStorageJson('local', 'k', { ok: true })).toBe(false);
+    expect(didWriteStorageJson('local', 'k', { ok: true })).toBe(false);
   });
 });

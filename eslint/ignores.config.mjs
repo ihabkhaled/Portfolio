@@ -16,7 +16,7 @@ export default [
       'test-results/',
       'playwright-report/',
       'blob-report/',
-      'next-env.d.ts',
+      'next-environment.d.ts',
       'eslint/architecture-plugin/__fixtures__/',
     ],
   },

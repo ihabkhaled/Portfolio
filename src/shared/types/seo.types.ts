@@ -18,7 +18,9 @@ export interface RouteMetadataInput {
   readonly titleKey: string;
   readonly descriptionKey: string;
   readonly keywords?: readonly string[];
-  /** Home already carries the full name; branding it again would repeat it. */
+  /**
+  Home already carries the full name; branding it again would repeat it.
+  */
   readonly brandTitle?: boolean;
 }
 

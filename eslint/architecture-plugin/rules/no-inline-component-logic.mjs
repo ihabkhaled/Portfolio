@@ -6,7 +6,7 @@
  * branching — belongs in hooks, helpers, mappers, or constants.
  */
 
-import { getSourcePath, isComponentFile, toPosixPath } from '../shared/source-utils.mjs';
+import { getSourcePath, isComponentFile, toPosixPath } from '../shared/source-utilities.mjs';
 
 const TRANSFORM_METHODS = new Set(['map', 'filter', 'reduce', 'sort', 'flatMap', 'forEach']);
 

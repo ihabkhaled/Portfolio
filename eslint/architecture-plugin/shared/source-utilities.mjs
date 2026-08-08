@@ -7,7 +7,9 @@
 
 const SRC_MARKER = '/src/';
 
-/** Normalize a filesystem path to POSIX separators. */
+/**
+Normalize a filesystem path to POSIX separators.
+*/
 export function toPosixPath(filePath) {
   return String(filePath).replaceAll('\\', '/');
 }
@@ -27,7 +29,9 @@ export function getSourcePath(filename) {
   return `src/${posix.slice(index + SRC_MARKER.length)}`;
 }
 
-/** File-kind checks based on canonical suffixes. */
+/**
+File-kind checks based on canonical suffixes.
+*/
 export function isComponentFile(sourcePath) {
   return /\.component\.tsx$/.test(sourcePath ?? '');
 }
@@ -48,7 +52,7 @@ export function isQueryFile(sourcePath) {
   return /\.(?:queries|mutations|invalidate)\.ts$/.test(sourcePath ?? '');
 }
 
-export function isUtilsFile(sourcePath) {
+export function isUtilitiesFile(sourcePath) {
   return /\.util\.ts$/.test(sourcePath ?? '');
 }
 
@@ -61,7 +65,7 @@ export function isMappersFile(sourcePath) {
 }
 
 export function isPureLogicFile(sourcePath) {
-  return isUtilsFile(sourcePath) || isHelpersFile(sourcePath) || isMappersFile(sourcePath);
+  return isUtilitiesFile(sourcePath) || isHelpersFile(sourcePath) || isMappersFile(sourcePath);
 }
 
 export function isQueryKeysFile(sourcePath) {
@@ -114,18 +118,22 @@ export function isTestFile(sourcePath) {
   );
 }
 
-/** Feature-module helpers. */
+/**
+Feature-module helpers.
+*/
 export function getModuleName(sourcePath) {
   const match = /^src\/modules\/([^/]+)\//.exec(sourcePath ?? '');
 
   return match ? match[1] : null;
 }
 
-/** Check whether a source path is inside one of the given directory prefixes. */
+/**
+Check whether a source path is inside one of the given directory prefixes.
+*/
 export function isUnderAny(sourcePath, prefixes) {
   const path = sourcePath ?? '';
 
-  return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}`));
+  return prefixes.some((prefix) => path === prefix || path.startsWith(prefix));
 }
 
 /**
@@ -156,9 +164,9 @@ export function resolveImportToSourcePath(importPath, importerFilename) {
       return null;
     }
 
-    const importerDir = importerSource.split('/').slice(0, -1);
+    const importerDirectory = importerSource.split('/').slice(0, -1);
     const segments = specifier.split('/');
-    const resolved = [...importerDir];
+    const resolved = [...importerDirectory];
 
     for (const segment of segments) {
       if (segment === '.' || segment === '') {
@@ -178,7 +186,9 @@ export function resolveImportToSourcePath(importPath, importerFilename) {
   return null;
 }
 
-/** True when the import specifier targets a bare npm package (not project code). */
+/**
+True when the import specifier targets a bare npm package (not project code).
+*/
 export function isBarePackageImport(importPath) {
   const specifier = String(importPath);
 
@@ -189,17 +199,19 @@ export function isBarePackageImport(importPath) {
   );
 }
 
-/** Extract the npm package name from a bare specifier (`@scope/pkg/sub` -> `@scope/pkg`). */
+/**
+Extract the npm package name from a bare specifier (`@scope/pkg/sub` -> `@scope/pkg`).
+*/
 export function getPackageName(importPath) {
   const specifier = String(importPath);
 
   if (specifier.startsWith('@')) {
-    const [scope, name] = specifier.split('/');
+    const [scope, name] = specifier.split('/', 2);
 
     return name ? `${scope}/${name}` : specifier;
   }
 
-  const [name] = specifier.split('/');
+  const [name] = specifier.split('/', 1);
 
   return name ?? specifier;
 }

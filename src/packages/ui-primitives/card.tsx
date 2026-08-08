@@ -2,10 +2,10 @@ import type { HTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
 
-export type CardProps = HTMLAttributes<HTMLDivElement>;
+export type CardProperties = HTMLAttributes<HTMLDivElement>;
 
-export function Card(props: Readonly<CardProps>): ReactElement {
-  const { className, ...rest } = props;
+export function Card(properties: Readonly<CardProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <div
@@ -18,14 +18,14 @@ export function Card(props: Readonly<CardProps>): ReactElement {
   );
 }
 
-export function CardHeader(props: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
-  const { className, ...rest } = props;
+export function CardHeader(properties: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
+  const { className, ...rest } = properties;
 
   return <div className={cn('flex flex-col gap-1.5', className)} {...rest} />;
 }
 
-export function CardTitle(props: Readonly<HTMLAttributes<HTMLHeadingElement>>): ReactElement {
-  const { className, children, ...rest } = props;
+export function CardTitle(properties: Readonly<HTMLAttributes<HTMLHeadingElement>>): ReactElement {
+  const { className, children, ...rest } = properties;
 
   return (
     <h2 className={cn('text-lg font-bold tracking-tight text-foreground', className)} {...rest}>
@@ -35,21 +35,21 @@ export function CardTitle(props: Readonly<HTMLAttributes<HTMLHeadingElement>>): 
 }
 
 export function CardDescription(
-  props: Readonly<HTMLAttributes<HTMLParagraphElement>>,
+  properties: Readonly<HTMLAttributes<HTMLParagraphElement>>,
 ): ReactElement {
-  const { className, ...rest } = props;
+  const { className, ...rest } = properties;
 
   return <p className={cn('text-sm text-muted-foreground', className)} {...rest} />;
 }
 
-export function CardContent(props: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
-  const { className, ...rest } = props;
+export function CardContent(properties: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
+  const { className, ...rest } = properties;
 
   return <div className={cn('pt-5', className)} {...rest} />;
 }
 
-export function CardFooter(props: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
-  const { className, ...rest } = props;
+export function CardFooter(properties: Readonly<HTMLAttributes<HTMLDivElement>>): ReactElement {
+  const { className, ...rest } = properties;
 
   return <div className={cn('flex items-center gap-3 pt-5', className)} {...rest} />;
 }

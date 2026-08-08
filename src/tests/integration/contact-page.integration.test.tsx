@@ -48,7 +48,7 @@ describe('ContactPageContainer', () => {
   });
 
   it('does not show a copy confirmation when the clipboard write is denied', async () => {
-    vi.spyOn(browserPackage, 'copyTextToClipboard').mockResolvedValue(false);
+    vi.spyOn(browserPackage, 'didCopyTextToClipboard').mockResolvedValue(false);
 
     const element = await ContactPageContainer({ locale: 'en' });
     const user = userEvent.setup();
@@ -65,7 +65,7 @@ describe('ContactPageContainer', () => {
   });
 
   it('fails silently when the clipboard promise rejects', async () => {
-    vi.spyOn(browserPackage, 'copyTextToClipboard').mockRejectedValue(new Error('denied'));
+    vi.spyOn(browserPackage, 'didCopyTextToClipboard').mockRejectedValue(new Error('denied'));
 
     const element = await ContactPageContainer({ locale: 'en' });
     const user = userEvent.setup();
@@ -82,7 +82,7 @@ describe('ContactPageContainer', () => {
   });
 
   it('copies the email address to the clipboard and confirms with a toast', async () => {
-    const copySpy = vi.spyOn(browserPackage, 'copyTextToClipboard').mockResolvedValue(true);
+    const copySpy = vi.spyOn(browserPackage, 'didCopyTextToClipboard').mockResolvedValue(true);
 
     const element = await ContactPageContainer({ locale: 'en' });
     const user = userEvent.setup();

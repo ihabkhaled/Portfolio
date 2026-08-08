@@ -4,8 +4,8 @@ import { buildPageTitle } from '@/shared/helpers/page-title.helper';
 import { mapSchemaIssuesToFieldErrors } from '@/shared/mappers/schema-issues-to-field-errors.mapper';
 import { isSafeExternalUrl } from '@/shared/security/external-url.helper';
 import { buildIndexedTestId } from '@/shared/testing/test-id.helper';
-import { assertNever } from '@/shared/utils/assert-never.util';
-import { isDefined } from '@/shared/utils/is-defined.util';
+import { assertNever } from '@/shared/utils/assert-never.utility';
+import { isDefined } from '@/shared/utils/is-defined.utility';
 
 describe('isDefined', () => {
   it('narrows away null and undefined but keeps falsy values', () => {

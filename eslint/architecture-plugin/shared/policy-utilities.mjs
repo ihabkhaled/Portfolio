@@ -3,7 +3,7 @@
  * evaluate config-driven `{ from, forbid, allowIn, message }` policies.
  */
 
-import { getModuleName, getSourcePath, toPosixPath } from './source-utils.mjs';
+import { getModuleName, getSourcePath, toPosixPath } from './source-utilities.mjs';
 
 /**
  * Classify a project source path into an architecture layer id.
@@ -46,7 +46,7 @@ export function classifySourcePath(sourcePath) {
 
   if (moduleName) {
     const rest = path.slice(`src/modules/${moduleName}/`.length);
-    const [firstSegment] = rest.split('/');
+    const [firstSegment] = rest.split('/', 1);
     const knownLayers = new Set([
       'api',
       'gateway',
@@ -76,7 +76,9 @@ export function classifySourcePath(sourcePath) {
   return { layer: 'unknown', moduleName: null };
 }
 
-/** Classify the importing file of an ESLint context. */
+/**
+Classify the importing file of an ESLint context.
+*/
 export function classifyContextFile(context) {
   const sourcePath = getSourcePath(toPosixPath(context.filename));
 

@@ -17,6 +17,23 @@ test.describe('home page', () => {
     await expect(page.getByRole('contentinfo')).toBeVisible();
   });
 
+  test('renders the cover matching the active locale above the name', async ({ page }) => {
+    await page.goto('/en');
+
+    const englishCover = page.getByRole('img', {
+      name: /Ihab Khaled.*Senior Software Engineer/iu,
+    });
+    await expect(englishCover).toHaveAttribute('src', /%2Fsocial%2Fen\.png/u);
+    await expect(englishCover).toHaveAttribute('width', '1200');
+    await expect(englishCover).toHaveAttribute('height', '630');
+
+    await page.goto('/ar');
+
+    const arabicCover = page.locator('img[src*="%2Fsocial%2Far.png"]');
+    await expect(arabicCover).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  });
+
   test('navigates to projects through the primary call to action', async ({ page }) => {
     await page.goto('/en');
 
@@ -42,6 +59,6 @@ test.describe('home page', () => {
 
     await page.getByRole('link', { name: 'Back to home' }).click();
 
-    await expect(page).toHaveURL('/en');
+    await expect(page).toHaveURL('/');
   });
 });

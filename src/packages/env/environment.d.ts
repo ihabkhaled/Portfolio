@@ -7,6 +7,7 @@
  */
 
 declare namespace NodeJS {
+  // eslint-disable-next-line unicorn/name-replacements -- see docs/exceptions/EXC-0011-nodejs-process-env-declaration-merge.md
   interface ProcessEnv {
     readonly NEXT_PUBLIC_APP_ENV?: string;
     readonly NEXT_PUBLIC_APP_URL?: string;

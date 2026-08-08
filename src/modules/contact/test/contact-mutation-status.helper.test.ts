@@ -37,9 +37,8 @@ describe('resolveContactStatus', () => {
   });
 
   it('returns "error" when the error is not an HttpError', () => {
-    expect(resolveContactStatus(buildMutation({ isError: true, error: new Error('boom') }))).toBe(
-      'error',
-    );
+    const error = new Error('boom');
+    expect(resolveContactStatus(buildMutation({ isError: true, error }))).toBe('error');
   });
 
   it('returns "idle" when nothing is pending, successful, or errored', () => {

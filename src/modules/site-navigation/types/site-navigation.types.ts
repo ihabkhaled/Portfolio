@@ -3,7 +3,9 @@ import type { MouseEventHandler } from 'react';
 
 import type { AppLocale } from '@/packages/i18n';
 
-/** `primary` is the header, `footer` the reduced set, `all` the mobile sheet. */
+/**
+`primary` is the header, `footer` the reduced set, `all` the mobile sheet.
+*/
 export type SiteNavigationScope = 'primary' | 'footer' | 'all';
 
 export type SiteNavigationLabelKey =
@@ -11,7 +13,7 @@ export type SiteNavigationLabelKey =
 
 export type SiteNavigationLabels = Readonly<Record<SiteNavigationLabelKey, string>>;
 
-export interface SiteNavigationProps {
+export interface SiteNavigationProperties {
   readonly locale: AppLocale;
   readonly labels: SiteNavigationLabels;
   readonly scope: SiteNavigationScope;

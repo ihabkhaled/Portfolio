@@ -2,10 +2,10 @@ import type { ReactElement, TextareaHTMLAttributes } from 'react';
 
 import { cn } from './cn';
 
-export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextareaProperties = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export function Textarea(props: Readonly<TextareaProps>): ReactElement {
-  const { className, ...rest } = props;
+export function Textarea(properties: Readonly<TextareaProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <textarea

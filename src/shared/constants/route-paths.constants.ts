@@ -16,10 +16,14 @@ export const ROUTE_PATHS = {
   offline: '/offline' as Route,
 } as const;
 
-/** Catalog-derived public API. @public */
+/**
+Catalog-derived public API. @public
+*/
 export type AppRoutePath = (typeof ROUTE_PATHS)[keyof typeof ROUTE_PATHS];
 
-/** Canonical path for a single project case study. */
+/**
+Canonical path for a single project case study.
+*/
 export function buildProjectPath(slug: string): Route {
   return `${ROUTE_PATHS.projects}/${slug}` as Route;
 }

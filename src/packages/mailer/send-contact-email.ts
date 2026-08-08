@@ -2,7 +2,7 @@ import 'server-only';
 
 import nodemailer from 'nodemailer';
 
-import { getServerEnv } from '@/packages/env/server';
+import { getServerEnvironment } from '@/packages/env/server';
 
 import { ContactEmailUnavailableError, type ContactEmailInput } from './mailer.types';
 
@@ -19,7 +19,7 @@ const SUBJECT_PREFIX = '[Portfolio contact]';
  * callers map that to a 503, never a 500.
  */
 export async function sendContactEmail(input: ContactEmailInput): Promise<void> {
-  const { contactEmail } = getServerEnv();
+  const { contactEmail } = getServerEnvironment();
 
   if (!contactEmail.enabled) {
     throw new ContactEmailUnavailableError();

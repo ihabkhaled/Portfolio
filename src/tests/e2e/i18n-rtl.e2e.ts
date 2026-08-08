@@ -1,12 +1,22 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('localized URL and RTL contracts', () => {
-  test('the bare origin redirects to the default English page', async ({ page }) => {
+  test('the bare origin serves the default English page without redirecting', async ({
+    page,
+    request,
+  }) => {
+    const response = await request.get('/', { maxRedirects: 0 });
+
+    expect(response.status()).toBe(200);
+    expect(response.headers()['location']).toBeUndefined();
+
     await page.goto('/');
 
-    await expect(page).toHaveURL('/en');
+    await expect(page).toHaveURL(/\/$/u);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /\/en$/u);
+    await expect(page.getByRole('heading', { name: 'Ihab Khaled', level: 1 })).toBeVisible();
   });
 
   test('the Arabic URL is an independently crawlable RTL page', async ({ page }) => {

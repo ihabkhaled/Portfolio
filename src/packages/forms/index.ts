@@ -6,7 +6,7 @@
 export type {
   AppFieldErrors,
   AppFormReturn,
-  AppRegisteredFieldProps,
+  AppRegisteredFieldProperties,
   AppZodFormOptions,
 } from './form-types';
 export { useAppZodForm } from './use-app-zod-form.hook';

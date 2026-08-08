@@ -14,7 +14,7 @@ import {
   isTestFile,
   isUnderAny,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
 export default {
   meta: {
@@ -72,12 +72,10 @@ export default {
         const packageName = getPackageName(specifier);
 
         for (const boundary of boundaries) {
-          const matches =
-            boundary.matchSubpaths === false
-              ? specifier === boundary.package
-              : packageName === boundary.package;
+          const isMatches =
+            (boundary.matchSubpaths === false ? specifier : packageName) === boundary.package;
 
-          if (!matches) {
+          if (!isMatches) {
             continue;
           }
 
