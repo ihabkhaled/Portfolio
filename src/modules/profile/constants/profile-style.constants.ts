@@ -9,6 +9,9 @@ export const heroClasses = {
   inner:
     'relative mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:px-10 lg:py-28',
   content: 'grid gap-6',
+  coverFrame:
+    'overflow-hidden rounded-xl border border-primary/40 bg-primary/10 p-1 shadow-[0_1.25rem_4rem_-2rem_color-mix(in_oklab,var(--primary)_45%,transparent)]',
+  coverImage: 'h-auto w-full rounded-lg border border-border bg-surface-raised object-contain',
   eyebrow:
     'font-mono text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-primary-readable',
   name: 'font-display text-[clamp(2.75rem,7vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.035em]',
@@ -20,7 +23,6 @@ export const heroClasses = {
   socialLink:
     'text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline',
   aside: 'grid gap-4',
-  portrait: 'rounded-lg border border-border object-cover',
 } as const;
 
 export const indicatorClasses = {

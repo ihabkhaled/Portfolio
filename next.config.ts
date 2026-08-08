@@ -94,6 +94,13 @@ const nextConfig: NextConfig = {
       },
     ]);
   },
+  rewrites() {
+    return Promise.resolve({
+      beforeFiles: [{ source: '/', destination: '/en' }],
+      afterFiles: [],
+      fallback: [],
+    });
+  },
 };
 
 export default withNextIntl(nextConfig);

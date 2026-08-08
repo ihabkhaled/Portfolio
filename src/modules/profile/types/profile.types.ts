@@ -44,6 +44,7 @@ export interface HomePageContainerProps {
 }
 
 export interface HeroProps {
+  readonly cover: ReactNode;
   readonly eyebrow: string;
   readonly name: string;
   readonly role: string;

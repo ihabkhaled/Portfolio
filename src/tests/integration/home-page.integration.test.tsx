@@ -40,6 +40,13 @@ describe('HomePageContainer', () => {
     render(element);
 
     expect(screen.getByRole('heading', { name: 'Ihab Khaled', level: 1 })).toBeInTheDocument();
+    const cover = screen.getByRole('img', { name: enMessages.app.seoTitle });
+    const name = screen.getByRole('heading', { name: 'Ihab Khaled', level: 1 });
+
+    expect(cover).toHaveAttribute('src', expect.stringContaining('%2Fsocial%2Fen.png'));
+    expect(cover).toHaveAttribute('width', '1200');
+    expect(cover).toHaveAttribute('height', '630');
+    expect(cover.compareDocumentPosition(name) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
     expect(screen.getByText(enMessages.home.tagline)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: enMessages.home.ctaProjects })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: enMessages.app.downloadCv })).toHaveAttribute(

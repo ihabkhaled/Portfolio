@@ -9,6 +9,7 @@ import {
   selectFeaturedProjects,
 } from '@/modules/projects';
 import { getServerTranslations } from '@/packages/i18n';
+import { AppImage } from '@/packages/image';
 import { AppLink, ExternalLink } from '@/packages/link';
 import { buttonVariants } from '@/packages/ui-primitives';
 import {
@@ -113,6 +114,17 @@ export async function HomePageContainer(props: HomePageContainerProps): Promise<
   return (
     <>
       <Hero
+        cover={
+          <AppImage
+            src={`/social/${locale}.png`}
+            alt={tApp('seoTitle')}
+            width={1200}
+            height={630}
+            sizes="(min-width: 1024px) 55vw, 100vw"
+            preload
+            className={heroClasses.coverImage}
+          />
+        }
         eyebrow={t('eyebrow')}
         name={tApp('title')}
         role={tApp('role')}

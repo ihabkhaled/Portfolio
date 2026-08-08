@@ -10,6 +10,7 @@ export function Hero(props: HeroProps): ReactElement {
       <div className={heroClasses.grid} aria-hidden />
       <div className={heroClasses.inner}>
         <div className={heroClasses.content}>
+          <div className={heroClasses.coverFrame}>{props.cover}</div>
           <p className={heroClasses.eyebrow}>{props.eyebrow}</p>
           <h1 className={heroClasses.name}>{props.name}</h1>
           <p className={heroClasses.role}>{props.role}</p>
