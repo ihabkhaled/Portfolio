@@ -4,155 +4,155 @@
     "en": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "7c00fd067223613f59496896ac4ee3f26843b99e7a26262f6afd8a605d19dff5",
-        "800": "b3990360b4e4b01df2fdc2fe42a105474478dfaba36f7738bdcdc283aa76c9ff",
-        "900": "5cad7508eec22a46a17264c7b8dd52b5be963cd33af230fd5928b4a1b972e854"
+        "400": "39657c5fe9cc26f9a9209cc4578779350538dcdb7270ab81fdbb22a3ed085658",
+        "800": "792e162f442c435403d2adf9028591e9d43cae5ca1381847bb1209b102ef6b73",
+        "900": "3c2f07896275dd8a4333ab21255d8cce65e8dcf7283cce1f4c4dc61da4b64f0e"
       },
-      "messageHash": "af0a513ef72d0d8c7ce9e1e3e6d5ab0c8771cc06405f204a267501e4d5b1568a"
+      "messageHash": "d7dd82c5289eb3bcaf4a572f7523fa7bde0ff0f8086d35233c9561b82c956b6f"
     },
     "ar": {
       "family": "Noto Sans Arabic",
       "fontHashes": {
-        "400": "388bf6a364242ea99d061da8927e47c9fa1b0534baded37d450b476230f1d314",
-        "800": "676bbb45886b5631783744eb13a85fb08756722f43c24cb8eb3038d1de857fbd",
-        "900": "cf0d753f5b65d138ad04eff5e0b8cc01b4811ec653495cbb857d3ab6a1d3a75b"
+        "400": "85e4e6483701389604b5968a24a24d0f54c5e026345866001c66bc598af0580e",
+        "800": "40e831d0e5043cfb162786f8fb7d12d48460e517dfefabb03a1455aa7465400e",
+        "900": "8da76a2b60089c27aca71d69f6c87ce31eca5578985abf35326a2ab4f89bc716"
       },
-      "messageHash": "4b30ced034af9864f3858f953dc43d087f91f13401d27d9535d9a349c9ffc476"
+      "messageHash": "cd83dcd42381d110a0edf89dc4d496ff49c5406cb1d2c27ce9b4890d2595b1f6"
     },
     "fr": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "da6f28c1433de46037c558c6c73ec18308b60c970b9b0ba5c65ec949e61fea20",
-        "800": "729b0db9704d2d579aa6d2251c0838efbccffdf0e7214be8022d586217c3806f",
-        "900": "7a7dbb4a8abb543f7aaba57b713ff53e310c3a6f6626296e3e662966e0bca6ff"
+        "400": "1c2048ded70e51e2b26c40e77c7ce975eb31ae792f5617fda93af7ed2b25493e",
+        "800": "80adcd5874549974eddfb35914dfa73c3ee6e80b7a25563bb60cca67c43f11e4",
+        "900": "902e6cb4c39cf1fa7bcf083381e5374b775130b4300b12b9ce3d42adb5e21adb"
       },
-      "messageHash": "7da8c024118f921c49830cca75f3387ff5b1fcc3453102013caf0b468a1fd95a"
+      "messageHash": "e10fa3e78d9e058e59cb9fa973602d080dd17a6ba0cb18347e282aba64c37ac1"
     },
     "it": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "d5dc0d9781e06ce7a3cbcd870648ce248eebb1dbd904633f75f5b827027d7bca",
-        "800": "96214c569b8e9c5b3a0e981bc6f82cc7fbbbf4e6a24612c6c3a2a625a00dc3b6",
-        "900": "5654ef9ea910794029877899cdf57811401c330d3dd0092a20ca31ff7fbe6352"
+        "400": "71137bdf52be3e16615c31d6cda28549ffe8561abb3fcbb8087906835b1fd460",
+        "800": "2d77165564d8513d7bf7a7c5954c4a189fda6fa65ed794a44b330962c34a5172",
+        "900": "bbc50cbe083fe6ed117ac3df42f6ee7133331feaea34ab3e95201bb7fd68c8ab"
       },
-      "messageHash": "16caada437855c5a6fb566e27ba9eca57f06bde1bc9a07908f188ab18f1f2497"
+      "messageHash": "29b9e631d76f18a534d92ce255e54175f4667d3e16cf12ea131b88293c7690f0"
     },
     "de": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "c0b8aa9b9d42007e17da4f12d78efdb3503dd518f13d650739b6e832ef9a9d3e",
-        "800": "8b3de136985a05eeee463b954be5c4881fc52632b8ddaa5bb23d8e718fd57d8a",
-        "900": "57b7927bb170e358d9a48454d03efd2100da27143104ce9119e6d709dbe26ef8"
+        "400": "91ff1ec27b9dc4e226c95a8fb4cbcc7ceac73909c057da162d19013719363e85",
+        "800": "31e218bd22609436d44dd8ae7e96636c45aa0115ee626e2fe695b7631157b2dc",
+        "900": "8237e899f274cb084b49c5ac75379b33cc7615b984cd054726c2eb66bf751088"
       },
-      "messageHash": "57b49c90b2271caa8cefd56ff8144c4add228878ce3d154f60bc0d0f3737fcde"
+      "messageHash": "0a02bdfa309c07eb4a4b59007f157abb360b12309f340585cb50c3313cfb88fc"
     },
     "hi": {
       "family": "Noto Sans Devanagari",
       "fontHashes": {
-        "400": "84f6e06c0874e04a14d116e83bba6b5e0188deaf8339e6f5bc0c3ccd5463b5d0",
-        "800": "aeb6344d759658aa735b4f9c9454d5085abf8ee2babe9fad5ce5b92a6ff22383",
-        "900": "ed8c7c6328dac04b4ca4120c0812ed2fc558cc497db2a48de1d7612e981b4f09"
+        "400": "fd18a2478d50c7a4459f34175b2a44202415a19a7fcb610c677c46f305938201",
+        "800": "b8debe6113115b603fb1f9b329eaab86f46bba111608781591fbf4e325270663",
+        "900": "c1af380b170cec266d0879815300154b1ec57b939a115e6b6310e7d5fd2ad435"
       },
-      "messageHash": "fcebbef21e1cab1a59fb023d49233c9b465e954b649fde1bd76030f3b786e07b"
+      "messageHash": "99e32943f4f171c26aed157de9b81b07d1b1827da246ec5d9abc0ad796bea8df"
     },
     "fa": {
       "family": "Noto Sans Arabic",
       "fontHashes": {
-        "400": "06361bca9abb2a0c3c1cf8779cb4177d7d89a887b9f7a03f53810f71f60e8f09",
-        "800": "b5ffcc2bbd2f4c61fba51c5247177e73384efb0c357f9f414f5076977ea7caa6",
-        "900": "2cfaf270963ebd55e19593225d8614b0a7065cbc93d7d6f6f39628bf4ed987be"
+        "400": "d40ad23173de3c8b7a342edbaa36220da4ee1cb3097765ca695634a4da52face",
+        "800": "790b830f4c6e671700802eec7c0e3835ea06649aa6c00fbd80c1fccbf69f8e02",
+        "900": "d75e7fd5b0830bc23a8d702bf03b5db724d43eb2ae89ff0dbef5a86b6810520b"
       },
-      "messageHash": "f28d06018b9925a266fd135d3c290708b29181b3f6bdfeaf31b4c4b84eb32c5d"
+      "messageHash": "9047886772f1a6fe4a2601e439f88c19d2af7b3bc66abf72df8f4e9ad87117d6"
     },
     "th": {
       "family": "Noto Sans Thai",
       "fontHashes": {
-        "400": "fa9020a0a2b4dad15b6009273987948eb23d62019e93d48dd73375b7f1294ee8",
-        "800": "892d1142be698c33f0beb19a89b5dd2d66e9f23b819ae1eac20ca2205f44226b",
-        "900": "fcbae8cafdf5564fd345771af2323f6aad4e4ce287eb90dbbe4f70aac428edba"
+        "400": "7d1b4efce5a7c5772e5015e01dab14212c7480f5fb174fc6cf843f8ec2d8a725",
+        "800": "ce006cf0ee189b996f3b5d5aba2f8713f3dcc1c1bf077ffc47c87ffc5c2779d1",
+        "900": "bcda1c6e5eaa6358da6ca7473d9d832d8d715e171f9d0d529df200ec6ee3688b"
       },
-      "messageHash": "5ed9c21e6e68c616acf5710874799273c917bae21545159b62a6ea00320124ba"
+      "messageHash": "17facfb60d89e858564b9664d0e22683e45be46451c3c6b44a383f05f089d946"
     },
     "ja": {
       "family": "Noto Sans JP",
       "fontHashes": {
-        "400": "32a57dab3c88f6c1881d7e9045a89bd23ca512ca6e38349789bed4a0a9cd65a0",
-        "800": "86c9dfce7c2f7fe4d03813b8418eb47dbc7899104d4c2811beac0a92c395c8bc",
-        "900": "633b763d380dfffcec2e33448fccf7a80caf497f607abe011c1fc3acafc4c422"
+        "400": "9df7a35ff59c0673ad81579a23f19461958f9564628a5d081895780600584720",
+        "800": "49176b7004b65c8b5bf354c118ce55b70f5167f2fc7479adee528748ff1c2f24",
+        "900": "97db80b5ea477734d324e664f6d1c9d9a4e92cc4e863651d983e984b3dbbdac3"
       },
-      "messageHash": "d6745d06c7fb648c1c8d55591889de73545232a03f632a65842ec37f83d39cdd"
+      "messageHash": "9b0857be69e1824d65578a01a940df7af3704263096332aa96a74fb1d16b6cd7"
     },
     "zh": {
       "family": "Noto Sans SC",
       "fontHashes": {
-        "400": "d5453532f27e3dfedb99545f54ffb5290ec30bb076933fa992ad0c07eaf5ad66",
-        "800": "a660c3e95504fd21718dd609b49e0407545d87fc9237c23a7c525ccaffc404ae",
-        "900": "f2f0ad1c4fb4e061913e1653e42fe9ce555709569df2997e5aded70b1b0e2f89"
+        "400": "007103b39f9a2eed51df28e71ddf4ec136bd5a4106016aef124ffdb9943371dc",
+        "800": "0e175a574a5fd823b04db82dc93029fc88dcbbd7a87a4fe5409d71c9a60a0428",
+        "900": "b6ff67715d8e331b5647cc4618ecaefffacfe9ed09affe16eac99a30ca6cdaa6"
       },
-      "messageHash": "986d2ce93a0211ca3144fa6cb231d09d46612782901e67facebee4218b344d05"
+      "messageHash": "a6af5954c74d15a0e27c3f90fbdbde51a2bdf291dde7769f42a7df1b0e45cca8"
     },
     "es": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "96e45fa59646503f11b32b8f9893e9a7ab5d3c6bd3e25ce629e8a6ceaeec808c",
-        "800": "ec644fda5b675227cdde2d866c1d47c33f04ad284f00bc28c868fb9590373581",
-        "900": "ac2eb7cefee1c7b2802eb5ee6d6abc13ee253394ef6b779896ef13a0ca7d53aa"
+        "400": "e54f6d629ede21840dabbacae3a060a80b8d090712c38428f694fd8e8f987589",
+        "800": "8756df271866b3936613667ffc89a0fd71a1fd33b151fa7dfdb9a5be77545305",
+        "900": "419b53786a0aea2b50045ca05cbaa154f381cc22fcd2dead92437de5cf4d44d2"
       },
-      "messageHash": "d02e8aeb1a313fcc439402704669e02d689e5e67cc926e64d8a905f55d77dee4"
+      "messageHash": "b93d6175b136a4e012e51e41622b8e6f4c86c7fc77c02443e245b16eb695db0e"
     },
     "pt": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "6b7f3fe4368d5a79168f593d243419e3302368aaf9a3bb3ef13827a16722d94f",
-        "800": "164d6f5da3e7fe5d98c90eca4819b373d26ce4c22dc7ece34f6c4118d4e23fa2",
-        "900": "85018ac3f131bad6c1ee50d4b0d3b72e87be6e7cbe6f3a82a5d2b471ac27e23d"
+        "400": "401b06fec18d7bd093732d44a30ce46302756d1ac747936c5c98aa6599e55ecc",
+        "800": "612317c9d616fdaf96100f3fdd583bb4bf9cc2e65cc337c548d51c7f8a053d9e",
+        "900": "49e8a97fc9aa8e03f31fa5144f1a10f39d2bfb7c30a22eeeab58c670820f2e10"
       },
-      "messageHash": "2f97f53a3c2f72e854e475011cd52a0b2af895f812284f91bfa5e6edaf49275d"
+      "messageHash": "bb2caf77ef60e9ea93242267740702576b4786847cb2e897c7020becde5e18d6"
     },
     "ko": {
       "family": "Noto Sans KR",
       "fontHashes": {
-        "400": "12565a4850f5ba5a1d487b3459567e46f8e0bf83a91049e2523184b8705b2323",
-        "800": "3aa3b670bb767c75cbe1fda3c6d2f36720dec405dc67e088c322d0127784bd24",
-        "900": "b015a53477d1709fbf5f674f1cdd506905648d978336b7a3032bc930b9ed2725"
+        "400": "751cd79dad08ba9b9b1b07c9ea5683d0ec7f0f739dd271e036bb411c4f109696",
+        "800": "ea9d91280e1a7ac00224e07b5d601ac8c1760941bc3990ac1cefd9b470314fc0",
+        "900": "4b4f84ae505c1f4695b83c8c53d935f060ef98c797e24cf606f79f014ff8ef21"
       },
-      "messageHash": "c97eecb0c2982adcb0312c8d871cf88c14cb5c46190636ee67cb056310db723a"
+      "messageHash": "fecb3662f4c3fc84cddd92d0c637a7219d1663be599c8c181fd184e5a246f1d5"
     },
     "tr": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "d828aab804bb66287ffb1fb9e9444f2eb78a3c68fcf4564d909e493a271c6e78",
-        "800": "af3e1f348ad52e09f742b10c2e9ffdd79d40e0bc87e812e6a5c9687af8365463",
-        "900": "b95e04f4562f53327f7619631a0464b8b6476747028cd6e147229ee4fcc7f845"
+        "400": "a2d5dc769303e6ad80804ba1d9f9c2979fff56adee263f72b86d2138940b4d48",
+        "800": "c8d58184954eeceaebf7915f8a45cd712c0b78f3327e70eadc0f13480900f85b",
+        "900": "a8c54ab626529d4cf845067284dca4904ca74c7bbe4fe525c155dbdf115aec6d"
       },
-      "messageHash": "ae655cf3f89f41bb60c2eed56587cc14eb2ce705a7f5ee8b249d8d728f8cc8f6"
+      "messageHash": "dd0c02f29916e0c4dd9d8f793c4903a6a6d9b553ca069e820c80597ec836dc62"
     },
     "ru": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "9a5b4982d1056cc6a6f8ebf202b9641b5b9e445dbdf35f592098c072718da82d",
-        "800": "a1740efda547b44f169e3ad3d958d4573d2f06e8484c61f70a56fda704df716b",
-        "900": "0961803ab359394d3ee8414de9d24d9156aa7efb77e53300bdf631aae3d20311"
+        "400": "2dc219152fd691bda11e9fec1e6e54fe6c8b5a9cdfe7838ddec02dccea36814f",
+        "800": "fd3c54c2f44dc5caccad602e0e637a1ef380f520344ef4f409bd376f2d4ea936",
+        "900": "264ee1989ff3871af8877724197cb700d036005a32182748c43bd347786621c2"
       },
-      "messageHash": "3811bb043fb40ba3b961f7be9111f51f0171a3138cef6f966daa3bd6bd6b8bd1"
+      "messageHash": "06bbe5d98f0978867a6b5d09ef54ed376084b3efecd75e1d833891f839f53610"
     },
     "id": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "4c58b38598be1585e02b885b2d10419b1f241c16ff4be202614042ab337d9dd1",
-        "800": "e4ef518785b8fb29241adbfc9837e1119b45edb0ab8800fdffc380970feb46d2",
-        "900": "60cac96975e007bdb6e406422fc4a7fd0c920f549bf428b1f116b94729fd5e18"
+        "400": "1ad231ecdb1ef3202a43386ba02dce19388a2e122cbc625b6deaa3b0e1ce894e",
+        "800": "5af8becce481aec1eb1ff4152daa1d38bb8790fa8af22ab0c173a709c45273fa",
+        "900": "16b595b06cac6e0be1f1bba90e46fc1ff99329811e79d01da171e0b7a38e42b7"
       },
-      "messageHash": "bf720f4de5bc5070c826c05239765d56027009e9df747caa46ece9eec8f51bc6"
+      "messageHash": "15ec2cf078fa8057def0c06012687f125b6b87eea329948e08f26d8dbd949f24"
     },
     "nl": {
       "family": "Noto Sans",
       "fontHashes": {
-        "400": "9b5717631552cc7dfd542a6c45b23fe86e81178d4e7aa3dceea62d856abd2bb7",
-        "800": "6cefcfa4cab6acefec0e4b4d65c8c5a22cb2cd85ddfd9302d8e87241ce56ca75",
-        "900": "f3668776e4dc0a06e5a75474fb03e493a215ad3f7052f07232879773d0a806cb"
+        "400": "f36c73684afaa44d152eaacf3e5cb46298a776fb2c6ca4173b658702da5e214b",
+        "800": "d4265b7e009d4a3741b054035d53810fe2105fc39f331a26f27f1bb484936a1f",
+        "900": "512cc1e39e8c6494feb8b53402419e71c97e5dbf2199672f5ffd666e39630860"
       },
-      "messageHash": "3e0c311ca32e6d52bb7c8d1c4a74b4117d8c9fbdbc5e1cd974880868310f06b8"
+      "messageHash": "85a57748b9bb343cc898c3ee93ab08a8ca55a626dd643d19b2b312432484fb74"
     }
   }
 }

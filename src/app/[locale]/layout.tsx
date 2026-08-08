@@ -27,6 +27,7 @@ import { siteShellClasses } from '@/shared/components/layout/site-shell.variants
 import { SkipLink } from '@/shared/components/primitives/skip-link.component';
 import { StructuredDataScript } from '@/shared/components/seo/structured-data-script.component';
 import { appConfig } from '@/shared/config/app-config';
+import { ADSENSE_CLIENT, ADSENSE_SCRIPT_URL } from '@/shared/constants/adsense.constants';
 import { ROUTE_PATHS } from '@/shared/constants/route-paths.constants';
 import { TEST_IDS } from '@/shared/constants/test-ids.constants';
 import { appFontClassName } from '@/shared/fonts/app-fonts';
@@ -54,6 +55,9 @@ export const metadata: Metadata = {
       { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  other: {
+    'google-adsense-account': ADSENSE_CLIENT,
   },
 };
 
@@ -126,6 +130,15 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
     <html lang={locale} dir={direction} data-theme="light" className={appFontClassName}>
       <head>
         <Script src="/theme-init.js" strategy="beforeInteractive" nonce={nonce} />
+        {appConfig.isProduction ? (
+          <Script
+            async
+            src={`${ADSENSE_SCRIPT_URL}?client=${ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+            nonce={nonce}
+            strategy="afterInteractive"
+          />
+        ) : null}
         <StructuredDataScript json={personJsonLd} />
         <StructuredDataScript json={websiteJsonLd} />
       </head>

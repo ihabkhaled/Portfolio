@@ -40,7 +40,22 @@ export async function readLocaleRecord(locale) {
   const copy = {
     description: messages.home.tagline,
     eyebrow: messages.home.eyebrow,
+    featureRows: [
+      messages.app.description,
+      `${messages.nav.projects} • ${messages.app.downloadCv} • ${messages.nav.contact}`,
+      `${messages.home.capabilities.testing} • ${messages.home.capabilities.security} • ${messages.home.capabilities.cloud}`,
+    ],
     role: messages.app.role,
+    technologies: [
+      'Node.js',
+      'NestJS',
+      'Next.js',
+      'TypeScript',
+      'TDD',
+      'Docker',
+      'Redis',
+      'Queues',
+    ],
     title: messages.app.title,
   };
   const sourceText = [
@@ -48,7 +63,8 @@ export async function readLocaleRecord(locale) {
     copy.title,
     copy.role,
     copy.description,
-    'IK',
+    ...copy.featureRows,
+    ...copy.technologies,
     `/${locale}`,
   ].join(' ');
 

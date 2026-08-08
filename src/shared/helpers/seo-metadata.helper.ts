@@ -50,6 +50,7 @@ export function buildSeoMetadata(input: SeoMetadataInput): Metadata {
           url: socialImageUrl,
           width: SOCIAL_IMAGE_SIZE.width,
           height: SOCIAL_IMAGE_SIZE.height,
+          type: 'image/png',
           alt: input.socialImageAlt,
         },
       ],
@@ -60,7 +61,17 @@ export function buildSeoMetadata(input: SeoMetadataInput): Metadata {
       description: input.description,
       images: [{ url: socialImageUrl, alt: input.socialImageAlt }],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 

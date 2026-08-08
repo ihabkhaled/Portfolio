@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it, vi } from 'vitest';
@@ -47,6 +47,7 @@ const { buildRouteMetadata } = await import('@/shared/helpers/route-metadata.hel
 const repoRoot = path.resolve(import.meta.dirname, '../../..');
 const serviceWorkerSource = readFileSync(path.join(repoRoot, 'public/sw.js'), 'utf8');
 const iconSource = readFileSync(path.join(repoRoot, 'public/icons/icon.svg'), 'utf8');
+const adsTextPath = path.join(repoRoot, 'public/ads.txt');
 
 describe('SEO and PWA contracts', () => {
   it('builds reciprocal locale alternates including x-default', () => {
@@ -76,7 +77,17 @@ describe('SEO and PWA contracts', () => {
         description: 'Systèmes publics et travaux professionnels sélectionnés.',
         keywords: ['Node.js', 'TypeScript'],
         publisher: appConfig.appName,
-        robots: { index: true, follow: true },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+            'max-video-preview': -1,
+          },
+        },
       }),
     );
     expect(metadata.alternates?.canonical).toBe(buildAbsoluteAppUrl('/fr/projects'));
@@ -92,6 +103,7 @@ describe('SEO and PWA contracts', () => {
             url: buildAbsoluteAppUrl(`${SOCIAL_IMAGE_DIRECTORY}/fr.png`),
             width: SOCIAL_IMAGE_SIZE.width,
             height: SOCIAL_IMAGE_SIZE.height,
+            type: 'image/png',
             alt: `Projets · ${appConfig.appName}`,
           },
         ],
@@ -152,7 +164,12 @@ describe('SEO and PWA contracts', () => {
 
     const crawlerRules = robots().rules;
     expect(crawlerRules).not.toBeInstanceOf(Array);
-    expect(crawlerRules).toEqual(expect.objectContaining({ userAgent: '*' }));
+    expect(crawlerRules).toEqual(
+      expect.objectContaining({
+        userAgent: '*',
+        allow: ['/', '/ads.txt', '/sitemap.xml', '/social/'],
+      }),
+    );
     const disallowed = Array.isArray(crawlerRules) ? undefined : crawlerRules.disallow;
     expect(disallowed).toContain('/api/');
     for (const locale of SUPPORTED_LOCALES) {
@@ -160,6 +177,13 @@ describe('SEO and PWA contracts', () => {
         expect(disallowed).toContain(buildLocalizedPath(locale, path));
       }
     }
+  });
+
+  it('publishes the exact root AdSense authorization record', () => {
+    expect(existsSync(adsTextPath)).toBe(true);
+    expect(readFileSync(adsTextPath, 'utf8')).toBe(
+      'google.com, pub-2415314275784926, DIRECT, f08c47fec0942fa0\n',
+    );
   });
 
   it('keeps service-worker locale and request exclusions aligned', () => {

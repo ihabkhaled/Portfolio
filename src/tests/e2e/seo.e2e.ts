@@ -4,6 +4,22 @@ import { SUPPORTED_LOCALES } from '@/packages/i18n';
 import { INDEXABLE_PATHS, NON_INDEXABLE_PATHS } from '@/shared/constants/seo.constants';
 import { buildLocalizedPath } from '@/shared/helpers/localized-route.helper';
 
+const EXPECTED_CASE_STUDY_PATHS = [
+  '/projects/clawai',
+  '/projects/auraspear',
+  '/projects/foodorder',
+  '/projects/twinzyai',
+  '/projects/nextranger',
+  '/projects/myoncare',
+  '/projects/garment-io',
+  '/projects/tarsyaa',
+  '/projects/ovarc',
+  '/projects/callrater',
+  '/projects/vms',
+  '/projects/health-integrations',
+  '/projects/payment-integrations',
+] as const;
+
 test.describe('search and social discovery', () => {
   test('publishes complete localized metadata and a reachable social image', async ({
     page,
@@ -26,7 +42,10 @@ test.describe('search and social discovery', () => {
       'content',
       'summary_large_image',
     );
-
+    await expect(page.locator('meta[name="google-adsense-account"]')).toHaveAttribute(
+      'content',
+      'ca-pub-2415314275784926',
+    );
     const socialImage = await page.locator('meta[property="og:image"]').getAttribute('content');
     const socialImageAlt = await page
       .locator('meta[property="og:image:alt"]')
@@ -37,6 +56,7 @@ test.describe('search and social discovery', () => {
     const imageResponse = await request.get(socialImage ?? '');
     expect(imageResponse.ok()).toBe(true);
     expect(imageResponse.headers()['content-type']).toContain('image/png');
+    expect(await imageResponse.body()).not.toHaveLength(0);
   });
 
   test('every locale publishes a reachable, correctly typed social image', async ({ request }) => {
@@ -84,19 +104,30 @@ test.describe('search and social discovery', () => {
   }) => {
     const robotsResponse = await request.get('/robots.txt');
     const sitemapResponse = await request.get('/sitemap.xml');
+    const adsTextResponse = await request.get('/ads.txt');
     const robotsText = await robotsResponse.text();
     const sitemapText = await sitemapResponse.text();
 
     expect(robotsResponse.ok()).toBe(true);
     expect(sitemapResponse.ok()).toBe(true);
+    expect(adsTextResponse.ok()).toBe(true);
+    expect(await adsTextResponse.text()).toBe(
+      'google.com, pub-2415314275784926, DIRECT, f08c47fec0942fa0\n',
+    );
+    expect(robotsText).toContain('Allow: /ads.txt');
+    expect(robotsText).toContain('Allow: /sitemap.xml');
+    expect(robotsText).toContain('Allow: /social/');
     expect(robotsText).toContain('Disallow: /api/');
     expect(robotsText).toContain('Disallow: /en/offline');
     expect(robotsText).toContain('Disallow: /ar/offline');
     expect(sitemapText.match(/<url>/gu)).toHaveLength(
-      INDEXABLE_PATHS.length * SUPPORTED_LOCALES.length,
+      (INDEXABLE_PATHS.length + EXPECTED_CASE_STUDY_PATHS.length) * SUPPORTED_LOCALES.length,
     );
-    expect(sitemapText).toContain('/en/projects');
-    expect(sitemapText).toContain('/ar/projects');
+    for (const locale of SUPPORTED_LOCALES) {
+      for (const path of [...INDEXABLE_PATHS, ...EXPECTED_CASE_STUDY_PATHS]) {
+        expect(sitemapText).toContain(buildLocalizedPath(locale, path));
+      }
+    }
     expect(sitemapText).not.toContain('/en/offline');
   });
 });
