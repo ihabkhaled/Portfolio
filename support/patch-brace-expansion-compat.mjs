@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
-const EXPECTED_VERSION = '5.0.8';
+const EXPECTED_VERSION = '5.0.9';
 const COMMON_JS_MARKER = '// strict-boilerplate: legacy CommonJS compatibility';
 const ESM_MARKER = '// strict-boilerplate: legacy ESM compatibility';
 const packageRoots = [];
