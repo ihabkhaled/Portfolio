@@ -23,6 +23,9 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: false,
+    // Keep interaction-heavy jsdom tests responsive on high-core hosts where
+    // unconstrained workers otherwise compete until individual tests time out.
+    maxWorkers: 4,
     setupFiles: ['./src/tests/setup/vitest.setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     exclude: [
