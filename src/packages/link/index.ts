@@ -3,4 +3,9 @@
  * routes); external links use ExternalLink (rel-safety enforced).
  */
 
-export { AppLink, ExternalLink, type AppLinkProps, type ExternalLinkProps } from './app-link';
+export {
+  AppLink,
+  ExternalLink,
+  type AppLinkProperties,
+  type ExternalLinkProperties,
+} from './app-link';

@@ -2,10 +2,10 @@ import type { InputHTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement>;
+export type InputProperties = InputHTMLAttributes<HTMLInputElement>;
 
-export function Input(props: Readonly<InputProps>): ReactElement {
-  const { className, ...rest } = props;
+export function Input(properties: Readonly<InputProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <input

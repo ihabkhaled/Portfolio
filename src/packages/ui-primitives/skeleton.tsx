@@ -2,10 +2,10 @@ import type { HTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
 
-export type SkeletonProps = HTMLAttributes<HTMLDivElement>;
+export type SkeletonProperties = HTMLAttributes<HTMLDivElement>;
 
-export function Skeleton(props: Readonly<SkeletonProps>): ReactElement {
-  const { className, ...rest } = props;
+export function Skeleton(properties: Readonly<SkeletonProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <div

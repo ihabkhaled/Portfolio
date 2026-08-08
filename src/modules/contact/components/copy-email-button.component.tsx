@@ -1,12 +1,12 @@
 import type { ReactElement } from 'react';
 
 import { copyEmailButtonClasses } from '../constants/copy-email-button-style.constants';
-import type { CopyEmailButtonProps } from '../types/copy-email.types';
+import type { CopyEmailButtonProperties } from '../types/copy-email.types';
 
-export function CopyEmailButton(props: CopyEmailButtonProps): ReactElement {
+export function CopyEmailButton(properties: CopyEmailButtonProperties): ReactElement {
   return (
-    <button type="button" className={copyEmailButtonClasses.button} onClick={props.onClick}>
-      {props.label}
+    <button type="button" className={copyEmailButtonClasses.button} onClick={properties.onClick}>
+      {properties.label}
     </button>
   );
 }

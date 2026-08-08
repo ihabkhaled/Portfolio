@@ -1,27 +1,30 @@
 'use client';
 // client-boundary-reason: reads the system clipboard, a browser-only API.
 
-import { copyTextToClipboard } from '@/packages/browser';
+import { didCopyTextToClipboard } from '@/packages/browser';
 import { showToast, ToastType } from '@/packages/toast';
 
 import type {
-  CopyEmailButtonContainerProps,
-  CopyEmailButtonProps,
+  CopyEmailButtonContainerProperties,
+  CopyEmailButtonProperties,
 } from '../types/copy-email.types';
 
-export function useCopyEmailButton(props: CopyEmailButtonContainerProps): CopyEmailButtonProps {
+export function useCopyEmailButton(
+  properties: CopyEmailButtonContainerProperties,
+): CopyEmailButtonProperties {
   const onClick = (): void => {
-    copyTextToClipboard(props.email)
-      .then((didCopy) => {
+    void (async (): Promise<void> => {
+      try {
+        const didCopy = await didCopyTextToClipboard(properties.email);
         if (didCopy) {
-          showToast({ type: ToastType.Success, message: props.labels.copiedLabel });
+          showToast({ type: ToastType.Success, message: properties.labels.copiedLabel });
         }
-      })
-      .catch(() => {
+      } catch {
         // Clipboard access can be denied by the browser; failing silently here
         // is correct because the email address is also visible as plain text.
-      });
+      }
+    })();
   };
 
-  return { label: props.labels.copyLabel, onClick };
+  return { label: properties.labels.copyLabel, onClick };
 }

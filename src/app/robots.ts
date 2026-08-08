@@ -15,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: ['/', '/ads.txt', '/sitemap.xml', '/social/'],
       disallow: ['/api/', ...privateDocuments],
     },
-    sitemap: new URL('/sitemap.xml', appConfig.appUrl).toString(),
+    sitemap: new URL('/sitemap.xml', appConfig.appUrl).href,
     host: appConfig.appUrl,
   };
 }

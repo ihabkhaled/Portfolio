@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { getServerEnv } from '@/packages/env/server';
+import { getServerEnvironment } from '@/packages/env/server';
 import { appLogger } from '@/packages/logger';
 
 import {
@@ -10,9 +10,9 @@ import {
   GITHUB_REQUEST_TIMEOUT_MS,
   GITHUB_REVALIDATE_SECONDS,
 } from '../constants/github.constants';
-import { mapRepositoryPayload } from '../mappers/github.mapper';
-import { githubRepositorySchema } from '../schemas/github.schema';
-import type { RepositorySnapshot } from '../types/github.types';
+import { mapRepoPayload } from '../mappers/github.mapper';
+import { githubRepoSchema } from '../schemas/github.schema';
+import type { RepoSnapshot } from '../types/github.types';
 
 function buildHeaders(token: string | null): Record<string, string> {
   const baseHeaders: Record<string, string> = {
@@ -37,18 +37,15 @@ function buildHeaders(token: string | null): Record<string, string> {
  * page height shift with whatever GitHub happens to return, or whether it
  * rate-limited the request, at that exact moment).
  */
-export async function fetchRepositorySnapshot(
-  owner: string,
-  repository: string,
-): Promise<RepositorySnapshot | null> {
-  const { githubToken, apiMocking } = getServerEnv();
+export async function fetchRepoSnapshot(owner: string, repo: string): Promise<RepoSnapshot | null> {
+  const { githubToken, apiMocking } = getServerEnvironment();
 
   if (apiMocking === 'enabled') {
     return null;
   }
 
   try {
-    const response = await fetch(`${GITHUB_API_ORIGIN}/repos/${owner}/${repository}`, {
+    const response = await fetch(`${GITHUB_API_ORIGIN}/repos/${owner}/${repo}`, {
       headers: buildHeaders(githubToken),
       signal: AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
       next: { revalidate: GITHUB_REVALIDATE_SECONDS },
@@ -56,22 +53,22 @@ export async function fetchRepositorySnapshot(
 
     if (!response.ok) {
       appLogger.warn('github repository request rejected', {
-        repository,
+        repository: repo,
         status: response.status,
       });
       return null;
     }
 
-    const parsed = githubRepositorySchema.safeParse(await response.json());
+    const parsed = githubRepoSchema.safeParse(await response.json());
     if (!parsed.success) {
-      appLogger.warn('github repository payload did not match the schema', { repository });
+      appLogger.warn('github repository payload did not match the schema', { repository: repo });
       return null;
     }
 
-    return mapRepositoryPayload(parsed.data);
+    return mapRepoPayload(parsed.data);
   } catch {
     // Deliberately swallowed: the static catalog is the contract with the page.
-    appLogger.warn('github repository request failed', { repository });
+    appLogger.warn('github repository request failed', { repository: repo });
     return null;
   }
 }

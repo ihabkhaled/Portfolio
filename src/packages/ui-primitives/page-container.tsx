@@ -2,11 +2,13 @@ import type { HTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
 
-export type PageContainerProps = HTMLAttributes<HTMLDivElement>;
+export type PageContainerProperties = HTMLAttributes<HTMLDivElement>;
 
-/** Standard page width, padding, and vertical rhythm. */
-export function PageContainer(props: Readonly<PageContainerProps>): ReactElement {
-  const { className, ...rest } = props;
+/**
+Standard page width, padding, and vertical rhythm.
+*/
+export function PageContainer(properties: Readonly<PageContainerProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <div

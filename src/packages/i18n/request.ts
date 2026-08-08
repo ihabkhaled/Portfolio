@@ -2,7 +2,9 @@ import { getRequestConfig } from 'next-intl/server';
 
 import { DEFAULT_LOCALE, isSupportedLocale } from './locale.constants';
 
-/** URL-derived next-intl request configuration. */
+/**
+URL-derived next-intl request configuration.
+*/
 export default getRequestConfig(async ({ requestLocale }) => {
   const requestedLocale = await requestLocale;
   const locale = isSupportedLocale(requestedLocale) ? requestedLocale : DEFAULT_LOCALE;

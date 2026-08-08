@@ -10,8 +10,8 @@ import {
   classifySourcePath,
   classifyContextFile,
   findViolatedPolicy,
-} from '../shared/policy-utils.mjs';
-import { resolveImportToSourcePath, isTestFile } from '../shared/source-utils.mjs';
+} from '../shared/policy-utilities.mjs';
+import { resolveImportToSourcePath, isTestFile } from '../shared/source-utilities.mjs';
 
 export default {
   meta: {

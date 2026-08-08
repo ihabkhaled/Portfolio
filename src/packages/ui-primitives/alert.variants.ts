@@ -14,4 +14,4 @@ export const alertVariants = cva('rounded-md border p-4 text-sm', {
   },
 });
 
-export type AlertVariantProps = VariantProps<typeof alertVariants>;
+export type AlertVariantProperties = VariantProps<typeof alertVariants>;

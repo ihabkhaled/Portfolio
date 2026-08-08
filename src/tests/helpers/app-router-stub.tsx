@@ -22,16 +22,16 @@ export function buildRouterStub(): AppRouterInstance {
 }
 
 export function AppRouterStubProvider(
-  props: Readonly<{
+  properties: Readonly<{
     router: AppRouterInstance;
     pathname?: string;
     children: ReactNode;
   }>,
 ): ReactElement {
   return (
-    <AppRouterContext.Provider value={props.router}>
-      <PathnameContext.Provider value={props.pathname ?? '/'}>
-        {props.children}
+    <AppRouterContext.Provider value={properties.router}>
+      <PathnameContext.Provider value={properties.pathname ?? '/'}>
+        {properties.children}
       </PathnameContext.Provider>
     </AppRouterContext.Provider>
   );

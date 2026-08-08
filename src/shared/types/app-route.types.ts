@@ -1,3 +1,3 @@
-export interface LocaleRouteProps {
+export interface LocaleRouteProperties {
   readonly params: Promise<{ locale: string }>;
 }

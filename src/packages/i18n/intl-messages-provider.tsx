@@ -10,15 +10,15 @@ export type AppMessages = AbstractIntlMessages;
  * context (tests, isolated rendering).
  */
 export function IntlMessagesProvider(
-  props: Readonly<{
+  properties: Readonly<{
     locale: AppLocale;
     messages: AppMessages;
     children: ReactNode;
   }>,
 ): ReactElement {
   return (
-    <NextIntlClientProvider locale={props.locale} messages={props.messages}>
-      {props.children}
+    <NextIntlClientProvider locale={properties.locale} messages={properties.messages}>
+      {properties.children}
     </NextIntlClientProvider>
   );
 }

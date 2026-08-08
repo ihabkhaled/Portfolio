@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { mapRepositoryPayload } from '../mappers/github.mapper';
-import { githubRepositorySchema } from '../schemas/github.schema';
+import { mapRepoPayload } from '../mappers/github.mapper';
+import { githubRepoSchema } from '../schemas/github.schema';
 
 const basePayload = {
   name: 'ClawAI',
@@ -18,9 +18,9 @@ const basePayload = {
 };
 
 const parse = (overrides: Record<string, unknown> = {}) =>
-  githubRepositorySchema.parse({ ...basePayload, ...overrides });
+  githubRepoSchema.parse({ ...basePayload, ...overrides });
 
-describe('githubRepositorySchema', () => {
+describe('githubRepoSchema', () => {
   it('accepts a complete payload', () => {
     expect(() => parse()).not.toThrow();
   });
@@ -41,7 +41,7 @@ describe('githubRepositorySchema', () => {
   });
 
   it('rejects a payload missing the required identity fields', () => {
-    expect(() => githubRepositorySchema.parse({ description: 'x' })).toThrow();
+    expect(() => githubRepoSchema.parse({ description: 'x' })).toThrow();
   });
 
   it('rejects negative counts', () => {
@@ -49,9 +49,9 @@ describe('githubRepositorySchema', () => {
   });
 });
 
-describe('mapRepositoryPayload', () => {
+describe('mapRepoPayload', () => {
   it('maps a complete payload to a snapshot', () => {
-    expect(mapRepositoryPayload(parse())).toEqual({
+    expect(mapRepoPayload(parse())).toEqual({
       name: 'ClawAI',
       description: 'Local-first AI orchestration.',
       url: 'https://github.com/ihabkhaled/ClawAI',
@@ -66,13 +66,13 @@ describe('mapRepositoryPayload', () => {
   });
 
   it('suppresses zero counts so no meaningless metric is rendered', () => {
-    const snapshot = mapRepositoryPayload(parse({ stargazers_count: 0, forks_count: 0 }));
+    const snapshot = mapRepoPayload(parse({ stargazers_count: 0, forks_count: 0 }));
     expect(snapshot.stars).toBeNull();
     expect(snapshot.forks).toBeNull();
   });
 
   it('treats blank strings as absent', () => {
-    const snapshot = mapRepositoryPayload(parse({ description: ' '.repeat(3), homepage: '' }));
+    const snapshot = mapRepoPayload(parse({ description: ' '.repeat(3), homepage: '' }));
     expect(snapshot.description).toBeNull();
     expect(snapshot.homepage).toBeNull();
   });
@@ -81,29 +81,25 @@ describe('mapRepositoryPayload', () => {
     // Built dynamically so lint fixers cannot "upgrade" the deliberate http URL.
     const insecureHomepage = ['http', '//insecure-host'].join(':');
 
-    expect(mapRepositoryPayload(parse({ homepage: 'javascript:alert(1)' })).homepage).toBeNull();
-    expect(mapRepositoryPayload(parse({ homepage: '/relative' })).homepage).toBeNull();
-    expect(mapRepositoryPayload(parse({ homepage: insecureHomepage })).homepage).toBeNull();
+    expect(mapRepoPayload(parse({ homepage: 'javascript:alert(1)' })).homepage).toBeNull();
+    expect(mapRepoPayload(parse({ homepage: '/relative' })).homepage).toBeNull();
+    expect(mapRepoPayload(parse({ homepage: insecureHomepage })).homepage).toBeNull();
   });
 
   it('drops an unidentified license', () => {
-    expect(mapRepositoryPayload(parse({ license: { spdx_id: 'NOASSERTION' } })).license).toBeNull();
-    expect(mapRepositoryPayload(parse({ license: null })).license).toBeNull();
+    expect(mapRepoPayload(parse({ license: { spdx_id: 'NOASSERTION' } })).license).toBeNull();
+    expect(mapRepoPayload(parse({ license: null })).license).toBeNull();
   });
 
   it('falls back to updated_at when pushed_at is absent', () => {
-    expect(mapRepositoryPayload(parse({ pushed_at: null })).lastActivityAt).toBe(
-      '2026-07-28T10:00:00Z',
-    );
+    expect(mapRepoPayload(parse({ pushed_at: null })).lastActivityAt).toBe('2026-07-28T10:00:00Z');
   });
 
   it('reports no activity when both timestamps are absent', () => {
-    expect(
-      mapRepositoryPayload(parse({ pushed_at: null, updated_at: null })).lastActivityAt,
-    ).toBeNull();
+    expect(mapRepoPayload(parse({ pushed_at: null, updated_at: null })).lastActivityAt).toBeNull();
   });
 
   it('defaults missing topics to an empty list', () => {
-    expect(mapRepositoryPayload(parse({ topics: null })).topics).toEqual([]);
+    expect(mapRepoPayload(parse({ topics: null })).topics).toEqual([]);
   });
 });

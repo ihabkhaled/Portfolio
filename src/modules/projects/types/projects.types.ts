@@ -1,10 +1,12 @@
 import type { Route } from 'next';
 import type { ReactNode } from 'react';
 
-import type { RepositorySnapshot } from '@/modules/github-profile';
+import type { RepoSnapshot } from '@/modules/github-profile';
 import type { AppLocale } from '@/packages/i18n';
 
-/** Filter facets shown on the projects index. `all` is the default facet. */
+/**
+Filter facets shown on the projects index. `all` is the default facet.
+*/
 export const PROJECT_CATEGORIES = [
   'all',
   'ai',
@@ -27,34 +29,52 @@ export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 export type ProjectKind = 'open-source' | 'professional';
 
 export interface ProjectLinks {
-  /** Public repository, only for open-source work. */
+  /**
+  Public repository, only for open-source work.
+  */
   readonly repository: string | null;
-  /** Live deployment, only when the URL has been verified to respond. */
+  /**
+  Live deployment, only when the URL has been verified to respond.
+  */
   readonly live: string | null;
 }
 
 export interface Project {
   readonly slug: string;
-  /** Product name — never translated. */
+  /**
+  Product name — never translated.
+  */
   readonly name: string;
   readonly kind: ProjectKind;
   readonly categories: readonly ProjectCategory[];
-  /** Technology tokens rendered verbatim in every locale. */
+  /**
+  Technology tokens rendered verbatim in every locale.
+  */
   readonly stack: readonly string[];
   readonly links: ProjectLinks;
-  /** Curated GitHub repository name, when one is tracked for live metadata. */
+  /**
+  Curated GitHub repository name, when one is tracked for live metadata.
+  */
   readonly repositoryName: string | null;
-  /** Lower sorts first. Editorial priority, never star count. */
+  /**
+  Lower sorts first. Editorial priority, never star count.
+  */
   readonly priority: number;
-  /** Featured on the home page. */
+  /**
+  Featured on the home page.
+  */
   readonly featured: boolean;
-  /** Has a full case-study page. */
+  /**
+  Has a full case-study page.
+  */
   readonly hasCaseStudy: boolean;
-  /** ISO date of last known activity, used when GitHub data is unavailable. */
+  /**
+  ISO date of last known activity, used when GitHub data is unavailable.
+  */
   readonly fallbackUpdatedAt: string | null;
 }
 
-export interface ProjectRowProps {
+export interface ProjectRowProperties {
   readonly name: string;
   readonly summary: string;
   readonly role: string;
@@ -68,9 +88,9 @@ export interface ProjectRowProps {
   readonly caseStudyLabel: string | null;
 }
 
-export interface ProjectListContainerProps {
+export interface ProjectListContainerProperties {
   readonly locale: AppLocale;
   readonly projects: readonly Project[];
-  readonly snapshots: readonly RepositorySnapshot[];
+  readonly snapshots: readonly RepoSnapshot[];
   readonly now: Date;
 }

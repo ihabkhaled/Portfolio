@@ -12,9 +12,11 @@ import {
   isComponentFile,
   isTestFile,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
-/** Attributes whose string values are never user-facing copy. */
+/**
+Attributes whose string values are never user-facing copy.
+*/
 const NON_COPY_ATTRIBUTES = new Set([
   'className',
   'id',

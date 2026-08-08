@@ -16,7 +16,7 @@ import noInlineClassnameOutsideDesignSystem from './architecture-plugin/rules/no
 import noInlineComponentLogic from './architecture-plugin/rules/no-inline-component-logic.mjs';
 import noInlineDeclarations from './architecture-plugin/rules/no-inline-declarations.mjs';
 import noInlineQueryKeys from './architecture-plugin/rules/no-inline-query-keys.mjs';
-import noProcessEnvOutsideConfig from './architecture-plugin/rules/no-process-env-outside-config.mjs';
+import noProcessEnvironmentOutsideConfig from './architecture-plugin/rules/no-process-environment-outside-config.mjs';
 import noRawI18nText from './architecture-plugin/rules/no-raw-i18n-text.mjs';
 import noRawPackageImports from './architecture-plugin/rules/no-raw-package-imports.mjs';
 import noReactInPureLayers from './architecture-plugin/rules/no-react-in-pure-layers.mjs';
@@ -37,7 +37,7 @@ export const frontendArchitecturePlugin = {
     'no-inline-component-logic': noInlineComponentLogic,
     'no-inline-declarations': noInlineDeclarations,
     'no-inline-query-keys': noInlineQueryKeys,
-    'no-process-env-outside-config': noProcessEnvOutsideConfig,
+    'no-process-environment-outside-config': noProcessEnvironmentOutsideConfig,
     'no-raw-i18n-text': noRawI18nText,
     'no-raw-package-imports': noRawPackageImports,
     'no-react-in-pure-layers': noReactInPureLayers,

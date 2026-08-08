@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { readStorageJson, removeStorageItem, writeStorageJson } from '@/packages/storage';
+import { readStorageJson, removeStorageItem, didWriteStorageJson } from '@/packages/storage';
 import { z } from '@/packages/zod';
 
 const schema = z.object({ theme: z.string() });
@@ -13,12 +13,12 @@ describe('web storage facade', () => {
   });
 
   it('round-trips JSON values through localStorage', () => {
-    expect(writeStorageJson('local', KEY, { theme: 'dark' })).toBe(true);
+    expect(didWriteStorageJson('local', KEY, { theme: 'dark' })).toBe(true);
     expect(readStorageJson('local', KEY, schema)).toEqual({ theme: 'dark' });
   });
 
   it('round-trips through sessionStorage independently', () => {
-    writeStorageJson('session', KEY, { theme: 'light' });
+    didWriteStorageJson('session', KEY, { theme: 'light' });
 
     expect(readStorageJson('session', KEY, schema)).toEqual({ theme: 'light' });
     expect(readStorageJson('local', KEY, schema)).toBeNull();
@@ -41,7 +41,7 @@ describe('web storage facade', () => {
   });
 
   it('removeStorageItem deletes the key', () => {
-    writeStorageJson('local', KEY, { theme: 'dark' });
+    didWriteStorageJson('local', KEY, { theme: 'dark' });
     removeStorageItem('local', KEY);
 
     expect(readStorageJson('local', KEY, schema)).toBeNull();

@@ -4,7 +4,9 @@ import type { AppLocale } from '@/packages/i18n';
 
 import type { ProjectCategory } from './projects.types';
 
-/** One project row, tagged with its categories so it can be filtered client-side. */
+/**
+One project row, tagged with its categories so it can be filtered client-side.
+*/
 export interface ProjectListEntry {
   readonly slug: string;
   readonly categories: readonly ProjectCategory[];
@@ -18,9 +20,11 @@ export interface ProjectFilterChipViewModel {
   readonly onSelect: () => void;
 }
 
-export interface ProjectFilterBarProps {
+export interface ProjectFilterBarProperties {
   readonly label: string;
-  /** Pre-rendered `ProjectFilterChip` elements — the caller owns the `.map()`. */
+  /**
+  Pre-rendered `ProjectFilterChip` elements — the caller owns the `.map()`.
+  */
   readonly chips: ReactNode;
 }
 
@@ -35,7 +39,7 @@ export interface UseProjectFiltersResult {
   readonly visibleEntries: readonly ProjectListEntry[];
 }
 
-export interface ProjectsFilterContainerProps {
+export interface ProjectsFilterContainerProperties {
   readonly entries: readonly ProjectListEntry[];
   readonly categories: readonly ProjectCategory[];
   readonly categoryLabels: Readonly<Record<ProjectCategory, string>>;
@@ -43,6 +47,6 @@ export interface ProjectsFilterContainerProps {
   readonly emptyLabel: string;
 }
 
-export interface ProjectsPageContainerProps {
+export interface ProjectsPageContainerProperties {
   readonly locale: AppLocale;
 }

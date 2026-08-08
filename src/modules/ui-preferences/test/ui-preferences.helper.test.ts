@@ -17,12 +17,12 @@ describe('resolveThemeAttribute', () => {
   });
 
   it('resolves system to dark when the OS prefers dark', () => {
-    vi.spyOn(browserModule, 'matchesMediaQuery').mockReturnValue(true);
+    vi.spyOn(browserModule, 'isMediaQueryMatched').mockReturnValue(true);
     expect(resolveThemeAttribute(AppTheme.System)).toBe(AppTheme.Dark);
   });
 
   it('resolves system to light when the OS does not prefer dark', () => {
-    vi.spyOn(browserModule, 'matchesMediaQuery').mockReturnValue(false);
+    vi.spyOn(browserModule, 'isMediaQueryMatched').mockReturnValue(false);
     expect(resolveThemeAttribute(AppTheme.System)).toBe(AppTheme.Light);
   });
 });

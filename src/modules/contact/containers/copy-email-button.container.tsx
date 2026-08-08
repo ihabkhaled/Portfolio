@@ -5,9 +5,11 @@ import type { ReactElement } from 'react';
 
 import { CopyEmailButton } from '../components/copy-email-button.component';
 import { useCopyEmailButton } from '../hooks/use-copy-email-button.hook';
-import type { CopyEmailButtonContainerProps } from '../types/copy-email.types';
+import type { CopyEmailButtonContainerProperties } from '../types/copy-email.types';
 
-export function CopyEmailButtonContainer(props: CopyEmailButtonContainerProps): ReactElement {
-  const button = useCopyEmailButton(props);
+export function CopyEmailButtonContainer(
+  properties: CopyEmailButtonContainerProperties,
+): ReactElement {
+  const button = useCopyEmailButton(properties);
   return <CopyEmailButton {...button} />;
 }

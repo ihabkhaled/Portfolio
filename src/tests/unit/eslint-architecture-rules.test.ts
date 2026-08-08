@@ -38,7 +38,7 @@ function createHarness(): ESLint {
           'frontend-architecture/no-raw-i18n-text': 'error',
           'frontend-architecture/no-inline-classname-outside-design-system': 'error',
           'frontend-architecture/no-cross-module-deep-imports': 'error',
-          'frontend-architecture/no-process-env-outside-config': 'error',
+          'frontend-architecture/no-process-environment-outside-config': 'error',
           'frontend-architecture/no-direct-browser-api-outside-packages': 'error',
           'frontend-architecture/no-inline-query-keys': 'error',
           'frontend-architecture/no-react-in-pure-layers': 'error',
@@ -101,7 +101,7 @@ describe('frontend-architecture rules against deliberate violations', () => {
 
     expect(ruleIds).toContain('frontend-architecture/no-raw-package-imports');
     expect(ruleIds).toContain('frontend-architecture/no-cross-module-deep-imports');
-    expect(ruleIds).toContain('frontend-architecture/no-process-env-outside-config');
+    expect(ruleIds).toContain('frontend-architecture/no-process-environment-outside-config');
     expect(ruleIds).toContain('frontend-architecture/no-direct-browser-api-outside-packages');
     expect(ruleIds).toContain('frontend-architecture/no-inline-declarations');
     expect(ruleIds).toContain('frontend-architecture/no-restricted-layer-imports');

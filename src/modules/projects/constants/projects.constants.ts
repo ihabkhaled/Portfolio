@@ -269,12 +269,16 @@ export const PROJECTS: readonly Project[] = [
   },
 ] as const;
 
-/** Repositories whose live GitHub metadata is fetched, in editorial order. */
+/**
+Repositories whose live GitHub metadata is fetched, in editorial order.
+*/
 export const CURATED_REPOSITORY_NAMES: readonly string[] = PROJECTS.flatMap((project) =>
   project.repositoryName === null ? [] : [project.repositoryName],
 );
 
-/** Days within which a repository still counts as recently active. */
+/**
+Days within which a repository still counts as recently active.
+*/
 export const RECENT_ACTIVITY_DAYS = 120;
 
 export const MILLISECONDS_PER_DAY = 86_400_000;

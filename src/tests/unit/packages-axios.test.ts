@@ -25,7 +25,12 @@ describe('createHttpClient interceptor', () => {
     );
 
     const client = createHttpClient();
-    const failure = await client.get('/interceptor-check').catch((error: unknown) => error);
+    let failure: unknown;
+    try {
+      await client.get('/interceptor-check');
+    } catch (error) {
+      failure = error;
+    }
 
     expect(isHttpError(failure)).toBe(true);
 

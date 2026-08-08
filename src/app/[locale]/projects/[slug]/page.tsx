@@ -17,18 +17,19 @@ import {
 } from '@/shared/helpers/structured-data.helper';
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
-interface CaseStudyRouteProps {
+interface CaseStudyRouteProperties {
   readonly params: Promise<{ locale: string; slug: string }>;
 }
 
+// eslint-disable-next-line unicorn/name-replacements -- see docs/exceptions/EXC-0010-nextjs-generate-static-params.md
 export function generateStaticParams(): { locale: string; slug: string }[] {
   return SUPPORTED_LOCALES.flatMap((locale) =>
     listCaseStudySlugs(PROJECTS).map((slug) => ({ locale, slug })),
   );
 }
 
-export async function generateMetadata(props: CaseStudyRouteProps): Promise<Metadata> {
-  const { locale, slug } = await props.params;
+export async function generateMetadata(properties: CaseStudyRouteProperties): Promise<Metadata> {
+  const { locale, slug } = await properties.params;
   if (!isSupportedLocale(locale)) return {};
   const project = PROJECTS.find((candidate) => candidate.slug === slug && candidate.hasCaseStudy);
   if (project === undefined) return {};
@@ -45,8 +46,10 @@ export async function generateMetadata(props: CaseStudyRouteProps): Promise<Meta
   });
 }
 
-export default async function CaseStudyPage(props: CaseStudyRouteProps): Promise<ReactElement> {
-  const { locale, slug } = await props.params;
+export default async function CaseStudyPage(
+  properties: CaseStudyRouteProperties,
+): Promise<ReactElement> {
+  const { locale, slug } = await properties.params;
   if (!isSupportedLocale(locale)) {
     appNotFound();
   }

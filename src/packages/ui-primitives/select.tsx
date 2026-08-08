@@ -2,10 +2,10 @@ import type { ReactElement, SelectHTMLAttributes } from 'react';
 
 import { cn } from './cn';
 
-export type SelectProps = SelectHTMLAttributes<HTMLSelectElement>;
+export type SelectProperties = SelectHTMLAttributes<HTMLSelectElement>;
 
-export function Select(props: Readonly<SelectProps>): ReactElement {
-  const { className, ...rest } = props;
+export function Select(properties: Readonly<SelectProperties>): ReactElement {
+  const { className, ...rest } = properties;
 
   return (
     <select

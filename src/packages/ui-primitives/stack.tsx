@@ -1,13 +1,15 @@
 import type { HTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
-import { stackVariants, type StackVariantProps } from './stack.variants';
+import { stackVariants, type StackVariantProperties } from './stack.variants';
 
-export interface StackProps extends HTMLAttributes<HTMLDivElement>, StackVariantProps {}
+export interface StackProperties extends HTMLAttributes<HTMLDivElement>, StackVariantProperties {}
 
-/** Flex layout primitive with logical-direction awareness (RTL-safe). */
-export function Stack(props: Readonly<StackProps>): ReactElement {
-  const { className, direction, gap, align, justify, wrap, ...rest } = props;
+/**
+Flex layout primitive with logical-direction awareness (RTL-safe).
+*/
+export function Stack(properties: Readonly<StackProperties>): ReactElement {
+  const { className, direction, gap, align, justify, wrap, ...rest } = properties;
 
   return (
     <div

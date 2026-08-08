@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { getRootAttribute, setRootAttribute } from '@/packages/browser';
-import { readStorageJson, writeStorageJson } from '@/packages/storage';
+import { readStorageJson, didWriteStorageJson } from '@/packages/storage';
 import { STORAGE_KEYS } from '@/shared/constants/storage-keys.constants';
 import { AppDirection } from '@/shared/enums/app-direction.enum';
 
@@ -63,7 +63,7 @@ export function useUiPreferencesEffects(): void {
       return;
     }
 
-    writeStorageJson('local', STORAGE_KEYS.uiPreferences, {
+    didWriteStorageJson('local', STORAGE_KEYS.uiPreferences, {
       theme,
       direction,
       isSidebarExpanded,

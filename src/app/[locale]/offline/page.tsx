@@ -7,17 +7,19 @@ import { PageContainer, Stack } from '@/packages/ui-primitives';
 import { buildPageTitle } from '@/shared/helpers/page-title.helper';
 import { buildNonIndexableMetadata } from '@/shared/helpers/seo-metadata.helper';
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
-import type { LocaleRouteProps } from '@/shared/types/app-route.types';
+import type { LocaleRouteProperties } from '@/shared/types/app-route.types';
 
-export async function generateMetadata(props: LocaleRouteProps): Promise<Metadata> {
-  const { locale } = await props.params;
+export async function generateMetadata(properties: LocaleRouteProperties): Promise<Metadata> {
+  const { locale } = await properties.params;
   if (!isSupportedLocale(locale)) return {};
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.pwa });
   return buildNonIndexableMetadata(buildPageTitle(t('offlineTitle')));
 }
 
-export default async function OfflinePage(props: LocaleRouteProps): Promise<ReactElement> {
-  const { locale } = await props.params;
+export default async function OfflinePage(
+  properties: LocaleRouteProperties,
+): Promise<ReactElement> {
+  const { locale } = await properties.params;
   if (!isSupportedLocale(locale)) {
     appNotFound();
   }

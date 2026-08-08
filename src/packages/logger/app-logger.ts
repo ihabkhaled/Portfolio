@@ -1,10 +1,10 @@
-import { publicEnv } from '@/packages/env';
+import { publicEnvironment } from '@/packages/env';
 
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 
 export type LogContext = Readonly<Record<string, unknown>>;
 
-const isVerboseEnvironment = publicEnv.appEnv !== 'production';
+const isVerboseEnvironment = publicEnvironment.appEnv !== 'production';
 
 function write(level: LogLevel, message: string, context?: LogContext): void {
   const payload = context ? [message, context] : [message];

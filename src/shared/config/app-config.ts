@@ -1,4 +1,4 @@
-import { publicEnv } from '@/packages/env';
+import { publicEnvironment } from '@/packages/env';
 
 export interface AppConfig {
   readonly appName: string;
@@ -8,11 +8,13 @@ export interface AppConfig {
   readonly isProduction: boolean;
 }
 
-/** Derived, validated application configuration. */
+/**
+Derived, validated application configuration.
+*/
 export const appConfig: AppConfig = {
   appName: 'Ihab Khaled',
-  appEnv: publicEnv.appEnv,
-  appUrl: publicEnv.appUrl,
-  contactEmail: publicEnv.contactEmail,
-  isProduction: publicEnv.appEnv === 'production',
+  appEnv: publicEnvironment.appEnv,
+  appUrl: publicEnvironment.appUrl,
+  contactEmail: publicEnvironment.contactEmail,
+  isProduction: publicEnvironment.appEnv === 'production',
 };

@@ -11,10 +11,12 @@ import { sectionClasses } from '@/shared/components/data-display/section.variant
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 import { resumeClasses } from '../constants/resume-style.constants';
-import type { ResumePageContainerProps } from '../types/resume.types';
+import type { ResumePageContainerProperties } from '../types/resume.types';
 
-export async function ResumePageContainer(props: ResumePageContainerProps): Promise<ReactElement> {
-  const { locale } = props;
+export async function ResumePageContainer(
+  properties: ResumePageContainerProperties,
+): Promise<ReactElement> {
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.resume });
   const tApp = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.app });
   const tExperience = await getServerTranslations({

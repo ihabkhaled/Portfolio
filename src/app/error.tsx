@@ -10,7 +10,7 @@ import { ErrorState } from '@/shared/components/feedback/error-state.component';
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 export default function RouteError(
-  props: Readonly<{
+  properties: Readonly<{
     error: Error & { digest?: string };
     reset: () => void;
   }>,
@@ -19,14 +19,14 @@ export default function RouteError(
 
   useEffect(() => {
     appLogger.error('Route error boundary caught an error', {
-      digest: props.error.digest,
-      message: props.error.message,
+      digest: properties.error.digest,
+      message: properties.error.message,
     });
-  }, [props.error]);
+  }, [properties.error]);
 
   return (
     <PageContainer>
-      <ErrorState message={t('description')} retryLabel={t('retry')} onRetry={props.reset} />
+      <ErrorState message={t('description')} retryLabel={t('retry')} onRetry={properties.reset} />
     </PageContainer>
   );
 }

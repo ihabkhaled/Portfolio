@@ -29,11 +29,15 @@ function buildFormWithFields(fields: Readonly<Record<string, string>>): HTMLForm
   return form;
 }
 
-function buildQueryClientWrapper(): (props: Readonly<{ children: ReactNode }>) => ReactElement {
+function buildQueryClientWrapper(): (
+  properties: Readonly<{ children: ReactNode }>,
+) => ReactElement {
   const queryClient = new AppQueryClient({ defaultOptions: { mutations: { retry: false } } });
 
-  function QueryClientWrapper(props: Readonly<{ children: ReactNode }>): ReactElement {
-    return <AppQueryClientProvider client={queryClient}>{props.children}</AppQueryClientProvider>;
+  function QueryClientWrapper(properties: Readonly<{ children: ReactNode }>): ReactElement {
+    return (
+      <AppQueryClientProvider client={queryClient}>{properties.children}</AppQueryClientProvider>
+    );
   }
 
   return QueryClientWrapper;

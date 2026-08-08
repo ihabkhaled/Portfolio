@@ -154,14 +154,16 @@ describe('project catalog integrity', () => {
   });
 
   it('never exposes a repository link for employer-owned work', () => {
-    for (const project of PROJECTS.filter((p) => p.kind === 'professional')) {
+    const professionalProjects = PROJECTS.filter((p) => p.kind === 'professional');
+    for (const project of professionalProjects) {
       expect(project.links.repository).toBeNull();
       expect(project.repositoryName).toBeNull();
     }
   });
 
   it('only tracks GitHub metadata for open-source projects', () => {
-    for (const project of PROJECTS.filter((p) => p.repositoryName !== null)) {
+    const projectsWithRepo = PROJECTS.filter((p) => p.repositoryName !== null);
+    for (const project of projectsWithRepo) {
       expect(project.kind).toBe('open-source');
     }
   });

@@ -1,14 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { copyTextToClipboard } from '@/packages/browser';
+import { didCopyTextToClipboard } from '@/packages/browser';
 
-describe('copyTextToClipboard', () => {
+describe('didCopyTextToClipboard', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
   it('resolves false when the clipboard API is unavailable (jsdom default)', async () => {
-    expect(await copyTextToClipboard('hello')).toBe(false);
+    expect(await didCopyTextToClipboard('hello')).toBe(false);
   });
 
   it('writes and resolves true when the clipboard API exists', async () => {
@@ -19,7 +19,7 @@ describe('copyTextToClipboard', () => {
       configurable: true,
     });
 
-    expect(await copyTextToClipboard('hello')).toBe(true);
+    expect(await didCopyTextToClipboard('hello')).toBe(true);
     expect(writeText).toHaveBeenCalledWith('hello');
   });
 
@@ -29,6 +29,6 @@ describe('copyTextToClipboard', () => {
       configurable: true,
     });
 
-    expect(await copyTextToClipboard('hello')).toBe(false);
+    expect(await didCopyTextToClipboard('hello')).toBe(false);
   });
 });

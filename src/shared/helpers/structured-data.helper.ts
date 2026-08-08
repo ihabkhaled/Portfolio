@@ -68,7 +68,7 @@ export function buildSoftwareSourceCodeStructuredData(
     name: input.name,
     description: input.description,
     url: input.url,
-    ...(input.codeRepository === null ? {} : { codeRepository: input.codeRepository }),
+    ...(input.codeRepository !== null && { codeRepository: input.codeRepository }),
     keywords: input.keywords.join(', '),
     author: { '@type': 'Person', name: input.authorName, url: input.authorUrl },
   };

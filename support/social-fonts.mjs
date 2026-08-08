@@ -26,7 +26,7 @@ async function downloadSubsets(record) {
     const block = match[1] ?? '';
     const weight = Number(block.match(/font-weight:\s*(\d+)/u)?.[1]);
     const fontUrl = block.match(/src:\s*url\((https:\/\/[^)]+)\)\s*format\('truetype'\)/u)?.[1];
-    if (FONT_WEIGHTS.includes(weight) && fontUrl) {
+    if (fontUrl && FONT_WEIGHTS.includes(weight)) {
       fontUrls[weight] = fontUrl;
     }
   }
@@ -52,7 +52,8 @@ async function downloadSubsets(record) {
 
 async function writeFonts(records) {
   await mkdir(FONT_DIRECTORY, { recursive: true });
-  for (const filename of await readdir(FONT_DIRECTORY)) {
+  const existingFiles = await readdir(FONT_DIRECTORY);
+  for (const filename of existingFiles) {
     if (filename.endsWith('.woff2')) {
       await unlink(path.join(FONT_DIRECTORY, filename));
     }

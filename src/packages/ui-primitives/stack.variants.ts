@@ -40,4 +40,4 @@ export const stackVariants = cva('flex', {
   },
 });
 
-export type StackVariantProps = VariantProps<typeof stackVariants>;
+export type StackVariantProperties = VariantProps<typeof stackVariants>;

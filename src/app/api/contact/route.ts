@@ -4,11 +4,11 @@ import {
   createRateLimiter,
   resolveClientKey,
 } from '@/modules/contact';
-import { getServerEnv } from '@/packages/env/server';
+import { getServerEnvironment } from '@/packages/env/server';
 import { appLogger } from '@/packages/logger';
 import { ContactEmailUnavailableError, sendContactEmail } from '@/packages/mailer';
 
-const { contactEmail } = getServerEnv();
+const { contactEmail } = getServerEnvironment();
 const contactRateLimiter = createRateLimiter(
   contactEmail.rateLimitMax,
   contactEmail.rateLimitWindowMs,
@@ -23,7 +23,13 @@ export async function POST(request: Request): Promise<Response> {
     return jsonResponse({ error: 'rate_limited' }, 429);
   }
 
-  const parsed = contactRequestSchema.safeParse(await request.json().catch(() => null));
+  let requestBody: unknown;
+  try {
+    requestBody = await request.json();
+  } catch {
+    requestBody = null;
+  }
+  const parsed = contactRequestSchema.safeParse(requestBody);
   if (!parsed.success) {
     return jsonResponse({ error: 'invalid_request' }, 400);
   }

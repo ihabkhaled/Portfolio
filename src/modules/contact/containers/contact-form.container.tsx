@@ -5,16 +5,16 @@ import type { ReactElement } from 'react';
 
 import { ContactForm } from '../components/contact-form.component';
 import { useContactForm } from '../hooks/use-contact-form.hook';
-import type { ContactFormContainerProps } from '../types/contact-form.types';
+import type { ContactFormContainerProperties } from '../types/contact-form.types';
 
-export function ContactFormContainer(props: ContactFormContainerProps): ReactElement {
-  const form = useContactForm(props.labels);
+export function ContactFormContainer(properties: ContactFormContainerProperties): ReactElement {
+  const form = useContactForm(properties.labels);
 
   return (
     <ContactForm
-      emailLabel={props.labels.emailLabel}
-      subjectLabel={props.labels.subjectLabel}
-      messageLabel={props.labels.messageLabel}
+      emailLabel={properties.labels.emailLabel}
+      subjectLabel={properties.labels.subjectLabel}
+      messageLabel={properties.labels.messageLabel}
       submitLabel={form.submitLabel}
       isSending={form.isSending}
       statusMessage={form.statusMessage}

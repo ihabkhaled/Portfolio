@@ -16,9 +16,9 @@ const ENABLED_ENV = {
   CONTACT_SMTP_PASS: 'pass',
 } as const;
 
-async function loadModuleWithEnv(env: Readonly<Record<string, string>>) {
+async function loadModuleWithEnvironment(environment: Readonly<Record<string, string>>) {
   vi.resetModules();
-  for (const [key, value] of Object.entries(env)) {
+  for (const [key, value] of Object.entries(environment)) {
     vi.stubEnv(key, value);
   }
   const [{ sendContactEmail }, { ContactEmailUnavailableError }] = await Promise.all([
@@ -39,7 +39,7 @@ describe('sendContactEmail', () => {
   });
 
   it('throws ContactEmailUnavailableError when the channel is disabled', async () => {
-    const { sendContactEmail, ContactEmailUnavailableError } = await loadModuleWithEnv({
+    const { sendContactEmail, ContactEmailUnavailableError } = await loadModuleWithEnvironment({
       CONTACT_EMAIL_ENABLED: 'false',
     });
 
@@ -50,7 +50,7 @@ describe('sendContactEmail', () => {
   });
 
   it('sends with the configured sender as from and the visitor as replyTo', async () => {
-    const { sendContactEmail } = await loadModuleWithEnv(ENABLED_ENV);
+    const { sendContactEmail } = await loadModuleWithEnvironment(ENABLED_ENV);
 
     await sendContactEmail({
       email: 'visitor@example.com',
@@ -65,20 +65,20 @@ describe('sendContactEmail', () => {
         disableUrlAccess: true,
       }),
     );
-    const callArgs = sendMailMock.mock.calls[0]?.[0] as Record<string, unknown>;
-    expect(callArgs['from']).toBe('noreply@example.com');
-    expect(callArgs['to']).toBe('owner@example.com');
-    expect(callArgs['replyTo']).toBe('visitor@example.com');
-    expect(callArgs['subject']).toContain('Project enquiry');
-    expect(callArgs['text']).toContain('Are you available for contract work?');
+    const callArguments = sendMailMock.mock.calls[0]?.[0] as Record<string, unknown>;
+    expect(callArguments['from']).toBe('noreply@example.com');
+    expect(callArguments['to']).toBe('owner@example.com');
+    expect(callArguments['replyTo']).toBe('visitor@example.com');
+    expect(callArguments['subject']).toContain('Project enquiry');
+    expect(callArguments['text']).toContain('Are you available for contract work?');
   });
 
   it('sends a plain-text body only, never HTML', async () => {
-    const { sendContactEmail } = await loadModuleWithEnv(ENABLED_ENV);
+    const { sendContactEmail } = await loadModuleWithEnvironment(ENABLED_ENV);
 
     await sendContactEmail({ email: 'visitor@example.com', subject: 'Hi', message: 'Body' });
 
-    const callArgs = sendMailMock.mock.calls[0]?.[0] as Record<string, unknown>;
-    expect(callArgs['html']).toBeUndefined();
+    const callArguments = sendMailMock.mock.calls[0]?.[0] as Record<string, unknown>;
+    expect(callArguments['html']).toBeUndefined();
   });
 });

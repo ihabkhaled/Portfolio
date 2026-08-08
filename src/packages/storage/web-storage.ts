@@ -57,8 +57,10 @@ export function readStorageJson<TSchema extends z.ZodType>(
   }
 }
 
-/** Write a JSON value; returns false when storage is unavailable or full. */
-export function writeStorageJson(area: WebStorageArea, key: string, value: unknown): boolean {
+/**
+Write a JSON value; returns false when storage is unavailable or full.
+*/
+export function didWriteStorageJson(area: WebStorageArea, key: string, value: unknown): boolean {
   const storage = getStorage(area);
 
   if (!storage) {

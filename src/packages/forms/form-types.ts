@@ -8,10 +8,12 @@ import type {
 
 import type { z } from '@/packages/zod';
 
-/** App-owned aliases so form consumers never name vendor types directly. */
+/**
+App-owned aliases so form consumers never name vendor types directly.
+*/
 export type AppFieldErrors<TFieldValues extends FieldValues> = FieldErrors<TFieldValues>;
 
-export type AppRegisteredFieldProps = UseFormRegisterReturn;
+export type AppRegisteredFieldProperties = UseFormRegisterReturn;
 
 export interface AppZodFormOptions<TFieldValues extends FieldValues> {
   readonly schema: z.ZodType<TFieldValues>;

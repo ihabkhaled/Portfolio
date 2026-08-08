@@ -6,8 +6,8 @@
  * layers. Behavior belongs in containers and hook files.
  */
 
-import { isHookName, REACT_BUILTIN_HOOKS } from '../shared/ast-utils.mjs';
-import { getSourcePath, isComponentFile, toPosixPath } from '../shared/source-utils.mjs';
+import { isHookName, REACT_BUILTIN_HOOKS } from '../shared/ast-utilities.mjs';
+import { getSourcePath, isComponentFile, toPosixPath } from '../shared/source-utilities.mjs';
 
 const FORBIDDEN_IMPORT_SEGMENTS = [
   '/hooks/',

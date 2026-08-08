@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { buildRepositoryActivityReport, indexSnapshotsByName } from '@/modules/github-profile';
+import { buildRepoActivityReport, indexSnapshotsByName } from '@/modules/github-profile';
 import { getServerTranslations } from '@/packages/i18n';
 import { Badge } from '@/packages/ui-primitives';
 import { PageIntro } from '@/shared/components/data-display/section.component';
@@ -17,20 +17,20 @@ import {
   listAvailableCategories,
   sortProjectsByPriority,
 } from '../helpers/project-filter.helper';
-import { buildRepositoryMetricLabels } from '../helpers/project-metrics.helper';
-import type { ProjectsPageContainerProps } from '../types/project-filter.types';
+import { buildRepoMetricLabels } from '../helpers/project-metrics.helper';
+import type { ProjectsPageContainerProperties } from '../types/project-filter.types';
 import { PROJECT_CATEGORIES, type ProjectCategory } from '../types/projects.types';
 
 import { ProjectsFilterContainer } from './projects-filter.container';
 
 export async function ProjectsPageContainer(
-  props: ProjectsPageContainerProps,
+  properties: ProjectsPageContainerProperties,
 ): Promise<ReactElement> {
-  const { locale } = props;
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.projects });
   const tGithub = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.github });
 
-  const activity = await buildRepositoryActivityReport(CURATED_REPOSITORY_NAMES);
+  const activity = await buildRepoActivityReport(CURATED_REPOSITORY_NAMES);
   const byName = indexSnapshotsByName(activity.repositories);
   const now = new Date();
 
@@ -44,13 +44,13 @@ export async function ProjectsPageContainer(
         {technology}
       </Badge>
     ));
-    const metrics = buildRepositoryMetricLabels(snapshot, (count) =>
-      tGithub('stars', { count }),
-    ).map((text) => (
-      <span key={text} className={projectRowClasses.metaItem}>
-        {text}
-      </span>
-    ));
+    const metrics = buildRepoMetricLabels(snapshot, (count) => tGithub('stars', { count })).map(
+      (text) => (
+        <span key={text} className={projectRowClasses.metaItem}>
+          {text}
+        </span>
+      ),
+    );
 
     return {
       slug: project.slug,
@@ -61,7 +61,7 @@ export async function ProjectsPageContainer(
           name={project.name}
           summary={t(`items.${project.slug}.summary`)}
           role={t(`items.${project.slug}.role`)}
-          kindLabel={project.kind === 'open-source' ? t('openSourceLabel') : t('professionalLabel')}
+          kindLabel={t(project.kind === 'open-source' ? 'openSourceLabel' : 'professionalLabel')}
           isOpenSource={project.kind === 'open-source'}
           isRecentlyActive={isRecentlyActive(lastActivity, now)}
           recentlyActiveLabel={tGithub('recentlyActive')}

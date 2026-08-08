@@ -1,54 +1,64 @@
 import type { ReactElement } from 'react';
 
 import type {
-  ManifestPanelProps,
-  ManifestRowProps,
-  PageIntroProps,
-  SectionProps,
+  ManifestPanelProperties,
+  ManifestRowProperties,
+  PageIntroProperties,
+  SectionProperties,
 } from '../types/shared-component.types';
 
 import { manifestClasses, sectionClasses } from './section.variants';
 
-/** One editorial section: eyebrow, title, optional lead, then content. */
-export function Section(props: SectionProps): ReactElement {
+/**
+One editorial section: eyebrow, title, optional lead, then content.
+*/
+export function Section(properties: SectionProperties): ReactElement {
   return (
-    <section className={sectionClasses.section} aria-labelledby={props.headingId}>
-      <p className={sectionClasses.eyebrow}>{props.eyebrow}</p>
+    <section className={sectionClasses.section} aria-labelledby={properties.headingId}>
+      <p className={sectionClasses.eyebrow}>{properties.eyebrow}</p>
       <div className={sectionClasses.column}>
-        <h2 id={props.headingId} className={sectionClasses.title}>
-          {props.title}
+        <h2 id={properties.headingId} className={sectionClasses.title}>
+          {properties.title}
         </h2>
-        {props.lead === undefined ? null : <p className={sectionClasses.lead}>{props.lead}</p>}
-        <div className={sectionClasses.body}>{props.children}</div>
+        {properties.lead === undefined ? null : (
+          <p className={sectionClasses.lead}>{properties.lead}</p>
+        )}
+        <div className={sectionClasses.body}>{properties.children}</div>
       </div>
     </section>
   );
 }
 
-/** The single h1 block at the top of a route. */
-export function PageIntro(props: PageIntroProps): ReactElement {
+/**
+The single h1 block at the top of a route.
+*/
+export function PageIntro(properties: PageIntroProperties): ReactElement {
   return (
     <div className={sectionClasses.pageHeader}>
-      <p className={sectionClasses.eyebrow}>{props.eyebrow}</p>
-      <h1 className={sectionClasses.pageTitle}>{props.title}</h1>
-      <p className={sectionClasses.pageLead}>{props.lead}</p>
+      <p className={sectionClasses.eyebrow}>{properties.eyebrow}</p>
+      <h1 className={sectionClasses.pageTitle}>{properties.title}</h1>
+      <p className={sectionClasses.pageLead}>{properties.lead}</p>
     </div>
   );
 }
 
-/** One label/value row — the recurring manifest motif. */
-export function ManifestRow(props: ManifestRowProps): ReactElement {
+/**
+One label/value row — the recurring manifest motif.
+*/
+export function ManifestRow(properties: ManifestRowProperties): ReactElement {
   return (
     <div className={manifestClasses.row}>
-      <dt className={manifestClasses.label}>{props.label}</dt>
-      <dd className={props.mono === true ? manifestClasses.valueMono : manifestClasses.value}>
-        {props.value}
+      <dt className={manifestClasses.label}>{properties.label}</dt>
+      <dd className={properties.mono === true ? manifestClasses.valueMono : manifestClasses.value}>
+        {properties.value}
       </dd>
     </div>
   );
 }
 
-/** Wraps pre-rendered `ManifestRow` elements. The caller owns the `.map()`. */
-export function ManifestPanel(props: ManifestPanelProps): ReactElement {
-  return <dl className={manifestClasses.panel}>{props.rows}</dl>;
+/**
+Wraps pre-rendered `ManifestRow` elements. The caller owns the `.map()`.
+*/
+export function ManifestPanel(properties: ManifestPanelProperties): ReactElement {
+  return <dl className={manifestClasses.panel}>{properties.rows}</dl>;
 }

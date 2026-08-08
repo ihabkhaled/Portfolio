@@ -12,7 +12,7 @@ export function mapSchemaIssuesToFieldErrors(
   for (const issue of issues) {
     const field = issue.path || '_root';
 
-    if (!(field in fieldErrors)) {
+    if (!Object.hasOwn(fieldErrors, field)) {
       fieldErrors[field] = issue.message;
     }
   }

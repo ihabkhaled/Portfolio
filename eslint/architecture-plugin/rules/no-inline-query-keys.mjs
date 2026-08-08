@@ -11,7 +11,7 @@ import {
   isQueryKeysFile,
   isTestFile,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
 const QUERY_KEY_PROPERTIES = new Set(['queryKey', 'mutationKey']);
 

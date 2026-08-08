@@ -1,8 +1,10 @@
 import type { ReactElement } from 'react';
 
-import type { VisuallyHiddenProps } from '../types/shared-component.types';
+import type { VisuallyHiddenProperties } from '../types/shared-component.types';
 
-/** Screen-reader-only content. */
-export function VisuallyHidden(props: VisuallyHiddenProps): ReactElement {
-  return <span className="sr-only">{props.children}</span>;
+/**
+Screen-reader-only content.
+*/
+export function VisuallyHidden(properties: VisuallyHiddenProperties): ReactElement {
+  return <span className="sr-only">{properties.children}</span>;
 }

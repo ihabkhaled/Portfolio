@@ -1,8 +1,8 @@
 import 'server-only';
 
 import { GITHUB_OWNER } from '../constants/github.constants';
-import { fetchRepositorySnapshot } from '../gateway/github.gateway';
-import type { RepositoryActivityReport, RepositorySnapshot } from '../types/github.types';
+import { fetchRepoSnapshot } from '../gateway/github.gateway';
+import type { RepoActivityReport, RepoSnapshot } from '../types/github.types';
 
 /**
  * Fetches the curated repositories concurrently and reports whether any of
@@ -13,26 +13,24 @@ import type { RepositoryActivityReport, RepositorySnapshot } from '../types/gith
  * parallel and each one fails independently: one dead repository never blanks
  * the whole panel.
  */
-export async function buildRepositoryActivityReport(
-  repositoryNames: readonly string[],
-): Promise<RepositoryActivityReport> {
-  const results = await Promise.all(
-    repositoryNames.map((name) => fetchRepositorySnapshot(GITHUB_OWNER, name)),
-  );
+export async function buildRepoActivityReport(
+  repoNames: readonly string[],
+): Promise<RepoActivityReport> {
+  const results = await Promise.all(repoNames.map((name) => fetchRepoSnapshot(GITHUB_OWNER, name)));
 
-  const repositories = results.filter(
-    (snapshot): snapshot is RepositorySnapshot => snapshot !== null,
-  );
+  const repositories = results.filter((snapshot): snapshot is RepoSnapshot => snapshot !== null);
 
   return {
     repositories,
-    degraded: repositories.length !== repositoryNames.length,
+    degraded: repositories.length !== repoNames.length,
   };
 }
 
-/** Index snapshots by repository name for O(1) lookup from the view layer. */
+/**
+Index snapshots by repository name for O(1) lookup from the view layer.
+*/
 export function indexSnapshotsByName(
-  snapshots: readonly RepositorySnapshot[],
-): ReadonlyMap<string, RepositorySnapshot> {
+  snapshots: readonly RepoSnapshot[],
+): ReadonlyMap<string, RepoSnapshot> {
   return new Map(snapshots.map((snapshot) => [snapshot.name, snapshot]));
 }

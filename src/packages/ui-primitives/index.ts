@@ -5,12 +5,12 @@
  * imports variants/constants.
  */
 
-export { Alert, type AlertProps } from './alert';
-export { alertVariants, type AlertVariantProps } from './alert.variants';
-export { Badge, type BadgeProps } from './badge';
-export { badgeVariants, type BadgeVariantProps } from './badge.variants';
-export { Button, type ButtonProps } from './button';
-export { buttonVariants, type ButtonVariantProps } from './button.variants';
+export { Alert, type AlertProperties } from './alert';
+export { alertVariants, type AlertVariantProperties } from './alert.variants';
+export { Badge, type BadgeProperties } from './badge';
+export { badgeVariants, type BadgeVariantProperties } from './badge.variants';
+export { Button, type ButtonProperties } from './button';
+export { buttonVariants, type ButtonVariantProperties } from './button.variants';
 export {
   Card,
   CardContent,
@@ -18,16 +18,16 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
-  type CardProps,
+  type CardProperties,
 } from './card';
 export { cn } from './cn';
-export { Divider, type DividerProps } from './divider';
-export { Input, type InputProps } from './input';
-export { Label, type LabelProps } from './label';
-export { PageContainer, type PageContainerProps } from './page-container';
-export { Select, type SelectProps } from './select';
-export { Skeleton, type SkeletonProps } from './skeleton';
-export { Spinner, type SpinnerProps } from './spinner';
-export { Stack, type StackProps } from './stack';
-export { stackVariants, type StackVariantProps } from './stack.variants';
-export { Textarea, type TextareaProps } from './textarea';
+export { Divider, type DividerProperties } from './divider';
+export { Input, type InputProperties } from './input';
+export { Label, type LabelProperties } from './label';
+export { PageContainer, type PageContainerProperties } from './page-container';
+export { Select, type SelectProperties } from './select';
+export { Skeleton, type SkeletonProperties } from './skeleton';
+export { Spinner, type SpinnerProperties } from './spinner';
+export { Stack, type StackProperties } from './stack';
+export { stackVariants, type StackVariantProperties } from './stack.variants';
+export { Textarea, type TextareaProperties } from './textarea';

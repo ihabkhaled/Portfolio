@@ -1,5 +1,5 @@
 import type { AppLocale } from '@/packages/i18n';
 
-export interface AboutPageContainerProps {
+export interface AboutPageContainerProperties {
   readonly locale: AppLocale;
 }

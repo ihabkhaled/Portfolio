@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 
 import { Label, Stack } from '@/packages/ui-primitives';
 
-import type { FormFieldProps } from '../types/shared-component.types';
+import type { FormFieldProperties } from '../types/shared-component.types';
 
 import { formFieldClasses } from './form-field.variants';
 
@@ -11,14 +11,14 @@ import { formFieldClasses } from './form-field.variants';
  * the error region is referenced by the control's aria-describedby
  * (`<fieldId>-error`), wired by the container.
  */
-export function FormField(props: FormFieldProps): ReactElement {
+export function FormField(properties: FormFieldProperties): ReactElement {
   return (
     <Stack gap="xs">
-      <Label htmlFor={props.fieldId}>{props.label}</Label>
-      {props.children}
-      {props.error ? (
-        <p id={`${props.fieldId}-error`} role="alert" className={formFieldClasses.error}>
-          {props.error}
+      <Label htmlFor={properties.fieldId}>{properties.label}</Label>
+      {properties.children}
+      {properties.error ? (
+        <p id={`${properties.fieldId}-error`} role="alert" className={formFieldClasses.error}>
+          {properties.error}
         </p>
       ) : null}
     </Stack>

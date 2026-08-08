@@ -27,21 +27,25 @@ export function getSafeDocument(): Document | null {
   return value === undefined ? null : (value as Document);
 }
 
-/** Query and hash suffix for URL-preserving client navigation. */
+/**
+Query and hash suffix for URL-preserving client navigation.
+*/
 export function getBrowserLocationSuffix(): string {
   const safeWindow = getSafeWindow();
   return safeWindow ? `${safeWindow.location.search}${safeWindow.location.hash}` : '';
 }
 
-export function openEmailDraft(recipient: string, subject: string, body: string): boolean {
+export function didOpenEmailDraft(recipient: string, subject: string, body: string): boolean {
   const safeWindow = getSafeWindow();
   if (!safeWindow) return false;
   safeWindow.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   return true;
 }
 
-/** Evaluate a media query; returns false during SSR. */
-export function matchesMediaQuery(query: string): boolean {
+/**
+Evaluate a media query; returns false during SSR.
+*/
+export function isMediaQueryMatched(query: string): boolean {
   const safeWindow = getSafeWindow();
 
   if (!safeWindow) {
@@ -51,12 +55,14 @@ export function matchesMediaQuery(query: string): boolean {
   return safeWindow.matchMedia(query).matches;
 }
 
-export function prefersReducedMotion(): boolean {
-  return matchesMediaQuery('(prefers-reduced-motion: reduce)');
+export function isReducedMotionPreferred(): boolean {
+  return isMediaQueryMatched('(prefers-reduced-motion: reduce)');
 }
 
-/** Copy text to the clipboard; resolves false when unavailable or denied. */
-export async function copyTextToClipboard(text: string): Promise<boolean> {
+/**
+Copy text to the clipboard; resolves false when unavailable or denied.
+*/
+export async function didCopyTextToClipboard(text: string): Promise<boolean> {
   const clipboard = getSafeWindow()?.navigator.clipboard;
 
   if (!clipboard) {

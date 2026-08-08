@@ -26,6 +26,7 @@ test.describe('contact page', () => {
     await page.getByRole('button', { name: 'Copy email address' }).click();
 
     await expect(page.getByText('Email address copied')).toBeVisible();
+    // eslint-disable-next-line unicorn/isolated-functions -- see docs/exceptions/EXC-0009-playwright-evaluate-browser-globals.md
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboardText).toBe('ihab.khaled94@gmail.com');
   });

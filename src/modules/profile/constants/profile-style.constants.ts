@@ -31,7 +31,9 @@ export const indicatorClasses = {
   value: 'font-display text-base font-semibold tracking-tight text-foreground',
 } as const;
 
-/** Ten capabilities divide evenly into one or two columns — no orphan cells. */
+/**
+Ten capabilities divide evenly into one or two columns — no orphan cells.
+*/
 export const capabilityClasses = {
   list: 'grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2',
   item: 'flex items-center gap-3 bg-surface-raised px-5 py-4 text-sm text-foreground',

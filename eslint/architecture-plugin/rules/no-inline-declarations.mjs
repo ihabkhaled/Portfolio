@@ -17,7 +17,7 @@
  * typed file.
  */
 
-import { isFunctionValue } from '../shared/ast-utils.mjs';
+import { isFunctionValue } from '../shared/ast-utilities.mjs';
 import {
   getSourcePath,
   isAppRouteFile,
@@ -31,7 +31,7 @@ import {
   isServiceFile,
   isTestFile,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
 const APPROVED_CONST_NAMES = new Set(['LOG_PREFIX']);
 
@@ -210,19 +210,17 @@ export default {
 
         context.report({ node, messageId: 'inlineTypeLiteral' });
       },
-      ...(componentFile
-        ? {
-            'FunctionDeclaration BlockStatement > VariableDeclaration'(node) {
-              context.report({ node, messageId: 'componentBodyDeclaration' });
-            },
-            'ArrowFunctionExpression BlockStatement > VariableDeclaration'(node) {
-              context.report({ node, messageId: 'componentBodyDeclaration' });
-            },
-            'FunctionExpression BlockStatement > VariableDeclaration'(node) {
-              context.report({ node, messageId: 'componentBodyDeclaration' });
-            },
-          }
-        : {}),
+      ...(componentFile && {
+        'FunctionDeclaration BlockStatement > VariableDeclaration'(node) {
+          context.report({ node, messageId: 'componentBodyDeclaration' });
+        },
+        'ArrowFunctionExpression BlockStatement > VariableDeclaration'(node) {
+          context.report({ node, messageId: 'componentBodyDeclaration' });
+        },
+        'FunctionExpression BlockStatement > VariableDeclaration'(node) {
+          context.report({ node, messageId: 'componentBodyDeclaration' });
+        },
+      }),
     };
   },
 };

@@ -2,8 +2,10 @@ import { http, HttpResponse } from 'msw';
 
 import { GITHUB_API_ORIGIN } from '@/modules/github-profile';
 
-/** A payload shaped like a real GitHub repository response. */
-export function buildGithubRepositoryPayload(
+/**
+A payload shaped like a real GitHub repository response.
+*/
+export function buildGithubRepoPayload(
   overrides: Readonly<Record<string, unknown>> = {},
 ): Record<string, unknown> {
   return {
@@ -24,6 +26,6 @@ export function buildGithubRepositoryPayload(
 
 export const githubHandlers = [
   http.get(`${GITHUB_API_ORIGIN}/repos/:owner/:repository`, ({ params }) =>
-    HttpResponse.json(buildGithubRepositoryPayload({ name: params['repository'] })),
+    HttpResponse.json(buildGithubRepoPayload({ name: params['repository'] })),
   ),
 ];

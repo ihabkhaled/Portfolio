@@ -8,7 +8,7 @@ import type { SeoMetadataInput } from '@/shared/types/seo.types';
 import { buildLocalizedPath } from './localized-route.helper';
 
 export function buildAbsoluteAppUrl(path: string): string {
-  return new URL(path, appConfig.appUrl).toString();
+  return new URL(path, appConfig.appUrl).href;
 }
 
 export function buildLanguageAlternates(path: string): Record<string, string> {
@@ -77,7 +77,7 @@ export function buildSeoMetadata(input: SeoMetadataInput): Metadata {
 
 export function buildNonIndexableMetadata(title?: string): Metadata {
   return {
-    ...(title ? { title } : {}),
+    ...(title && { title }),
     robots: { index: false, follow: false },
   };
 }

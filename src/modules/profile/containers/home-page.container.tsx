@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { EXPERIENCE_ROLES, formatDateRange } from '@/modules/experience';
-import { buildRepositoryActivityReport } from '@/modules/github-profile';
+import { buildRepoActivityReport } from '@/modules/github-profile';
 import {
   CURATED_REPOSITORY_NAMES,
   ProjectListContainer,
@@ -37,10 +37,12 @@ import {
   indicatorClasses,
 } from '../constants/profile-style.constants';
 import { PUBLIC_PROFILE } from '../constants/profile.constants';
-import type { HomePageContainerProps } from '../types/profile.types';
+import type { HomePageContainerProperties } from '../types/profile.types';
 
-export async function HomePageContainer(props: HomePageContainerProps): Promise<ReactElement> {
-  const { locale } = props;
+export async function HomePageContainer(
+  properties: HomePageContainerProperties,
+): Promise<ReactElement> {
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.home });
   const tApp = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.app });
   const tAbout = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.about });
@@ -51,7 +53,7 @@ export async function HomePageContainer(props: HomePageContainerProps): Promise<
   });
 
   const featured = selectFeaturedProjects(PROJECTS, HOME_FEATURED_LIMIT);
-  const activity = await buildRepositoryActivityReport(CURATED_REPOSITORY_NAMES);
+  const activity = await buildRepoActivityReport(CURATED_REPOSITORY_NAMES);
 
   const socialLabels: Readonly<Record<string, string>> = {
     github: tContact('githubLabel'),

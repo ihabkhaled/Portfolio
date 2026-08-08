@@ -1,18 +1,18 @@
 import type { ReactElement } from 'react';
 
 import { skillsClasses } from '../constants/skills-style.constants';
-import type { SkillTierProps } from '../types/skill-tier.types';
+import type { SkillTierProperties } from '../types/skill-tier.types';
 
-export function SkillTierSection(props: SkillTierProps): ReactElement {
+export function SkillTierSection(properties: SkillTierProperties): ReactElement {
   return (
-    <section className={skillsClasses.tier} aria-labelledby={props.headingId}>
+    <section className={skillsClasses.tier} aria-labelledby={properties.headingId}>
       <div className={skillsClasses.tierHead}>
-        <h2 id={props.headingId} className={skillsClasses.tierName}>
-          {props.name}
+        <h2 id={properties.headingId} className={skillsClasses.tierName}>
+          {properties.name}
         </h2>
-        <p className={skillsClasses.tierDefinition}>{props.definition}</p>
+        <p className={skillsClasses.tierDefinition}>{properties.definition}</p>
       </div>
-      <div className={skillsClasses.tierTechnologies}>{props.technologies}</div>
+      <div className={skillsClasses.tierTechnologies}>{properties.technologies}</div>
     </section>
   );
 }

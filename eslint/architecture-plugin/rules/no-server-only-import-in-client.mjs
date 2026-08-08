@@ -7,8 +7,8 @@
  * server dependencies out of client bundles by construction.
  */
 
-import { isNodeBuiltinImport } from '../shared/ast-utils.mjs';
-import { resolveImportToSourcePath, isRouteHandlerFile } from '../shared/source-utils.mjs';
+import { isNodeBuiltinImport } from '../shared/ast-utilities.mjs';
+import { resolveImportToSourcePath, isRouteHandlerFile } from '../shared/source-utilities.mjs';
 
 const FORBIDDEN_BARE_IMPORTS = new Set(['server-only']);
 const SERVER_FACADE_PATTERNS = [/^src\/packages\/env\/server/, /\.server(\.|$)/];

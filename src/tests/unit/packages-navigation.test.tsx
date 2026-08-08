@@ -26,10 +26,10 @@ function buildRouterStub(): AppRouterInstance {
 }
 
 function buildWrapper(router: AppRouterInstance, pathname: string) {
-  return function Wrapper(props: Readonly<{ children: ReactNode }>): ReactElement {
+  return function Wrapper(properties: Readonly<{ children: ReactNode }>): ReactElement {
     return (
       <AppRouterContext.Provider value={router}>
-        <PathnameContext.Provider value={pathname}>{props.children}</PathnameContext.Provider>
+        <PathnameContext.Provider value={pathname}>{properties.children}</PathnameContext.Provider>
       </AppRouterContext.Provider>
     );
   };

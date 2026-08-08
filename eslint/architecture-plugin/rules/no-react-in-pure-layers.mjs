@@ -13,7 +13,7 @@ import {
   isGatewayFile,
   isTestFile,
   toPosixPath,
-} from '../shared/source-utils.mjs';
+} from '../shared/source-utilities.mjs';
 
 const REACT_PACKAGES = new Set([
   'react',

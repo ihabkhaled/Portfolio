@@ -7,10 +7,10 @@ import { LOCALE_NAMES, SUPPORTED_LOCALES } from '@/packages/i18n';
 
 import { ShellControls } from '../components/shell-controls.component';
 import { useShellControls } from '../hooks/use-shell-controls.hook';
-import type { ShellControlsContainerProps } from '../types/shell-controls.types';
+import type { ShellControlsContainerProperties } from '../types/shell-controls.types';
 
-export function ShellControlsContainer(props: ShellControlsContainerProps): ReactElement {
-  const controls = useShellControls(props);
+export function ShellControlsContainer(properties: ShellControlsContainerProperties): ReactElement {
+  const controls = useShellControls(properties);
   const localeOptions = SUPPORTED_LOCALES.map((locale) => (
     <option key={locale} value={locale}>
       {LOCALE_NAMES[locale]}
@@ -18,8 +18,8 @@ export function ShellControlsContainer(props: ShellControlsContainerProps): Reac
   ));
   return (
     <ShellControls
-      locale={props.locale}
-      localeLabel={props.localeLabel}
+      locale={properties.locale}
+      localeLabel={properties.localeLabel}
       localeOptions={localeOptions}
       {...controls}
     />

@@ -20,11 +20,15 @@ export const sectionClasses = {
     'font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-balance sm:text-4xl',
   lead: 'mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground text-pretty',
   body: 'pt-10',
-  /** Trailing "see everything" link under a section's content. */
+  /**
+  Trailing "see everything" link under a section's content.
+  */
   moreLink:
     'mt-6 inline-flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-primary-readable underline-offset-4 hover:underline',
 
-  /** Page-level heading used once per route, above the first section. */
+  /**
+  Page-level heading used once per route, above the first section.
+  */
   pageHeader: 'border-b border-border py-14 sm:py-20',
   pageTitle:
     'font-display text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl',

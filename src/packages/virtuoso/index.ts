@@ -4,4 +4,4 @@
  * boundary violation.
  */
 
-export { VirtualizedList, type VirtualizedListProps } from './virtualized-list';
+export { VirtualizedList, type VirtualizedListProperties } from './virtualized-list';

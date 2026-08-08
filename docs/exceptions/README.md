@@ -73,6 +73,30 @@ The suppression site in code MUST reference its exception (a comment naming the 
 - **Reason**: `noUncheckedIndexedAccess` types `split(',', 1)[0]` as possibly `undefined`, but a fixed-limit split on any string always returns at least one element — the fallback cannot execute.
 - **Mitigation**: both real branches (proxy chain present/absent) are covered by `src/modules/contact/test/request-client-key.helper.test.ts`. See [EXC-0007](./EXC-0007-rate-limit-key-fallback-branch.md).
 
+### EXC-0008 — `dayjs.extend()` module-scope plugin registration
+
+- **Where**: `src/packages/date/app-date.ts` (`unicorn/no-top-level-side-effects` disabled for the three `dayjs.extend(...)` calls).
+- **Reason**: dayjs plugins must be registered once, at module load, before any exported formatter calls the methods they add — this is dayjs's own documented initialization pattern.
+- **Mitigation**: `src/packages/date` is the sole owner wrapper for the `dayjs` dependency; no other file calls `dayjs.extend`. See [EXC-0008](./EXC-0008-dayjs-plugin-registration.md).
+
+### EXC-0009 — browser globals inside `page.evaluate()`
+
+- **Where**: `src/tests/e2e/contact.e2e.ts` (`unicorn/isolated-functions` disabled for one `page.evaluate` callback).
+- **Reason**: Playwright's `evaluate` callback runs in the real browser page, where `navigator` is a normal global; the rule assumes a Node-style isolated context and cannot tell the two apart.
+- **Mitigation**: confined to e2e test code, which never ships. See [EXC-0009](./EXC-0009-playwright-evaluate-browser-globals.md).
+
+### EXC-0010 — `generateStaticParams` is a Next.js-reserved export name
+
+- **Where**: `src/app/[locale]/layout.tsx`, `src/app/[locale]/projects/[slug]/page.tsx` (`unicorn/name-replacements` disabled for the `generateStaticParams` export).
+- **Reason**: Next.js discovers this prerendering hook by its exact export name; renaming it would silently disable static generation for the route.
+- **Mitigation**: fixed framework entry points only; a rename would be caught immediately by the build's route summary and static-params-dependent tests. See [EXC-0010](./EXC-0010-nextjs-generate-static-params.md).
+
+### EXC-0011 — `NodeJS.ProcessEnv` declaration-merge interface name
+
+- **Where**: `src/packages/env/environment.d.ts` (`unicorn/name-replacements` disabled for the `interface ProcessEnv` declaration merge).
+- **Reason**: `eslint --fix` silently renamed this to `ProcessEnvironment` once, which compiles but stops merging with `@types/node`'s ambient `NodeJS.ProcessEnv` — every dot-accessed env key then fell back to the index signature and failed `noPropertyAccessFromIndexSignature`.
+- **Mitigation**: `npm run typecheck` fails loudly (TS4111) if this ever regresses. See [EXC-0011](./EXC-0011-nodejs-process-env-declaration-merge.md).
+
 ## Lifecycle
 
 1. File the doc from the template with a new `EXC-NNNN` id, get architect approval in the same PR as the suppression.

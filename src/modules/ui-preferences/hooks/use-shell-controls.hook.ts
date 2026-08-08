@@ -7,11 +7,13 @@ import { THEME_ICONS } from '../constants/shell-controls.constants';
 import { buildThemeActionLabel, getNextTheme } from '../helpers/next-theme.helper';
 import { useUiPreferencesStore } from '../store/ui-preferences.store';
 import type {
-  ShellControlsContainerProps,
+  ShellControlsContainerProperties,
   ShellControlsViewModel,
 } from '../types/shell-controls.types';
 
-export function useShellControls(props: ShellControlsContainerProps): ShellControlsViewModel {
+export function useShellControls(
+  properties: ShellControlsContainerProperties,
+): ShellControlsViewModel {
   const navigation = useAppNavigation();
   const theme = useUiPreferencesStore((state) => state.theme);
   const setTheme = useUiPreferencesStore((state) => state.setTheme);
@@ -21,9 +23,9 @@ export function useShellControls(props: ShellControlsContainerProps): ShellContr
   return {
     themeIcon: THEME_ICONS[theme],
     themeActionLabel: buildThemeActionLabel(
-      props.themeLabel,
-      props.themeLabels[theme],
-      props.themeLabels[nextTheme],
+      properties.themeLabel,
+      properties.themeLabels[theme],
+      properties.themeLabels[nextTheme],
     ),
     onLocaleChange: (event) => {
       const requestedLocale = event.currentTarget.value;

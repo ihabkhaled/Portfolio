@@ -14,12 +14,12 @@ import {
 import { experienceClasses } from '../constants/experience-style.constants';
 import { EXPERIENCE_ROLES } from '../constants/experience.constants';
 import { formatDateRange, selectRolesByKind } from '../helpers/experience-date.helper';
-import type { ExperiencePageContainerProps } from '../types/experience.types';
+import type { ExperiencePageContainerProperties } from '../types/experience.types';
 
 export async function ExperiencePageContainer(
-  props: ExperiencePageContainerProps,
+  properties: ExperiencePageContainerProperties,
 ): Promise<ReactElement> {
-  const { locale } = props;
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.experience });
 
   const buildRoleCards = (kind: 'employment' | 'independent') =>

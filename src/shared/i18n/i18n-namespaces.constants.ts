@@ -20,5 +20,7 @@ export const I18N_NAMESPACES = {
   pwa: 'pwa',
 } as const;
 
-/** Catalog-derived public API. @public */
+/**
+Catalog-derived public API. @public
+*/
 export type I18nNamespace = (typeof I18N_NAMESPACES)[keyof typeof I18N_NAMESPACES];

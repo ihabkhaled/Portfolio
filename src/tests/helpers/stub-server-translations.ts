@@ -19,9 +19,12 @@ function loadMessageTree(locale: AppLocale): Promise<MessageTree> {
   const cached = messageTreeCache.get(locale);
   if (cached) return cached;
 
-  const promise = import(`@/packages/i18n/messages/${locale}.json`).then(
-    (module: { default: MessageTree }) => module.default,
-  );
+  const promise = (async (): Promise<MessageTree> => {
+    const imported = (await import(`@/packages/i18n/messages/${locale}.json`)) as {
+      default: MessageTree;
+    };
+    return imported.default;
+  })();
   messageTreeCache.set(locale, promise);
   return promise;
 }
@@ -44,7 +47,9 @@ function resolveMessage(tree: MessageTree, path: string): string {
   return node;
 }
 
-/** Parses `label {text} label {text}…` ICU plural forms without regex backtracking risk. */
+/**
+Parses `label {text} label {text}…` ICU plural forms without regex backtracking risk.
+*/
 function parsePluralForms(body: string): Map<string, string> {
   const forms = new Map<string, string>();
   let cursor = 0;
@@ -70,7 +75,7 @@ function selectIcuPluralText(body: string, locale: AppLocale, count: number): st
   const forms = parsePluralForms(body);
 
   const text = forms.get(category) ?? forms.get('other') ?? '';
-  return text.replaceAll('#', String(count));
+  return text.replaceAll('#', () => String(count));
 }
 
 function interpolate(
@@ -80,8 +85,8 @@ function interpolate(
 ): string {
   const pluralMatch = /^\{(\w+), plural, (.*)\}$/su.exec(template.trim());
   if (pluralMatch) {
-    const [, varName, body] = pluralMatch;
-    const count = Number(varName === undefined ? undefined : values?.[varName]);
+    const [, variableName, body] = pluralMatch;
+    const count = Number(variableName === undefined ? undefined : values?.[variableName]);
     return selectIcuPluralText(body ?? '', locale, count);
   }
 
@@ -96,7 +101,9 @@ export type StubTranslator = (
   values?: Readonly<Record<string, string | number>>,
 ) => string;
 
-/** Test-only stand-in for `getServerTranslations({ locale, namespace })`. */
+/**
+Test-only stand-in for `getServerTranslations({ locale, namespace })`.
+*/
 export async function stubServerTranslations(
   locale: AppLocale,
   namespace: string,

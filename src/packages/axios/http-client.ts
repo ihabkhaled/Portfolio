@@ -35,8 +35,8 @@ export function normalizeToHttpError(error: unknown): HttpError {
     return new HttpError({
       kind,
       message: error.message,
-      ...(error.response ? { status: error.response.status } : {}),
-      ...(error.response ? { responseBody: error.response.data } : {}),
+      ...(error.response && { status: error.response.status }),
+      ...(error.response && { responseBody: error.response.data }),
     });
   }
 

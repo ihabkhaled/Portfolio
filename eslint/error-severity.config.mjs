@@ -17,18 +17,15 @@ function promoteSetting(setting) {
 }
 
 export function enforceErrorSeverity(configurations) {
-  return configurations.map((configuration) => {
-    if (!configuration.rules) {
-      return configuration;
+  return configurations.map((config) => {
+    if (!config.rules) {
+      return config;
     }
 
     return {
-      ...configuration,
+      ...config,
       rules: Object.fromEntries(
-        Object.entries(configuration.rules).map(([ruleId, setting]) => [
-          ruleId,
-          promoteSetting(setting),
-        ]),
+        Object.entries(config.rules).map(([ruleId, setting]) => [ruleId, promoteSetting(setting)]),
       ),
     };
   });

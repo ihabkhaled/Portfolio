@@ -5,7 +5,7 @@ import { z } from '@/packages/zod';
  * nullable/optional because a public API is not a contract we control — an
  * unexpected shape must degrade to the static fallback, never throw into a page.
  */
-export const githubRepositorySchema = z.object({
+export const githubRepoSchema = z.object({
   name: z.string().min(1),
   description: z.string().nullish(),
   html_url: z.string().min(1),
@@ -19,4 +19,4 @@ export const githubRepositorySchema = z.object({
   updated_at: z.string().nullish(),
 });
 
-export type GithubRepositoryPayload = z.infer<typeof githubRepositorySchema>;
+export type GithubRepoPayload = z.infer<typeof githubRepoSchema>;

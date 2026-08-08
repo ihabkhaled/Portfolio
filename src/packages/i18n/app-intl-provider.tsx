@@ -10,15 +10,19 @@ import type { AppLocale } from './locale.constants';
  * the request config.
  */
 export function AppIntlProvider(
-  props: Readonly<{ locale: AppLocale; messages?: AppMessages; children: ReactNode }>,
+  properties: Readonly<{ locale: AppLocale; messages?: AppMessages; children: ReactNode }>,
 ): ReactElement {
-  if (props.messages === undefined) {
-    return <NextIntlClientProvider locale={props.locale}>{props.children}</NextIntlClientProvider>;
+  if (properties.messages === undefined) {
+    return (
+      <NextIntlClientProvider locale={properties.locale}>
+        {properties.children}
+      </NextIntlClientProvider>
+    );
   }
 
   return (
-    <NextIntlClientProvider locale={props.locale} messages={props.messages}>
-      {props.children}
+    <NextIntlClientProvider locale={properties.locale} messages={properties.messages}>
+      {properties.children}
     </NextIntlClientProvider>
   );
 }

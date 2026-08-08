@@ -2,10 +2,10 @@ import type { LabelHTMLAttributes, ReactElement } from 'react';
 
 import { cn } from './cn';
 
-export type LabelProps = LabelHTMLAttributes<HTMLLabelElement>;
+export type LabelProperties = LabelHTMLAttributes<HTMLLabelElement>;
 
-export function Label(props: Readonly<LabelProps>): ReactElement {
-  const { className, children, ...rest } = props;
+export function Label(properties: Readonly<LabelProperties>): ReactElement {
+  const { className, children, ...rest } = properties;
 
   return (
     <label className={cn('text-sm font-medium text-foreground', className)} {...rest}>

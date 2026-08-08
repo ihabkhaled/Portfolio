@@ -17,9 +17,10 @@ const eslint = new ESLint();
 const warnings = [];
 
 for (const filePath of SAMPLE_FILES) {
-  const configuration = await eslint.calculateConfigForFile(filePath);
+  const config = await eslint.calculateConfigForFile(filePath);
+  const configuredRules = Object.entries(config?.rules ?? {});
 
-  for (const [ruleId, setting] of Object.entries(configuration?.rules ?? {})) {
+  for (const [ruleId, setting] of configuredRules) {
     if (isWarning(setting)) {
       warnings.push(`${filePath}: ${ruleId}`);
     }

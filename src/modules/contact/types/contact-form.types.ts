@@ -13,7 +13,7 @@ export interface ContactFormLabels {
   readonly unavailableMessage: string;
 }
 
-export interface ContactFormProps {
+export interface ContactFormProperties {
   readonly emailLabel: string;
   readonly subjectLabel: string;
   readonly messageLabel: string;
@@ -23,7 +23,7 @@ export interface ContactFormProps {
   readonly onSubmit: (event: SubmitEvent<HTMLFormElement>) => void;
 }
 
-export interface ContactFormContainerProps {
+export interface ContactFormContainerProperties {
   readonly labels: ContactFormLabels;
 }
 

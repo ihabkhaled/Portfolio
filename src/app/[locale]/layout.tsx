@@ -61,17 +61,20 @@ export const metadata: Metadata = {
   },
 };
 
-interface LocaleLayoutProps {
+interface LocaleLayoutProperties {
   readonly children: ReactNode;
   readonly params: Promise<{ locale: string }>;
 }
 
+// eslint-disable-next-line unicorn/name-replacements -- see docs/exceptions/EXC-0010-nextjs-generate-static-params.md
 export function generateStaticParams(): { locale: AppLocale }[] {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout(props: LocaleLayoutProps): Promise<ReactElement> {
-  const { locale: candidate } = await props.params;
+export default async function LocaleLayout(
+  properties: LocaleLayoutProperties,
+): Promise<ReactElement> {
+  const { locale: candidate } = await properties.params;
   if (!isSupportedLocale(candidate)) {
     appNotFound();
   }
@@ -204,7 +207,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps): Promise<Re
                 footerSocial={socialLinks}
               >
                 <main id={LANDMARK_IDS.mainContent} className={layoutClasses.main}>
-                  {props.children}
+                  {properties.children}
                 </main>
               </SiteShell>
             </div>

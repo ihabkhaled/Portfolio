@@ -8,7 +8,7 @@ import { frontendArchitecturePlugin } from './architecture-plugin.mjs';
 
 /**
  * One-way dependency policies. Layer ids come from
- * eslint/architecture-plugin/shared/policy-utils.mjs.
+ * eslint/architecture-plugin/shared/policy-utilities.mjs.
  */
 const layerPolicies = [
   {
@@ -151,7 +151,7 @@ export default [
       'frontend-architecture/no-inline-component-logic': 'error',
       'frontend-architecture/no-restricted-layer-imports': ['error', { policies: layerPolicies }],
       'frontend-architecture/no-cross-module-deep-imports': 'error',
-      'frontend-architecture/no-process-env-outside-config': [
+      'frontend-architecture/no-process-environment-outside-config': [
         'error',
         {
           allowedPrefixes: [

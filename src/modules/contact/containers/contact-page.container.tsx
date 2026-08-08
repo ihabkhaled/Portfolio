@@ -13,15 +13,15 @@ import { sectionClasses } from '@/shared/components/data-display/section.variant
 import { I18N_NAMESPACES } from '@/shared/i18n/i18n-namespaces.constants';
 
 import { contactPageClasses } from '../constants/contact-page-style.constants';
-import type { ContactPageContainerProps } from '../types/contact-page.types';
+import type { ContactPageContainerProperties } from '../types/contact-page.types';
 
 import { ContactFormContainer } from './contact-form.container';
 import { CopyEmailButtonContainer } from './copy-email-button.container';
 
 export async function ContactPageContainer(
-  props: ContactPageContainerProps,
+  properties: ContactPageContainerProperties,
 ): Promise<ReactElement> {
-  const { locale } = props;
+  const { locale } = properties;
   const t = await getServerTranslations({ locale, namespace: I18N_NAMESPACES.contact });
 
   const linkedin = PUBLIC_PROFILE.links.find((link) => link.id === 'linkedin');

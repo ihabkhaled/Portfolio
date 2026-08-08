@@ -6,5 +6,7 @@ export const TEST_IDS = {
   appHeader: 'app-header',
 } as const;
 
-/** Catalog-derived public API. @public */
+/**
+Catalog-derived public API. @public
+*/
 export type AppTestId = (typeof TEST_IDS)[keyof typeof TEST_IDS];
